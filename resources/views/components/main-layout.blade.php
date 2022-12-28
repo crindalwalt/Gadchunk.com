@@ -110,10 +110,10 @@
                                             </li>
                                             <li><a href="#">Pages</a>
                                                 <ul class="sub-menu-width">
-                                                    <li><a href="../frontEnd/about-us.html">About Us</a></li>
-                                                    <li><a href="../frontEnd/contact-us.html">Contact Us</a></li>
+                                                    <li><a href="../template/about.blade.php">About Us</a></li>
+                                                    <li><a href="../template/contact.blade.php">Contact Us</a></li>
                                                     <li><a href="../frontEnd/contact-us-2.html">Contact Us 2</a></li>
-                                                    <li><a href="../frontEnd/404.html">404 Page</a></li>
+                                                    <li><a href="../template/404.blade.php">404 Page</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="../template/shop.blade.php">Collections</a></li>
@@ -125,7 +125,7 @@
                                                     <li><a href="../frontEnd/blog-details.html">Blog Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../frontEnd/contact-us.html">Contact</a></li>
+                                            <li><a href="../template/contact.blade.php">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -315,10 +315,10 @@
                                 </li>
                                 <li class="has-sub-menu"><a href="#">Pages</a>
                                     <ul class="sub-menu-2">
-                                        <li><a href="../frontEnd/about-us.html">About Us</a></li>
-                                        <li><a href="../frontEnd/contact-us.html">Contact Us</a></li>
+                                        <li><a href="../template/about.blade.php">About Us</a></li>
+                                        <li><a href="../template/contact.blade.php">Contact Us</a></li>
                                         <li><a href="../frontEnd/contact-us-2.html">Contact Us 2</a></li>
-                                        <li><a href="../frontEnd/404.html">404 Page</a></li>
+                                        <li><a href="../template/404.blade.php">404 Page</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="../template/shop.blade.php">Collections</a></li>
@@ -330,7 +330,7 @@
                                         <li><a href="../frontEnd/blog-details.html">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="../frontEnd/contact-us.html">Contact</a></li>
+                                <li><a href="../template/contact.blade.php">Contact</a></li>
                             </ul>
                         </nav>
                     </div>

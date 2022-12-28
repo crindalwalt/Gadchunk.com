@@ -20,7 +20,7 @@
                         <h3 class="footer-title">Information</h3>
                         <div class="footer-info-list">
                             <ul>
-                                <li><a href="{{ asset('../frontEnd/about-us.html') }}">About Us</a></li>
+                                <li><a href="{{ asset('../frontEnd/about.blade.php') }}">About Us</a></li>
                                 <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Help</a></li>
                                 <li><a href="#">Shipping & Return</a></li>

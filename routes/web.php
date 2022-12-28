@@ -23,9 +23,17 @@ Route::get('/shop', function () {
 Route::get('/shop-item',function(){
    return view('template.product-details');
 });
+Route::get('/about',function(){
+   return view('template.about');
+});
+Route::get('/contact',function(){
+   return view('template.contact');
+});
+Route::get('/404',function(){
+   return view('template.404');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard', function () {   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
