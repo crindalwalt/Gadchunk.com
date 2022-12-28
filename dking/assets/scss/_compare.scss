@@ -1,0 +1,137 @@
+/*-------- 29. Compare style ---------*/
+
+
+.compare-page-content-wrap {
+	background-color: #fff;
+}
+
+.compare-table {
+    & .table {
+        & tbody {
+            & tr {
+                margin-bottom: 20px;
+                & td {
+                    padding: 20px 20px;
+                    vertical-align: middle;
+                    border-color: #ccc;
+                    @media #{$md-layout} {
+                        padding: 20px 15px;
+                    }
+                    @media #{$xs-layout} {
+                        padding: 10px 20px;
+                        display: block;
+                        width: 100%;
+                        overflow: hidden;
+                        margin-bottom: 5px;
+                    }
+                    &.first-column {
+                        min-width: 175px;
+                        font-size: 15px;
+                        font-weight: 600;
+                        margin: 0;
+                        @media #{$md-layout} {
+                            min-width: 110px;
+                        }
+                        @media #{$xs-layout} {
+                            min-width: 100%;
+                            display: block;
+                            width: 100%;
+                            overflow: hidden;
+                            margin-bottom: 5px;
+                            margin-top: 35px;
+                        }
+                    }
+                    &.product-image-title {
+                        min-width: 310px;
+                        vertical-align: bottom;
+                        text-align: left;
+                        @media #{$lg-layout} {
+                            min-width: 210px;
+                        }
+                        @media #{$md-layout} {
+                            min-width: 110px;
+                        }
+                        @media #{$xs-layout} {
+                            min-width: 100%;
+                            display: block;
+                            width: 100%;
+                            overflow: hidden;
+                            padding: 20px;
+                        }
+                        & .image {
+                            clear: both;
+                            width: 100%;
+                            margin-bottom: 15px;
+                            display: block;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        & .category {
+                            float: left;
+                            clear: both;
+                            color: $theme-color-dark-blue;
+                            text-transform: capitalize;
+                            letter-spacing: 0.5px;
+                        }
+                        & .title {
+                            float: left;
+                            clear: both;
+                            font-size: 18px;
+                            line-height: 1.2;
+                            font-weight: 500;
+                            text-transform: capitalize;
+                            margin-top: 5px;
+                            @media #{$md-layout} {
+                                font-size: 16px;
+                            }
+                            &:hover {
+                                color: $theme-color-dark-blue;
+                            }
+                        }
+                    }
+                    &.pro-desc {
+                        & p {
+                            text-align: left;
+                            margin: 0;
+                        }
+                    }
+                    &.pro-price,
+                    &.pro-color,
+                    &.pro-stock {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    &.pro-remove {
+                        a {
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+                            line-height: 28px;
+                            text-align: center;
+                            background-color: #F6F6F6;
+                            &:hover {
+                                background-color: $theme-color-dark-blue;
+                            }
+                        }
+                        &:hover {
+                            color: $theme-color-dark-blue;
+                        }
+                        & i {
+                            font-size: 20px;
+                        }
+                    }
+                    &.pro-ratting {
+                        & i {
+                            color: #e7a415;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*------ end Compare Page Wrapper -----*/

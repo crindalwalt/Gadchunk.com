@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Vandella';
+    src: url('../../fonts/Vandella.eot');
+    src: url('../../fonts/Vandella.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Vandella.woff2') format('woff2'),
+        url('../../fonts/Vandella.woff') format('woff'),
+        url('../../fonts/Vandella.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

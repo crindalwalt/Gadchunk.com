@@ -1,0 +1,136 @@
+/*---------- 22. Breadcrumb style ------------*/
+
+
+.breadcrumb-ptb-1 {
+    padding: 123px 0 138px;
+    @media #{$md-layout} {
+        padding: 103px 0 118px;
+    }
+    @media #{$xs-layout} {
+        padding: 60px 0 60px;
+    }
+}
+.breadcrumb-ptb-2 {
+    padding: 113px 0 110px;
+    @media #{$xs-layout} {
+        padding: 60px 0 60px;
+    }
+}
+.breadcrumb-area {
+    position: relative;
+    .breadcrumb-img-1 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        img {
+            width: 333px;
+            @media #{$lg-layout} {
+                width: 200px;
+            }
+            @media #{$md-layout} {
+                width: 200px;
+            }
+            @media #{$xs-layout} {
+                width: 50px;
+            }
+        }
+    }
+    .breadcrumb-img-2 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        img {
+            width: 323px;
+            @media #{$lg-layout} {
+                width: 200px;
+            }
+            @media #{$md-layout} {
+                width: 200px;
+            }
+            @media #{$xs-layout} {
+                width: 50px;
+            }
+        }
+    }
+}
+
+.breadcrumb-content {
+    position: relative;
+    z-index: 9;
+    h2 {
+        font-size: 29px;
+        font-weight: bold;
+        margin: 0 0 16px;
+        @media #{$xs-layout} {
+            font-size: 25px;
+            margin: 0 0 10px;
+        }
+    }
+    p {
+        font-size: 15px;
+        line-height: 30px;
+        width: 38%;
+        margin: 0 auto;
+        &.left {
+            margin: inherit;
+        }
+        @media #{$lg-layout} {
+            width: 50%;
+        }
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$xs-layout} {
+            width: 100%;
+        }
+        @media #{$sm-layout} {
+            width: 85%;
+        }
+    }
+    ul {
+        margin: 25px 0 0;
+        @media #{$xs-layout} {
+            margin: 15px 0 0;
+        }
+        li {
+            display: inline-block;
+            margin: 0 1px;
+            text-transform: capitalize;
+            color: #777777;
+            font-size: 18px;
+            &.active {
+                color: $theme-color-black;
+            }
+            @media #{$xs-layout} {
+                font-size: 16px;
+            }
+            span {
+                margin-right: 4px;
+                display: inline-block;
+                margin: 6px 4px 0 0;
+                line-height: 1;
+                position: relative;
+                top: 1px;
+            }
+            a {
+               text-transform: capitalize;
+                color: #777777;
+                &:hover {
+                    color: $theme-color-dark-blue;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

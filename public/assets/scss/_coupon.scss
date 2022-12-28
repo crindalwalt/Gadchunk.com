@@ -1,0 +1,71 @@
+/*---------- 4. Coupon style ------------*/
+
+.single-coupon-wrap {
+    background-color: #F4F4F4;
+    padding: 8px 0px;
+    border-radius: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    &::before {
+        background-image: url(../../assets/images/icon-img/dot.png);
+        position: absolute;
+        content: "";
+        left: 36%;
+        top: 0px;
+        background-repeat: repeat-y;
+        display: block;
+        width: 7px;
+        height: 100%;
+    }
+    .single-coupon-left {
+        background-color: #fff; 
+        padding: 37px 5px 31px;
+        border-radius: 8px;
+        height: 100%;
+        width: 100%;
+        h3 {
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 33px;
+            margin: 0;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    .single-coupon-right {
+        background-color: #fff;
+        padding: 33px 5px;
+        border-radius: 8px;
+        height: 100%;
+        width: 100%;
+        p {
+            line-height: 19px;
+        }
+        h2 {
+            color: #232953;
+            font-weight: bold;
+            margin: 10px 0 0;
+            font-size: 20px;
+        }
+    }
+    .coupon-width-1 {
+        flex: 0 0 37%;
+        max-width: 37%;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+    .coupon-width-2 {
+        flex: 0 0 63%;
+        max-width: 63%;
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+}
+
+
+
+
+

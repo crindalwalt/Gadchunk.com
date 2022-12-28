@@ -1,0 +1,526 @@
+/*---------- 9. Section title style ------------*/
+
+.section-categories-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .section-title-width-1 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        @media #{$xs-layout} {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    .section-btn-width-1 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        text-align: right;
+        margin-top: 34px;
+        @media #{$md-layout} {
+            margin-top: 5px;
+        }
+        @media #{$lg-layout} {
+            margin-top: 5px;
+        }
+        @media #{$md-layout} {
+            margin-top: 5px;
+        }
+        @media #{$xs-layout} {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: left;
+            margin-top: 15px;
+        }
+        &.furniture-categories-btn {
+            margin-top: 70px;
+            @media #{$xs-layout} {
+                margin-top: 25px;
+            }
+        }
+    }
+    @media #{$lg-layout} {
+        &.mb-85 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$md-layout} {
+        &.mb-85 {
+            margin-bottom: 40px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-85 {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.section-title {
+    h2 {
+        font-size: 29px;
+        font-weight: 500;
+        margin: 0 0 27px;
+        @media #{$xs-layout} {
+            font-size: 25px;
+            margin: 0 0 15px;
+        }
+        &.bold {
+            font-weight: bold;
+            margin: 0 0 34px;
+            @media #{$xs-layout} {
+                margin: 0 0 15px;
+            }
+        }
+    }
+    p {
+        font-size: 15px;
+        line-height: 30px;
+        width: 95%;
+        @media #{$xs-layout} {
+            font-size: 14px;
+            line-height: 26px;
+            width: 100%;
+        }
+    }
+    span {
+        color: #828495;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    &.st-line-height {
+        h2 {
+            line-height: 43px;
+            margin: 0 0 16px;
+            @media #{$xs-layout} {
+                font-size: 21px;
+                line-height: 35px;
+                margin: 0 0 10px;
+            }
+        }
+    }
+    &.st-peragraph-width {
+        p {
+            width: 63%;
+            @media #{$md-layout} {
+                width: 100%;
+            }
+            @media #{$xs-layout} {
+                width: 100%;
+            }
+        }
+    }
+    &.st-peragraph-width-2 {
+        p {
+            width: 93%;
+            @media #{$md-layout} {
+                width: 100%;
+            }
+            @media #{$xs-layout} {
+                width: 100%;
+            }
+        }
+    }
+    &.st-peragraph-auto {
+        p {
+            margin: 0 auto;
+        }
+    }
+    &.st-light-blue {
+        h2 {
+            color: #232953;
+            font-size: 30px;
+            line-height: 46px;
+            @media #{$xs-layout} {
+                font-size: 22px;
+                line-height: 35px;
+            }
+        }
+        p {
+            color: #828495;
+            font-size: 16px;
+            line-height: 28px;
+            font-weight: 300;
+        }
+    }
+    @media #{$lg-layout} {
+        &.mb-85 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$md-layout} {
+        &.mb-85 {
+            margin-bottom: 40px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-85 {
+            margin-bottom: 30px;
+        }
+        &.mb-60 {
+            margin-bottom: 30px;
+        }
+        &.mb-65 {
+            margin-bottom: 30px;
+        }
+        &.mb-75 {
+            margin-bottom: 30px;
+        }
+        &.mb-100 {
+            margin-bottom: 30px;
+        }
+        &.mt-55 {
+            margin-top: 0px;
+        }
+    }
+    @media #{$sm-layout} {
+        &.mt-55 {
+            margin-top: 55px;
+        }
+    }
+    &.section-title-white {
+        h2 {
+            color: #fff;
+            font-size: 30px;
+            @media #{$xs-layout} {
+                font-size: 22px;
+            }
+        }
+        p {
+            color: #fff;
+        }
+        span {
+            color: #fff;
+        }
+    }
+}
+
+.section-title-2 {
+    h2 {
+        font-size: 29px;
+        font-weight: 500;
+        margin: 0;
+    }
+    p.st-2-paragraph {
+        font-size: 15px;
+        line-height: 30px;
+        width: 82%;
+        margin: 25px 0 59px;
+        @media #{$md-layout} {
+            margin: 20px 0 25px;
+            width: 100%;
+        }
+        @media #{$xs-layout} {
+            margin: 20px 0 25px;
+            width: 100%;
+        }
+    }
+    @media #{$lg-layout} {
+        &.mb-85 {
+            margin-bottom: 35px;
+        }
+    }
+    @media #{$md-layout} {
+        &.mb-85 {
+            margin-bottom: 35px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-85 {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.section-title-3 {
+    h2 {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+        color: $white;
+        line-height: 46px;
+        @media #{$xx-layout} {
+            font-size: 28px;
+        }
+        @media #{$xl-layout} {
+            font-size: 25px;
+            line-height: 40px;
+        }
+        @media #{$lg-layout} {
+            font-size: 26px;
+            line-height: 40px;
+        }
+        @media #{$xs-layout} {
+            font-size: 25px;
+            line-height: 40px;
+        }
+    }
+    p {
+        font-size: 16px;
+        line-height: 30px;
+        width: 75%;
+        margin: 20px 0 59px;
+        color: $white;
+        @media #{$xx-layout} {
+            width: 100%;
+        }
+        @media #{$xl-layout} {
+            width: 100%;
+        }
+        @media #{$lg-layout} {
+            margin: 20px 0 25px;
+            width: 100%;
+        }
+        @media #{$md-layout} {
+            margin: 20px 0 25px;
+            width: 100%;
+        }
+        @media #{$xs-layout} {
+            margin: 12px 0 22px;
+            width: 100%;
+        }
+    }
+}
+
+.section-title-4 {
+    span {
+        font-size: 22px;
+        font-family: $pacifico;
+        color: $theme-color-chocolate;
+    }
+    h2 {
+        font-size: 29px;
+        font-weight: bold;
+        color: #151C0F;
+        margin: 17px 0 0;
+    }
+}
+
+.section-title-5 {
+    h2 {
+        font-size: 36px;
+        color: #232953;
+        font-weight: 500;
+        margin: 0;
+        @media #{$xs-layout} {
+            font-size: 26px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-50 {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.section-title-6 {
+    h2 {
+        color: #151C0F;
+        font-size: 29px;
+        font-weight: bold;
+        margin: 0;
+        @media #{$xs-layout} {
+            font-size: 25px;
+            text-align: center;
+        }
+    }
+    p {
+        color: #828495;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 28px;
+        margin: 28px 0 0;
+        &.pet-food {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 30px;
+            color: #777;
+        }
+        @media #{$xs-layout} {
+            font-size: 14px;
+            margin: 15px 0 0;
+            text-align: center;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-55 {
+            margin-bottom: 30px;
+        }
+        &.mb-65 {
+            margin-bottom: 30px;
+        }
+    }
+    &.st-6-fashion {
+        h2 {
+            color: #151C0F;
+            line-height: 50px;
+            width: 45%;
+            @media #{$md-layout} {
+                width: 100%;
+            }
+            @media #{$xs-layout} {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.section-title-7 {
+    h2 {
+        font-size: 29px;
+        font-weight: bold;
+        color: #151C0F;
+        line-height: 50px;
+        margin: 0;
+        @media #{$lg-layout} {
+            font-size: 27px;
+        }
+        @media #{$xs-layout} {
+            font-size: 24px;
+            line-height: 40px;
+        }
+    }
+    span {
+        margin: 46px 0 0px;
+        font-size: 16px;
+        color: #828495;
+        display: block;
+        &.mrg-dec {
+            margin: 23px 0 0px;
+            @media #{$xs-layout} {
+                margin: 10px 0 0px;
+            }
+        }
+        @media #{$xs-layout} {
+            margin: 10px 0 0px;
+        }
+    }
+    p {
+        font-size: 15px;
+        line-height: 30px;
+        margin: 13px auto 0;
+        width: 41%;
+        @media #{$md-layout} {
+            width: 65%;
+        }
+        @media #{$xs-layout} {
+            width: 100%;
+        }
+        &.peragraph-width-2 {
+            width: 64%;
+            @media #{$lg-layout} {
+                width: 72%;
+            }
+            @media #{$md-layout} {
+                width: 93%;
+            }
+            @media #{$xs-layout} {
+                width: 100%;
+            }
+        }
+    }
+    @media #{$lg-layout} {
+        &.mb-100 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$md-layout} {
+        &.mb-80 {
+            margin-bottom: 30px;
+        }
+        &.mb-100 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-60 {
+            margin-bottom: 30px;
+        }
+        &.mb-65 {
+            margin-bottom: 30px;
+        }
+        &.mb-110 {
+            margin-bottom: 30px;
+        }
+        &.mb-80 {
+            margin-bottom: 30px;
+        }
+        &.mb-70 {
+            margin-bottom: 30px;
+        }
+        &.mb-100 {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.section-title-8 {
+    h2 {
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 30px;
+        margin: 0;
+        @media #{$xs-layout} {
+            font-size: 27px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-65 {
+            margin-bottom: 30px;
+        }
+        &.mb-60 {
+            margin-bottom: 30px;
+        }
+    }
+}
+.section-title-9 {
+    h2 {
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 55px;
+        margin: 0;
+        @media #{$lg-layout} {
+            font-size: 28px;
+            line-height: 40px;
+        }
+        @media #{$xs-layout} {
+            font-size: 26px;
+            line-height: 40px;
+        }
+    }
+    span {
+        margin: 10px 0 0px;
+        font-size: 16px;
+        color: #828495;
+        display: block;
+    }
+    @media #{$xs-layout} {
+        text-align: center;
+    }
+}
+
+.mega-fashion-instagram-title {
+    margin: 85px 0 95px 85px;
+    @media #{$xx-layout} {
+        margin: 45px 0 45px 0px;
+    }
+    @media #{$xl-layout} {
+        margin: 20px 0 45px 0px;
+    }
+    @media #{$lg-layout} {
+        margin: 27px 0 27px 0px;
+    }
+    @media #{$md-layout} {
+        margin: 0px 0 30px 0px;
+    }
+    @media #{$xs-layout} {
+        margin: 0px 0 30px 0px;
+    }
+}
+
+
+
+
+

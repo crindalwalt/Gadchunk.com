@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="35.833" viewBox="0 0 50 35.833">
+  <g id="Group_1384" data-name="Group 1384" transform="translate(-511 -643)">
+    <g id="Group_648" data-name="Group 648" transform="translate(517.667 668.833)">
+      <path id="Path_1455" data-name="Path 1455" d="M73.267,337.067a5,5,0,1,0,5,5A5.005,5.005,0,0,0,73.267,337.067Zm0,8.333a3.333,3.333,0,1,1,3.333-3.333A3.337,3.337,0,0,1,73.267,345.4Z" transform="translate(-68.267 -337.067)" fill="#333"/>
+    </g>
+    <g id="Group_650" data-name="Group 650" transform="translate(546 668.833)">
+      <path id="Path_1456" data-name="Path 1456" d="M363.4,337.067a5,5,0,1,0,5,5A5.005,5.005,0,0,0,363.4,337.067Zm0,8.333a3.333,3.333,0,1,1,3.333-3.333A3.337,3.337,0,0,1,363.4,345.4Z" transform="translate(-358.4 -337.067)" fill="#333"/>
+    </g>
+    <g id="Group_652" data-name="Group 652" transform="translate(542.667 652.167)">
+      <path id="Path_1457" data-name="Path 1457" d="M342.468,178.449l-7.5-11.667a.834.834,0,0,0-.7-.383H325.1a.833.833,0,0,0-.833.833v20.833a.833.833,0,0,0,.833.833h3.333v-1.667h-2.5V168.067h7.878l7.122,11.078v8.088h-4.167V188.9h5a.832.832,0,0,0,.833-.833V178.9A.831.831,0,0,0,342.468,178.449Z" transform="translate(-324.267 -166.4)" fill="#333"/>
+    </g>
+    <g id="Group_654" data-name="Group 654" transform="translate(546 655.5)">
+      <path id="Path_1458" data-name="Path 1458" d="M360.068,208.033V202.2h6.667v-1.667h-7.5a.833.833,0,0,0-.833.833v7.5a.833.833,0,0,0,.833.833h12.5v-1.667H360.068Z" transform="translate(-358.401 -200.533)" fill="#333"/>
+    </g>
+    <g id="Group_656" data-name="Group 656" transform="translate(511 646.333)">
+      <path id="Path_1459" data-name="Path 1459" d="M32.5,106.667H.833A.834.834,0,0,0,0,107.5v26.667A.833.833,0,0,0,.833,135H7.5v-1.667H1.667v-25h30v25H15.833V135H32.5a.832.832,0,0,0,.833-.833V107.5A.833.833,0,0,0,32.5,106.667Z" transform="translate(0 -106.667)" fill="#333"/>
+    </g>
+    <g id="Group_658" data-name="Group 658" transform="translate(511.833 669.667)">
+      <rect id="Rectangle_265" data-name="Rectangle 265" width="5" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_660" data-name="Group 660" transform="translate(528.5 669.667)">
+      <rect id="Rectangle_266" data-name="Rectangle 266" width="14.167" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_662" data-name="Group 662" transform="translate(556.833 669.667)">
+      <rect id="Rectangle_267" data-name="Rectangle 267" width="3.333" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_664" data-name="Group 664" transform="translate(514.333 649.667)">
+      <rect id="Rectangle_268" data-name="Rectangle 268" width="29.167" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_666" data-name="Group 666" transform="translate(521.833 673)">
+      <rect id="Rectangle_269" data-name="Rectangle 269" width="1.667" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_668" data-name="Group 668" transform="translate(550.167 673)">
+      <rect id="Rectangle_270" data-name="Rectangle 270" width="1.667" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_670" data-name="Group 670" transform="translate(514.333 643)">
+      <rect id="Rectangle_271" data-name="Rectangle 271" width="11.667" height="1.667" fill="#333"/>
+    </g>
+    <g id="Group_672" data-name="Group 672" transform="translate(511 643)">
+      <rect id="Rectangle_272" data-name="Rectangle 272" width="1.667" height="1.667" fill="#333"/>
+    </g>
+    <text id="Free" transform="translate(517 664)" fill="#333" font-size="8" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">FREE</tspan></text>
+  </g>
+</svg>

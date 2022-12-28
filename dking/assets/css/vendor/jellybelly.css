@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'JellyBelly Font';
+    src: url('../../fonts/JellyBellyFont-Regular.eot');
+    src: url('../../fonts/JellyBellyFont-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/JellyBellyFont-Regular.woff2') format('woff2'),
+        url('../../fonts/JellyBellyFont-Regular.woff') format('woff'),
+        url('../../fonts/JellyBellyFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

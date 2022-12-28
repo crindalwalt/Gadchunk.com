@@ -1,0 +1,105 @@
+/*---------- 17. Instagram style ------------*/
+
+.instagram-wrap-1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+    .single-instafeed-wrap {
+        flex: 0 0 33.333%;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+.single-instafeed {
+    list-style: none;
+    overflow: hidden;
+    a {
+        display: block;
+        img {
+            width: 100%;
+            transform: scale(1);
+            transition: all .5s ease 0s;
+        }
+    }
+    &:hover {
+        a {
+            img {
+                transform: scale(1.1);
+            }
+        } 
+    }
+}
+.automobile-instafeed-mrg {
+    margin-top: -56px;
+    @media #{$lg-layout} {
+        margin-top: -30px;
+    }
+    @media #{$xs-layout} {
+        margin-top: 0px;
+    }
+}
+
+.mega-fashion-instagram {
+    padding: 0 15px;
+    @media #{$xs-layout} {
+        padding: 0 0px;
+    }
+}
+
+
+
+
+@media #{$lg-layout} {
+    .instagram-feed-area {
+        &.mr-40 {
+            margin-right: 0;
+        }
+    }
+}
+@media #{$xs-layout} {
+    .instagram-feed-area {
+        &.mr-40 {
+            margin-right: 0;
+        }
+    }
+    .instagram-area {
+        &.pt-120 {
+            padding-top: 60px;
+        }
+        &.pb-115 {
+            padding-bottom: 30px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

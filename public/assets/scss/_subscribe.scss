@@ -1,0 +1,297 @@
+/*---------- 15. Subscribe style ------------*/
+
+.subscribe-area {
+    position: relative;
+    .kids-subscribe-shape {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.subscribe-wrap {
+    p {
+        font-weight: 300;
+        color: #828495;
+        line-height: 21px;
+        margin: 16px 0 0;
+        &.white {
+            color: #fff;
+        }
+    }
+}
+
+.subscribe-form {
+    .subscribe-form-style {
+        > .mc-form {
+            position: relative;
+            overflow: hidden;
+            > input {
+                color: #828495;
+                font-weight: 300;
+                border: none;
+                height: 40px;
+                padding: 2px 55px 2px 0;
+                background-color: transparent;
+                border-bottom: 1px solid #DCDCDC;
+                &::-moz-input-placeholder {
+                    color: #828495;
+                    opacity: 1;
+                }
+                &::-webkit-input-placeholder {
+                    color: #828495;
+                    opacity: 1;
+                }
+            }
+            .mc-news {
+                display: none;
+            }
+            .clear {
+                display: inline-block;
+                position: absolute;
+                right: 0px;
+                top: 0;
+                transition: all 0.3s ease 0s;
+                width: 43px;
+                height: 40px;
+                border: none;
+                padding: 0;
+                z-index: 99;
+                background: #262836 url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                &:hover {
+                    background: $theme-color-dark-blue url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                }
+                input {
+                    background-color: transparent;
+                    border: none;
+                    height: 40px;
+                }
+                &.yellow-arrow {
+                    background: #FFE600 url("../../assets/images/icon-img/right-arrow-black.png") no-repeat scroll right 15px center;
+                    &:hover {
+                        background: $theme-color-dark-blue url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    }
+                }
+                &.green-arrow {
+                    background: $theme-color-green-2 url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    &:hover {
+                        background: $theme-color-dark-blue url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    }
+                }
+                &.brown-arrow {
+                    background: $theme-color-brown url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    &:hover {
+                        background: $theme-color-black url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    }
+                }
+            }
+        }
+    }
+    &.subscribe-form-white {
+        .subscribe-form-style {
+            > .mc-form {
+                > input {
+                    color: #fff;
+                    border-bottom: 1px solid #DCDCDC;
+                    &::-moz-input-placeholder {
+                        color: #fff;
+                        opacity: 1;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: #fff;
+                        opacity: 1;
+                    }
+                }
+                .clear {
+                    background: $white url("../../assets/images/icon-img/right-arrow-pink.png") no-repeat scroll right 15px center;
+                    &:hover {
+                        background: $theme-color-dark-blue url("../../assets/images/icon-img/right-arrow.png") no-repeat scroll right 15px center;
+                    }
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.subscribe-form-2 {
+    .subscribe-form-style-2 {
+        .mc-form-2 {
+            position: relative;
+            input {
+                background-color: transparent;
+                border: 1px solid #686D7B;
+                height: 57px;
+                font-weight: 300;
+                color: #AFAFAF;
+                padding: 2px 160px 2px 25px;
+                @media #{$xs-layout} {
+                    padding: 2px 115px 2px 15px;
+                }
+                &::-moz-input-placeholder {
+                    color: #AFAFAF;
+                    opacity: 1;
+                }
+                &::-webkit-input-placeholder {
+                    color: #AFAFAF;
+                    opacity: 1;
+                }
+            }
+        }
+        .mc-news-2 {
+            display: none;
+        }
+        .clear-2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            input {
+                width: auto;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 2px 35px;
+                background-color: $theme-color-black;
+                @media #{$xs-layout} {
+                    font-size: 15px;
+                    padding: 2px 15px;
+                }
+                &::-moz-input-placeholder {
+                    color: #fff;
+                    opacity: 1;
+                }
+                &::-webkit-input-placeholder {
+                    color: #fff;
+                    opacity: 1;
+                }
+                &:hover {
+                    background-color: $theme-color-dark-blue;
+                }
+            }
+        }
+    }
+    &.subscribe-form-2-white {
+        .subscribe-form-style-2 {
+            .mc-form-2 {
+                input {
+                    border: 1px solid #fff;
+                    color: #fff;
+                    &::-moz-input-placeholder {
+                        color: #fff;
+                        opacity: 1;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: #fff;
+                        opacity: 1;
+                    }
+                }
+            }
+            .clear-2 {
+                input {
+                    color: $theme-color-green-3;
+                    font-weight: bold;
+                    background-color: $white;
+                    border: none;
+                    &::-moz-input-placeholder {
+                        color: $theme-color-green-3;
+                        opacity: 1;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: $theme-color-green-3;
+                        opacity: 1;
+                    }
+                    &.blue {
+                        color: #453FEE;
+                    }
+                    &:hover {
+                        background-color: $theme-color-dark-blue;
+                    }
+                }
+            }
+        }
+        @media #{$md-layout} {
+            margin-top: 30px;
+        }
+        @media #{$xs-layout} {
+            margin-top: 20px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mt-30 {
+            margin-top: 0px;
+        }
+    }
+    &.subscribe-form-2-yellow {
+        .subscribe-form-style-2 {
+            .mc-form-2 {
+                input {
+                    border: 1px solid #F8E5A1;
+                    color: #888EB8;
+                    &::-moz-input-placeholder {
+                        color: #888EB8;
+                        opacity: 1;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: #888EB8;
+                        opacity: 1;
+                    }
+                }
+            }
+            .clear-2 {
+                input {
+                    background-color: $theme-color-yellow;
+                    color: $white;
+                    &::-moz-input-placeholder {
+                        color: $white;
+                        opacity: 1;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: $white;
+                        opacity: 1;
+                    }
+                    &:hover {
+                        background-color: $theme-color-dark-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media #{$md-layout} {
+    .subscribe-area {
+        &.pt-120 {
+            padding-top: 90px;
+        }
+    }
+}
+@media #{$xs-layout} {
+    .subscribe-area {
+        &.pb-115 {
+            padding-bottom: 60px;
+        }
+        &.pb-130 {
+            padding-bottom: 60px;
+        }
+        &.pb-95 {
+            padding-bottom: 60px;
+        }
+        &.pt-120 {
+            padding-top: 60px;
+        }
+    }
+}
+
+
+
+
+
+

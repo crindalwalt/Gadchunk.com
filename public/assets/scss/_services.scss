@@ -1,0 +1,384 @@
+/*---------- 11. Services style ------------*/
+
+.service-bg-color {
+    margin-top: -110px;
+	background: linear-gradient(to right, #F7FFF9, #F7FFF9 22.5%, #fff 0%);
+    @media #{$xs-layout} {
+        margin-top: -40px;
+    }
+}
+
+.service-wrap {
+    position: relative;
+    z-index: 92;
+    svg {
+        transition: all .5s ease 0s;
+        &.service-yellow-color {
+            path {
+                fill: $theme-color-yellow;
+            }
+            text {
+                tspan {
+                    fill: $theme-color-yellow;
+                }
+            }
+        }
+    }
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #060A27;
+        margin: 32px 0 17px;
+        @media #{$xs-layout} {
+            margin: 20px 0 17px;
+        }
+    }
+    p {
+        font-size: 15px;
+        line-height: 30px;
+        width: 78%;
+        &.service-peragraph-2 {
+            margin: 0 auto;
+            width: 80%;
+            @media #{$lg-layout} {
+                width: 100%;
+            }
+            @media #{$xs-layout} {
+                width: 90%;
+            }
+        }
+        &.service-peragraph-3 {
+            margin: 0 auto;
+            width: 50%;
+            @media #{$xx-layout} {
+                width: 75%;
+            }
+            @media #{$xl-layout} {
+                width: 77%;
+            }
+            @media #{$lg-layout} {
+                width: 100%;
+            }
+            @media #{$md-layout} {
+                width: 75%;
+            }
+            @media #{$xs-layout} {
+                width: 86%;
+            }
+        }
+        @media #{$lg-layout} {
+            width: 100%;
+        }
+        @media #{$md-layout} {
+            width: 100%;
+        }
+        @media #{$xs-layout} {
+            width: 100%;
+        }
+    }
+    &.service-wrap-ptb-1 {
+        padding: 28px 5px 40px;
+    }
+    &.service-wrap-ptb-2 {
+        padding: 28px 5px 56px;
+    }
+    &.service-wrap-ptb-3 {
+        padding: 28px 5px 43px;
+    }
+    &.service-bg-color-1 {
+        background-color: #FFF5F5;
+    }
+    &.service-bg-color-2 {
+        background-color: #F7FFF1;
+    }
+    &.service-bg-color-3 {
+        background-color: #E6FFFD;
+    }
+    &.service-bg-color-4 {
+        background-color: #F5F5FF;
+    }
+    &:hover {
+        svg {
+            animation: 900ms ease-in-out 0s normal none 1 running jello;
+        }
+    }
+    &.service-wrap-modify {
+        h3 {
+            font-size: 17px;
+            margin: 21px 0 27px;
+            @media #{$md-layout} {
+                margin: 21px 0 20px;
+            }
+            @media #{$xs-layout} {
+                margin: 12px 0 12px;
+            }
+        }
+        p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #828495;
+            @media #{$md-layout} {
+                width: 76%;
+            }
+            @media #{$xs-layout} {
+                color: #333;
+            }
+        }
+    }
+    &.service-wrap-modify-2 {
+        h3 {
+            font-size: 17px;
+            color: #333;
+            margin: 21px 0 22px;
+            @media #{$md-layout} {
+                margin: 21px 0 20px;
+            }
+            @media #{$xs-layout} {
+                margin: 12px 0 12px;
+            }
+        }
+    }
+    &.service-automobile {
+        padding: 60px 48px 55px;
+        transition: all .3s ease 0s;
+        @media #{$xx-layout} {
+            padding: 60px 30px 55px;
+        }
+        @media #{$xl-layout} {
+            padding: 40px 30px 35px;
+        }
+        @media #{$lg-layout} {
+            padding: 40px 20px 35px;
+        }
+        @media #{$md-layout} {
+            padding: 20px 15px 15px;
+        }
+        @media #{$xs-layout} {
+            padding: 20px 15px 15px;
+        }
+    }
+    &:hover {
+        &.service-automobile {
+            background-color: #FCEEEE;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-65 {
+            margin-bottom: 30px;
+        }
+        &.mb-90 {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.services-banner-img {
+    margin-right: -0px;
+    img {
+        width: 100%;
+    }
+}
+
+.service-border {
+    position: relative;
+    &:before {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        height: 100%;
+        border: 1px solid #E6E7E8;
+    }
+    &:last-child {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.service-wrap-2 {
+    .service-wrap-2-content {
+        padding: 80px 30px 76px 50px;
+        position: relative;
+        &::before {
+            background-image: url(../../assets/images/icon-img/service-shape.png);
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            top: 0px;
+            background-repeat: repeat;
+            display: block;
+            width: 100%;
+            height: 9px;
+            z-index: 9;
+        }
+        &::after {
+            background-image: url(../../assets/images/icon-img/service-shape-2.png);
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            background-repeat: repeat;
+            display: block;
+            width: 100%;
+            height: 7px;
+            z-index: 9;
+        }
+        h3 {
+            font-size: 17px;
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+        p {
+            font-size: 15px;
+            line-height: 30px;
+        }
+        &.service2-bg-blue {
+            background-color: #F2FCFF;
+            h3 {
+                color: #5696FF;
+            }
+        }
+        &.service2-bg-green {
+            background-color: #EBFFF7;
+            h3 {
+                color: #45D288;
+            }
+        }
+        &.service2-bg-pink {
+            background-color: #FFF8FD;
+            h3 {
+                color: #E46BC0;
+            }
+        }
+        &.service2-bg-orange {
+            background-color: #FFFAF5;
+            h3 {
+                color: #E39604;
+            }
+        }
+    }
+    @media #{$xs-layout} {
+        margin-bottom: 50px;
+        .service-wrap-2-img {
+            margin-bottom: 20px;
+        }
+    }
+    @media #{$sm-layout} {
+        margin-bottom: 0px;
+        .service-wrap-2-img {
+            margin-bottom: 0px;
+        }
+    }
+    &:hover {
+        .service-wrap-2-img {
+            svg {
+                animation: 900ms ease-in-out 0s normal none 1 running jello;
+            }
+        }
+    }
+}
+
+.service-wrap-3 {
+    display: flex;
+    @media #{$lg-layout} {
+        &.mb-85 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$md-layout} {
+        &.mb-85 {
+            margin-bottom: 50px;
+        }
+    }
+    @media #{$xs-layout} {
+        &.mb-85 {
+            margin-bottom: 30px;
+        }
+    }
+    @media #{$sm-layout} {
+        &.mb-85 {
+            margin-bottom: 50px;
+        }
+    }
+    .service-img-3 {
+        min-width: 50px;
+        margin-right: 50px;
+        @media #{$lg-layout} {
+            margin-right: 20px;
+        }
+        @media #{$md-layout} {
+            margin-right: 20px;
+        }
+        @media #{$xs-layout} {
+            margin-right: 20px;
+        }
+        svg {
+            transition: all .5s ease 0s;
+        }
+    }
+    .service-content-3 {
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 19px;
+            @media #{$xs-layout} {
+                margin: 0 0 10px;
+            }
+        }
+        p {
+            font-size: 15px;
+            line-height: 30px;
+            width: 78%;
+            @media #{$lg-layout} {
+                width: 100%;
+            }
+            @media #{$md-layout} {
+                width: 100%;
+            }
+            @media #{$xs-layout} {
+                width: 100%;
+            }
+        }
+    }
+    &:hover {
+        .service-img-3 {
+            svg {
+                animation: 900ms ease-in-out 0s normal none 1 running jello;
+            }
+        }
+    }
+}
+
+
+@media #{$md-layout} {
+    .service-area {
+        &.pb-110 {
+            padding-bottom: 50px;
+        }
+    }
+}
+@media #{$xs-layout} {
+    .service-area {
+        &.pb-110 {
+            padding-bottom: 20px;
+        }
+        &.pb-100 {
+            padding-bottom: 30px;
+        }
+        &.pb-50 {
+            padding-bottom: 20px;
+        }
+        &.pt-100 {
+            padding-top: 60px;
+        }
+        &.service-kids-bg {
+            background-position: 34%;
+        }
+    }
+}
+
+

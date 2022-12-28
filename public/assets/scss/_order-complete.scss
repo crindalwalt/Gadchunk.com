@@ -1,0 +1,78 @@
+/*---------- 28. Order complete style ------------*/
+
+.order-complete-title {
+    padding: 52px 85px 60px;
+    background-color: $white;
+    margin-bottom: 30px;
+    @media #{$md-layout} {
+        padding: 40px 50px 48px;
+    }
+    @media #{$xs-layout} {
+        padding: 30px 20px 38px;
+    }
+    h3 {
+        font-size: 30px;
+        color: #333333;
+        margin: 0;
+        @media #{$md-layout} {
+            font-size: 26px;
+        }
+        @media #{$xs-layout} {
+            font-size: 18px;
+            line-height: 30px;
+        }
+    }
+}
+
+.order-product-details {
+    padding: 21px 0px 20px;
+    background-color: $white;
+    @media #{$xs-layout} {
+        padding: 21px 10px 20px;
+    }
+    table {
+        width: 100%;
+        text-align: center;
+        thead {
+            tr {
+                th {
+                    font-size: 16px;
+                    color: #777777;
+                    font-weight: bold;
+                    width: 25%;
+                    @media #{$md-layout} {
+                        font-size: 15px;
+                    }
+                    @media #{$xs-layout} {
+                        width: 100%;
+                        font-size: 14px;
+                        padding: 0 40px;
+                    }
+                    @media #{$sm-layout} {
+                        width: 25%;
+                        font-size: 12px;
+                        padding: 0 0px;
+                    }
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    font-size: 13px;
+                    color: #777777;
+                    font-weight: 400;
+                    @media #{$xs-layout} {
+                        padding: 0 0px 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
