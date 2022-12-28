@@ -77,7 +77,7 @@
                                                             <li><a href="../frontEnd/product-details.html">Product Layout 1</a></li>
                                                             <li><a href="../frontEnd/product-details-2.html">Product Layout 2</a></li>
                                                             <li><a href="../frontEnd/product-details-3.html">Product Layout 3</a></li>
-                                                            <li><a href="../frontEnd/product-details-4.html">Product Layout 4</a></li>
+                                                            <li><a href="../template/product-details.blade.php">Product Layout 4</a></li>
                                                             <li><a href="../frontEnd/product-details-5.html">Product Layout 5</a></li>
                                                             <li><a href="../frontEnd/product-details-6.html">Product Layout 6</a></li>
                                                             <li><a href="../frontEnd/product-details-7.html">Product Layout 7</a></li>
@@ -290,7 +290,7 @@
                                                 <li><a href="../frontEnd/product-details.html">Product Layout 1</a></li>
                                                 <li><a href="../frontEnd/product-details-2.html">Product Layout 2</a></li>
                                                 <li><a href="../frontEnd/product-details-3.html">Product Layout 3</a></li>
-                                                <li><a href="../frontEnd/product-details-4.html">Product Layout 4</a></li>
+                                                <li><a href="../template/product-details.blade.php">Product Layout 4</a></li>
                                                 <li><a href="../frontEnd/product-details-5.html">Product Layout 5</a></li>
                                                 <li><a href="../frontEnd/product-details-6.html">Product Layout 6</a></li>
                                                 <li><a href="../frontEnd/product-details-7.html">Product Layout 7</a></li>

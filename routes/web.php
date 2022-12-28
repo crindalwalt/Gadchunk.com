@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/shop', function () {
     return view('template.shop');
 });
+Route::get('/shop-item',function(){
+   return view('template.product-details');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
