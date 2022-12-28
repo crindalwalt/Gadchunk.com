@@ -87,10 +87,10 @@
                                                     </li>
                                                     <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Pages</a>
                                                         <ul>
-                                                            <li><a href="../frontEnd/my-account.html">My Account</a></li>
-                                                            <li><a href="../frontEnd/checkout.html">Check Out</a></li>
-                                                            <li><a href="../frontEnd/cart.html">Shopping Cart</a></li>
-                                                            <li><a href="../frontEnd/wishlist.html">Wishlist</a></li>
+                                                            <li><a href="../template/my-account.blade.php">My Account</a></li>
+                                                            <li><a href="../template/checkout.blade.php">Check Out</a></li>
+                                                            <li><a href="../template/cart.blade.php">Shopping Cart</a></li>
+                                                            <li><a href="../template/wishlist.blade.php">Wishlist</a></li>
                                                             <li><a href="../frontEnd/order-tracking.html">Order Tracking</a></li>
                                                             <li><a href="../frontEnd/compare.html">Compare</a></li>
                                                             <li><a href="../frontEnd/store.html">Store</a></li>
@@ -216,8 +216,8 @@
                         <h4>Subtotal: <span>$170.00</span></h4>
                     </div>
                     <div class="cart-checkout-btn">
-                        <a class="btn-hover cart-btn-style" href="../frontEnd/cart.html">view cart</a>
-                        <a class="no-mrg btn-hover cart-btn-style" href="../frontEnd/checkout.html">checkout</a>
+                        <a class="btn-hover cart-btn-style" href="../template/cart.blade.php">view cart</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="../template/checkout.blade.php">checkout</a>
                     </div>
                 </div>
             </div>
@@ -300,10 +300,10 @@
                                         </li>
                                         <li class="has-sub-menu"><a href="#">Shop Page</a>
                                             <ul class="sub-menu-2">
-                                                <li><a href="../frontEnd/my-account.html">My Account</a></li>
-                                                <li><a href="../frontEnd/checkout.html">Check Out</a></li>
-                                                <li><a href="../frontEnd/cart.html">Shopping Cart</a></li>
-                                                <li><a href="../frontEnd/wishlist.html">Wishlist</a></li>
+                                                <li><a href="../template/my-account.blade.php">My Account</a></li>
+                                                <li><a href="../template/checkout.blade.php">Check Out</a></li>
+                                                <li><a href="../template/cart.blade.php">Shopping Cart</a></li>
+                                                <li><a href="../template/wishlist.blade.php">Wishlist</a></li>
                                                 <li><a href="../frontEnd/order-tracking.html">Order Tracking</a></li>
                                                 <li><a href="../frontEnd/compare.html">Compare</a></li>
                                                 <li><a href="../frontEnd/store.html">Store</a></li>

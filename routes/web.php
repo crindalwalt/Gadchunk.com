@@ -38,6 +38,25 @@ Route::get('/blog',function(){
 Route::get('/blog-detail',function(){
    return view('template.blog-detail');
 });
+Route::get('/my-account',function(){
+   return view('template.my-account');
+});
+
+Route::get('/wishlist',function(){
+   return view('template.wishlist');
+});
+Route::get('/cart',function(){
+   return view('template.cart');
+});
+Route::get('/checkout',function(){
+   return view('template.checkout');
+});
+Route::get('/order-complete',function(){
+   return view('template.order-complete');
+});
+Route::get('/order-tracking',function(){
+   return view('template.order-tracking');
+});
 
 Route::get('/dashboard', function () {   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
