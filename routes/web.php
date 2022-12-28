@@ -32,6 +32,12 @@ Route::get('/contact',function(){
 Route::get('/404',function(){
    return view('template.404');
 });
+Route::get('/blog',function(){
+   return view('template.blog');
+});
+Route::get('/blog-detail',function(){
+   return view('template.blog-detail');
+});
 
 Route::get('/dashboard', function () {   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

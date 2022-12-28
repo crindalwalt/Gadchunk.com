@@ -3095,10 +3095,10 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-wrap mb-30">
                             <div class="blog-img mb-35">
-                                <a href="../frontEnd/blog-details.html"><img src="assets/images/blog/blog-10.jpg" alt=""></a>
+                                <a href="blog-detail.blade.php"><img src="assets/images/blog/blog-10.jpg" alt=""></a>
                             </div>
                             <div class="blog-content">
-                                <h3><a href="../frontEnd/blog-details.html">Professionally e-enable high payoff data before sticky opportunities. </a></h3>
+                                <h3><a href="blog-detail.blade.php">Professionally e-enable high payoff data before sticky opportunities. </a></h3>
                                 <span class="mrg-top-inc">on April 24, 2019</span>
                                 <p>Seamlessly administrate client centered technology without optimal.</p>
                             </div>
@@ -3107,10 +3107,10 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-wrap mb-30">
                             <div class="blog-img mb-35">
-                                <a href="../frontEnd/blog-details.html"><img src="assets/images/blog/blog-11.jpg" alt=""></a>
+                                <a href="blog-detail.blade.php"><img src="assets/images/blog/blog-11.jpg" alt=""></a>
                             </div>
                             <div class="blog-content">
-                                <h3><a href="../frontEnd/blog-details.html">Designers matched perfectly to you on Envato Studio</a></h3>
+                                <h3><a href="blog-detail.blade.php">Designers matched perfectly to you on Envato Studio</a></h3>
                                 <span class="mrg-top-inc">on April 24, 2019</span>
                                 <p>Compellingly fabricate optimal bandwidth for inter-mandated deliverables. </p>
                             </div>
@@ -3119,10 +3119,10 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-wrap mb-30">
                             <div class="blog-img mb-35">
-                                <a href="../frontEnd/blog-details.html"><img src="assets/images/blog/blog-12.jpg" alt=""></a>
+                                <a href="blog-detail.blade.php"><img src="assets/images/blog/blog-12.jpg" alt=""></a>
                             </div>
                             <div class="blog-content">
-                                <h3><a href="../frontEnd/blog-details.html">Phos fluorescently leverage existing client-based technologies.</a></h3>
+                                <h3><a href="blog-detail.blade.php">Phos fluorescently leverage existing client-based technologies.</a></h3>
                                 <span class="mrg-top-inc">on April 24, 2019</span>
                                 <p>Progressively transform fully tested markets after covalent sources.</p>
                             </div>

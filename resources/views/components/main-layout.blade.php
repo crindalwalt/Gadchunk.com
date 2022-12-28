@@ -117,12 +117,12 @@
                                                 </ul>
                                             </li>
                                             <li><a href="../template/shop.blade.php">Collections</a></li>
-                                            <li><a href="../frontEnd/blog.html">Blog</a>
+                                            <li><a href="../template/blog.blade.php">Blog</a>
                                                 <ul class="sub-menu-width">
-                                                    <li><a href="../frontEnd/blog.html">Blog Page</a></li>
+                                                    <li><a href="../template/blog.blade.php">Blog Page</a></li>
                                                     <li><a href="../frontEnd/blog-no-sidebar.html">Blog No sidebar</a></li>
                                                     <li><a href="../frontEnd/blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                                    <li><a href="../frontEnd/blog-details.html">Blog Details</a></li>
+                                                    <li><a href="../template/blog-detail.blade.php">Blog Details</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="../template/contact.blade.php">Contact</a></li>
@@ -324,10 +324,10 @@
                                 <li><a href="../template/shop.blade.php">Collections</a></li>
                                 <li class="has-sub-menu"><a href="#">Blog</a>
                                     <ul class="sub-menu-2">
-                                        <li><a href="../frontEnd/blog.html">Blog Page</a></li>
+                                        <li><a href="../template/blog.blade.php">Blog Page</a></li>
                                         <li><a href="../frontEnd/blog-no-sidebar.html">Blog No sidebar</a></li>
                                         <li><a href="../frontEnd/blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                        <li><a href="../frontEnd/blog-details.html">Blog Details</a></li>
+                                        <li><a href="../template/blog-detail.blade.php">Blog Details</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="../template/contact.blade.php">Contact</a></li>
