@@ -16,25 +16,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('template.index');
-});
+})->name('home');
 Route::get('/shop', function () {
     return view('template.shop');
-});
+})->name('shop');
 Route::get('/shop-item',function(){
    return view('template.product-details');
 });
 Route::get('/about',function(){
    return view('template.about');
-});
+})->name('about');
 Route::get('/contact',function(){
    return view('template.contact');
-});
+})->name('contact');
 Route::get('/404',function(){
    return view('template.404');
 });
 Route::get('/blog',function(){
    return view('template.blog');
-});
+})->name('blog');
 Route::get('/blog-detail',function(){
    return view('template.blog-detail');
 });
@@ -47,7 +47,7 @@ Route::get('/wishlist',function(){
 });
 Route::get('/cart',function(){
    return view('template.cart');
-});
+})->name('cart');
 Route::get('/checkout',function(){
    return view('template.checkout');
 });
