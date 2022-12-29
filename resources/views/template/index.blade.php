@@ -56,88 +56,15 @@
             </div>
         </div>
         <div class="categorie-area">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/furniture-dress.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Fashion</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/furniture-headphone.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Gadget</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/furniture-chair.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Furniture</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/furniture-chair-2.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Chair</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/furniture-book.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Book</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/autos.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Autos</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/bicycle.svg" alt="no svg found"></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Bicycle </a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col-8">
-                        <div class="single-categories-5 text-center">
-                            <div class="single-categories-5-img">
-                                <a href="shop.blade.php"><img class="inject-me" src="assets/images/icon-img/fitness.svg" alt=""></a>
-                            </div>
-                            <div class="categorie-content-6">
-                                <h4><a class="color-light" href="shop.blade.php">Fitness</a></h4>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container-fluid p-0 ">
+                <div class="row g-0 d-flex justify-content-center" >
+                    @foreach($categories as $cat)
+
+                    <x-partials.category-card :cat="$cat" />
+                    @endforeach
+
+
+
                 </div>
             </div>
         </div>

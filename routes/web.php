@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('template.index');
-})->name('home');
+Route::get('/', [NavigatorController::class,'index'])->name('home');
 Route::get('/shop', function () {
     return view('template.shop');
 })->name('shop');
