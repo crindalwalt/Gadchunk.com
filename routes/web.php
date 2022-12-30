@@ -57,6 +57,16 @@ Route::get('/order-tracking',function(){
    return view('template.order-tracking');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('/admin',function (){
+    return view('admin.index');
+});
+
 Route::get('/dashboard', function () {   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
