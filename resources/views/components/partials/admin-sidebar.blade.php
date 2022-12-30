@@ -6,7 +6,7 @@
         <div class="user-sidebar text-center">
             <div class="dropdown">
                 <div class="user-img">
-                    <img src="{{ asset('admin-assets/images/users/avatar-7.jpg') }}" alt="" class="rounded-circle">
+                    <img src="{{ asset('admin-assets/images/Shahzad.jpg') }}" alt="" class="rounded-circle">
                     <span class="avatar-online bg-success"></span>
                 </div>
                 <div class="user-info">
@@ -25,18 +25,22 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="/admin" class="waves-effect">
                         <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end">3</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
-
+                {{-- category pane --}}
                 <li>
-                    <a href="calendar.html" class=" waves-effect">
+                    <a href="/admin/category" class=" waves-effect">
                         <i class="dripicons-calendar"></i>
-                        <span>Calendar</span>
+                        <span>Category</span>
                     </a>
                 </li>
+
+
+
+
 
                 <li>
                     <a href="chat.html" class=" waves-effect">

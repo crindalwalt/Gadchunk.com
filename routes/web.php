@@ -63,9 +63,15 @@ Route::get('/order-tracking',function(){
 |--------------------------------------------------------------------------
 |
 */
-Route::get('/admin',function (){
-    return view('admin.index');
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('/',function (){
+        return view('admin.index');
+    });
+    Route::get('category/',function (){
+        return view('admin.category.index');
+    });
 });
+
 
 Route::get('/dashboard', function () {   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
