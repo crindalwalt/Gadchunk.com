@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,9 +74,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/',function (){
         return view('admin.index');
     });
-    Route::get('category/',function (){
-        return view('admin.category.index');
-    });
+    Route::get('category/',[CategoryController::class,'index']);
+    Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
+    Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
 });
 
 
