@@ -106,7 +106,7 @@
                                                         20 products
                                                     </td>
                                                     <td class="">
-                                                        <button class="btn btn-md btn-outline-primary">Edit</button>
+
                                                         <form action="{{ route('delete_category') }}" method="POST" class="d-inline">
                                                             @csrf
                                                             <input type="hidden" value="{{$category->id}}" name="id">
