@@ -175,7 +175,7 @@
                 </div>
             </div>
 
-            <div class=admin-"dropdown d-inline-block">
+            <div class=admin-"dropdown d-inline-block ">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="{{ asset('admin-assets/images/Shahzad.jpg') }}"
@@ -190,7 +190,14 @@
                     <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-end">11</span><i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i> Settings</a>
                     <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline font-size-16 align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Logout</a>
+                    <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                        @csrf
+                         <a class="dropdown-item text-danger d-flex" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                <i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i>
+                                    Logout
+                        </a>
+                    </form>
                 </div>
             </div>
 

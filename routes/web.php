@@ -73,11 +73,11 @@ Route::get('/order-tracking',function(){
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/',function (){
         return view('admin.index');
-    });
+    })->name('admin');
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
-});
+})->middleware(['auth','authCheck', 'verified']);
 
 
 Route::get('/dashboard', function () {   return view('dashboard');

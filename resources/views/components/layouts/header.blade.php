@@ -121,6 +121,7 @@
                                     </div>
                                 </form>
                             </div>
+
                             <div class="same-style">
                                 <a href="/login"><i class="icofont-user-alt-3"></i></a>
                             </div>
