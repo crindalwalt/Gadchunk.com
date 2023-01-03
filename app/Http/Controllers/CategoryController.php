@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -32,12 +33,14 @@ class CategoryController extends Controller
         $category->slug = "/" .trim( strtolower($request->category_name));
         $category->icon = $cat_ogName;
         $category->save();
-        return redirect()->back()->with('message','category added successfully');
+        alert("Success", 'Category has been added successfully','success');
+        return redirect()->back();
 
     }
     public function destroy (Request $request) {
         $cat_to_del = Category::find($request->id);
         $cat_to_del->delete();
+        alert("Success", 'Category has been deleted successfully','success');
         return redirect()->back();
     }
 

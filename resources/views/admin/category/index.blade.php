@@ -2,7 +2,7 @@
 <x-layouts.admin>
 {{--    @dd($categories)--}}
     <!-- ============================================================== -->
-
+    @include('sweetalert::alert')
     <div class="main-content">
 
 

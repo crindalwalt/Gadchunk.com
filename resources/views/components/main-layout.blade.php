@@ -4,7 +4,7 @@
     <head>
 
         <x-layouts.links />
-
+        {{-- @include('sweetalert::alert')  --}}
     </head>
 
     <body>
