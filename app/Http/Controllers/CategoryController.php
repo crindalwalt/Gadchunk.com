@@ -21,17 +21,23 @@ class CategoryController extends Controller
           'category_name' => 'required|string',
           'category_icon' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
         ]);
-        $cat_name = $request->category_name;
-        $cat_slug = $request->category_slug;
-        $cat_icon = $request->category_icon;
 
-        $cat_ogName = $request->file('category_icon')->getClientOriginalName();
-        $cat_path = $request->file('category_icon')->store('public/imgs/');
+        if($request->hasFile('category_icon')) {
+
+            $file = $request->file('category_icon') ;
+            $filenameToSave = time() . "-cat-icon." . $file->getClientOriginalExtension();
+            $request->file('category_icon')->storeAs('public/category-icon/',$filenameToSave);
+
+        }else{
+            alert('warning','Category icon not uploaded correctly','warning');
+            return redirect()->back();
+        }
+
 
         $category = new Category();
         $category->name = $request->category_name;
         $category->slug = "/" .trim( strtolower($request->category_name));
-        $category->icon = $cat_ogName;
+        $category->icon = $filenameToSave;
         $category->save();
         alert("Success", 'Category has been added successfully','success');
         return redirect()->back();
