@@ -43,9 +43,9 @@
 
 
                 <li>
-                    <a href="chat.html" class=" waves-effect">
+                    <a href="/admin/products" class=" waves-effect">
                         <i class="dripicons-message"></i>
-                        <span>Chat</span>
+                        <span>Products</span>
                     </a>
                 </li>
 

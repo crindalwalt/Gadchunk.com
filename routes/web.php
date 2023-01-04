@@ -70,14 +70,17 @@ Route::get('/order-tracking',function(){
 |--------------------------------------------------------------------------
 |
 */
-Route::group(['prefix'=>'admin'],function(){
+Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(function(){
     Route::get('/',function (){
         return view('admin.index');
     })->name('admin');
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
-})->middleware(['auth','authCheck', 'verified']);
+    Route::get('/products',function (){
+        return view('admin.products.index');
+    });
+});
 
 
 Route::get('/dashboard', function () {   return view('dashboard');
