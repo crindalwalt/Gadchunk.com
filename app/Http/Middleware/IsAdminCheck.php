@@ -23,7 +23,7 @@ class IsAdminCheck
             if (Auth::user()->userType == 0){
                 return $next($request);
             }else{
-                return redirect('/');
+                return redirect()->back();
             }
         }else{
             return redirect('/login');

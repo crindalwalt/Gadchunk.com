@@ -77,6 +77,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
+    Route::get('/product/show',function(){
+        return view('admin.products.show');
+    })->name('products.show');
+    Route::get('/product/add',function(){
+        return view('admin.products.add');
+    })->name('products.add');
     Route::get('/products',function (){
         return view('admin.products.index');
     });

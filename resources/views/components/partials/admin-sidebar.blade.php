@@ -42,11 +42,18 @@
 
 
 
+
                 <li>
-                    <a href="/admin/products" class=" waves-effect">
-                        <i class="dripicons-message"></i>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-cart"></i>
                         <span>Products</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/products">All Products</a></li>
+                        <li><a href="{{ route('products.show') }}">show product</a></li>
+                        <li><a href="{{ route('products.add') }}">Add Product</a></li>
+
+                    </ul>
                 </li>
 
                 <li>

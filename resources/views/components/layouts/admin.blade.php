@@ -6,10 +6,18 @@
     <meta charset="utf-8" />
     <title>Dashboard | Zeelma E-commerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesdesign" name="author" />
+    <meta content="Best online Store" name="description" />
+    <meta content="Shahzad Farooq" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin-assets/images/favicon.ico') }}">
+
+    <!-- dropzone css -->
+    <link href="{{ asset('admin-assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- twitter-bootstrap-wizard css -->
+    <link rel="stylesheet" href="{{ asset('admin-assets/libs/twitter-bootstrap-wizard/prettify.css') }}">
+
+    <!-- select2 css -->
+    <link href="{{ asset('admin-assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- plugin css -->
     <link href="{{ asset('admin-assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
@@ -60,6 +68,22 @@
 
 
 <script src="{{ asset('admin-assets/js/app.js') }}"></script>
+
+
+
+<!-- twitter-bootstrap-wizard js -->
+<script src="{{ asset('admin-assets/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+
+<script src="{{ asset('admin-assets/libs/twitter-bootstrap-wizard/prettify.js') }}"></script>
+
+<!-- select 2 plugin -->
+<script src="{{ asset('admin-assets/libs/select2/js/select2.min.js') }}"></script>
+
+<!-- dropzone plugin -->
+<script src="{{ asset('admin-assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+
+<!-- init js -->
+<script src="{{ asset('admin-assets/js/pages/ecommerce-add-product.init.js') }}"></script>
 
 </body>
 
