@@ -84,7 +84,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
     // Products CRUD
     Route::get('/products',[ProductController::class,'index']);
-    Route::get('/product/show',[ProductController::class,'show'])->name('products.show');
+    Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::get('/product/add',[ProductController::class,'add'])->name('products.add');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
 

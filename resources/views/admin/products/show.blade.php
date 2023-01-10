@@ -117,38 +117,32 @@
                                         </div>
                                         <div class="col-xl-7">
                                             <div class="mt-4 mt-xl-3">
-                                                <a href="#" class="text-primary">Chair</a>
-                                                <h5 class="mt-1 mb-3">Home & Office Chair Green</h5>
+                                                <a href="#" class="text-primary">{{ $product->category->name }}</a>
+                                                <h5 class="mt-1 mb-3">{{ $product->name }}</h5>
 
                                                 <div class="d-inline-flex">
                                                     <div class="text-muted me-3">
-                                                        <span class="mdi mdi-star text-warning"></span>
-                                                        <span class="mdi mdi-star text-warning"></span>
-                                                        <span class="mdi mdi-star text-warning"></span>
-                                                        <span class="mdi mdi-star text-warning"></span>
-                                                        <span class="mdi mdi-star-half text-warning"></span>
+                                                        @for($index = 0; $index< $product->rating;$index++)
+                                                            <span class="mdi mdi-star text-warning"></span>
+                                                        @endfor
                                                     </div>
                                                 </div>
 
-                                                <h5 class="mt-2"><del class="text-muted me-2">$200</del>$240 <span
+                                                <h5 class="mt-2"><del class="text-muted me-2">Rs {{ $product->discountPrice }}</del>Rs {{ $product->orignalPrice }}<span
                                                         class="text-danger font-size-12 ms-2">25 % Off</span></h5>
 
                                                 <hr class="my-4">
 
                                                 <div class="mt-4">
-                                                    <h6>Features :</h6>
-
                                                     <div class="mt-4">
-                                                        <p class="text-muted mb-2"><i
-                                                                class="mdi mdi-check-bold text-success me-2"></i>Various
-                                                            have evolved over years sometimes on purpose.</p>
-                                                        <p class="text-muted mb-2"><i
-                                                                class="mdi mdi-check-bold text-success me-2"></i>Always
-                                                            free from repetition injected humour or words etc.</p>
-                                                        <p class="text-muted mb-2"><i
-                                                                class="mdi mdi-check-bold text-success me-2"></i>Excepteur
-                                                            cupidatat mollit anim id est laborum.</p>
+                                                        <p class="text-muted mb-2">
+                                                            <i class="mdi mdi-check-bold text-success me-2"></i>
+                                                            {{ $product->description }}
+                                                        </p>
+
                                                     </div>
+
+                                                    <h6>Features :</h6>
                                                 </div>
 
                                                 <div class="mt-4">
@@ -203,64 +197,64 @@
                                 </div>
                             </div>
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title mb-4">Product Track : </h4>
+{{--                            <div class="card">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <h4 class="header-title mb-4">Product Track : </h4>--}}
 
-                                    <div class="row">
-                                        <div class="col-xl-3">
-                                            <div class="product-track rounded p-4">
-                                                <i class="mdi mdi-truck-fast text-primary h2"></i>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-xl-3">--}}
+{{--                                            <div class="product-track rounded p-4">--}}
+{{--                                                <i class="mdi mdi-truck-fast text-primary h2"></i>--}}
 
-                                                <h5 class="text-uppercase mt-3 font-size-17">Fast Delivery</h5>
+{{--                                                <h5 class="text-uppercase mt-3 font-size-17">Fast Delivery</h5>--}}
 
-                                                <p class="text-muted mt-3 mb-0">Passages and more recently with
-                                                    desktop publishing software like
-                                                    Aldus PageMaker including versions.</p>
-                                            </div>
-                                        </div>
+{{--                                                <p class="text-muted mt-3 mb-0">Passages and more recently with--}}
+{{--                                                    desktop publishing software like--}}
+{{--                                                    Aldus PageMaker including versions.</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-xl-3">
-                                            <div class="product-track rounded p-4">
-                                                <i class="mdi mdi-refresh text-danger h2"></i>
+{{--                                        <div class="col-xl-3">--}}
+{{--                                            <div class="product-track rounded p-4">--}}
+{{--                                                <i class="mdi mdi-refresh text-danger h2"></i>--}}
 
-                                                <h5 class="text-uppercase mt-3 font-size-17">Returns in 7 Days</h5>
+{{--                                                <h5 class="text-uppercase mt-3 font-size-17">Returns in 7 Days</h5>--}}
 
-                                                <p class="text-muted mt-3 mb-0">Principle of selection: he rejects
-                                                    pleasures to secure other
-                                                    greater pleasures or else endures pains worse pains."</p>
-                                            </div>
-                                        </div>
+{{--                                                <p class="text-muted mt-3 mb-0">Principle of selection: he rejects--}}
+{{--                                                    pleasures to secure other--}}
+{{--                                                    greater pleasures or else endures pains worse pains."</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-xl-3">
-                                            <div class="product-track rounded p-4">
-                                                <i class="mdi mdi-headset text-warning h2"></i>
+{{--                                        <div class="col-xl-3">--}}
+{{--                                            <div class="product-track rounded p-4">--}}
+{{--                                                <i class="mdi mdi-headset text-warning h2"></i>--}}
 
-                                                <h5 class="text-uppercase mt-3 font-size-17">Online Support 24/7
-                                                </h5>
+{{--                                                <h5 class="text-uppercase mt-3 font-size-17">Online Support 24/7--}}
+{{--                                                </h5>--}}
 
-                                                <p class="text-muted mt-3 mb-0">Itaque earum rerum hic tenetur a
-                                                    sapiente delectus ut aut reiciendis
-                                                    volupta maiores alias consequatur aut perferendis.</p>
-                                            </div>
-                                        </div>
+{{--                                                <p class="text-muted mt-3 mb-0">Itaque earum rerum hic tenetur a--}}
+{{--                                                    sapiente delectus ut aut reiciendis--}}
+{{--                                                    volupta maiores alias consequatur aut perferendis.</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-xl-3">
-                                            <div class="product-track rounded p-4">
-                                                <i class="mdi mdi-wallet text-success h2"></i>
+{{--                                        <div class="col-xl-3">--}}
+{{--                                            <div class="product-track rounded p-4">--}}
+{{--                                                <i class="mdi mdi-wallet text-success h2"></i>--}}
 
-                                                <h5 class="text-uppercase mt-3 font-size-17">Secure Payment</h5>
+{{--                                                <h5 class="text-uppercase mt-3 font-size-17">Secure Payment</h5>--}}
 
-                                                <p class="text-muted mt-3 mb-0">Welcomed and every pain avoided
-                                                    certain circumstances and owing to the
-                                                    business it will frequently occur that.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                                <p class="text-muted mt-3 mb-0">Welcomed and every pain avoided--}}
+{{--                                                    certain circumstances and owing to the--}}
+{{--                                                    business it will frequently occur that.</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 
-                                </div>
-                            </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
                             <div class="card">

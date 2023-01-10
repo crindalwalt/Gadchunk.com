@@ -38,7 +38,7 @@
 
 
 
-
+                    <!-- Filters bar for product -->
                     <div class="row">
                         {{-- Admin products sidebar --}}
 {{--                        <div class="col-xl-3 col-lg-4">--}}
@@ -272,7 +272,8 @@
 
                                             <div class="text-center">
 
-                                                <a href="{{ route('products.show',$product->id) }}" class="text-dark">
+                                                <a href="/admin/product/{{$product->id}}" class="text-dark">
+                                                    <p class="muted">{{ $product->category->name }}</p>
                                                     <h5 class="font-size-18">{{ $product->name }}</h5>
                                                 </a>
 

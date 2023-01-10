@@ -15,8 +15,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show (){
-        return view('admin.products.show');
+    public function show (Product $product){
+        return view('admin.products.show',[
+            'product' => $product,
+        ]);
     }
     public function add (){
         $data['categories'] = Category::all();
