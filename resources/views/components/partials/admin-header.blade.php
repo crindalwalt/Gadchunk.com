@@ -1,24 +1,24 @@
 <header id="page-topbar">
     <div class="navbar-header">
-        <div class="d-flex">
+        <div class="d-flex align-items-center ">
 
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="/admin" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('admin-assets/images/logo.png') }}" alt="" height="22">
+                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="32">
                         </span>
                     <span class="logo-lg">
-                            <img src="admin-assets/images/" alt="" height="20">
+                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="60">
                         </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="/admin" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="22">
                         </span>
                     <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="20">
+                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="20">
                         </span>
                 </a>
             </div>
@@ -28,33 +28,7 @@
             </button>
 
 
-{{--            <div class="topbar-social-icon me-3 d-none d-md-block">--}}
-{{--                <ul class="list-inline title-tooltip m-0">--}}
-{{--                    <li class="list-inline-item">--}}
-{{--                        <a href="email-inbox.html" data-bs-toggle="tooltip" data-placement="top" title="Email">--}}
-{{--                            <i class="mdi mdi-email-outline"></i>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
 
-{{--                    <li class="list-inline-item">--}}
-{{--                        <a href="chat.html" data-bs-toggle="tooltip" data-placement="top" title="Chat">--}}
-{{--                            <i class="mdi mdi-tooltip-outline"></i>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-
-{{--                    <li class="list-inline-item">--}}
-{{--                        <a href="calendar.html" data-bs-toggle="tooltip" data-placement="top" title="Calendar">--}}
-{{--                            <i class="mdi mdi-calendar"></i>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-
-{{--                    <li class="list-inline-item">--}}
-{{--                        <a href="pages-invoice.html" data-bs-toggle="tooltip" data-placement="top" title="Printer">--}}
-{{--                            <i class="mdi mdi-printer"></i>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
 
         </div>
 

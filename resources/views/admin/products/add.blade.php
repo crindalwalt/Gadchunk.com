@@ -62,12 +62,14 @@
                                             </li>
                                         </ul>
                                         <!-- ebd ul -->
-                                        <div class="tab-content twitter-bs-wizard-tab-content">
+                                        <form id="product_add_form" action="{{ route('products.store') }}" method="POST">
+                                            @csrf
+                                            <div class="tab-content twitter-bs-wizard-tab-content">
                                             <div class="tab-pane" id="basic-info">
                                                 <h4 class="header-title">Basic Information</h4>
                                                 <p class="card-title-desc">Fill all information below</p>
 
-                                                <form>
+
                                                     <div class="mb-3">
                                                         <label class="form-label" for="productname">Product
                                                             Name</label>
@@ -111,11 +113,11 @@
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
                                                                 <label class="control-label">Category</label>
-                                                                <select class="form-control select2">
-                                                                    <option>Select</option>
-                                                                    <option value="EL">Electronic</option>
-                                                                    <option value="FA">Fashion</option>
-                                                                    <option value="FI">Fitness</option>
+                                                                <select name="productCategory" class="form-control select2">
+                                                                    <option >Select</option>
+                                                                    @foreach($categories as $cat)
+                                                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -146,7 +148,7 @@
                                                         <textarea class="form-control" id="productdesc" rows="5"
                                                                   placeholder="Enter Description"></textarea>
                                                     </div>
-                                                </form>
+
 
                                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
                                                     <li class="next"><a href="#"> Product Img <i
@@ -157,20 +159,22 @@
                                             <div class="tab-pane" id="product-img">
                                                 <h4 class="header-title">Product Images</h4>
                                                 <p class="card-title-desc">Upload product image</p>
-                                                <form action="/" method="post" class="dropzone">
-                                                    <div class="fallback">
-                                                        <input name="file" type="file" multiple />
-                                                    </div>
 
-                                                    <div class="dz-message needsclick">
-                                                        <div class="mb-3">
-                                                            <i
-                                                                class="display-4 text-muted mdi mdi-cloud-download-outline"></i>
+                                                    <div class="dropzone">
+                                                        <div class="fallback">
+                                                            <input name="file" type="file" multiple />
                                                         </div>
 
-                                                        <h4>Drop files here or click to upload.</h4>
+                                                        <div class="dz-message needsclick">
+                                                            <div class="mb-3">
+                                                                <i
+                                                                    class="display-4 text-muted mdi mdi-cloud-download-outline"></i>
+                                                            </div>
+
+                                                            <h4>Drop files here or click to upload.</h4>
+                                                        </div>
                                                     </div>
-                                                </form>
+
                                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
                                                     <li class="previous"><a href="#"><i
                                                                 class="mdi mdi-arrow-left me-1"></i> Basic Info</a>
@@ -183,7 +187,7 @@
                                                 <h4 class="header-title">Meta Data</h4>
                                                 <p class="card-title-desc">Fill all information below</p>
 
-                                                <form>
+
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="mb-3">
@@ -211,19 +215,20 @@
                                                         <textarea class="form-control" id="metadescription" rows="5"
                                                                   placeholder="Enter Description"></textarea>
                                                     </div>
-                                                </form>
+
                                                 <!-- end form -->
                                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
                                                     <li class="previous"><a href="#"><i
                                                                 class="mdi mdi-arrow-left me-1"></i> Product Img</a>
                                                     </li>
-                                                    <li class="float-end"><a href="#">Save Changes <i
-                                                                class="mdi mdi-arrow-right ms-1"></i></a></li>
+                                                    <li class="float-end"><input type="submit" class="btn btn-md btn-primary" value="Save Changes" > <i
+                                                                class="mdi mdi-arrow-right ms-1"></i> </li>
                                                 </ul>
                                                 <!-- end ul -->
                                             </div>
                                             <!-- end tabpane -->
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NavigatorController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -74,18 +75,19 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/',function (){
         return view('admin.index');
     })->name('admin');
+
+    // Category CRUD
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
-    Route::get('/product/show',function(){
-        return view('admin.products.show');
-    })->name('products.show');
-    Route::get('/product/add',function(){
-        return view('admin.products.add');
-    })->name('products.add');
-    Route::get('/products',function (){
-        return view('admin.products.index');
-    });
+
+
+    // Products CRUD
+    Route::get('/products',[ProductController::class,'index']);
+    Route::get('/product/show',[ProductController::class,'show'])->name('products.show');
+    Route::get('/product/add',[ProductController::class,'add'])->name('products.add');
+    Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
+
 });
 
 
