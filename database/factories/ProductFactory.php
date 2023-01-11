@@ -24,8 +24,8 @@ class ProductFactory extends Factory
             'brand' => $this->faker->company,
             'discountPrice'=> $this->faker->numberBetween(800,900),
             'stock' => $this->faker->numberBetween(0,500),
-            'rating' => $this->faker->numberBetween(1,5),
-            'mainPic' => '',
+
+
         ];
     }
 }

@@ -50,7 +50,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="/admin/products">All Products</a></li>
-                        <li><a href="{{ route('products.add') }}">Add Product</a></li>
+                        <li><a href="/admin/product/add">Add Product</a></li>
 
                     </ul>
                 </li>

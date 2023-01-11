@@ -71,65 +71,90 @@
 
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="productname">Product
+                                                        <label class="form-label" for="product_name">Product
                                                             Name</label>
-                                                        <input id="productname" name="productname" type="text"
+                                                        <input id="product_name" name="product_name" type="text"
                                                                class="form-control" placeholder="Enter your name">
+                                                        @error('product_name')
+                                                        <div class="text-danger fw-semibold">{{$message}}</div>
+                                                        @enderror
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label"
-                                                                       for="manufacturername">Manufacturer Name</label>
-                                                                <input id="manufacturername" name="manufacturername"
+                                                                       for="Product_brand">Brand Name</label>
+                                                                <input id="Product_brand" name="product_brand"
                                                                        type="text" class="form-control"
                                                                        placeholder="Enter manufacturer name">
+                                                                @error('product_brand')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <!-- end col -->
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label"
-                                                                       for="manufacturerbrand">Manufacturer
-                                                                    Brand</label>
-                                                                <input id="manufacturerbrand"
-                                                                       name="manufacturerbrand" type="text"
+                                                                       for="product_price">Price</label>
+                                                                <input id="product_price"
+                                                                       name="product_price" type="number"
                                                                        class="form-control"
-                                                                       placeholder="Enter manafacturer brand">
+                                                                       placeholder="Enter Orignal Price">
+                                                                @error('product_price')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <!-- end col -->
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="price">Price</label>
-                                                                <input id="price" name="price" type="text"
-                                                                       class="form-control" placeholder="Enter Price">
+                                                                <label class="form-label" for="product_discount_price">Discount Price</label>
+                                                                <input id="product_discount_price" name="product_discount_price" type="number"
+                                                                       class="form-control" placeholder="Enter discount price">
+                                                                @error('product_discount_price')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <!-- end col -->
                                                     </div>
                                                     <!-- end row -->
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label class="control-label">Category</label>
-                                                                <select name="productCategory" class="form-control select2">
+                                                                <select name="product_category" class="form-control select2">
                                                                     <option >Select</option>
                                                                     @foreach($categories as $cat)
                                                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                                                     @endforeach
                                                                 </select>
+                                                                @error('product_category')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-3">
+                                                                <label class="control-label" for="product_stock">Stock Available</label>
+                                                                <input id="product_stock" name="product_stock" type="number"
+                                                                        class="form-control" placeholder="Enter Available Stock">
+                                                                @error('product_stock')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <!-- end col -->
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label class="control-label">Features</label>
 
                                                                 <select
                                                                     class="select2 form-control select2-multiple"
                                                                     multiple="multiple"
-                                                                    data-placeholder="Choose ...">
+                                                                    data-placeholder="Choose ..."
+                                                                    name="product_options">
                                                                     <option value="TO">Touchscreen</option>
                                                                     <option value="CF">Call Function</option>
                                                                     <option value="NO" selected>Notifications
@@ -137,23 +162,35 @@
                                                                     <option value="FI" selected>Fitness</option>
                                                                     <option value="OU">Outdoor</option>
                                                                 </select>
+                                                                @error('product_options')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <!-- end col -->
                                                     </div>
                                                     <!-- end row -->
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="productdesc">Product
+                                                        <label class="form-label" for="product_description">Product
                                                             Description</label>
-                                                        <textarea class="form-control" id="productdesc" rows="5"
-                                                                  placeholder="Enter Description"></textarea>
+                                                        <textarea class="form-control" id="product_description" rows="5"
+                                                                  placeholder="Enter Description" name="product_description"></textarea>
+                                                        @error('product_description   ')
+                                                        <div class="text-danger fw-semibold">{{$message}}</div>
+                                                        @enderror
                                                     </div>
 
 
                                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
-                                                    <li class="next"><a href="#"> Product Img <i
-                                                                class="mdi mdi-arrow-right ms-1"></i></a></li>
+                                                    <li class="next">
+                                                        <a href="#">
+                                                            Product Img
+                                                            <i class="mdi mdi-arrow-right ms-1"></i>
+                                                        </a>
+                                                    </li>
                                                 </ul>
+
+                                                product_meta_title
                                             </div>
                                             <!-- end tabpane -->
                                             <div class="tab-pane" id="product-img">
@@ -163,6 +200,9 @@
                                                     <div class="dropzone">
                                                         <div class="fallback">
                                                             <input name="file" type="file" multiple />
+                                                            @error('file')
+                                                            <div class="text-danger fw-semibold">{{$message}}</div>
+                                                            @enderror
                                                         </div>
 
                                                         <div class="dz-message needsclick">
@@ -191,35 +231,47 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="metatitle">Meta
+                                                                <label class="form-label" for="product_meta_title">Meta
                                                                     title</label>
-                                                                <input id="metatitle" name="metatitle" type="text"
+                                                                <input id="product_meta_title" name="product_meta_title" type="text"
                                                                        class="form-control"
                                                                        placeholder="Enter meta title">
+                                                                @error('product_meta_title')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div><!-- end col -->
                                                         <div class="col-sm-6">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="metakeywords">Meta
+                                                                <label class="form-label" for="product_meta_keyword">Meta
                                                                     Keywords</label>
-                                                                <input id="metakeywords" name="metakeywords"
+                                                                <input id="product_meta_keyword" name="product_meta_keyword"
                                                                        type="text" class="form-control"
                                                                        placeholder="Enter keywords">
+                                                                @error('product_meta_keyword')
+                                                                <div class="text-danger fw-semibold">{{$message}}</div>
+                                                                @enderror
                                                             </div>
                                                         </div><!-- end col -->
                                                     </div>
                                                     <!-- end row -->
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="metadescription">Meta
+                                                        <label class="form-label" for="product_meta_description">Meta
                                                             Description</label>
-                                                        <textarea class="form-control" id="metadescription" rows="5"
-                                                                  placeholder="Enter Description"></textarea>
+                                                        <textarea class="form-control" id="product_meta_description" rows="5"
+                                                                  placeholder="Enter Description" name="product_meta_description"></textarea>
+                                                        @error('product_meta_description')
+                                                        <div class="text-danger fw-semibold">{{$message}}</div>
+                                                        @enderror
                                                     </div>
 
                                                 <!-- end form -->
                                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
-                                                    <li class="previous"><a href="#"><i
-                                                                class="mdi mdi-arrow-left me-1"></i> Product Img</a>
+                                                    <li class="previous">
+                                                        <a href="#">
+                                                            <i
+                                                                class="mdi mdi-arrow-left me-1"></i> Product Img
+                                                        </a>
                                                     </li>
                                                     <li class="float-end"><input type="submit" class="btn btn-md btn-primary" value="Save Changes" > <i
                                                                 class="mdi mdi-arrow-right ms-1"></i> </li>

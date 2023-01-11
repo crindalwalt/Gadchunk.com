@@ -22,8 +22,8 @@ return new class extends Migration
             $table->float('discountPrice');
             $table->string('brand');
             $table->integer('stock');
-            $table->integer('rating');
-            $table->longText('mainPic');
+
+
 
             $table->timestamps();
         });
