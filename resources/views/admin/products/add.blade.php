@@ -62,7 +62,7 @@
                                             </li>
                                         </ul>
                                         <!-- ebd ul -->
-                                        <form id="product_add_form" action="{{ route('products.store') }}" method="POST">
+                                        <form id="product_add_form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="tab-content twitter-bs-wizard-tab-content">
                                             <div class="tab-pane" id="basic-info">
@@ -175,7 +175,7 @@
                                                             Description</label>
                                                         <textarea class="form-control" id="product_description" rows="5"
                                                                   placeholder="Enter Description" name="product_description"></textarea>
-                                                        @error('product_description   ')
+                                                        @error('product_description')
                                                         <div class="text-danger fw-semibold">{{$message}}</div>
                                                         @enderror
                                                     </div>
@@ -199,8 +199,9 @@
 
                                                     <div class="dropzone">
                                                         <div class="fallback">
-                                                            <input name="file" type="file" multiple />
-                                                            @error('file')
+                                                            <input name="product_image[]" type="file" multiple />
+
+                                                            @error('product_image')
                                                             <div class="text-danger fw-semibold">{{$message}}</div>
                                                             @enderror
                                                         </div>
