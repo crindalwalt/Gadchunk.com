@@ -11,6 +11,9 @@ class ProductController extends Controller
 {
     public function index (){
         $Products = Product::all();
+//        dd($Products);
+//        $images = ProductImage::all();
+//        $Products = $images->product;
         return view('admin.products.index',[
             'products' => $Products,
         ]);
@@ -67,10 +70,11 @@ class ProductController extends Controller
                 $img_name = random_int(1000,99999999) . time(). "-product". $key . "." . $image->getClientOriginalExtension();
 
                 $productImage->product_id = $product->id;
-                $uploadPath = 'public/product-images/';
+                $uploadPath = 'product-images/';
+                // $databasePath = 'product-images' . $img_name;      
                 $productImage->image = $uploadPath .$img_name;
 
-                $image->storeAs($uploadPath, $img_name);
+                $image->storeAs("public/".$uploadPath, $img_name);
 
                 // dd($productImage->save());
                 $saveSuccess = $productImage->save();
@@ -103,3 +107,9 @@ class ProductController extends Controller
 
 
 }
+
+
+
+
+
+

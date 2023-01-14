@@ -2,7 +2,7 @@
 <x-layouts.admin>
     {{--    @dd($categories)--}}
     <!-- ============================================================== -->
-    @include('sweetalert::alert')
+{{--    @include('sweetalert::alert')--}}
     <div class="main-content">
 
         <div class="page-content">
@@ -252,20 +252,27 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 @foreach($products as $product)
-                                <div class="col-xl-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body">
+{{--                                @dd($product->productImage[0]->image)--}}
+                                <div class="col-xl-4 col-sm-6 m-3">
+                                    <div class="card h-100 ">
+                                        <div class="card-body"    >
                                             <div class="product-img">
                                                 <div class="product-ribbon  bg-primary">
 
-                                                        @php
-                                                            $discount = $product->orinalprice - $product->discountPrice;
-                                                            $discountPercentage =( ceil($discount/$product->orignalPrice) )*100;
-                                                            echo $discountPercentage . "% OFF";
-                                                         @endphp
+                                                      @php
+                                                          $og_price = $product->orignalPrice;
+                                                          $discount_price = $product->discountPrice;
+                                                          $discount_amount = $og_price - $discount_price;
+                                                          $discount_percentage = ($discount_amount/$og_price)*100;
+
+                                                          echo round($discount_percentage) . "% OFF";
+                                                      @endphp
                                                 </div>
 
-                                                <img src="{{ asset('admin-assets/images/product/img-7.png') }}" alt="" class="img-fluid mx-auto d-block">
+
+
+
+                                                <img src="{{ asset('storage/'.$product->productImage[0]->image) }}" alt="" class="img-fluid mx-auto d-block">
                                             </div>
 
 
@@ -282,7 +289,7 @@
                                                 <div class="mt-3">
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item">
-                                                            @for($index = 0; $index< $product->rating;$index++)
+                                                            @for($index = 0; $index< 5;$index++)
                                                                 <i class="mdi mdi-star text-warning"></i>
                                                             @endfor
 
