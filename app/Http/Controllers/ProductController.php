@@ -11,14 +11,10 @@ class ProductController extends Controller
 {
     public function index (){
         $Products = Product::all();
-//        dd($Products);
-//        $images = ProductImage::all();
-//        $Products = $images->product;
         return view('admin.products.index',[
             'products' => $Products,
         ]);
     }
-
     public function show (Product $product){
         return view('admin.products.show',[
             'product' => $product,
@@ -32,7 +28,7 @@ class ProductController extends Controller
     }
     public function store (Request $request){
 
-//        dd($request->all());
+
 
         // validating the product details
         // $request->validate([
@@ -71,7 +67,7 @@ class ProductController extends Controller
 
                 $productImage->product_id = $product->id;
                 $uploadPath = 'product-images/';
-                // $databasePath = 'product-images' . $img_name;      
+                // $databasePath = 'product-images' . $img_name;
                 $productImage->image = $uploadPath .$img_name;
 
                 $image->storeAs("public/".$uploadPath, $img_name);
@@ -103,6 +99,11 @@ class ProductController extends Controller
 
 
 
+    }
+    public function destroy(Product $product){
+        $product->delete();
+        alert('Success', 'Product Deleted Successfully', 'success');
+        return redirect()->route('products.all');
     }
 
 

@@ -103,7 +103,8 @@
                                                     <th scope="row">{{ $loop->iteration }}</th>
                                                     <td>{{ $category->name }}</td>
                                                     <td>
-                                                        20 products
+                                                        {{ count($category->product) }} 
+                                                        @if(count($category->product) >1)products @else product @endif
                                                     </td>
                                                     <td class="">
 

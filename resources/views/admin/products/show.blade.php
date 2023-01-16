@@ -54,57 +54,53 @@
                                                     <div class="col-3">
                                                         <div class="nav flex-column nav-pills" id="v-pills-tab"
                                                              role="tablist" aria-orientation="vertical">
-                                                            <a class="nav-link active" id="product-1-tab"
-                                                               data-bs-toggle="pill" href="#product-1" role="tab">
-                                                                <img src="assets/images/product/img-7.png" alt=""
+                                                            @foreach($product->productImage as $img)
+                                                            <a class="nav-link active" id="product-{{$loop->iteration }}"
+                                                               data-bs-toggle="pill" href="#product-{{$loop->iteration}}" role="tab">
+                                                                <img src="{{asset( "storage/" . $img->image) }}" alt="1"
                                                                      class="img-fluid mx-auto d-block tab-img rounded">
                                                             </a>
+                                                            @endforeach
                                                             <a class="nav-link" id="product-2-tab"
                                                                data-bs-toggle="pill" href="#product-2" role="tab">
-                                                                <img src="assets/images/product/img-8.png" alt=""
+                                                                <img src="assets/images/product/img-8.png" alt="2"
                                                                      class="img-fluid mx-auto d-block tab-img rounded">
                                                             </a>
                                                             <a class="nav-link" id="product-3-tab"
                                                                data-bs-toggle="pill" href="#product-3" role="tab">
-                                                                <img src="assets/images/product/img-9.png" alt=""
+                                                                <img src="assets/images/product/img-9.png" alt="3"
                                                                      class="img-fluid mx-auto d-block tab-img rounded">
                                                             </a>
                                                             <a class="nav-link" id="product-4-tab"
                                                                data-bs-toggle="pill" href="#product-4" role="tab">
-                                                                <img src="assets/images/product/img-11.png" alt=""
+                                                                <img src="assets/images/product/img-11.png" alt="4"
                                                                      class="img-fluid mx-auto d-block tab-img rounded">
                                                             </a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8 col-9">
                                                         <div class="tab-content" id="v-pills-tabContent">
-                                                            <div class="tab-pane fade show active" id="product-1"
+                                                           @foreach($product->productImage as $img)
+                                                            <div class="tab-pane fade" id="product-{{$loop->iteration}}"
                                                                  role="tabpanel">
                                                                 <div class="product-img">
-                                                                    <img src="assets/images/product/img-7.png"
-                                                                         alt="" class="img-fluid mx-auto d-block"
-                                                                         data-zoom="assets/images/product/img-1.png">
+                                                                    <img src="{{ asset("storage/".$img->image)}}"
+                                                                         alt="this image" class="img-fluid mx-auto d-block">
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="product-2"
-                                                                 role="tabpanel">
-                                                                <div class="product-img">
-                                                                    <img src="assets/images/product/img-8.png"
-                                                                         alt="" class="img-fluid mx-auto d-block">
-                                                                </div>
-                                                            </div>
+                                                            @endforeach
                                                             <div class="tab-pane fade" id="product-3"
                                                                  role="tabpanel">
                                                                 <div class="product-img">
                                                                     <img src="assets/images/product/img-9.png"
-                                                                         alt="" class="img-fluid mx-auto d-block">
+                                                                         alt="what is this" class="img-fluid mx-auto d-block">
                                                                 </div>
                                                             </div>
                                                             <div class="tab-pane fade" id="product-4"
                                                                  role="tabpanel">
                                                                 <div class="product-img">
                                                                     <img src="assets/images/product/img-11.png"
-                                                                         alt="" class="img-fluid mx-auto d-block">
+                                                                         alt="4" class="img-fluid mx-auto d-block">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -129,7 +125,16 @@
                                                 </div>
 
                                                 <h5 class="mt-2"><del class="text-muted me-2">Rs {{ $product->discountPrice }}</del>Rs {{ $product->orignalPrice }}<span
-                                                        class="text-danger font-size-12 ms-2">25 % Off</span></h5>
+                                                        class="text-danger font-size-12 ms-2">
+                                                        @php
+                                                        $og_price = $product->orignalPrice;
+                                                        $discount_price = $product->discountPrice;
+                                                        $discount_amount = $og_price - $discount_price;
+                                                        $discount_percentage = ($discount_amount/$og_price)*100;
+
+                                                        echo round($discount_percentage) . "% OFF";
+                                                    @endphp
+                                                    </span></h5>
 
                                                 <hr class="my-4">
 
@@ -157,7 +162,7 @@
 
 
 
-
+                                                {{-- OPTIONS --}}
 
                                                 <div class="row mt-4">
                                                     <div class="col-md-6">
@@ -166,21 +171,21 @@
                                                             <a href="#" class="active">
                                                                 <div class="product-color-item">
                                                                     <img src="assets/images/product/img-7.png"
-                                                                         alt="" class="avatar-md">
+                                                                         alt="9" class="avatar-md">
                                                                 </div>
                                                                 <p>Blue</p>
                                                             </a>
                                                             <a href="#">
                                                                 <div class="product-color-item">
                                                                     <img src="assets/images/product/img-8.png"
-                                                                         alt="" class="avatar-md">
+                                                                         alt="7" class="avatar-md">
                                                                 </div>
                                                                 <p>Cyan</p>
                                                             </a>
                                                             <a href="#">
                                                                 <div class="product-color-item">
                                                                     <img src="assets/images/product/img-9.png"
-                                                                         alt="" class="avatar-md">
+                                                                         alt="8" class="avatar-md">
                                                                 </div>
                                                                 <p>Green</p>
                                                             </a>
