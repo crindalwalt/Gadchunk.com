@@ -264,8 +264,8 @@
                                                 <th>Product</th>
 
                                                 <th>Category</th>
-                                                <th>Price</th>
-                                                <th>Discounted </th>
+                                                <th>Stock</th>
+                                                <th>Sold </th>
                                                 <th>Actions</th>
                                             </tr>
                                             </thead>
@@ -275,11 +275,12 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><img src="{{ asset('storage/' . $product->productImage[0]->image) }}" width="42" class="me-3" alt="">{{ $product->name   }}</td>
                                                 <td>{{ $product->category->name   }}</td>
-                                                <td>{{ $product->orignalPrice }}</td>
-                                                <td>{{ $product->discountPrice }}</td>
+                                                <td>{{ $product->stock }}</td>
+                                                <td>22</td>
 
                                                 <td>
-                                                    <form class="d-inline" action="/admin/product/{{$product->id}}/edit" method="POST">
+                                                    <a href="/shop/product/{{$product->id}}" class="btn btn-outline-success btn-sm">Show</a>
+                                                    <form class="d-inline" action="/admin/product/{{$product->id}}/edit" method="GET">
                                                         @csrf
                                                         <button type="submit" class="btn btn-outline-primary btn-sm">Edit</button>
                                                     </form>

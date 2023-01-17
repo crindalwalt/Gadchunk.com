@@ -86,6 +86,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/products',[ProductController::class,'index'])->name('products.all');
 
     Route::get('/product/add',[ProductController::class,'add'])->name('products.add');
+    Route::get('/product/{product}/edit',[ProductController::class,'edit'])->name('products.edit');
+    Route::post('/product/{product}/update',[ProductController::class,'update'])->name('products.update');
     Route::post('/product/{product}/delete',[ProductController::class,'destroy'])->name('products.destroy');
     Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
