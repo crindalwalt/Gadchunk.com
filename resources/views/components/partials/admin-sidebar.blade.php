@@ -72,21 +72,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="/admin/users" class="waves-effect">
                         <i class="dripicons-user-group"></i>
                         {{--                        <span class="badge rounded-pill bg-danger float-end">6</span>--}}
-                        <span>Users</span>
+                        <span>Customers</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="form-elements.html">Form Elements</a></li>
-                        <li><a href="form-validation.html">Form Validation</a></li>
-                        <li><a href="form-advanced.html">Form Advanced</a></li>
-                        <li><a href="form-editors.html">Form Editors</a></li>
-                        <li><a href="form-uploads.html">Form Upload</a></li>
-                        <li><a href="form-xeditable.html">Form Xeditable</a></li>
-                        <li><a href="form-wizard.html">Form Wizard</a></li>
-                        <li><a href="form-mask.html">Form Mask</a></li>
-                    </ul>
+
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

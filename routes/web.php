@@ -91,6 +91,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post('/product/{product}/delete',[ProductController::class,'destroy'])->name('products.destroy');
     Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
+    Route::get('/users',[ProductController::class,'users'])->name('users.all');
 
 });
 

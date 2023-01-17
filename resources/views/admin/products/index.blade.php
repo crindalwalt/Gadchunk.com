@@ -279,7 +279,7 @@
                                                 <td>22</td>
 
                                                 <td>
-                                                    <a href="/shop/product/{{$product->id}}" class="btn btn-outline-success btn-sm">Show</a>
+                                                    <a href="/admin/product/{{$product->id}}" class="btn btn-outline-success btn-sm">Show</a>
                                                     <form class="d-inline" action="/admin/product/{{$product->id}}/edit" method="GET">
                                                         @csrf
                                                         <button type="submit" class="btn btn-outline-primary btn-sm">Edit</button>

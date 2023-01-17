@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -168,6 +169,12 @@ class ProductController extends Controller
             alert('success', 'Product updated with already existed photos', 'success');
             return redirect()->back();
         }
+    }
+    public function users(){
+        $users = User::all();
+        return view('admin.users.index',[
+            'users' => $users
+        ]);
     }
 }
 
