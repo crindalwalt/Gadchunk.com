@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -25,11 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NavigatorController::class,'index'])->name('home');
-Route::get('/shop', function () {
-    return view('template.shop',[
-        'categories' => Category::all()
-    ]);
-})->name('shop');
+Route::get('/shop',[ShopController::class,'shop'])->name('shop');
 Route::get('/shop-item',function(){
    return view('template.product-details');
 });

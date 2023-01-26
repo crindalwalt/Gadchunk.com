@@ -36,7 +36,7 @@
                                 <div class="shop-top-bar">
                                     <div class="shop-top-bar-left">
                                         <div class="shop-tab nav">
-                                            <a href="#shop-1" class="active" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-grid.svg" alt=""></a>
+                                            <a href="#shop-1" class="active" data-bs-toggle="tab"><img class="inject-me" src="{{ asset('assets/images/icon-img/shop-grid.svg') }}" alt=""></a>
 {{--                                            <a href="#shop-2" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-list.svg" alt=""></a>--}}
                                         </div>
                                     </div>
@@ -56,15 +56,10 @@
                                     {{-- TAB position 1 => woman        --}}
                                     <div id="shop-1" class="tab-pane active">
                                         <div class="row">
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
-                                            <x-shop.product-card-item />
+                                            @foreach($products as $product)
+                                                <x-shop.product-card-item />
+                                            @endforeach
+
 
                                         </div>
                                     </div>
@@ -78,90 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <div id="shop-categorie-2" class="tab-pane active">--}}
-{{--                                <div class="shop-top-bar">--}}
-{{--                                    <div class="shop-top-bar-left">--}}
-{{--                                        <div class="shop-tab nav">--}}
-{{--                                            <a href="#shop-3" class="active" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-grid.svg" alt=""></a>--}}
-{{--                                            <a href="#shop-4" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-list.svg" alt=""></a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="shop-top-bar-right">--}}
-{{--                                        <div class="shop-page-list">--}}
-{{--                                            <ul>--}}
-{{--                                                <li>Show</li>--}}
-{{--                                                <li class="active"><a href="#">2</a></li>--}}
-{{--                                                <li><a href="#">4</a></li>--}}
-{{--                                                <li><a href="#">6</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                --}}{{-- Men tab active --}}
-{{--                                <div class="tab-content pt-30">--}}
-{{--                                    <div id="shop-3" class="tab-pane active">--}}
-{{--                                        <div class="row">--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    --}}
-{{--                                    <div class="pro-pagination-style text-center mt-50">--}}
-{{--                                        <ul>--}}
-{{--                                            <li><a class="active" href="#">1</a></li>--}}
-{{--                                            <li><a href="#">2</a></li>--}}
-{{--                                            <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div id="shop-categorie-3" class="tab-pane">--}}
-{{--                                <div class="shop-top-bar">--}}
-{{--                                    <div class="shop-top-bar-left">--}}
-{{--                                        <div class="shop-tab nav">--}}
-{{--                                            <a href="#shop-5" class="active" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-grid.svg" alt=""></a>--}}
-{{--                                            <a href="#shop-6" data-bs-toggle="tab"><img class="inject-me" src="assets/images/icon-img/shop-list.svg" alt=""></a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="shop-top-bar-right">--}}
-{{--                                        <div class="shop-page-list">--}}
-{{--                                            <ul>--}}
-{{--                                                <li>Show</li>--}}
-{{--                                                <li class="active"><a href="#">2</a></li>--}}
-{{--                                                <li><a href="#">4</a></li>--}}
-{{--                                                <li><a href="#">6</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="tab-content pt-30">--}}
-{{--                                    <div id="shop-5" class="tab-pane active">--}}
-{{--                                        <div class="row">--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                            <x-shop.product-card-item />--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div id="shop-6" class="tab-pane ">--}}
-{{--                                        <x-shop.product-list-item />--}}
-{{--                                        <x-shop.product-list-item />--}}
-{{--                                        <x-shop.product-list-item />--}}
-{{--                                        <x-shop.product-list-item />--}}
 
-{{--                                    </div>--}}
-{{--                                    <div class="pro-pagination-style text-center mt-50">--}}
-{{--                                        <ul>--}}
-{{--                                            <li><a class="active" href="#">1</a></li>--}}
-{{--                                            <li><a href="#">2</a></li>--}}
-{{--                                            <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
                     {{-- SIDEBAR  --}}
@@ -178,46 +90,11 @@
                                     </ul>
                                 </div>
                             </div>
-{{--                            <div class="sidebar-widget">--}}
-{{--                                <h4 class="pro-sidebar-title">Filter By Color</h4>--}}
-{{--                                <div class="pro-details-color-content sidebar-widget-color mt-45 mb-70">--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a class="white" href="#">Black</a></li>--}}
-{{--                                        <li><a class="azalea" href="#">Blue</a></li>--}}
-{{--                                        <li><a class="dolly" href="#">Green</a></li>--}}
-{{--                                        <li><a class="peach-orange" href="#">Orange</a></li>--}}
-{{--                                        <li><a class="mona-lisa active" href="#">Pink</a></li>--}}
-{{--                                        <li><a class="cupid" href="#">gray</a></li>--}}
-{{--                                        <li><a class="one" href="#">one</a></li>--}}
-{{--                                        <li><a class="two" href="#">two</a></li>--}}
-{{--                                        <li><a class="three" href="#">three</a></li>--}}
-{{--                                        <li><a class="four" href="#">four</a></li>--}}
-{{--                                        <li><a class="five" href="#">five</a></li>--}}
-{{--                                        <li><a class="six" href="#">six</a></li>--}}
-{{--                                        <li><a class="seven" href="#">seven</a></li>--}}
-{{--                                        <li><a class="eight" href="#">eight</a></li>--}}
-{{--                                        <li><a class="nine" href="#">nine</a></li>--}}
-{{--                                        <li><a class="ten" href="#">ten</a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
 
 
 
-{{--                            <div class="sidebar-widget">--}}
-{{--                                <h4 class="pro-sidebar-title">Filter By Size</h4>--}}
-{{--                                <div class="sidebar-widget-size mt-50 mb-75">--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a href="#">XS</a> </li>--}}
-{{--                                        <li><a href="#">S</a> </li>--}}
-{{--                                        <li><a href="#">M</a> </li>--}}
-{{--                                        <li><a href="#">L</a> </li>--}}
-{{--                                        <li><a href="#">XL</a> </li>--}}
-{{--                                        <li><a href="#">XXL</a> </li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+
                             <div class="sidebar-widget">
                                 <h4 class="pro-sidebar-title">Filter By Price Range</h4>
                                 <div class="price-filter mt-55 mb-65">
