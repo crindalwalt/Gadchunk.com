@@ -57,7 +57,7 @@
                                     <div id="shop-1" class="tab-pane active">
                                         <div class="row">
                                             @foreach($products as $product)
-                                                <x-shop.product-card-item />
+                                                <x-shop.product-card-item :product="$product" />
                                             @endforeach
 
 
