@@ -8,7 +8,7 @@
                         <div class="logo-menu-wrap">
                             <div class="logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="assets/images/logo/logo-9.png" alt="logo">
+                                    <img src="{{ asset('assets/images/zeelma-logo.png') }}" width="50px" alt="logo">
                                 </a>
                             </div>
                             <div class="main-menu menu-lh-1 main-menu-padding-1 menu-mrg-1">

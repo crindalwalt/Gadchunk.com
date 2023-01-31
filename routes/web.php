@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,9 +27,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [NavigatorController::class,'index'])->name('home');
 Route::get('/shop', function () {
-    return view('template.shop');
+    $products = Product::all();
+    $category = Category::all();
+    return view('template.shop',[
+        'products' =>$products,
+        'categories' => $category,
+    ]);
 })->name('shop');
 Route::get('/shop-item',function(){
+
    return view('template.product-details');
 });
 Route::get('/about',function(){
@@ -73,7 +81,7 @@ Route::get('/order-tracking',function(){
 */
 Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(function(){
     Route::get('/',function (){
-        return view('admin.index');
+        return view('admin.dashboard');
     })->name('admin');
 
     // Category CRUD

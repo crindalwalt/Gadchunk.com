@@ -61,14 +61,10 @@
                         <span>Orders</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="form-elements.html">Form Elements</a></li>
-                        <li><a href="form-validation.html">Form Validation</a></li>
-                        <li><a href="form-advanced.html">Form Advanced</a></li>
-                        <li><a href="form-editors.html">Form Editors</a></li>
-                        <li><a href="form-uploads.html">Form Upload</a></li>
-                        <li><a href="form-xeditable.html">Form Xeditable</a></li>
-                        <li><a href="form-wizard.html">Form Wizard</a></li>
-                        <li><a href="form-mask.html">Form Mask</a></li>
+                        <li><a href="/admin/orders">All Orders</a></li>
+                        <li><a href="/admin/orders/new">New Orders</a></li>
+                        <li><a href="/admin/orders/completed">Completed Orders</a></li>
+
                     </ul>
                 </li>
                 <li>
