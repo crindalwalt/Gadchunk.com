@@ -3,21 +3,21 @@
 
 <head>
 
-    
+
     <meta charset="utf-8" />
     <title>Login page | Morvin - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../../../Admin/assets/images/favicon.ico">
 
     <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="../../../../Admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="../../../../Admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -29,7 +29,7 @@
 
             <div class="container">
 
-                <div class="home-btn"><a href="/" class="text-white router-link-active"><i
+                <div class="home-btn"><a href="/public" class="text-white router-link-active"><i
                             class="fas fa-home h2"></i></a></div>
 
 
@@ -41,8 +41,8 @@
 
 
                                     <div class="text-center">
-                                        <a href="index.html">
-                                            <img src="assets/images/logo-dark.png" height="22" alt="logo">
+                                        <a href="../../../../Admin/index.html">
+                                            <img src="../../../../Admin/assets/images/logo-dark.png" height="22" alt="logo">
                                         </a>
 
                                         <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
@@ -50,7 +50,7 @@
                                     </div>
 
 
-                                    <form class="form-horizontal mt-4 pt-2" action="index.html">
+                                    <form class="form-horizontal mt-4 pt-2" action="../../../../Admin/index.html">
 
                                         <div class="mb-3">
                                             <label for="username">Username</label>
@@ -79,19 +79,19 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+                                            <a href="../../../../Admin/auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
                                         </div>
-    
+
 
                                     </form>
 
-                                  
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="mt-5 text-center text-white">
-                            <p>Don't have an account ?<a href="auth-register.html" class="fw-bold text-white"> Register</a> </p>
+                            <p>Don't have an account ?<a href="../../../../Admin/auth-register.html" class="fw-bold text-white"> Register</a> </p>
                             <p>© <script>document.write(new Date().getFullYear())</script> Morvin. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</p>
                         </div>
                     </div>
@@ -105,13 +105,13 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="../../../../Admin/assets/libs/jquery/jquery.min.js"></script>
+    <script src="../../../../Admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../../Admin/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="../../../../Admin/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../../../../Admin/assets/libs/node-waves/waves.min.js"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="../../../../Admin/assets/js/app.js"></script>
 
 </body>
 
