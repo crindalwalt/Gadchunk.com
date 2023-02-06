@@ -42,6 +42,17 @@
 
 
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-cart"></i>
+                        <span>Collections</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('collections.index') }}">All Collections</a></li>
+                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
+
+                    </ul>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
