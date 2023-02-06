@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -53,9 +54,7 @@ Route::get('/blog',function(){
 Route::get('/blog-detail',function(){
    return view('template.blog-detail');
 });
-Route::get('/my-account',function(){
-   return view('template.my-account');
-});
+Route::get('/account',[UserController::class,'account'])->middleware(['auth', 'verified'])->name('account');
 
 Route::get('/wishlist',function(){
    return view('template.wishlist');

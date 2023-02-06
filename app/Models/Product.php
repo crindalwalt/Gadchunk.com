@@ -19,4 +19,7 @@ class Product extends Model
     public function productImage(){
         return $this->hasMany(ProductImage::class);
     }
+    public function collection(){
+        return $this->belongsToMany(Collection::class, 'collection_product');
+    }
 }

@@ -123,7 +123,7 @@
                             </div>
 
                             <div class="same-style">
-                                <a href="/login"><i class="icofont-user-alt-3"></i></a>
+                                <a href="{{ route('account') }}"><i class="icofont-user-alt-3"></i></a>
                             </div>
                             <div class="same-style header-cart">
                                 <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>

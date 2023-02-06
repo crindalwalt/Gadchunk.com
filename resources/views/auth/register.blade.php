@@ -5,7 +5,7 @@
 
 
     <meta charset="utf-8" />
-    <title>Register page | Zeelma.com</title>
+    <title>Register page | Zeelma.com </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <x-partials.login-head-links />
 
