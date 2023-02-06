@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("name");
             $table->text("slug");
             $table->longText("title");
-            $table->string("discount_%");
+            $table->string("discount_price");
             $table->longText("banner_image");
             $table->longText("description");
 

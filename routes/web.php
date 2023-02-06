@@ -103,8 +103,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
 
     //Collection CRUD
-    Route::get('/collections', [CollectionController::class, 'index',])->name('collections.index');
+    Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
     Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
+    Route::post('/collection/store',[CollectionController::class,'store'])->name('collections.store');
+
 
 });
 

@@ -31,13 +31,18 @@
                     </a>
                 </li>
                 {{-- category pane --}}
+
                 <li>
-                    <a href="/admin/category" class=" waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-calendar"></i>
                         <span>Category</span>
                     </a>
-                </li>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/category">All Category</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
+                    </ul>
+                </li>
 
 
 
@@ -49,7 +54,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('collections.index') }}">All Collections</a></li>
-                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
                     </ul>
                 </li>
