@@ -45,43 +45,40 @@
                             <div class="card">
                                 <h2 class="text-center mt-4">Collection Detail</h2>
                                 <div class="card-body">
-                                      <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-sm btn-outline-warning"
-                                      {{-- id="{{$collection->id}}" --}}
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#exampleModal">
-                                      Show
-                                  </button>
-
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="exampleModal"
-                                      tabindex="-1" aria-labelledby="exampleModalLabel"
-                                      aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-scrollable">
-                                          <div class="modal-content">
-                                              <div class="modal-header">
-                                                  <h5 class="modal-title"
-                                                      id="exampleModalLabel">Collection
-                                                  </h5>
-                                                  <button type="button"
-                                                      class="btn-close"
-                                                      data-bs-dismiss="modal"
-                                                      aria-label="Close"></button>
-                                              </div>
-                                              <div class="modal-body">
-                                                  {{$collection->id}}
-                                              </div>
-                                              <div class="modal-footer">
-                                                  <button type="button"
-                                                      class="btn btn-secondary"
-                                                      data-bs-dismiss="modal">Close</button>
-                                                  <button type="button"
-                                                      class="btn btn-primary">Save
-                                                      changes</button>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
+                                    <div class="row">
+                                        <div class="col-xl-5">
+                                            <div class="collection-detail">
+                                                <div class="row">
+                                                        <div class="mb-3">
+                                                            <label class="form-label font-size-44"> Name : </label>
+                                                            {{$collection->name}}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label font-size-44"> Title : </label>
+                                                            {{$collection->title}}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label font-size-44">Discount Price : </label>
+                                                            {{$collection->discount_price}}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label font-size-44">Banner Image : </label>
+                                                            <img src="{{ asset("storage/image/$collection->banner_image")}}"
+                                                            alt="this image" class="img-fluid mx-auto d-block">                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label font-size-44">Description : </label>
+                                                            {{$collection->description}}
+                                                        </div>
+                                                    
+                                                    
+                    
+                                                </div>
+                                            </div>
+                                            <!-- end product img -->
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- end row -->
                                 </div>
                             </div>
 

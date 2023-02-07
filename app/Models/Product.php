@@ -20,6 +20,6 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
     public function collection(){
-        return $this->belongsToMany(Collection::class, 'collection_product');
+        return $this->belongsToMany(Collection::class, 'collection_products');
     }
 }

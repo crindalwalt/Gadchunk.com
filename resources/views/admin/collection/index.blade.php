@@ -57,7 +57,7 @@
                                                         placeholder="Enter collection name" id="example-text-input"
                                                         name="name">
                                                     @error('name')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger"></div>  
                                                     @enderror
                                                 </div>
                                             </div>
