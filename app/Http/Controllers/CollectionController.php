@@ -17,6 +17,11 @@ class CollectionController extends Controller
             'collections' => $data['collections'],
         ]);
     }
+    public function show (Collection $collection){
+        return view('admin.collection.show',[
+            'collection' => $collection,
+        ]);
+    }
     public function store (Request $request){
         // @dd($request);
         // validating the product details

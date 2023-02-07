@@ -106,6 +106,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
     Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
     Route::post('/collection/store',[CollectionController::class,'store'])->name('collections.store');
+    Route::get('/collection/{collection}',[CollectionController::class,'show'])->name('collectons.show');
 
 
 });
