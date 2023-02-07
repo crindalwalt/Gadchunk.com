@@ -102,20 +102,21 @@
                                                 <label for="example-email-input" class=" col-form-label">Banner
                                                     Image</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="file" id="example-email-input"
+                                                    <input class="form-control"  type="file" id="example-email-input"
                                                         name="banner_image">
                                                     @error('banner_image')
                                                         <div class="text-danger"></div>
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-6 mb-3">
+                                            <div class="col-12 mb-3">
                                                 <label class="control-label">Collection Product</label>
-                                                <select name="banner_image" class="form-control select2">
+                                                <select name="collection_products[]" class="form-control select2" multiple>
                                                     <option>Select</option>
                                                     @foreach ($products as $product)
-                                                        <option value="{{ $product->id }}">{{ $product->name }} 
-                                                            <span class="badge badge-pill badge-dark rounded-pill">{{$product->category->name}}</span>
+                                                        <option value="{{ $product->id }}" class="d-flex justify-content-between">
+                                                            {{ $product->name }}
+                                                            <small class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;({{$product->category->name}})</small>
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -152,7 +153,7 @@
                                                     <th> Name</th>
                                                     <th> Title</th>
                                                     <th> Discount percentage</th>
-                                                    
+
                                                     <th>Actions</th>
 
                                                 </tr>
@@ -165,8 +166,8 @@
                                                     <th scope="row">{{$loop->iteration}}</th>
                                                     <td>{{$collection->name}}</td>
                                                     <td>{{$collection->title}}</td>
-                                                    <td>{{$collection->discount_price}}</td>
-                                                    
+                                                    <td>{{$collection->discount_percentage}}%</td>
+
                                                     <td class="">
 
                                                         <form action="{{ route('delete_category') }}" method="POST"
