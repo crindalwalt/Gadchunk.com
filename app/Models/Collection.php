@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Collection extends Model
 {
     use HasFactory;
-    public function products(){
-        return $this->belongsToMany(Product::class, 'collection_product');
+    public function product(){
+        return $this->belongsToMany(Product::class, 'collection_products');
     }
 }

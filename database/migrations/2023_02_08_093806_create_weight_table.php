@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collection_product', function (Blueprint $table) {
+        Schema::create('weight', function (Blueprint $table) {
             $table->id();
-            $table->string("collection_id");
-            $table->string("product_id");
+            $table->string("name");
+            $table->string("abbreviation");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('weight');
     }
 };
