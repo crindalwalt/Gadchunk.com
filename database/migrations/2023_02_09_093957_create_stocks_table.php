@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_type', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->bigInteger('product_inventory')->unsigned();
+            $table->foreign('product_inventory')->references('id')->on('product_inventories')->onDelete('cascade');
+            $table->string('last_checked');
+            $table->integer('unit_sold');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_type');
+        Schema::dropIfExists('stocks');
     }
 };

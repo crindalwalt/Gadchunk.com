@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductVariation extends Model
+class Brand extends Model
 {
     use HasFactory;
-    public function ProductOption(){
-        return $this->hasMany(\App\Models\ProductOption::class);
+    public function prod_inventory(){
+        return $this->belongsTo(ProductInventory::class);
     }
-
-
-
 }

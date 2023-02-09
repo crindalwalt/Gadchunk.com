@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_attribute', function (Blueprint $table) {
+        Schema::create('product_attribute_values', function (Blueprint $table) {
             $table->id();
-            $table->string('attribute_name');
-            $table->string('attribute_description');
+            $table->string('attribute_value');
+            $table->bigInteger('product_attribute')->unsigned();
+            $table->foreign('product_attribute')->references('id')->on('product_attributes')->onDelete('cascade');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_attribute');
+        Schema::dropIfExists('product_attribute_values');
     }
 };
