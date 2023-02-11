@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class shop.productItem extends Component
+class layouts_footer extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class shop.productItem extends Component
      */
     public function render()
     {
-        return view('components.shop.product-item');
+        return view('components.layouts.footer');
     }
 }

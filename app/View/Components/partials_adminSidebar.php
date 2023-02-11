@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class partials.adminFooter extends Component
+class partials_adminSidebar extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class partials.adminFooter extends Component
      */
     public function render()
     {
-        return view('components.partials.admin-footer');
+        return view('components.partials.admin-sidebar');
     }
 }

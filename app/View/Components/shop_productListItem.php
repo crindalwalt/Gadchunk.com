@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class partials.adminSidebar extends Component
+class shop_productListItem extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class partials.adminSidebar extends Component
      */
     public function render()
     {
-        return view('components.partials.admin-sidebar');
+        return view('components.shop.product-list-item');
     }
 }

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class partials.categoryCard extends Component
+class partials_adminHeader extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class partials.categoryCard extends Component
      */
     public function render()
     {
-        return view('components.partials.category-card');
+        return view('components.partials.admin-header');
     }
 }

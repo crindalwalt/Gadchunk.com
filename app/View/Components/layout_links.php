@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class shop.productListItem extends Component
+class layout_links extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class shop.productListItem extends Component
      */
     public function render()
     {
-        return view('components.shop.product-list-item');
+        return view('components.layouts.links');
     }
 }

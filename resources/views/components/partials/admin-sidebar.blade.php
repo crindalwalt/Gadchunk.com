@@ -30,50 +30,109 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                {{-- category pane --}}
-
+                {{-- Customers pane --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-user"></i>
+                        <span>Customers</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/users">All Customers</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+                    </ul>
+                </li>
+                 {{-- Product-Inventory pane --}}
+                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-calendar"></i>
+                        <span>Product Inventory</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/product_inventory">Product Inventory</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+
+                    </ul>
+                </li>
+
+                {{-- Category pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-basket"></i>
                         <span>Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/category">All Category</a></li>
+                        <li><a href="/admin/category">Manage Category</a></li>
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
                     </ul>
                 </li>
-
-
-
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-cart"></i>
-                        <span>Collections</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('collections.index') }}">All Collections</a></li>
-                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
-
-                    </ul>
-                </li>
-
+                {{-- product pane --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-cart"></i>
                         <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/products">All Products</a></li>
-                        <li><a href="/admin/product/add">Add Product</a></li>
+                        <li><a href="/admin/prod_type">Products Type</a></li>
+                        <li><a href="/admin/product/add">Manage Products</a></li>
 
                     </ul>
                 </li>
+
+                {{-- Collection pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-wallet"></i>
+                        <span>Collections</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/collection">All Collections</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+
+                    </ul>
+                </li>
+                {{-- Brand pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-tag"></i>
+                        <span>Brand</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/brand">All brands</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+
+                    </ul>
+                </li>
+                {{-- Weight pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-stack"></i>
+                        <span>Weight</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/weight">Manage Weight</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+
+                    </ul>
+                </li>
+                {{-- Promotion pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-article"></i>
+                        <span>Promotion</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/promotion">All Promotions</a></li>
+                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+
+                    </ul>
+                </li>
+               
+                {{-- Order pane --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="dripicons-to-do"></i>
-{{--                        <span class="badge rounded-pill bg-danger float-end">6</span>--}}
+                        {{-- <span class="badge rounded-pill bg-danger float-end">6</span> --}}
                         <span>Orders</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -83,31 +142,8 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="/admin/users" class="waves-effect">
-                        <i class="dripicons-user-group"></i>
-                        {{--                        <span class="badge rounded-pill bg-danger float-end">6</span>--}}
-                        <span>Customers</span>
-                    </a>
 
-                </li>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-cart"></i>
-                        <span>Ecommerce</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ecommerce-products.html">Products</a></li>
-                        <li><a href="ecommerce-product-detail.html">Product Detail</a></li>
-                        <li><a href="ecommerce-orders.html">Orders</a></li>
-                        <li><a href="ecommerce-customers.html">Customers</a></li>
-                        <li><a href="ecommerce-cart.html">Cart</a></li>
-                        <li><a href="ecommerce-checkout.html">Checkout</a></li>
-                        <li><a href="ecommerce-shops.html">Shops</a></li>
-                        <li><a href="ecommerce-add-product.html">Add Product</a></li>
-                    </ul>
-                </li>
-
+                 {{-- Email Pane --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-mail"></i>
@@ -155,23 +191,23 @@
 
 
 
-{{--                <li>--}}
-{{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-{{--                        <i class="dripicons-to-do"></i>--}}
-{{--                        <span class="badge rounded-pill bg-danger float-end">6</span>--}}
-{{--                        <span>Forms</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
-{{--                        <li><a href="form-validation.html">Form Validation</a></li>--}}
-{{--                        <li><a href="form-advanced.html">Form Advanced</a></li>--}}
-{{--                        <li><a href="form-editors.html">Form Editors</a></li>--}}
-{{--                        <li><a href="form-uploads.html">Form Upload</a></li>--}}
-{{--                        <li><a href="form-xeditable.html">Form Xeditable</a></li>--}}
-{{--                        <li><a href="form-wizard.html">Form Wizard</a></li>--}}
-{{--                        <li><a href="form-mask.html">Form Mask</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="waves-effect"> --}}
+                {{--                        <i class="dripicons-to-do"></i> --}}
+                {{--                        <span class="badge rounded-pill bg-danger float-end">6</span> --}}
+                {{--                        <span>Forms</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="form-elements.html">Form Elements</a></li> --}}
+                {{--                        <li><a href="form-validation.html">Form Validation</a></li> --}}
+                {{--                        <li><a href="form-advanced.html">Form Advanced</a></li> --}}
+                {{--                        <li><a href="form-editors.html">Form Editors</a></li> --}}
+                {{--                        <li><a href="form-uploads.html">Form Upload</a></li> --}}
+                {{--                        <li><a href="form-xeditable.html">Form Xeditable</a></li> --}}
+                {{--                        <li><a href="form-wizard.html">Form Wizard</a></li> --}}
+                {{--                        <li><a href="form-mask.html">Form Mask</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

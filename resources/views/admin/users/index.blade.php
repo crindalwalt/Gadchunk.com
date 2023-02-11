@@ -46,7 +46,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title mb-4">All Products</h4>
+                                    <h4 class="header-title mb-4">All Users</h4>
                                     <div class="table-responsive">
                                         @if($users->isNotEmpty())
                                             <table class="table table-centered table-nowrap mb-0">
@@ -54,10 +54,9 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
-
                                                     <th>Email</th>
-                                                    <th>Stock</th>
-                                                    <th>purchased </th>
+                                                    <th>Phone #</th>
+                                                    <th>UserType </th>
                                                     <th>Actions</th>
                                                 </tr>
                                                 </thead>
@@ -72,8 +71,8 @@
                                                             </svg>
                                                             {{ $user->name   }}</td>
                                                         <td>{{ $user->email  }}</td>
-                                                        <td>12 products</td>
-                                                        <td>22</td>
+                                                        <td>{{$user->phone}}</td>
+                                                        <td>{{$user->userType}}</td>
 
                                                         <td>
                                                             <a href="/admin/user/{{$user->id}}" class="btn btn-outline-success btn-sm">Show</a>
@@ -85,19 +84,9 @@
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                                                             </form>
-
-
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
-
-
-
-
-
-
-
                                                 </tbody>
                                             </table>
                                         @else

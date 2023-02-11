@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductInventoryController;
+use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeightController;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -84,11 +89,32 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
         return view('admin.dashboard');
     })->name('admin');
 
+    // Users CRUD
+    Route::get('users/',[UserController::class,'index']);
+
+   // Product Inventory Management
+    Route::get('product_inventory/',[ProductInventoryController::class,'index']);
+
     // Category CRUD
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
 
+    // Collection CRUD
+    Route::get('collection/',[CollectionController::class,'index']);
+
+    // Brand CRUD
+    Route::get('brand/',[BrandController::class,'index']);
+    
+    // Promotion CRUD
+    Route::get('promotion/',[PromotionController::class,'index']);
+
+    // Weight CRUD
+    Route::get('weight/',[WeightController::class,'index']);
+
+    // Product type 
+    Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');
+    Route::post('/prod_type/add',[ProductTypeController::class,'store'])->name('prod_type.store');
 
     // Products CRUD
     Route::get('/products',[ProductController::class,'index'])->name('products.all');
@@ -100,7 +126,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
     Route::get('/users',[ProductController::class,'users'])->name('users.all');
-
 
     //Collection CRUD
     Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');

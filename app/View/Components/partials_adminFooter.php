@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class partials.adminHeader extends Component
+class partials_adminFooter extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class partials.adminHeader extends Component
      */
     public function render()
     {
-        return view('components.partials.admin-header');
+        return view('components.partials.admin-footer');
     }
 }

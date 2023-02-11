@@ -17,28 +17,15 @@ class CategoryController extends Controller
     }
     public function store (Request $request){
 
+//    dd($request->all());
         $request->validate([
           'category_name' => 'required|string',
-          'category_icon' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
         ]);
-
-        if($request->hasFile('category_icon')) {
-
-            $file = $request->file('category_icon') ;
-            $filenameToSave = time() . "-cat-icon." . $file->getClientOriginalExtension();
-            $request->file('category_icon')->storeAs('public/category-icon/',$filenameToSave);
-
-        }else{
-            alert('warning','Category icon not uploaded correctly','warning');
-            return redirect()->back();
-        }
-
 
         $category = new Category();
         $category->name = $request->category_name;
-        $category->slug = "/" .trim( strtolower($request->category_name));
-        $category->icon = $filenameToSave;
-        $category->save();
+        $category->slug = "/" .trim( strtolower($request->category_name));        $category->save();
+        $category->is_active = 0;
         alert("Success", 'Category has been added successfully','success');
         return redirect()->back();
 

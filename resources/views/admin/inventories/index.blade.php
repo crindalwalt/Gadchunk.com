@@ -13,10 +13,10 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="page-title">
-                                <h4>Manage Products</h4>
+                                <h4>Product Inventory</h4>
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="/admin/collections">Products</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/collections">Product Inventory</a></li>
                                     <li class="breadcrumb-item active">Manage Products</li>
                                 </ol>
                             </div>
@@ -45,58 +45,93 @@
                                         method="POST">
                                         @csrf
 
-                                        <h4 class="header-title">Add New Products</h4>
-                                        <p class="card-title-desc">You can add products here</p>
+                                        <h4 class="header-title">Add New Collections</h4>
+                                        <p class="card-title-desc">You can add product collections here</p>
                                         <div class="row">
 
-                                            <div class="col-12 mb-3">
+                                            <div class="col-6 mb-3">
                                                 <label for="example-text-input"
                                                     class="col-sm-2 col-form-label">Name</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text"
-                                                        placeholder="Enter product name" id="example-text-input"
+                                                        placeholder="Enter collection name" id="example-text-input"
                                                         name="name">
                                                     @error('name')
                                                         <div class="text-danger"></div>  
                                                     @enderror
                                                 </div>
                                             </div>
-
-                                            <div class="col-12 mb-3">
-                                                <label class="control-label"> Product Category</label>
-                                                <select name="category_id" class="form-control select2">
-                                                    <option>Select</option>
-                                                    {{-- @foreach ($categories as $cat) --}}
-
-                                                        <option value="" class="d-flex justify-content-between">
-
-                                                            <small class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    {{-- @endforeach --}}
-                                                </select>
-                                                @error('category_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
+                                            <div class="col-6 mb-3">
+                                                <label for="example-text-input"
+                                                    class="col-sm-2 col-form-label">Title</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text"
+                                                        placeholder="Enter collection title" id="example-text-input"
+                                                        name="title">
+                                                    @error('title')
+                                                        <div class="text-danger"></div>
+                                                    @enderror
+                                                </div>
                                             </div>
 
-                                            <div class="col-12 mb-3">
+                                            <div class="col-6 mb-3">
+                                                <label for="example-text-input" class=" col-form-label">Discount
+                                                    Price</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text"
+                                                        placeholder="Enter discount price" id="example-text-input"
+                                                        name="discount_price">
+                                                    @error('discount_price')
+                                                        <div class="text-danger"></div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mb-3">
                                                 <label for="example-text-input"
                                                     class=" col-form-label">Description</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text"
-                                                        placeholder="Enter product description"
+                                                        placeholder="Enter collection description"
                                                         id="example-text-input" name="description">
                                                     @error('description')
                                                         <div class="text-danger"></div>
                                                     @enderror
                                                 </div>
                                             </div>
-                                       
+
+                                            <div class="col-6 mb-3">
+                                                <label for="example-email-input" class=" col-form-label">Banner
+                                                    Image</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control"  type="file" id="example-email-input"
+                                                        name="banner_image">
+                                                    @error('banner_image')
+                                                        <div class="text-danger"></div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <label class="control-label">Collection Product</label>
+                                                <select name="collection_products[]" class="form-control select2" multiple>
+                                                    <option>Select</option>
+                                                    @foreach ($products as $product)
+
+                                                        <option value="" class="d-flex justify-content-between">
+
+                                                            <small class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('banner_image')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
                                         </div>
                                         <div class="row mb-3">
                                             <div class="#">
                                                 <input class="btn btn-lg px-4 py-2 btn-primary" type="submit"
-                                                    value="Add Product" id="example-email-input">
+                                                    value="Add Collection" id="example-email-input">
                                             </div>
                                         </div>
 
@@ -107,25 +142,29 @@
                             </div>
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Browse all Products</h4>
-                                    <p class="card-title-desc">All of the below Products are fetched from the
+                                    <h4 class="header-title">Browse all Collections</h4>
+                                    <p class="card-title-desc">All of the below Collections are fetched from the
                                         DateBase</p>
                                     <div class="table-responsive">
 
                                         <table class="table mb-0">
-                                            {{-- @if ($products->isNotEmpty()) --}}
+                                            {{-- @if ($collections->isNotEmpty()) --}}
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th> Name</th>
-                                                    <th> Category</th>
-                                                    <th> Description</th>
+                                                    <th> Title</th>
+                                                    <th> Discount percentage</th>
+
                                                     <th>Actions</th>
+
+                                                        <th>Actions</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                    {{-- @foreach ($products as $product) --}}
+                                                    {{-- @foreach ($collections as $collection) --}}
                                                       
                                                 <tr>
                                                     <th scope="row"></th>
@@ -162,7 +201,7 @@
                                                                 d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                                         </svg>
                                                         <span class="mx-3">
-                                                            No Products to show <br>
+                                                            No Collections to show <br>
 
                                                         </span>
                                                     </div>
