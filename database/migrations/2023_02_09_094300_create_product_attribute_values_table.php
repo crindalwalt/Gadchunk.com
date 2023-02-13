@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('attribute_value');
             $table->bigInteger('product_attribute')->unsigned();
             $table->foreign('product_attribute')->references('id')->on('product_attributes')->onDelete('cascade');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\NavigatorController;
+use App\Http\Controllers\ProductAttributeController;
+use App\Http\Controllers\ProductAttributeValueController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductInventoryController;
 use App\Http\Controllers\ProductTypeController;
@@ -94,6 +96,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
    // Product Inventory Management
     Route::get('product_inventory/',[ProductInventoryController::class,'index']);
+    Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
 
     // Category CRUD
     Route::get('category/',[CategoryController::class,'index']);
@@ -104,13 +107,23 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('collection/',[CollectionController::class,'index']);
 
     // Brand CRUD
-    Route::get('brand/',[BrandController::class,'index']);
-    
+    Route::get('brand/',[BrandController::class,'index'])->name('brand.index');
+    Route::post('/brand/add',[BrandController::class,'store'])->name('brand.store');
+
     // Promotion CRUD
     Route::get('promotion/',[PromotionController::class,'index']);
 
     // Weight CRUD
     Route::get('weight/',[WeightController::class,'index']);
+    Route::post('/weight/add',[WeightController::class,'store'])->name('weight.store');
+
+
+   //Product Variation 
+   Route::get('/prod_var',[ProductAttributeController::class,'index'])->name('product.variation');
+   Route::post('/prod_var/add',[ProductAttributeController::class,'store'])->name('prod_var.store');
+
+   //Product Variation Value 
+   Route::post('/prod_var_value/add',[ProductAttributeValueController::class,'store'])->name('prod_var_value.store');
 
     // Product type 
     Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');
