@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\ProductAttribute;
+use App\Models\ProductAttributeValue;
 use App\Models\ProductInventory;
 use App\Models\ProductType;
 use App\Models\Weight;
@@ -12,20 +14,17 @@ use Illuminate\Http\Request;
 class ProductInventoryController extends Controller
 {
     public function index (){
-        $inventories = ProductInventory::all();
-        $products = Product::all();
-        $weights = Weight::all();
-        $brands = Brand::all();
-        $types = ProductType::all();
-        return view('admin.inventories.index',[
-            'inventories' => $inventories,
-            'products' => $products,
-            'weights' => $weights,
-            'brands' => $brands,
-            'types' => $types,
-        ]);
+        $data['inventories'] = ProductInventory::all();
+        $data['products'] = Product::all();
+        $data['weights'] = Weight::all();
+        $data['brands'] = Brand::all();
+        $data['types'] = ProductType::all();
+        $data['attributes'] = ProductAttribute::get();
+        $data['values'] = ProductAttributeValue::all();
+        return view('admin.inventories.index',$data);
     }
 
+   
     public function store(Request $request)
     {
 
@@ -57,4 +56,6 @@ class ProductInventoryController extends Controller
         }
 
     }
+
+ 
 }

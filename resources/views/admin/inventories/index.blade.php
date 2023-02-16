@@ -1,5 +1,5 @@
 <x-layouts.admin>
-    {{-- @dd($products) --}}
+    {{-- @dd($attributes ) --}}
     <!-- ============================================================== -->
     @include('sweetalert::alert')
     <div class="main-content">
@@ -41,7 +41,8 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{route('inventory.store')}}" enctype="multipart/form-data" method="POST">
+                                    <form action="{{ route('inventory.store') }}" enctype="multipart/form-data"
+                                        method="POST">
                                         @csrf
 
                                         <h4 class="header-title">Add Products</h4>
@@ -83,6 +84,7 @@
                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
                                                 @enderror
                                             </div>
+
 
                                             <div class="col-6 mb-3">
                                                 <label class="control-label">Product Weight</label>
@@ -147,27 +149,88 @@
                                             </div>
 
                                             <div class="col-12 mb-3">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Stock Available</label>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Stock
+                                                    Available</label>
                                                 <span><input type="checkbox" name="in_stock"></span>
-                                                    @error('in_stock')
-                                                        <div class="text-danger"></div>
-                                                    @enderror
+                                                @error('in_stock')
+                                                    <div class="text-danger"></div>
+                                                @enderror
                                             </div>
                                             <div class="col-12 mb-3">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Status</label>
+                                                <label for="example-text-input"
+                                                    class="col-sm-2 col-form-label">Status</label>
                                                 <span><input type="checkbox" name="is_active"></span>
-                                                    @error('is_active')
-                                                        <div class="text-danger"></div>
-                                                    @enderror
+                                                @error('is_active')
+                                                    <div class="text-danger"></div>
+                                                @enderror
+                                            </div>
+                                            {{-- <div class="col-6 mb-3">
+                                                <label class="control-label">Product Variation</label>
+                                                <select name="product_type_id" class="form-control select2" id="variation">
+                                                    <option>Select</option>
+                                                    @foreach ($attributes as $attribute)
+                                                        <option value="{{ $attribute->id }}"
+                                                            class="d-flex justify-content-between ">
+                                                            {{ $attribute->attribute_name }}
+                                                            <small
+                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('product_type_id')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <label class="control-label">Variation Values</label>
+                                                <select name="product_type_id" class="form-control select2" id="variation_value">
+                                                    <option>Select</option>
+                                                    @foreach ($values as $value)
+                                                        <option value="{{ $value->id }}" 
+                                                            class="d-flex justify-content-between ">
+                                                            {{ $value->attribute_value}}
+                                                            <small
+                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('product_type_id')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
+                                            </div> --}}
+                                            <div class="card">
+                                                <h2 class="header-title text-center mb-3 font-weight-bold">Manage
+                                                    Variation</h2>
+                                                @foreach ($attributes as $attr)
+                                                    <div class="col-4 mb-3">
+                                                        <label class="control-label">{{$attr->attribute_name}}</label>
+                                                        <select name="{{$attr->attribute_name}}.'[]'" class="form-control select2">
+                                                            @foreach ($values as $value)
+                                                            <option value="{{$value->id}}"
+                                                                class="d-flex justify-content-between ">
+                                                                {{$value->attribute_value}}
+                                                                <small
+                                                                    class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                            </option>                                                                
+                                                            @endforeach
+                                                        </select>
+                                                        @error("{{$attr->attribute_name}}.'[]'")
+                                                            <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                @endforeach
+
                                             </div>
 
-                                           
+
+
 
                                         </div>
                                         <div class="row mb-3">
                                             <div class="#">
                                                 <input class="btn btn-lg px-4 py-2 btn-primary" type="submit"
                                                     value="Add to Inventory" id="example-email-input">
+
                                             </div>
                                         </div>
 
@@ -185,58 +248,59 @@
 
                                         <table class="table mb-0">
                                             @if ($inventories->isNotEmpty())
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th> Name</th>
-                                                    <th> Retail Price</th>
-                                                    <th> Stock Price</th>
-                                                    <th> Status</th>
-                                                    <th>Actions</th>
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th> Name</th>
+                                                        <th> Retail Price</th>
+                                                        <th> Stock Price</th>
+                                                        <th> Status</th>
+                                                        <th>Actions</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
 
-                                                @foreach ($inventories as $inv)
+                                                    @foreach ($inventories as $inv)
+                                                        <tr>
+                                                            <th scope="row">{{ $loop->iteration }}</th>
+                                                            <td>{{ $inv->product_id }}</td>
+                                                            <td>{{ $inv->retail_price }}</td>
+                                                            <td>{{ $inv->store_price }}</td>
+                                                            <td>{{ $inv->is_active }}</td>
 
-                                                <tr>
-                                                    <th scope="row">{{$loop->iteration}}</th>
-                                                    <td>{{$inv->product_id}}</td>
-                                                    <td>{{$inv->retail_price}}</td>
-                                                    <td>{{$inv->store_price}}</td>
-                                                    <td>{{$inv->is_active}}</td>
+                                                            <td class="">
+                                                                <a href="/admin/collection/"
+                                                                    class="btn btn-outline-success btn-sm">Show</a>
 
-                                                    <td class="">
-                                                        <a href="/admin/collection/"
-                                                            class="btn btn-outline-success btn-sm">Show</a>
+                                                                <form action="" method="POST" class="d-inline">
+                                                                    @csrf
+                                                                    <input type="hidden" value=""
+                                                                        name="id">
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-outline-danger">Delete</button>
+                                                                </form>
+                                                            </td>
 
-                                                        <form action="" method="POST" class="d-inline">
-                                                            @csrf
-                                                            <input type="hidden" value="" name="id">
-                                                            <button type="submit"
-                                                                class="btn btn-sm btn-outline-danger">Delete</button>
-                                                        </form>
-                                                    </td>
-
-                                                </tr>
-                                                @endforeach
+                                                        </tr>
+                                                    @endforeach
                                                 @else
-                                                <div
-                                                    class="text-center text-warning text-lg font-size-24 font-semibold d-flex justify-content-center align-items-center
+                                                    <div
+                                                        class="text-center text-warning text-lg font-size-24 font-semibold d-flex justify-content-center align-items-center
                                             ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30"
-                                                        height="30" fill="currentColor"
-                                                        class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                                    </svg>
-                                                    <span class="mx-3">
-                                                        Inventory Products Unavailable <br>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                                            height="30" fill="currentColor"
+                                                            class="bi bi-exclamation-triangle-fill"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                        </svg>
+                                                        <span class="mx-3">
+                                                            Inventory Products Unavailable <br>
 
-                                                    </span>
-                                                </div>
-                                                @endif
+                                                        </span>
+                                                    </div>
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -254,18 +318,6 @@
         </div>
         <x-partials.admin-footer />
     </div>
-
-
-
-
-
-
-
-
-
-    <!-- ============================================================== -->
-
-
 
 
 </x-layouts.admin>

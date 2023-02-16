@@ -95,10 +95,13 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('users/',[UserController::class,'index']);
 
    // Product Inventory Management
-    Route::get('product_inventory/',[ProductInventoryController::class,'index']);
-    Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
-
-    // Category CRUD
+   
+   Route::get('product_inventory/',[ProductInventoryController::class,'index']);
+   Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
+   
+   Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
+   
+   // Category CRUD
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
@@ -124,6 +127,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
    //Product Variation Value 
    Route::post('/prod_var_value/add',[ProductAttributeValueController::class,'store'])->name('prod_var_value.store');
+   Route::post('/var_val',[ProductAttributeValueController::class,'variation_value'])->name('prod_var_value.store');
 
     // Product type 
     Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');

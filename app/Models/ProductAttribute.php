@@ -9,6 +9,6 @@ class ProductAttribute extends Model
 {
     use HasFactory;
     public function prod_attribute_value(){
-        return $this->belongsTo(ProductAttributeValue::class);
+        return $this->hasMany(related: ProductAttributeValue::class);
     }
 }

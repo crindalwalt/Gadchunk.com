@@ -94,7 +94,7 @@
 
                                             <div class="col-12 mb-3">
                                                 <label class="control-label">Product Variation</label>
-                                                <select name="product_attribute" class="form-control select2" >
+                                                <select name="product_attribute_id" class="form-control select2" >
                                                     <option>Select</option>
                                                     @foreach ($variations as $var)
                                                         <option value="{{ $var->id }}"
@@ -105,7 +105,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                                @error('product_attribute')
+                                                @error('product_attribute_id')
                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -122,6 +122,20 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
+                                            <div class="col-12 mb-3">
+                                                <label for="example-text-input"
+                                                    class="col-sm-2 col-form-label">Description</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text"
+                                                        placeholder="Enter description..." id="example-text-input"
+                                                        name="description">
+                                                    @error('description')
+                                                        <div class="text-danger"></div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="row mb-3">
                                             <div class="#">

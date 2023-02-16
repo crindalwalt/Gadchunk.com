@@ -89,7 +89,7 @@
                                 <div class="table-responsive">
 
                                 <table class="table mb-0">
-                                    {{-- @if($weights->isNotEmpty()) --}}
+                                    @if($weights->isNotEmpty())
                                     <thead>
                                     <tr>
                                         <th>#</th>
@@ -100,11 +100,11 @@
                                     </thead>
                                     <tbody>
 
-                                            {{-- @foreach($weights as $weight) --}}
+                                            @foreach($weights as $weight)
 
                                                 <tr>
                                                     <th scope="row">{{$loop->iteration}}</th>
-                                                    {{-- <td>{{$weight->name}} {{$weight->abbreviation}}</td> --}}
+                                                    <td>{{$weight->name}} {{$weight->abbreviation}}</td>
                                                     <td class="">
 
                                                         <form action="" method="POST" class="d-inline">
@@ -115,8 +115,8 @@
                                                     </td>
 
                                                 </tr>
-                                            {{-- @endforeach --}}
-                                        {{-- @else --}}
+                                            @endforeach
+                                        @else
                                         <div class="text-center text-warning text-lg font-size-24 font-semibold d-flex justify-content-center align-items-center
                                         ">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -127,7 +127,7 @@
 
                                             </span>
                                         </div>
-                                    {{-- @endif --}}
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
