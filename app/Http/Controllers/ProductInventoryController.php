@@ -24,11 +24,11 @@ class ProductInventoryController extends Controller
         return view('admin.inventories.index',$data);
     }
 
-   
+
     public function store(Request $request)
     {
 
-        // dd($request->all());
+         dd($request->all());
         $request->validate([
             'product_id' => 'required|numeric',
             'product_type_id' => 'required|numeric',
@@ -57,5 +57,5 @@ class ProductInventoryController extends Controller
 
     }
 
- 
+
 }
