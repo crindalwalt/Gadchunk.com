@@ -186,7 +186,7 @@
                                                 <select name="product_type_id" class="form-control select2" id="variation_value">
                                                     <option>Select</option>
                                                     @foreach ($values as $value)
-                                                        <option value="{{ $value->id }}" 
+                                                        <option value="{{ $value->id }}"
                                                             class="d-flex justify-content-between ">
                                                             {{ $value->attribute_value}}
                                                             <small
@@ -204,14 +204,14 @@
                                                 @foreach ($attributes as $attr)
                                                     <div class="col-4 mb-3">
                                                         <label class="control-label">{{$attr->attribute_name}}</label>
-                                                        <select name="{{$attr->attribute_name}}.'[]'" class="form-control select2">
-                                                            @foreach ($values as $value)
+                                                        <select name="{{$attr->attribute_name}}.'[]'" class="form-control select2" multiple`>
+                                                            @foreach ($attr->prod_attribute_value as $value)
                                                             <option value="{{$value->id}}"
                                                                 class="d-flex justify-content-between ">
                                                                 {{$value->attribute_value}}
                                                                 <small
                                                                     class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                            </option>                                                                
+                                                            </option>
                                                             @endforeach
                                                         </select>
                                                         @error("{{$attr->attribute_name}}.'[]'")
