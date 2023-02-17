@@ -20,7 +20,7 @@ class ProductInventoryController extends Controller
         $data['brands'] = Brand::all();
         $data['types'] = ProductType::all();
         $data['attributes'] = ProductAttribute::get();
-        $data['values'] = ProductAttributeValue::all();
+        // $data['values'] = ProductAttributeValue::all();
         return view('admin.inventories.index',$data);
     }
 

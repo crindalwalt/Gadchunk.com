@@ -1,183 +1,124 @@
 <x-main-layout>
-        <div class="breadcrumb-area breadcrumb-mt breadcrumb-ptb-2">
-            <div class="container">
-                <div class="breadcrumb-content">
-                    <h2>Checkout</h2>
-                    <ul>
-                        <li>
-                            <a href="index.blade.php">Home </a>
-                        </li>
-                        <li><span> > </span></li>
-                        <li>
-                            <a href="index.blade.php">Product </a>
-                        </li>
-                        <li><span> > </span></li>
-                        <li class="active"> Checkout </li>
-                    </ul>
-                </div>
+    <section class="page_menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="hidden">hidden</h3>
+              <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Products</li>
+                <li class="active">Shopping cart</li>
+              </ul>
             </div>
+          </div>
         </div>
-        <div class="cart-check-order-link-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 ms-auto me-auto">
-                        <div class="cart-check-order-link">
-                            <a href="cart.blade.php">Shopping Cart</a>
-                            <a class="active" href="checkout.html">Check Out</a>
-                            <a href="../frontEnd/order-complete.html">Order Complete</a>
-                        </div>
+      </section>
+      
+      
+      <!--Cart TAble-->
+      <section id="cart">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 margintop40">
+              <h4 class="heading uppercase bottom30">Create a new account</h4>
+              <p class="content_space">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <form class="contact-form">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="jane.doe@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input type="email" class="form-control" id="pass" placeholder="*****">
+                  </div>
+                    <input type="submit" class="uppercase margintop40 btn-dark" value="REgister now">
+                    <input type="submit" class="btn-dark uppercase margintop40" value="Checkout as guest">
+              </form>
+            
+            </div>
+            <div class="col-md-6 margintop40">
+              <h4 class="heading uppercase bottom30">Login to your account</h4>
+              <form class="contact-form">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email-log" placeholder="jane.doe@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input type="email" class="form-control" id="pass-log" placeholder="*****">
+                  </div>
+                  <div class="form-group">
+                  <label>
+                    <div class="squaredFour">
+                      <input type="checkbox" value="None" id="squaredFour" name="check" checked />
+                      <label for="squaredFour"></label>
+                   </div>
+                   <h5>Keep me logged in</h5>
+                    <a href="#.">Forgot your password?</a>
+                   </label>
+                  </div>
+                  <div class="form-group">
+                     <input type="submit" class="uppercase margintop40 btn-light" value="Login to your account">
+                  </div>
+              </form>
+              <a href="#." class="uppercase btn-common facebook-share"><i class="fa fa-facebook"></i>Login facebook</a>
+              <a href="#." class="uppercase btn-common twitter-share"><i class="fa fa-twitter"></i>Login twitter</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="accordion-container padding">
+                    <div class="set">
+                      <a href="#." class="active uppercase"><i class="fa fa-plus"></i>Billing Information</a>
+                      <div class="content" style="display:block;">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                      </div>
+                    </div>
+                    <div class="set">
+                      <a href="#." class="uppercase"><i class="fa fa-plus"></i>Shipping Information </a>
+                      <div class="content">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                      </div>
+                    </div>
+                    <div class="set">
+                      <a href="#." class="uppercase"><i class="fa fa-plus"></i>Shipping Method</a>
+                      <div class="content">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                      </div>
+                    </div>
+                    
+                    <div class="set">
+                      <a href="#."><i class="fa fa-plus"></i>Payment Information </a>
+                      <div class="content">
+                        <ul>
+                          <li><a href="#.">Bag & Luggage</a></li>
+                          <li><a href="#.">Eyewear</a></li>
+                          <li><a href="#.">Jewelry</a></li>
+                          <li><a href="#.">Shoes</a></li>
+                          <li><a href="#.">Skerts</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="set">
+                      <a href="#."><i class="fa fa-plus"></i>Order Review</a>
+                      <div class="content">
+                        <ul>
+                          <li><a href="#.">Bag & Luggage</a></li>
+                          <li><a href="#.">Eyewear</a></li>
+                          <li><a href="#.">Jewelry</a></li>
+                          <li><a href="#.">Shoes</a></li>
+                          <li><a href="#.">Skerts</a></li>
+                        </ul>
+                      </div>
                     </div>
                 </div>
             </div>
+          </div>
         </div>
-        <div class="checkout-area bg-gray pt-160 pb-160">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="checkout-left-wrap">
-                            <div class="login-guest-top">
-                                <div class="checkout-tab nav">
-                                    <a href="#checkout-login" data-bs-toggle="tab">
-                                        Log In
-                                    </a>
-                                    <a class="active" href="#checkout-guest" data-bs-toggle="tab">
-                                        Buy as a Guest
-                                    </a>
-                                </div>
-                                <div class="tab-content">
-                                    <div id="checkout-login" class="tab-pane">
-                                        <div class="checkout-login-wrap">
-                                            <h4>Login information</h4>
-                                            <div class="checkout-login-style">
-                                                <form action="#">
-                                                    <input type="text" name="user-name" placeholder="Username">
-                                                    <input type="password" name="user-password" placeholder="Password">
-                                                    <div class="checkout-button-box">
-                                                        <div class="checkout-login-toggle-btn">
-                                                            <input type="checkbox">
-                                                            <label>Remember me</label>
-                                                            <a href="#">Forgot Password?</a>
-                                                        </div>
-                                                        <button type="submit">Login</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="checkout-guest" class="tab-pane active">
-                                        <div class="checkout-guest-wrap">
-                                            <h4>Contact information</h4>
-                                            <div class="checkout-guest-style">
-                                                <form action="#">
-                                                    <input type="text" name="user-name" placeholder="Enter Mobile Number or Email">
-                                                    <div class="guest-login-toggle-btn">
-                                                        <input type="checkbox">
-                                                        <label>Keep me up to date on news and exclusive offers</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shipping-address-wrap">
-                                <h4 class="checkout-title">Shipping address</h4>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="billing-info">
-                                            <input type="text" required="" placeholder="Fast Name" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="billing-info">
-                                            <input type="text" required="" placeholder="Last Name" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info">
-                                            <input type="text" required="" placeholder="Address" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info">
-                                            <input type="text" required="" placeholder="Address More" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <select class="nice-select nice-select-style-3 cart-tax-select">
-                                            <option>Select Country </option>
-                                            <option>Bangladesh</option>
-                                            <option>Bahamas</option>
-                                            <option>Bahrain</option>
-                                            <option>India</option>
-                                            <option>Barbados</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="billing-info">
-                                            <input type="text" required="" placeholder="Postal Code" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="checkout-save-info">
-                                            <input class="checkout-checkbox2" type="checkbox">
-                                            <span>Save this information for next time</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="payment-details mb-40">
-                            <h4 class="checkout-title">Payment Deatails</h4>
-                            <ul>
-                                <li>Cart Subtotal <span>$155.00</span></li>
-                                <li>Shipping and Handing <span>$15.00</span></li>
-                                <li>Vat <span>$00.00</span></li>
-                            </ul>
-                            <div class="total-order">
-                                <ul>
-                                    <li>Order Total <span>$170.00</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="payment-details">
-                            <h4 class="checkout-title">Payment Deatails</h4>
-                            <div class="payment-method">
-                                <div class="pay-top sin-payment">
-                                    <input id="payment_method_1" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
-                                    <label for="payment_method_1"> Paypal </label>
-                                    <div class="payment-box payment_method_bacs">
-                                        <form action="#">
-                                            <input type="text" required="" placeholder="Enter Your Paypal Email" name="name">
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="pay-top sin-payment">
-                                    <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                    <label for="payment-method-2">Card </label>
-                                    <div class="payment-box payment_method_bacs">
-                                        <form action="#">
-                                            <input type="text" required="" placeholder="Enter Your Card Email" name="name">
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="pay-top sin-payment">
-                                    <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                    <label for="payment-method-3">Bank or Check </label>
-                                    <div class="payment-box payment_method_bacs">
-                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="back-continue-wrap">
-                    <a href="#">Back to cart</a>
-                    <a href="#">Please Order</a>
-                </div>
-            </div>
-        </div>
+      </section>
+      
+      
 </x-main-layout>

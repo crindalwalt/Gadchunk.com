@@ -7,6 +7,8 @@ use App\Http\Controllers\NavigatorController;
 use App\Http\Controllers\ProductAttributeController;
 use App\Http\Controllers\ProductAttributeValueController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\ProductInventoryController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
@@ -34,51 +36,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [NavigatorController::class,'index'])->name('home');
-Route::get('/shop', function () {
-    $products = Product::all();
-    $category = Category::all();
-    return view('template.shop',[
-        'products' =>$products,
-        'categories' => $category,
-    ]);
-})->name('shop');
-Route::get('/shop-item',function(){
-
-   return view('template.product-details');
-});
-Route::get('/about',function(){
-   return view('template.about');
-})->name('about');
-Route::get('/contact',function(){
-   return view('template.contact');
-})->name('contact');
-Route::get('/404',function(){
-   return view('template.404');
-});
-Route::get('/blog',function(){
-   return view('template.blog');
-})->name('blog');
-Route::get('/blog-detail',function(){
-   return view('template.blog-detail');
-});
-Route::get('/account',[UserController::class,'account'])->middleware(['auth', 'verified'])->name('account');
-
-Route::get('/wishlist',function(){
-   return view('template.wishlist');
-});
-Route::get('/cart',function(){
-   return view('template.cart');
-})->name('cart');
-Route::get('/checkout',function(){
-   return view('template.checkout');
-});
-Route::get('/order-complete',function(){
-   return view('template.order-complete');
-});
-Route::get('/order-tracking',function(){
-   return view('template.order-tracking');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -164,3 +121,59 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('/', [NavigatorController::class,'index'])->name('home');
+Route::get('add-cart/{id}/{quantity?}' , [CartController::class , 'add'])->name('add-cart');
+
+Route::get('/shop', function () {
+    $products = Product::all();
+    $category = Category::all();
+    return view('template.shop',[
+        'products' =>$products,
+        'categories' => $category,
+    ]);
+})->name('shop');
+Route::get('/shop-item',function(){
+
+   return view('template.product-details');
+});
+Route::get('/about',function(){
+   return view('template.about');
+})->name('about');
+Route::get('/contact',function(){
+   return view('template.contact');
+})->name('contact');
+Route::get('/404',function(){
+   return view('template.404');
+});
+Route::get('/blog',function(){
+   return view('template.blog');
+})->name('blog');
+Route::get('/blog-detail',function(){
+   return view('template.blog-detail');
+});
+Route::get('/account',[UserController::class,'account'])->middleware(['auth', 'verified'])->name('account');
+
+Route::get('/wishlist',function(){
+   return view('template.wishlist');
+});
+Route::get('/cart',function(){
+   return view('template.cart');
+})->name('cart');
+Route::get('/checkout',function(){
+   return view('template.checkout');
+});
+Route::get('/order-complete',function(){
+   return view('template.order-complete');
+});
+Route::get('/order-tracking',function(){
+   return view('template.order-tracking');
+});
+

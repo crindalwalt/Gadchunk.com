@@ -2,50 +2,45 @@
 
     {{-- SEO links   --}}
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Zelma Mart</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    {{--  CSS  --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/vandella.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/jellybelly.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/icofont.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/fontello.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/easyzoom.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Zeelma
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.transitions.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/cubeportfolio.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.fancybox.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootsnav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/settings.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/loader.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}">
 
 
 
 
     {{--  JS  --}}
-    <script defer  src="{{ asset('assets/js/vendor/modernizr-3.11.7.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/vendor/jquery-v3.6.0.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/vendor/jquery-migrate-v3.3.2.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/vendor/popper.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/slick.js') }}"></script>
-    <script  defer src="{{ asset('assets/js/plugins/countdown.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/wow.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/instafeed.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/svg-injector.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/mouse-parallax.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/images-loaded.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/isotope.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/jquery-ui.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/magnific-popup.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/easyzoom.js') }}"></script>
-    <script  defer src="{{ asset('assets/js/plugins/scrollup.js') }}"></script>
-    <script defer  src="{{ asset('assets/js/plugins/ajax-mail.js') }}"></script>
-    {{-- Main JS   --}}
-    <script defer src="{{ asset('assets/js/main.js') }}"></script>
+    <script defer src="{{asset('assets/js/jquery-2.2.3.js')}}"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
+    <script defer src="{{asset('assets/js/gmap3.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/bootsnav.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.parallax-1.1.3.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.appear.js')}}"></script>
+    <script defer src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.cubeportfolio.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.fancybox.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.themepunch.tools.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.themepunch.revolution.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/revolution.extension.layeranimation.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/revolution.extension.navigation.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/revolution.extension.parallax.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/revolution.extension.slideanims.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/revolution.extension.video.min.js')}}"></script>
+    <script defer src="{{asset('assets/js/kinetic.js')}}"></script>
+    <script defer src="{{asset('assets/js/jquery.final-countdown.js')}}"></script>
+    <script defer src="{{asset('assets/js/functions.js')}}"></script>
 </div>

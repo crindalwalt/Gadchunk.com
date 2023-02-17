@@ -1,530 +1,346 @@
 <x-main-layout>
 
-    <div class="product-details-area slider-mt-7 pt-120 pb-70">
-        <div class="container">
-            <div class="product-details-top-content">
-                <div class="product-details-content">
-                    <h2>Fashion Shop</h2>
-                    <p class="pro-dec-paragraph-2">Seamlessly predominate enterprise metrics without performance based process improvements.</p>
-                </div>
-                <div class="product-details-content">
-                    <div class="product-ratting-review-wrap">
-                        <div class="product-ratting-digit-wrap">
-                            <div class="product-ratting">
-                                <i class="icon-rating"></i>
-                                <i class="icon-rating"></i>
-                                <i class="icon-rating"></i>
-                                <i class="icon-rating"></i>
-                                <i class="icon-star-empty"></i>
-                            </div>
-                            <div class="product-digit">
-                                <span>4.0</span>
-                            </div>
-                        </div>
-                        <div class="product-review-order">
-                            <span>62 Reviews</span>
-                            <span>242 orders</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-7 col-lg-7 col-md-12">
-                    <div class="product-details-tab">
-                        <div class="product-dec-left">
-                            <div class="pro-dec-big-img-slider-2 product-big-img-style">
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-1.jpg">
-                                            <img src="assets/images/product-details/large-1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-2.jpg">
-                                            <img src="assets/images/product-details/large-2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-3.jpg">
-                                            <img src="assets/images/product-details/large-3.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-4.jpg">
-                                            <img src="assets/images/product-details/large-4.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-5.jpg">
-                                            <img src="assets/images/product-details/large-5.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-6.jpg">
-                                            <img src="assets/images/product-details/large-6.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-4.jpg">
-                                            <img src="assets/images/product-details/large-4.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-5.jpg">
-                                            <img src="assets/images/product-details/large-5.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-dec-right">
-                            <div class="product-dec-slider-2 product-small-img-style">
-                                <div class="product-dec-small active">
-                                    <img src="assets/images/product-details/small-1.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-2.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-3.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-4.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-5.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-6.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-4.jpg" alt="">
-                                </div>
-                                <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-5.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-5 col-md-12">
-                    <div class="product-details-content quickview-content product-details-content-4">
-                        <div class="pro-details-price pro-details-price-4">
-                            <span>US $75.72</span>
-                            <span class="old-price">US $95.72</span>
-                        </div>
-                        <div class="pro-details-color-wrap">
-                            <span>Color:</span>
-                            <div class="pro-details-color-content">
-                                <ul>
-                                    <li><a class="white" href="#">Black</a></li>
-                                    <li><a class="azalea" href="#">Blue</a></li>
-                                    <li><a class="dolly" href="#">Green</a></li>
-                                    <li><a class="peach-orange" href="#">Orange</a></li>
-                                    <li><a class="mona-lisa active" href="#">Pink</a></li>
-                                    <li><a class="cupid" href="#">gray</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="pro-details-size">
-                            <span>Size:</span>
-                            <div class="pro-details-size-content">
-                                <ul>
-                                    <li><a href="#">XS</a></li>
-                                    <li><a href="#">S</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="pro-details-quality">
-                            <span>Quantity:</span>
-                            <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                            </div>
-                        </div>
-                        <div class="product-details-meta">
-                            <ul>
-                                <li><span>Model:</span> <a href="#">Odsy-1000</a></li>
-                                <li><span>Ship To</span> <a href="#">2834 Laurel Lane</a>, <a href="#">Mentone</a> , <a href="#">Texas</a></li>
-                            </ul>
-                        </div>
-                        <div class="pro-details-action-wrap">
-                            <div class="pro-details-buy-now">
-                                <a href="#">Buy Now</a>
-                            </div>
-                            <div class="pro-details-action">
-                                <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
-                                <div class="product-dec-social">
-                                    <a class="facebook" title="Facebook" href="#"><i class="icon-social-facebook-square"></i></a>
-                                    <a class="twitter" title="Twitter" href="#"><i class="icon-social-twitter"></i></a>
-                                    <a class="instagram" title="Instagram" href="#"><i class="icon-social-instagram"></i></a>
-                                    <a class="pinterest" title="Pinterest" href="#"><i class="icon-social-pinterest"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
+  <section class="page_menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="hidden">hidden</h3>
+          <ul class="breadcrumb">
+            <li><a href="index.html">Home</a>
+            </li>
+            <li>Products</li>
+            <li class="active"> Sacrificial Chair Design </li>
+          </ul>
         </div>
+      </div>
     </div>
-    <div class="description-review-wrapper pb-155">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="dec-review-topbar nav mb-65">
-                        <a class="active" data-bs-toggle="tab" href="#des-details1">Description</a>
-                        <a data-bs-toggle="tab" href="#des-details2">Specification</a>
-                        <a data-bs-toggle="tab" href="#des-details3">Meterials </a>
-                        <a data-bs-toggle="tab" href="#des-details4">Reviews and Ratting </a>
-                    </div>
-                    <div class="tab-content dec-review-bottom">
-                        <div id="des-details1" class="tab-pane active">
-                            <div class="description-wrap">
-                                <p>Crafted in premium watch quality, fenix Chronos is the first Garmin timepiece to combine a durable metal case with integrated performance GPS to support navigation and sport. In the tradition of classic tool watches it features a tough design and a set of modern meaningful tools like Elevate wrist heart rate, various sports apps.</p>
-                                <p> advanced performance metrics for endurance sports, Garmin quality navigation features and smart notifications. In fenix Chronos top-tier performance meets sophisticated design in a highly evolved timepiece that fits your style anywhere, anytime. Solid brushed 316L stainless steel case with brushed stainless steel bezel and integrated EXOTM antenna for GPS + GLONASS support. High-strength scratch resistant sapphire crystal. Brown vintage leather strap with hand-sewn contrast stitching and nubuck inner lining and quick release mechanism.</p>
-                            </div>
-                        </div>
-                        <div id="des-details2" class="tab-pane">
-                            <div class="specification-wrap table-responsive">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <td class="width1">Name</td>
-                                        <td>Salwar Kameez</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKU</td>
-                                        <td>0x48e2c</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Models</td>
-                                        <td>FX 829 v1</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Categories</td>
-                                        <td>Digital Print</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Size</td>
-                                        <td>60’’ x 40’’</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Brand </td>
-                                        <td>Individual Collections</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Color</td>
-                                        <td>Black, White</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div id="des-details3" class="tab-pane">
-                            <div class="specification-wrap table-responsive">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <td class="width1">Top</td>
-                                        <td>Cotton Digital Print Chain Stitch Embroidery Work</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bottom</td>
-                                        <td>Cotton Cambric</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="width1">Dupatta</td>
-                                        <td>Digital Printed Cotton Malmal With Chain Stitch</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div id="des-details4" class="tab-pane">
-                            <div class="review-wrapper">
-                                <h2>1 review for Sleeve Button Cowl Neck</h2>
-                                <div class="single-review">
-                                    <div class="review-img">
-                                        <img src="assets/images/product-details/client-1.png" alt="">
-                                    </div>
-                                    <div class="review-content">
-                                        <div class="review-top-wrap">
-                                            <div class="review-name">
-                                                <h5><span>John Snow</span> - March 14, 2019</h5>
-                                            </div>
-                                            <div class="review-rating">
-                                                <i class="yellow icon-rating"></i>
-                                                <i class="yellow icon-rating"></i>
-                                                <i class="yellow icon-rating"></i>
-                                                <i class="yellow icon-rating"></i>
-                                                <i class="yellow icon-rating"></i>
-                                            </div>
-                                        </div>
-                                        <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ratting-form-wrapper">
-                                <span>Add a Review</span>
-                                <p>Your email address will not be published. Required fields are marked <span>*</span></p>
-                                <div class="ratting-form">
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-6">
-                                                <div class="rating-form-style mb-20">
-                                                    <label>Name <span>*</span></label>
-                                                    <input type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-6">
-                                                <div class="rating-form-style mb-20">
-                                                    <label>Email <span>*</span></label>
-                                                    <input type="email">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="star-box-wrap">
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                        <a href="#"><i class="icon-rating"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="rating-form-style mb-20">
-                                                    <label>Your review <span>*</span></label>
-                                                    <textarea name="Your Review"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-submit">
-                                                    <input type="submit" value="Submit">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  </section>
+
+
+  <!--Cart Detail -->
+  <section id="cart" class="padding_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div id="slider_product" class="cbp margintop40">
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                <div class="cbp-caption-defaultWrap">
+                  <img src="images/detail1.jpg" alt="">
                 </div>
+              </div>
             </div>
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                <div class="cbp-caption-defaultWrap">
+                  <img src="images/detail2.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                <div class="cbp-caption-defaultWrap">
+                  <img src="images/detail3.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                <div class="cbp-caption-defaultWrap">
+                  <img src="images/detail4.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="js-pagination-slider">
+            <div class="cbp-pagination-item cbp-pagination-active">
+              <img src="images/detail1.jpg" alt="">
+            </div>
+            <div class="cbp-pagination-item cbp-pagination-active">
+              <img src="images/detail2.jpg" alt="">
+            </div>
+            <div class="cbp-pagination-item">
+              <img src="images/detail3.jpg" alt="">
+            </div>
+            <div class="cbp-pagination-item">
+              <img src="images/detail4.jpg" alt="">
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="product-area pb-155">
-        <div class="container">
-            <div class="section-title-8 mb-65">
-                <h2>You May Like Also</h2>
+        <div class="col-sm-6">
+          <div class="detail_pro margintop40">
+            <h4 class="bottom30">Sacrificial Chair Design </h4>
+            <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <ul class="review_list marginbottom15">
+              <li><img src="images/star.png" alt="star">
+              </li>
+              <li><a href="#.">10 review(s) </a>
+              </li>
+              <li><a href="#.">Add your review</a>
+              </li>
+            </ul>
+            <h2 class="price marginbottom15"><i class="fa fa-gbp"></i>70.00</h2>
+
+            <form class="cart-form">
+              <div class="form-group">
+                <label for="city">
+                  Size *
+                </label>
+                <label class="select form-control">
+                  <select name="country" id="city">
+                    <option selected>- Please select -</option>
+                    <option>Canada</option>
+                    <option>Chilli</option>
+                    <option>France</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="city">
+                  Color *
+                </label>
+                <label class="select form-control">
+                  <select name="country" id="color">
+                    <option selected>- Please select -</option>
+                    <option>Canada</option>
+                    <option>Chilli</option>
+                    <option>France</option>
+                  </select>
+                </label>
+              </div>
+              <p class="text-danger">Repuired Fiields *</p>
+            </form>
+            <form class="cart-form">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="quan">
+                      Quantity *
+                    </label>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="select form-control">
+                      <select name="country" id="selection">
+                        <option selected>- 01 -</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="cart-buttons">
+              <a class="uppercase border-radius btn-dark" href="cart.html"><i class="fa fa-shopping-basket"></i> &nbsp; Add to cart</a>
+              <a class="icons" href="#.">
+                <i class="fa fa-heart-o"></i>
+              </a>
+              <a class="icons" href="#.">
+                <i class="fa fa-exchange"></i>
+              </a>
             </div>
-            <div class="product-slider-active-4">
-                <div class="product-wrap-plr-1">
-                    <div class="product-wrap">
-                        <div class="product-img product-img-zoom mb-25">
-                            <a href="../frontEnd/product-details.html">
-                                <img src="assets/images/product/product-151.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                            <div class="product-price">
-                                <span>$ 124</span>
-                                <span class="old-price">$ 130</span>
-                            </div>
-                        </div>
-                        <div class="product-action-position-1 text-center">
-                            <div class="product-content">
-                                <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                                <div class="product-price">
-                                    <span>$ 124</span>
-                                    <span class="old-price">$ 130</span>
-                                </div>
-                            </div>
-                            <div class="product-action-wrap">
-                                <div class="product-action-cart">
-                                    <button title="Add to Cart">Add to cart</button>
-                                </div>
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-zoom"></i></button>
-                                <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrap-plr-1">
-                    <div class="product-wrap">
-                        <div class="product-img product-img-zoom mb-25">
-                            <a href="../frontEnd/product-details.html">
-                                <img src="assets/images/product/product-152.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                            <div class="product-price">
-                                <span>$ 124</span>
-                                <span class="old-price">$ 130</span>
-                            </div>
-                        </div>
-                        <div class="product-action-position-1 text-center">
-                            <div class="product-content">
-                                <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                                <div class="product-price">
-                                    <span>$ 124</span>
-                                    <span class="old-price">$ 130</span>
-                                </div>
-                            </div>
-                            <div class="product-action-wrap">
-                                <div class="product-action-cart">
-                                    <button title="Add to Cart">Add to cart</button>
-                                </div>
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-zoom"></i></button>
-                                <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrap-plr-1">
-                    <div class="product-wrap">
-                        <div class="product-img product-img-zoom mb-25">
-                            <a href="../frontEnd/product-details.html">
-                                <img src="assets/images/product/product-153.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                            <div class="product-price">
-                                <span>$ 124</span>
-                                <span class="old-price">$ 130</span>
-                            </div>
-                        </div>
-                        <div class="product-action-position-1 text-center">
-                            <div class="product-content">
-                                <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                                <div class="product-price">
-                                    <span>$ 124</span>
-                                    <span class="old-price">$ 130</span>
-                                </div>
-                            </div>
-                            <div class="product-action-wrap">
-                                <div class="product-action-cart">
-                                    <button title="Add to Cart">Add to cart</button>
-                                </div>
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-zoom"></i></button>
-                                <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrap-plr-1">
-                    <div class="product-wrap">
-                        <div class="product-img product-img-zoom mb-25">
-                            <a href="../frontEnd/product-details.html">
-                                <img src="assets/images/product/product-154.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                            <div class="product-price">
-                                <span>$ 124</span>
-                                <span class="old-price">$ 130</span>
-                            </div>
-                        </div>
-                        <div class="product-action-position-1 text-center">
-                            <div class="product-content">
-                                <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                                <div class="product-price">
-                                    <span>$ 124</span>
-                                    <span class="old-price">$ 130</span>
-                                </div>
-                            </div>
-                            <div class="product-action-wrap">
-                                <div class="product-action-cart">
-                                    <button title="Add to Cart">Add to cart</button>
-                                </div>
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-zoom"></i></button>
-                                <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrap-plr-1">
-                    <div class="product-wrap">
-                        <div class="product-img product-img-zoom mb-25">
-                            <a href="../frontEnd/product-details.html">
-                                <img src="assets/images/product/product-152.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                            <div class="product-price">
-                                <span>$ 124</span>
-                                <span class="old-price">$ 130</span>
-                            </div>
-                        </div>
-                        <div class="product-action-position-1 text-center">
-                            <div class="product-content">
-                                <h4><a href="../frontEnd/product-details.html">Product Title</a></h4>
-                                <div class="product-price">
-                                    <span>$ 124</span>
-                                    <span class="old-price">$ 130</span>
-                                </div>
-                            </div>
-                            <div class="product-action-wrap">
-                                <div class="product-action-cart">
-                                    <button title="Add to Cart">Add to cart</button>
-                                </div>
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-zoom"></i></button>
-                                <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="cart-share margintop30">
+              <ul>
+                <li><a href="#." class="facebook"><i class="fa fa-facebook-official"></i><span>Like</span></a>
+                </li>
+                <li><a href="#." class="twitter"><i class="fa fa-twitter"></i><span>Tweet</span></a>
+                </li>
+                <li><a href="#." class="google"><i class="fa fa-google"></i></a>
+                </li>
+                <li><a href="#." class="share"><i class="fa fa-plus-square"></i><span>Share</span></a>
+                </li>
+              </ul>
             </div>
+
+          </div>
         </div>
+      </div>
     </div>
+  </section>
+
+
+  <section class="bottom_half">
+    <div class="container">
+      <div class="row">
+        <div class="clearfix col-md-12">
+          <div class="shop_tab">
+            <ul class="tabs">
+              <li class="active" rel="tab1">
+                <h4 class="heading uppercase">Description</h4>
+              </li>
+              <li rel="tab2">
+                <h4 class="heading uppercase">Customer Review</h4>
+              </li>
+              <li rel="tab3">
+                <h4 class="heading uppercase">Product Tags</h4>
+              </li>
+            </ul>
+            <div class="tab_container">
+              <div id="tab1" class="tab_content">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+              </div>
+
+              <div id="tab2" class="tab_content">
+                <ol class="commentlist">
+                  <li>
+                    <div class="avator clearfix"><img src="images/testinomial1.png" class="img-responsive border-radius" alt="author">
+                    </div>
+                    <div class="comment-content"> <span class="stars"><img alt="star rating" src="images/star.png"></span> <strong>Cobus Bester</strong> -
+                      <time datetime="2016-04-07T11:58:43+00:00">April 7, 2016</time>
+                      <p>This album proves why The Woo are the best band ever. Best music ever!</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="avator clearfix"><img src="images/testinomial1.png" class="img-responsive border-radius" alt="author">
+                    </div>
+                    <div class="comment-content"> <span class="stars"><img alt="star rating" src="images/star.png"></span> <strong>Cobus Bester</strong> -
+                      <time datetime="2016-04-07T11:58:43+00:00">April 7, 2016</time>
+                      <p>This album proves why The Woo are the best band ever. Best music ever!</p>
+                    </div>
+                  </li>
+                </ol>
+
+                <form class="review-form margintop15">
+                  <div class="row">
+                    <div class="col-sm-12 form-group">
+                      <label class="control-label">Your Review</label>
+                      <textarea class="form-control" rows="3" placeholder="Your Review"></textarea>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <label for="inputPassword" class="control-label">Name</label>
+                      <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <label for="inputPassword" class="control-label">Password</label>
+                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="col-sm-12">
+                      <input type="submit" class="btn-light border-radius" value="Submit">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="tab3" class="tab_content">
+                <div class="row">
+                  <div class="col-md-6">
+                    <table class="table table-responsive table-striped">
+                      <tbody>
+                        <tr>
+                          <td>Part Number</td>
+                          <td>60-MCTE</td>
+                        </tr>
+                        <tr>
+                          <td>Item Weight</td>
+                          <td>54 pounds</td>
+                        </tr>
+                        <tr>
+                          <td>Product Dimensions</td>
+                          <td>92.8 inches</td>
+                        </tr>
+                        <tr>
+                          <td>Item model number</td>
+                          <td>60-MCTE</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-6">
+                    <table class="table table-responsive table-striped">
+                      <tbody>
+                        <tr>
+                          <td>Item Package Quantity</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>Number of Handles</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>Batteries Required?</td>
+                          <td>NO</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="feature_product" class="bottom_half">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="heading uppercase bottom30">upsell products</h4>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="tag-btn"><span class="uppercase text-center">New</span>
+            </div>
+            <div class="image">
+              <a class="fancybox" href="images/product1.jpg"><img src="images/product1.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p class="title">Sacrificial Chair Design </p>
+              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
+              <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <a class="fancybox" href="images/product2.jpg"><img src="images/product2.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p class="title">Sacrificial Chair Design </p>
+              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
+              <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="tag-btn"><span class="uppercase text-center">New</span>
+            </div>
+            <div class="image">
+              <a class="fancybox" href="images/product8.jpg"><img src="images/product8.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p class="title">Sacrificial Chair Design </p>
+              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
+              <a class="fancybox" href="images/product8.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <a class="fancybox" href="images/product4.jpg"><img src="images/product4.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p class="title">Sacrificial Chair Design </p>
+              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
+              <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 </x-main-layout>
 

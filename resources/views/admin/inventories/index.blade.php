@@ -85,43 +85,6 @@
                                                 @enderror
                                             </div>
 
-
-                                            <div class="col-6 mb-3">
-                                                <label class="control-label">Product Weight</label>
-                                                <select name="weight_id" class="form-control select2">
-                                                    <option>Select</option>
-                                                    @foreach ($weights as $weight)
-                                                        <option value="{{ $weight->id }}"
-                                                            class="d-flex justify-content-between">
-                                                            {{ $weight->name }}{{ $weight->abbreviation }}
-                                                            <small
-                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                @error('weight_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="col-6 mb-3">
-                                                <label class="control-label">Product Brand</label>
-                                                <select name="brand_id" class="form-control select2">
-                                                    <option>Select</option>
-                                                    @foreach ($brands as $brand)
-                                                        <option value="{{ $brand->id }}"
-                                                            class="d-flex justify-content-between">
-                                                            {{ $brand->name }}
-                                                            <small
-                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                @error('brand_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-
                                             <div class="col-6 mb-3">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Retail
                                                     Price</label>
@@ -201,11 +164,47 @@
                                             <div class="card">
                                                 <h2 class="header-title text-center mb-3 font-weight-bold">Manage
                                                     Variation</h2>
+                                                    
+                                            <div class="col-6 mb-3">
+                                                <label class="control-label">Product Weight</label>
+                                                <select name="weight_id" class="form-control select2">
+                                                    <option>Select</option>
+                                                    @foreach ($weights as $weight)
+                                                        <option value="{{ $weight->id }}"
+                                                            class="d-flex justify-content-between">
+                                                            {{ $weight->name }}{{ $weight->abbreviation }}
+                                                            <small
+                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('weight_id')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-6 mb-3">
+                                                <label class="control-label">Product Brand</label>
+                                                <select name="brand_id" class="form-control select2">
+                                                    <option>Select</option>
+                                                    @foreach ($brands as $brand)
+                                                        <option value="{{ $brand->id }}"
+                                                            class="d-flex justify-content-between">
+                                                            {{ $brand->name }}
+                                                            <small
+                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('brand_id')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                                 @foreach ($attributes as $attr)
                                                     <div class="col-4 mb-3">
                                                         <label class="control-label">{{$attr->attribute_name}}</label>
                                                         <select name="{{$attr->attribute_name}}.'[]'" class="form-control select2">
-                                                            @foreach ($values as $value)
+                                                            @foreach ($attr->prod_attribute_value as $value)
                                                             <option value="{{$value->id}}"
                                                                 class="d-flex justify-content-between ">
                                                                 {{$value->attribute_value}}
