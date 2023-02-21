@@ -19,5 +19,8 @@ class Product extends Model
     public function prod_inventory(){
         return $this->belongsTo(ProductInventory::class);
     }
+    public function wishlist(){
+        return $this->belongsToMany(Wishlist::class);
+    }
   
 }

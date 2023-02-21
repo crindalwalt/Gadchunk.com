@@ -48,7 +48,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#." class="uppercase">wishlish
+                  <a href="/wishlist" class="uppercase">wishlist
                   </a>
                 </li>
                 <li>
@@ -71,10 +71,18 @@
             <div class="attr-nav">
               <ul>
                 <li class="cart-toggler">
-                  <a href="#.">
+                  <a href="{{route('cart')}}">
                     <i class="fa fa-shopping-cart">
                     </i>
-                    <span class="badge">3
+                    <span class="badge " id="cart-count">0
+                    </span>
+                  </a>
+                </li>
+                <li class="cart-toggler">
+                  <a href="/wishlist">
+                    <i class="fa fa-heart-o">
+                    </i>
+                    <span class="badge" id="wishlist-count">0
                     </span>
                   </a>
                 </li>
@@ -100,7 +108,7 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
               <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
                 <li class="dropdown active">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home
+                  <a href="/" class="dropdown-toggle" data-toggle="dropdown">Home
                   </a>
                   <ul class="dropdown-menu">
                     <li>
@@ -175,15 +183,12 @@
                           <div class="content">
                             <ul class="menu-col">
                               <li>
-                                <a href="checkout.html">Product Chekouts
+                                <a href="/checkout">Product Chekouts
                                 </a>
                               </li>
+                             
                               <li>
-                                <a href="product_detail.html">Products Details
-                                </a>
-                              </li>
-                              <li>
-                                <a href="cart.html">Shopping Cart
+                                <a href="/cart">Shopping Cart
                                 </a>
                               </li> 
                             </ul>

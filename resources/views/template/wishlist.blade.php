@@ -1,116 +1,91 @@
 <x-main-layout>
-    <div class="breadcrumb-area breadcrumb-mt breadcrumb-ptb-2">
+   <main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <div class="breadcrumb-content">
-                <h2>Wishlist</h2>
-                <ul>
-                    <li>
-                        <a href="index.blade.php">Home </a>
-                    </li>
-                    <li><span> > </span></li>
-                    <li>
-                        <a href="index.blade.php">Product </a>
-                    </li>
-                    <li><span> > </span></li>
-                    <li class="active"> Wishlist </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="cart-area bg-gray pt-160 pb-160">
+            <h1 class="page-title">Wishlist<span>Shop</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
-            <form action="#">
-                <div class="cart-table-content wishlist-wrap">
-                    <div class="table-content table-responsive">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th class="th-text-center"> Price</th>
-                                <th class="th-text-center">Quantity</th>
-                                <th class="th-text-center">Total Prce</th>
-                                <th class="th-text-center">Add To Cart</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="cart-product">
-                                    <div class="product-img-info-wrap">
-                                        <div class="product-img">
-                                            <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4><a href="#">Demo Product Title</a></h4>
-                                            <span>Color :  Black</span>
-                                            <span>Size :     SL</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-price"><span class="amount">$56.00</span></td>
-                                <td class="cart-quality">
-                                    <div class="pro-details-quality">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box plus-minus-width-inc" type="text" name="qtybutton" value="02">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-total"><span>$112.00</span></td>
-                                <td class="product-wishlist-cart"><a href="#">Add To Cart</a></td>
-                            </tr>
-                            <tr>
-                                <td class="cart-product">
-                                    <div class="product-img-info-wrap">
-                                        <div class="product-img">
-                                            <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4><a href="#">Demo Product Title</a></h4>
-                                            <span>Color :  Black</span>
-                                            <span>Size :     SL</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-price"><span class="amount">$56.00</span></td>
-                                <td class="cart-quality">
-                                    <div class="pro-details-quality">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box plus-minus-width-inc" type="text" name="qtybutton" value="02">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-total"><span>$112.00</span></td>
-                                <td class="product-wishlist-cart"><a href="#">Add To Cart</a></td>
-                            </tr>
-                            <tr>
-                                <td class="cart-product">
-                                    <div class="product-img-info-wrap">
-                                        <div class="product-img">
-                                            <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4><a href="#">Demo Product Title</a></h4>
-                                            <span>Color :  Black</span>
-                                            <span>Size :     SL</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-price"><span class="amount">$56.00</span></td>
-                                <td class="cart-quality">
-                                    <div class="pro-details-quality">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box plus-minus-width-inc" type="text" name="qtybutton" value="02">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="product-total"><span>$112.00</span></td>
-                                <td class="product-wishlist-cart"><a href="#">Add To Cart</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</x-main-layout>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('shop') }}">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
 
+    <div class="page-content">
+        <div class="container">
+            <table class="table table-wishlist table-mobile">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Stock Status</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {{-- @if (!Auth::user()->wishlist->count()== 0) --}}
+                        <div id="wishlist">
+                            @foreach ($wishlists as $wishlist)
+                                <tr id="remove{{$wishlist->id}}">
+                                    <td class="product-col">
+                                        <div class="product">
+                                            <figure class="product-media">
+                                                <a href="#">
+                                                    <img src=""
+                                                        alt="Product image">
+                                                </a>
+                                            </figure>
+
+                                            <h3 class="product-title">
+                                                <a href="#">{{ $wishlist->product->name }}</a>
+                                            </h3><!-- End .product-title -->
+                                        </div><!-- End .product -->
+                                    </td>
+                                    <td class="price-col">{{ $wishlist->product->standard }}</td>
+                                    <td class="stock-col"><span class="in-stock">In stock</span></td>
+                                    <td class="action-col">
+                                        <div class="dropdown">
+                                            <button class="btn btn-block btn-outline-primary-2" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <i class="icon-list-alt"></i>Select Options
+                                            </button>
+
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">First option</a>
+                                                <a class="dropdown-item" href="#">Another option</a>
+                                                <a class="dropdown-item" href="#">The best option</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="remove-col">
+                                        
+                                      <button type="button" class="btn btn-danger btn-remove wishremove" data-route="{{route('wishlist.remove' , $wishlist->id)}}" 
+ 
+                                      data-item="remove{{$wishlist->id}}" >Remove</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </div>
+                    {{-- @else
+                        <div class="text-center">
+                            <h3 class="text-danger">Wishlist is empty</h3>
+                        </div>
+                    @endif --}}
+
+
+                </tbody>
+            </table><!-- End .table table-wishlist -->
+         
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+
+
+</x-main-layout>

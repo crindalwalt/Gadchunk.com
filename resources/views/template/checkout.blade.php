@@ -7,7 +7,7 @@
               <ul class="breadcrumb">
                 <li><a href="index.html">Home</a></li>
                 <li>Products</li>
-                <li class="active">Shopping cart</li>
+                <li class="active">Checkout</li>
               </ul>
             </div>
           </div>

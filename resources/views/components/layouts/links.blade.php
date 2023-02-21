@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Zeelma
     </title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.min.css')}}">
@@ -24,6 +27,7 @@
 
     {{--  JS  --}}
     <script defer src="{{asset('assets/js/jquery-2.2.3.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
     <script defer src="{{asset('assets/js/gmap3.min.js')}}"></script>
     <script defer src="{{asset('assets/js/bootstrap.min.js')}}"></script>
@@ -43,4 +47,6 @@
     <script defer src="{{asset('assets/js/kinetic.js')}}"></script>
     <script defer src="{{asset('assets/js/jquery.final-countdown.js')}}"></script>
     <script defer src="{{asset('assets/js/functions.js')}}"></script>
+       {{-- custom js --}}
+       <script defer src="{{ asset('assets/js/custom/user.js') }}"></script>
 </div>

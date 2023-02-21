@@ -150,67 +150,53 @@
             <div class="row">
                 <div id="fourCol-slider" class="owl-carousel">
                     @foreach ($products as $product)
-                    <div class="item">
-                        <div class="product_wrap">
-                            <div class="image">
-                                <div class="tag">
-                                    <div class="tag-btn">
-                                        <span class="uppercase text-center">New
-                                        </span>
+                        <div class="item">
+                            <div class="product_wrap">
+                                <div class="image">
+                                    <div class="tag">
+                                        <div class="tag-btn">
+                                            <span class="uppercase text-center">New
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <a class="fancybox" href="{{ asset('assets/images/product6.jpg') }}">
-                                    <img src="{{ asset('assets/images/product6.jpg') }}" alt="Product"
-                                        class="img-responsive">
-                                </a>
-                                <div class="social">
-                                    <ul>
-                                        <li>
-                                            <div class="product-action add-to-cart" data-route="{{ route('add-cart', $product->id) }}">
-                                                <a href="javascript:void" class="btn-product btn-cart">
+                                    <a class="fancybox" href="{{ asset('assets/images/product6.jpg') }}">
+                                        <img src="{{ asset('assets/images/product6.jpg') }}" alt="Product"
+                                            class="img-responsive">
+                                    </a>
+                                    <div class="social">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void" class="add-cart btn-cart" data-route="{{route('add-cart', $product->id)}}" data-value="{{ $product->id }}">
                                                     <i class="fa fa-shopping-cart">
                                                     </i>
                                                 </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#.">
-                                                <i class="fa fa-expand">
-                                                </i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#." >
-                                                <i class="fa fa-exchange">
-                                                </i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#.">
-                                                <i class="fa fa-heart-o">
-                                                </i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void" class="add-wishlist btn-wishlist " data-route="{{ route('add.wishlist', $product->id) }}" data-value="{{ $product->id }}">
+                                                    <i class="fa fa-heart-o">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product_desc">
+                                    <p>{{ $product->name }} <span>({{ $product->category->name }})</span>
+                                    </p>
+                                    <span class="price">
+                                        <i class="fa fa-gbp">
+                                        </i>170.00
+                                    </span>
+                                    <a class="fancybox" href="{{ asset('assets/images/product5.jpg') }}"
+                                        data-fancybox-group="gallery">
+                                        <i class="fa fa-shopping-bag open">
+                                        </i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="product_desc">
-                                <p>{{$product->name}} <span>({{$product->category->name}})</span>
-                                </p>
-                                <span class="price">
-                                    <i class="fa fa-gbp">
-                                    </i>170.00
-                                </span>
-                                <a class="fancybox" href="{{ asset('assets/images/product5.jpg') }}"
-                                    data-fancybox-group="gallery">
-                                    <i class="fa fa-shopping-bag open">
-                                    </i>
-                                </a>
-                            </div>
                         </div>
-                    </div>
                     @endforeach
-                   
+
 
                 </div>
             </div>

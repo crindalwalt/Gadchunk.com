@@ -13,6 +13,7 @@ use App\Http\Controllers\ProductInventoryController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeightController;
 use App\Models\Category;
@@ -129,8 +130,20 @@ require __DIR__.'/auth.php';
 |
 */
 
+// site page
 Route::get('/', [NavigatorController::class,'index'])->name('home');
+// add wishlist controller
+Route::get('wishlist' , [WishlistController::class , 'index']);
+Route::get('add-wishlist/{id}' , [WishlistController::class , 'create'])->name('add.wishlist');
+Route::get('remove-wishlist/{id}' , [WishlistController::class , 'remove'])->name('wishlist.remove');
+
+//Add Cart Controller
+Route::get('/cart' , [CartController::class , 'index'])->name('cart');
 Route::get('add-cart/{id}/{quantity?}' , [CartController::class , 'add'])->name('add-cart');
+Route::get('cart_remove/{id}' , [CartController::class , 'remove'])->name('cart.remove');
+
+// checkout routes
+Route::get('/checkout' , [CartController::class , 'checkout'])->name('checkout');
 
 Route::get('/shop', function () {
     $products = Product::all();
@@ -161,15 +174,13 @@ Route::get('/blog-detail',function(){
 });
 Route::get('/account',[UserController::class,'account'])->middleware(['auth', 'verified'])->name('account');
 
-Route::get('/wishlist',function(){
-   return view('template.wishlist');
-});
-Route::get('/cart',function(){
-   return view('template.cart');
-})->name('cart');
-Route::get('/checkout',function(){
-   return view('template.checkout');
-});
+// Route::get('/wishlist',function(){
+//    return view('template.wishlist');
+// });
+
+// Route::get('/checkout',function(){
+//    return view('template.checkout');
+// });
 Route::get('/order-complete',function(){
    return view('template.order-complete');
 });
