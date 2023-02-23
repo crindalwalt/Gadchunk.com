@@ -85,108 +85,83 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="col-6 mb-3">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Retail
+                                            <div class="col-4 mb-3">
+                                                <label for="example-text-input" class="col-sm-6 col-form-label">Retail
                                                     Price</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text"
                                                         placeholder="Enter retail price" id="example-text-input"
                                                         name="retail_price">
                                                     @error('retail_price')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger">{{$message}}</div>
                                                     @enderror
                                                 </div>
                                             </div>
 
-                                            <div class="col-6 mb-3">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Store
+                                            <div class="col-4 mb-3">
+                                                <label for="example-text-input" class="col-sm-6 col-form-label">Discount
                                                     Price</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text"
+                                                        placeholder="Enter store price(if any)" id="example-text-input"
+                                                        name="store_price">
+                                                    @error('store_price')
+                                                        <div class="text-danger">{{$message}}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="example-text-input" class="col-sm-6 col-form-label">Stock
+                                                    </label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text"
                                                         placeholder="Enter store price" id="example-text-input"
                                                         name="store_price">
                                                     @error('store_price')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger">{{$message}}</div>
                                                     @enderror
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 mb-3">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Stock
-                                                    Available</label>
-                                                <span><input type="checkbox" name="in_stock"></span>
-                                                @error('in_stock')
-                                                    <div class="text-danger"></div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <label for="example-text-input"
-                                                    class="col-sm-2 col-form-label">Status</label>
-                                                <span><input type="checkbox" name="is_active"></span>
-                                                @error('is_active')
-                                                    <div class="text-danger"></div>
-                                                @enderror
-                                            </div>
-                                            {{-- <div class="col-6 mb-3">
-                                                <label class="control-label">Product Variation</label>
-                                                <select name="product_type_id" class="form-control select2" id="variation">
-                                                    <option>Select</option>
-                                                    @foreach ($attributes as $attribute)
-                                                        <option value="{{ $attribute->id }}"
-                                                            class="d-flex justify-content-between ">
-                                                            {{ $attribute->attribute_name }}
-                                                            <small
-                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                @error('product_type_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <label class="control-label">Variation Values</label>
-                                                <select name="product_type_id" class="form-control select2" id="variation_value">
-                                                    <option>Select</option>
-                                                    @foreach ($values as $value)
-                                                        <option value="{{ $value->id }}" 
-                                                            class="d-flex justify-content-between ">
-                                                            {{ $value->attribute_value}}
-                                                            <small
-                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                @error('product_type_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
-                                            </div> --}}
+{{--                                            <div class="col-12 mb-3">--}}
+{{--                                                <label for="stock_status" class="col-sm-2 col-form-label">Stock--}}
+{{--                                                    Status--}}
+{{--                                                </label>--}}
+{{--                                                <input type="checkbox" class="" id="stock_status" name="stock_status">--}}
+{{--                                                <input type="checkbox" class="" id="stock_status" name="stock_status">--}}
+
+{{--                                                @error('in_stock')--}}
+{{--                                                    <div class="text-danger">{{$message}}</div>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+
                                             <div class="card">
                                                 <h2 class="header-title text-center mb-3 font-weight-bold">Manage
                                                     Variation</h2>
-                                                    
-                                            <div class="col-6 mb-3">
-                                                <label class="control-label">Product Weight</label>
-                                                <select name="weight_id" class="form-control select2">
-                                                    <option>Select</option>
-                                                    @foreach ($weights as $weight)
-                                                        <option value="{{ $weight->id }}"
-                                                            class="d-flex justify-content-between">
-                                                            {{ $weight->name }}{{ $weight->abbreviation }}
-                                                            <small
-                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                @error('weight_id')
-                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+
+{{--                                            <div class="col-6 mb-3">--}}
+{{--                                                <label class="control-label">Product Weight</label>--}}
+{{--                                                <select name="weight_id" class="form-control select2">--}}
+{{--                                                    <option>Select</option>--}}
+{{--                                                    @foreach ($weights as $weight)--}}
+{{--                                                        <option value="{{ $weight->id }}"--}}
+{{--                                                            class="d-flex justify-content-between">--}}
+{{--                                                            {{ $weight->name }}{{ $weight->abbreviation }}--}}
+{{--                                                            <small--}}
+{{--                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>--}}
+{{--                                                        </option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </select>--}}
+{{--                                                @error('weight_id')--}}
+{{--                                                    <div class="text-danger fw-semibold">{{ $message }}</div>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
 
                                             <div class="col-6 mb-3">
                                                 <label class="control-label">Product Brand</label>
                                                 <select name="brand_id" class="form-control select2">
                                                     <option>Select</option>
+                                                    <option value="{{null}}">Other</option>
                                                     @foreach ($brands as $brand)
                                                         <option value="{{ $brand->id }}"
                                                             class="d-flex justify-content-between">
@@ -210,7 +185,7 @@
                                                                 {{$value->attribute_value}}
                                                                 <small
                                                                     class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                            </option>                                                                
+                                                            </option>
                                                             @endforeach
                                                         </select>
                                                         @error("{{$attr->attribute_name}}.'[]'")

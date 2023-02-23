@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('product_inventories', function (Blueprint $table) {
             $table->id();
-            $table->string('retail_price');
-            $table->string('store_price');
+//            $table->string('retail_price');
+//            $table->string('store_price');
             $table->string('in_stock')->default("off");
             $table->bigInteger('weight_id')->unsigned();
             $table->bigInteger('brand_id')->unsigned();
