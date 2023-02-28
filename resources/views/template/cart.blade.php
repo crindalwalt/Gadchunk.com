@@ -44,23 +44,24 @@
                                                     alt="your product">
                                             </td>
                                             <td class="product-name">
-                                                <h5>{{ $product->name }} ({{ $product->category->name }})</h5>
+                                                <h5>{{ $product->products->name }}
+                                                    ({{ $product->products->category->name }})</h5>
                                             </td>
-                                            <td>{{ $product->description }}</td>
+                                            <td>{{ $product->products->description }}</td>
                                             <td class="price">
-                                                <h5>$170.00</h5>
+                                                <h5>${{ $product->retail_price }}</h5>
                                             </td>
-                                            <td>
-                                                <div class="input-group spinner">
-                                                    <input type="text" class="form-control" value="02">
-                                                    <div class="input-group-btn-vertical">
-                                                        <div class="btn"><i class="fa fa-angle-up"></i></div>
-                                                        <div class="btn"><i class="fa fa-angle-down"></i></div>
-                                                    </div>
-                                                </div>
+                                            <td class="quantity-col">
+                                                <div class="cart-product-quantity">
+                                                    <input type="number" class="form-control quantity"
+                                                        data-route="{{ route('cart.quantity', $product->id) }}"
+                                                        value="{{ $product->squantity ? $product->squantity : '0' }}"
+                                                        min="1" step="1" id="quantity{{ $product->id }}"
+                                                        data-decimals="0" required>
+                                                </div><!-- End .cart-product-quantity -->
                                             </td>
                                             <td class="price">
-                                                <h5>$170.00</h5>
+                                                <h5 class="total_price">${{ $total }}</h5>
                                             </td>
                                             <td class="text-center"><a class="btn-close " id="remove-product"
                                                     data-route="{{ route('cart.remove', $product->id) }}">
@@ -85,7 +86,7 @@
                             <a href="/" class="uppercase btn-dark border-radius margintop30">UPDATE SHOPPING
                                 CART</a>
                         </div> --}}
-                      
+
                     </div>
                 </div>
             </div>
@@ -152,19 +153,14 @@
                                 <tr>
                                     <td>Cart Subtotal</td>
                                     <td class="text-right">
-                                        <h5>$170.00</h5>
+                                        <h5 class="total_price">${{$total}}</h5>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Shipping and Handling</td>
-                                    <td class="text-right">
-                                        <h5>$10.00</h5>
-                                    </td>
-                                </tr>
+                              
                                 <tr>
                                     <td>Cart Totals</td>
                                     <td class="text-right">
-                                        <h5 class="price">$180.00</h5>
+                                        <h5 class="total_price">${{$total}}</h5>
                                     </td>
                                 </tr>
                             </tbody>

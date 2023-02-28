@@ -1,124 +1,153 @@
 <x-main-layout>
     <section class="page_menu">
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="hidden">hidden</h3>
-              <ul class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li>Products</li>
-                <li class="active">Checkout</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      
-      <!--Cart TAble-->
-      <section id="cart">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 margintop40">
-              <h4 class="heading uppercase bottom30">Create a new account</h4>
-              <p class="content_space">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              <form class="contact-form">
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="jane.doe@example.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="pass">Password</label>
-                    <input type="email" class="form-control" id="pass" placeholder="*****">
-                  </div>
-                    <input type="submit" class="uppercase margintop40 btn-dark" value="REgister now">
-                    <input type="submit" class="btn-dark uppercase margintop40" value="Checkout as guest">
-              </form>
-            
-            </div>
-            <div class="col-md-6 margintop40">
-              <h4 class="heading uppercase bottom30">Login to your account</h4>
-              <form class="contact-form">
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email-log" placeholder="jane.doe@example.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="pass">Password</label>
-                    <input type="email" class="form-control" id="pass-log" placeholder="*****">
-                  </div>
-                  <div class="form-group">
-                  <label>
-                    <div class="squaredFour">
-                      <input type="checkbox" value="None" id="squaredFour" name="check" checked />
-                      <label for="squaredFour"></label>
-                   </div>
-                   <h5>Keep me logged in</h5>
-                    <a href="#.">Forgot your password?</a>
-                   </label>
-                  </div>
-                  <div class="form-group">
-                     <input type="submit" class="uppercase margintop40 btn-light" value="Login to your account">
-                  </div>
-              </form>
-              <a href="#." class="uppercase btn-common facebook-share"><i class="fa fa-facebook"></i>Login facebook</a>
-              <a href="#." class="uppercase btn-common twitter-share"><i class="fa fa-twitter"></i>Login twitter</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="accordion-container padding">
-                    <div class="set">
-                      <a href="#." class="active uppercase"><i class="fa fa-plus"></i>Billing Information</a>
-                      <div class="content" style="display:block;">
-                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                      </div>
-                    </div>
-                    <div class="set">
-                      <a href="#." class="uppercase"><i class="fa fa-plus"></i>Shipping Information </a>
-                      <div class="content">
-                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                      </div>
-                    </div>
-                    <div class="set">
-                      <a href="#." class="uppercase"><i class="fa fa-plus"></i>Shipping Method</a>
-                      <div class="content">
-                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                      </div>
-                    </div>
-                    
-                    <div class="set">
-                      <a href="#."><i class="fa fa-plus"></i>Payment Information </a>
-                      <div class="content">
-                        <ul>
-                          <li><a href="#.">Bag & Luggage</a></li>
-                          <li><a href="#.">Eyewear</a></li>
-                          <li><a href="#.">Jewelry</a></li>
-                          <li><a href="#.">Shoes</a></li>
-                          <li><a href="#.">Skerts</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="set">
-                      <a href="#."><i class="fa fa-plus"></i>Order Review</a>
-                      <div class="content">
-                        <ul>
-                          <li><a href="#.">Bag & Luggage</a></li>
-                          <li><a href="#.">Eyewear</a></li>
-                          <li><a href="#.">Jewelry</a></li>
-                          <li><a href="#.">Shoes</a></li>
-                          <li><a href="#.">Skerts</a></li>
-                        </ul>
-                      </div>
-                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="hidden">hidden</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Products</li>
+                        <li class="active">Checkout</li>
+                    </ul>
                 </div>
             </div>
-          </div>
         </div>
-      </section>
-      
-      
+    </section>
+
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-8 mb-3">
+                <h2 class="checkout-title ">Billing Details</h2><!-- End .checkout-title -->
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="first">First Name *</label>
+                        <input type="text" class="form-control" name="checkout_first" value="{{Auth::user()->name}}" id="first"
+                            required>
+                    </div><!-- End .col-sm-6 -->
+
+                    <div class="col-sm-6">
+                        <label for="last">Last Name *</label>
+                        <input type="text" class="form-control" name="checkout_last" value="" id="last"
+                            required>
+                    </div><!-- End .col-sm-6 -->
+                </div><!-- End .row -->
+
+                <label for="company">Company Name (Optional)</label>
+                <input type="text" class="form-control" name="checkout_company" id="company">
+
+                <label for="street">Street address *</label>
+                <input type="text" class="form-control" name="checkout_street" value=""
+                    placeholder="House number and Street name" id="street" required>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="city">Town / City *</label>
+                        <input type="text" class="form-control" name="checkout_city" id="city" required>
+                    </div><!-- End .col-sm-6 -->
+
+                    <div class="col-sm-6">
+                        <label for="country">State / County *</label>
+                        <input type="text" class="form-control" name="checkout_country" id="country" required>
+                    </div><!-- End .col-sm-6 -->
+                </div><!-- End .row -->
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="post_code">Postcode / ZIP *</label>
+                        <input type="text" class="form-control" name="checkout_post_code" id="post_code" required>
+                    </div><!-- End .col-sm-6 -->
+
+                    <div class="col-sm-6">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" class="form-control" name="checkout_phone" value="" id="phone"
+                            required>
+                    </div><!-- End .col-sm-6 -->
+                </div><!-- End .row -->
+
+                <label for="email">Email address *</label>
+                <input type="email" class="form-control" name="checkout_email" value="" id="email" required>
+
+                <label for="notes">Order notes (optional)</label>
+                <textarea class="form-control" cols="30" rows="4" name="notes" id="notes"
+                    placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+
+            </div><!-- End .col-lg-9 -->
+            <aside class="col-lg-4 mt-3">
+              <div class="summary">
+                  <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                  <table class="table table-summary">
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Total</th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                         
+                          @foreach ($products as $product)
+                          <tr>
+                              <td><a href="#">{{$product->products->name}}</a></td>
+                              <td>${{$total}}</td>
+                          </tr>
+                          @endforeach
+                          <tr class="summary-subtotal">
+                              <td>Subtotal:</td>
+                              <td>${{$total}}</td>
+                          </tr><!-- End .summary-subtotal -->
+                          <tr class="summary-total">
+                              <td>Total:</td>
+                              <td>${{$total}}</td>
+                              <input type="hidden" value="" name="amount">
+                          </tr><!-- End .summary-total -->
+                      </tbody>
+                  </table><!-- End .table table-summary -->
+
+                  <div class="accordion-summary" id="accordion-payment">
+                      <input type="hidden"  name="payment_method" id="payment_method">
+                      <div class="card">
+                          <div class="card-header" id="heading-4">
+                              <h2 class="card-title">
+                                  <a class="collapsed check_payment_method" data-value="paypal"  role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                      Cash on delivery
+                                  </a>
+                              </h2>
+                          </div><!-- End .card-header -->
+                          <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
+                              <div class="card-body">
+                                  Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
+                              </div><!-- End .card-body -->
+                          </div><!-- End .collapse -->
+                      </div><!-- End .card -->
+
+                      <div class="card">
+                          <div class="card-header" id="heading-5">
+                              <h2 class="card-title">
+                                  <a  class="collapsed check_payment_method" data-value="stripe" role="button" value="stripe" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                      Credit Card (Stripe)
+                                      {{-- <img src="assets/images/payments-summary.png" alt="payments cards"> --}}
+                                  </a>
+                              </h2>
+                          </div><!-- End .card-header -->
+                          <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
+                              <div id="card-element"></div>
+                              {{-- <div class="card-body"> 
+
+                              </div><!-- End .card-body --> --}}
+                          </div><!-- End .collapse -->
+                      </div><!-- End .card -->
+                  </div><!-- End .accordion -->
+                  <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                      <span class="btn-text">Place Order</span>
+                      {{-- <span class="btn-hover-text">Proceed to Checkout</span> --}}
+                  </button>
+              </div><!-- End .summary -->
+          </aside><!-- End .col-lg-3 -->
+          </div>
+          <br><br>
+    </div>
+
+
 </x-main-layout>

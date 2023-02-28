@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductInventory;
 use Session;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class CartController extends Controller
     public function index()
     {
         $data['products']= $this->getProducts();
+        $data['total'] = $this->Total();
         return view('template.cart', $data);
     }
 
@@ -71,7 +73,7 @@ class CartController extends Controller
     
     public function getProducts()
     {
-        $products = Product::whereIn('id', $this->getProductIds())->get();
+        $products = ProductInventory::whereIn('id', $this->getProductIds())->get();
         foreach ($products as $pro) {
             foreach (Session::get('cart') as $cart) {
                 if ($pro->id == $cart['product_id']) {
@@ -89,8 +91,43 @@ class CartController extends Controller
     {
 
         $data['products'] = $this->getProducts();
-        // $data['total'] = $this->Total();
+        $data['total'] = $this->Total();
         return view('template.checkout', $data);
+    }
+
+    // function total price in cart 
+    public function Total()
+    {
+        $products = $this->getProducts();
+        $sum = 0;
+        foreach ($products as $pro) {
+            $sum += $pro->squantity * $pro->retail_price;
+        }
+        return $sum;
+    }
+
+    // fucntion to change quantity in session
+    public function changeQuantity($id, $quantity)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : [];
+        $newCart = [];
+        foreach ($oldCart as $value) {
+            if ($value['product_id'] == $id) {
+                $value['quantity'] = $quantity;
+            }
+            $newCart[] = $value;
+        }
+        Session::put('cart', $newCart);
+    }
+
+    // Function to change quantity
+
+    public function ChangeQty($id, $quantity)
+    {
+        $products = $this->changeQuantity($id, $quantity);
+        $total_price = $this->Total();
+        return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 1000 items"])
+            : response()->json(['totalPrice' => $total_price, 'products' => $products ]);
     }
 
 }

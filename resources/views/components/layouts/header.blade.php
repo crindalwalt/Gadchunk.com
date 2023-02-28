@@ -1,282 +1,522 @@
 <div>
+	<!-- backtotop - start -->
+  <div id="thetop"></div>
+  <div class="backtotop bg_supermarket_red">
+    <a href="#" class="scroll">
+      <i class="far fa-arrow-up"></i>
+    </a>
+  </div>
+  <!-- backtotop - end -->
 
-      <!--Loader-->
-      <div class="loader">
-        <div class="spinner-load">
-          <div class="dot1">
+  <!-- preloader - start -->
+  <!-- <div id="preloader"></div> -->
+  <!-- preloader - end -->
+
+
+  <!-- header_section - start
+  ================================================== -->
+  <header class="header_section supermarket_header bg-white clearfix">
+    <div class="header_top text-white clearfix">
+      <div class="container maxw_1460">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-5">
+            <p class="welcome_text mb-0">Welcome to Worldwide Online marketplace Store</p>
           </div>
-          <div class="dot2">
-          </div>
-        </div>
-      </div>
-      <!--TOPBAR-->
-      <div class="topbar">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="header-top-entry">
-                <div class="title">
-                  ENGLISH
-                  <i class="fa fa-angle-down">
-                  </i>
-                </div>
-                <div class="list">
-                  <a class="list-entry" href="#.">English
-                  </a>
-                  <a class="list-entry" href="#.">Spanish
-                  </a>
-                </div>
-              </div>
-              <div class="header-top-entry">
-                <div class="title">
-                  USD
-                  <i class="fa fa-angle-down">
-                  </i>
-                </div>
-                <div class="list">
-                  <a class="list-entry" href="#.">$ CAD
-                  </a>
-                  <a class="list-entry" href="#.">€ EUR
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <ul class="top_link">
-                <li>
-                  <a href="#." class="uppercase">My Account
-                  </a>
-                </li>
-                <li>
-                  <a href="/wishlist" class="uppercase">wishlist
-                  </a>
-                </li>
-                <li>
-                  <a href="#." class="uppercase">checkout
-                  </a>
-                </li>
-                <li>
-                  <a href="#." class="uppercase">login
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--HEADER-->
-      <header>
-        <nav class="navbar navbar-default navbar-sticky bootsnav">
-          <div class="container">
-            <div class="attr-nav">
-              <ul>
-                <li class="cart-toggler">
-                  <a href="{{route('cart')}}">
-                    <i class="fa fa-shopping-cart">
-                    </i>
-                    <span class="badge " id="cart-count">0
-                    </span>
-                  </a>
-                </li>
-                <li class="cart-toggler">
-                  <a href="/wishlist">
-                    <i class="fa fa-heart-o">
-                    </i>
-                    <span class="badge" id="wishlist-count">0
-                    </span>
-                  </a>
-                </li>
-                <li class="search">
-                  <a href="#.">
-                    <i class="fa fa-search">
-                    </i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars">
-                </i>
-              </button>
-              <a class="navbar-brand" href="index.html">
-                <img src="{{asset('assets/images/logo.png')}}" class="logo" alt="">
-              </a>
-            </div>
-            <!-- End Header Navigation -->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-              <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                <li class="dropdown active">
-                  <a href="/" class="dropdown-toggle" data-toggle="dropdown">Home
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="index.html">Home V1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="index2.html">Home V2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="index3.html">Home V3
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">Products
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="grid.html">Grid Default
-                      </a>
-                    </li>
-                    <li>
-                      <a href="grid_list.html">Grid Lists
-                      </a>
-                    </li>
-                    <li>
-                      <a href="grid_sidebar.html">Grid Sidebar
-                      </a>
-                    </li>
-                    <li>
-                      <a href="list_sidebar.html">Lists Sidebar
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#.">collection
-                  </a>
-                </li>
-                <li class="dropdown megamenu-fw">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">pages
-                  </a>
-                  <ul class="dropdown-menu megamenu-content" role="menu">
-                    <li>
-                      <div class="row">
-                        <div class="col-menu col-md-3">
-                          <h5 class="title heading_border">Blog
-                          </h5>
-                          <div class="content">
-                            <ul class="menu-col">
-                              <li>
-                                <a href="blog1.html">Blog Two Cols
-                                </a>
-                              </li>
-                              <li>
-                                <a href="blog2.html">Blog Three Cols
-                                </a>
-                              </li>
-                              <li>
-                                <a href="blog_post.html">Blog Posts
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="col-menu col-md-3">
-                          <h5 class="title heading_border">Products Elements
-                          </h5>
-                          <div class="content">
-                            <ul class="menu-col">
-                              <li>
-                                <a href="/checkout">Product Chekouts
-                                </a>
-                              </li>
-                             
-                              <li>
-                                <a href="/cart">Shopping Cart
-                                </a>
-                              </li> 
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="col-menu col-md-3">
-                          <h5 class="title heading_border">Theme Elements
-                          </h5>
-                          <div class="content">
-                            <ul class="menu-col">
-                              <li>
-                                <a href="#.">Skills
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#.">Team & Testimonials
-                                </a>
-                              </li>
-                              <li>
-                                <a href="404.html">Errors
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>    
-                        <div class="col-menu col-md-3">
-                          <div class="content">
-                            <img src="images/mega-menu.png"  alt="menu" class="img-responsive">
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#.">about us
-                  </a>
-                </li>
-                <li>
-                  <a href="contact.html">contact us
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-            <div class=" search-toggle">
-              <div class="top-search">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <span class="input-group-addon">
-                    <i class="fa fa-search">
-                    </i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <ul class="cart-list">
+
+          <div class="col-lg-7">
+            <ul class="info_list ul_li_right clearfix">
+              <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
+              <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
               <li>
-                <a href="#." class="photo">
-                  <img src="images/hover-cart.jpg" class="cart-thumb" alt="" />
-                </a>
-                <h6>
-                  <a href="#.">Sacrificial Chair Design 
-                  </a>
-                </h6>
-                <p>Qty: 2 
-                  <span class="price">$170.00
-                  </span>
-                </p>
-              </li>
-              <li class="total clearfix">
-                <div class="pull-right">
-                  <strong>Shipping
-                  </strong>: $5.00
-                </div>
-                <div class="pull-left">
-                  <strong>Total
-                  </strong>: $173.00
-                </div>
-              </li>
-              <li class="cart-btn">
-                <a href="#." class="active">VIEW CART 
-                </a>
-                <a href="#.">CHECKOUT 
-                </a>
+                <form action="#">
+                  <div class="currency_select option_select mb-0">
+                    <select>
+                      <option value="USD" selected>US Dollars</option>
+                      <option value="EUR">Euro</option>
+                      <option value="GBP">UK Pounds</option>
+                    </select>
+                  </div>
+                </form>
               </li>
             </ul>
-          </div>   
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_middle clearfix">
+      <div class="container maxw_1460">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-3">
+            <div class="brand_logo">
+              <a class="brand_link" href="index.html">
+                <img src="assets/images/logo/logo_18_1x.png" srcset="assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
+              </a>
+
+              <ul class="mh_action_btns ul_li clearfix">
+                <li>
+                  <button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
+                    <i class="fal fa-search"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cart_btn">
+                    <i class="fal fa-shopping-cart"></i>
+                    <span class="btn_badge">2</span>
+                  </button>
+                </li>
+                <li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <form action="#">
+              <div class="medical_search_bar">
+                <div class="form_item">
+                  <input type="search" name="search" placeholder="search here...">
+                </div>
+                <div class="option_select mb-0">
+                  <select>
+                    <option data-display="All Category">Select A Option</option>
+                    <option value="1">Some option</option>
+                    <option value="2">Another option</option>
+                    <option value="3" disabled>A disabled option</option>
+                    <option value="4">Potato</option>
+                  </select>
+                </div>
+                <button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="supermarket_header_btns clearfix">
+              <ul class="action_btns_group ul_li_right clearfix">
+                <li>
+                  <button type="button">
+                    <span>Need</span>
+                    <strong>Help?</strong>
+                  </button>
+                </li>
+                <li>
+                  <button type="button">
+                    <span>Your</span>
+                    <strong>Account</strong>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cart_btn">
+                    <i class="fal fa-shopping-bag"></i>
+                    <span class="btn_badge">2</span>
+                  </button>
+                </li>
+              </ul>
+              <span class="alart_text float-right">
+                <small>£</small>
+                New here? Get your Coupons!
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_bottom clearfix">
+      <div class="container maxw_1460">
+        <nav class="main_menu clearfix">
+          <ul class="ul_li clearfix">
+            <li>
+              <button class="alldepartments_btn bg_supermarket_red text-uppercase" type="button" data-toggle="collapse" data-target="#alldepartments_dropdown" aria-expanded="false" aria-controls="alldepartments_dropdown">
+                <i class="far fa-bars"></i> All Departments
+              </button>
+            </li>
+            <li class="menu_item_has_child">
+              <a href="#!">Home</a>
+              <div class="mega_menu text-center">
+                <div class="background" data-bg-color="#ffffff">
+                  <div class="container">
+                    <ul class="home_pages ul_li clearfix">
+                      <li>
+                        <a href="home_carparts.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/carparts.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Car Parts</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_classic_ecommerce.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/classic_ecommarce.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Classic Ecommerce</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_creative_onelook.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/creative_onelook.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Creative Onelook</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_electronic.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/electronic.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Electronic</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_fashion.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/fashion.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Fashion</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_fashion_minimal.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/fashion_minimal.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Fashion Minimal</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_furniture.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/furniture.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Furniture</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_gadget.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/gadget.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Gadget</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_lookbook_creative.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/lookbook_creative.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Lookbook Creative</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_lookbook_slide.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/lookbook_slide.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Lookbook Slide</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_medical.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/medical.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Medical</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_modern.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/modern.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Modern</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_modern_minimal.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/modern_minimal.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Modern Minimal</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_motorcycle.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/motorcycle.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Motorcycle</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_parallax_shop.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/parallax_shop.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Parallax Shop</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_simple_shop.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/simple_shop.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Simple Shop</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_single_story_black.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/single_story_black.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Single Story Black</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_single_story_white.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/single_story_white.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Single Story White</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_sports.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/sports.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Sports Shop</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_supermarket.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/supermarket.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Supermarket</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="home_watch.html">
+                          <span class="item_image">
+                            <img src="assets/images/home_pages/watch.png" alt="image_not_found">
+                          </span>
+                          <span class="item_title">Watch</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="menu_item_has_child">
+              <a href="#!">Shop</a>
+              <div class="mega_menu">
+                <div class="background" data-bg-color="#ffffff">
+                  <div class="container">
+                    <div class="row mt__30">
+                      <div class="col-lg-3">
+                        <div class="page_links">
+                          <h3 class="title_text">Carparts</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="carparts_shop.html">Shop Page</a></li>
+                            <li><a href="carparts_shop_grid.html">Shop Grid</a></li>
+                            <li><a href="carparts_shop_list.html">Shop List</a></li>
+                            <li><a href="carparts_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Classic Ecommerce</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="classic_ecommerce_shop.html">Shop Page</a></li>
+                            <li><a href="classic_ecommerce_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Electronic</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="electronic_shop.html">Shop Page</a></li>
+                            <li><a href="electronic_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Fashion</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="fashion_shop.html">Shop Page</a></li>
+                            <li><a href="fashion_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class="page_links">
+                          <h3 class="title_text">Fashion Minimal</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="fashion_minimal_shop.html">Shop Page</a></li>
+                            <li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Fashion Minimal</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="fashion_minimal_shop.html">Shop Page</a></li>
+                            <li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Furniture</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="furniture_shop.html">Shop Page</a></li>
+                            <li><a href="furniture_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Gadget</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="gadget_shop.html">Shop Page</a></li>
+                            <li><a href="gadget_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class="page_links">
+                          <h3 class="title_text">Medical</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="medical_shop.html">Shop Page</a></li>
+                            <li><a href="medical_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Modern Minimal</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="modern_minimal_shop.html">Shop Page</a></li>
+                            <li><a href="modern_minimal_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Modern</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="modern_shop.html">Shop Page</a></li>
+                            <li><a href="modern_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Motorcycle</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="motorcycle_shop_grid.html">Shop Grid</a></li>
+                            <li><a href="motorcycle_shop_list.html">Shop List</a></li>
+                            <li><a href="motorcycle_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class="page_links">
+                          <h3 class="title_text">Simple Shop</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="simple_shop.html">Shop Page</a></li>
+                            <li><a href="simple_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Sports</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="sports_shop.html">Shop Page</a></li>
+                            <li><a href="sports_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Lookbook</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="lookbook_creative_shop.html">Shop Page</a></li>
+                            <li><a href="lookbook_creative_shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="page_links">
+                          <h3 class="title_text">Shop Other Pages</h3>
+                          <ul class="ul_li_block">
+                            <li><a href="#!"><del>Shop Page</del></a></li>
+                            <li><a href="shop_details.html">Shop Details</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="menu_item_has_child">
+              <a href="#!">Pages</a>
+              <ul class="submenu">
+                <li class="menu_item_has_child">
+                  <a href="#!">Shop Inner Pages</a>
+                  <ul class="submenu">
+                    <li><a href="shop_cart.html">Shopping Cart</a></li>
+                    <li><a href="shop_checkout.html">Checkout Step 1</a></li>
+                    <li><a href="shop_checkout_step2.html">Checkout Step 2</a></li>
+                    <li><a href="shop_checkout_step3.html">Checkout Step 3</a></li>
+                  </ul>
+                </li>
+                <li><a href="404.html">404 Page</a></li>
+                <li class="menu_item_has_child">
+                  <a href="#!">Blogs</a>
+                  <ul class="submenu">
+                    <li><a href="blog.html">Blog Page</a></li>
+                    <li><a href="blog_details.html">Blog Details</a></li>
+                  </ul>
+                </li>
+                <li class="menu_item_has_child">
+                  <a href="#!">Compare</a>
+                  <ul class="submenu">
+                    <li><a href="compare_1.html">Compare V.1</a></li>
+                    <li><a href="compare_2.html">Compare V.2</a></li>
+                  </ul>
+                </li>
+                <li class="menu_item_has_child">
+                  <a href="#!">Register</a>
+                  <ul class="submenu">
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#!">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
         </nav>
-      </header>
+      </div>
+    </div>
+
+    <div id="search_body_collapse" class="search_body_collapse collapse">
+      <div class="search_body">
+        <div class="container-fluid prl_90">
+          <form action="#">
+            <div class="form_item mb-0">
+              <input type="search" name="search" placeholder="Type here...">
+              <button type="submit"><i class="fal fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header_section - end
+  ================================================== -->
+
+
 </div>

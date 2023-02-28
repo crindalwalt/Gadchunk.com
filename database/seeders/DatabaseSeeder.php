@@ -33,9 +33,8 @@ class DatabaseSeeder extends Seeder
              'email' => 'shahzad@mail.com',
              'phone' => '03041232233',
              'userType' => 0,
-
          ]);
 
-        Category::factory(5)->create();
+        // Category::factory(5)->create();
     }
 }

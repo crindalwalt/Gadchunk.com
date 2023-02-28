@@ -141,6 +141,7 @@ Route::get('remove-wishlist/{id}' , [WishlistController::class , 'remove'])->nam
 Route::get('/cart' , [CartController::class , 'index'])->name('cart');
 Route::get('add-cart/{id}/{quantity?}' , [CartController::class , 'add'])->name('add-cart');
 Route::get('cart_remove/{id}' , [CartController::class , 'remove'])->name('cart.remove');
+Route::get('change/{id}/{quantity?}', [CartController::class , 'ChangeQty'])->name('cart.quantity');
 
 // checkout routes
 Route::get('/checkout' , [CartController::class , 'checkout'])->name('checkout');
