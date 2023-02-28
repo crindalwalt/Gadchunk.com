@@ -79,6 +79,17 @@
 
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-link"></i>
+                        <span>Manage Attributes</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route("product.variation") }}">Manage Variations</a></li>
+                        <li><a href="{{ route("attributes.values.index") }}"> Variations Values</a></li>
+
+                    </ul>
+                </li>
 
 
 

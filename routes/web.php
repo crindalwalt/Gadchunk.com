@@ -52,12 +52,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('users/',[UserController::class,'index']);
 
    // Product Inventory Management
-   
+
    Route::get('product_inventory/',[ProductInventoryController::class,'index']);
    Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
-   
+
    Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
-   
+
    // Category CRUD
     Route::get('category/',[CategoryController::class,'index']);
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
@@ -68,7 +68,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
     // Brand CRUD
     Route::get('brand/',[BrandController::class,'index'])->name('brand.index');
-    Route::post('/brand/add',[BrandController::class,'store'])->name('brand.store');
+    Route::post('brand/add',[BrandController::class,'store'])->name('brand.store');
 
     // Promotion CRUD
     Route::get('promotion/',[PromotionController::class,'index']);
@@ -78,15 +78,15 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post('/weight/add',[WeightController::class,'store'])->name('weight.store');
 
 
-   //Product Variation 
-   Route::get('/prod_var',[ProductAttributeController::class,'index'])->name('product.variation');
-   Route::post('/prod_var/add',[ProductAttributeController::class,'store'])->name('prod_var.store');
+   //Product Variation
+//    Route::get('/prod_var',[ProductAttributeController::class,'index'])->name('product.variation');
+//    Route::post('/prod_var/add',[ProductAttributeController::class,'store'])->name('prod_var.store');
 
-   //Product Variation Value 
-   Route::post('/prod_var_value/add',[ProductAttributeValueController::class,'store'])->name('prod_var_value.store');
-   Route::post('/var_val',[ProductAttributeValueController::class,'variation_value'])->name('prod_var_value.store');
+//    //Product Variation Value
+//    Route::post('/prod_var_value/add',[ProductAttributeValueController::class,'store'])->name('prod_var_value.store');
+//    Route::post('/var_val',[ProductAttributeValueController::class,'variation_value'])->name('prod_var_value.store');
 
-    // Product type 
+    // Product type
     Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');
     Route::post('/prod_type/add',[ProductTypeController::class,'store'])->name('prod_type.store');
 
@@ -100,6 +100,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
     Route::get('/users',[ProductController::class,'users'])->name('users.all');
+
+
+
+    // Products Attributes CRUD
+    Route::get("/attributes/variation",[ProductAttributeController::class,'index'])->name("product.variation");
+    Route::post("/attributes/variation",[ProductAttributeController::class,'store'])->name("prod_variation_value.store");
+    Route::post("/attributes/variation/destroy",[ProductAttributeController::class,'destroy'])->name("prod_variation_value.destroy");
+    Route::get("/attributes/variationValues",[ProductAttributeController::class,'variationValue'])->name("attributes.values.index");
+
+
 
     //Collection CRUD
     Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');

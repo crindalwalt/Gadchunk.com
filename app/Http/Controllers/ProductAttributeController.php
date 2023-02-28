@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductAttribute;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\ProductAttribute;
 
- class ProductAttributeController extends Controller
+class ProductAttributeController extends Controller
 {
-       public function index()
+    public function index()
     {
         $variations = ProductAttribute::all();
         // $categories = Category::all();
@@ -37,6 +38,12 @@ use Illuminate\Http\Request;
         } else {
             alert("Error", 'Product not be saved', 'error');
         }
-
+    }
+    public function destroy(Request $request, Product $product)
+    {
+        $attr_to_del = ProductAttribute::find($request->input("attr_id"));
+        $attr_to_del->delete();
+        alert("Success", 'Variation has been deleted successfully', 'success');
+        return redirect()->back();
     }
 }
