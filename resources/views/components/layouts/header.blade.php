@@ -124,13 +124,13 @@
 
     <div class="header_bottom clearfix">
       <div class="container maxw_1460">
-        <nav class="main_menu clearfix">
+        <nav class="main_menu bg_supermarket_red clearfix">
           <ul class="ul_li clearfix">
-            <li>
+            {{-- <li>
               <button class="alldepartments_btn bg_supermarket_red text-uppercase" type="button" data-toggle="collapse" data-target="#alldepartments_dropdown" aria-expanded="false" aria-controls="alldepartments_dropdown">
                 <i class="far fa-bars"></i> All Departments
               </button>
-            </li>
+            </li> --}}
             <li class="menu_item_has_child">
               <a href="#!">Home</a>
               <div class="mega_menu text-center">
@@ -497,6 +497,7 @@
             </li>
             <li><a href="#!">About us</a></li>
             <li><a href="contact.html">Contact us</a></li>
+            <li><a href="{{route('shop')}}">Shop</a></li>
           </ul>
         </nav>
       </div>

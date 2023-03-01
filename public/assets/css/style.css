@@ -123,7 +123,7 @@ hr {
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .form_item input:focus, .form_item textarea:focus {
-  border-color: #ce0b2b;
+  border-color: #216150;
 }
 .form_item input {
   height: 60px;
@@ -275,7 +275,7 @@ hr {
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .quantity_input span:hover {
-  color: #ce0b2b;
+  color: #266150;
 }
 
 /* bootstrap settings - start 
@@ -421,7 +421,7 @@ hr {
   padding: 12px 0px;
 }
 .alldepartments_dropdown .alldepartments_menulist > li:hover > a {
-  color: #0063d1;
+  color: #266150;
 }
 .alldepartments_dropdown .alldepartments_menulist > li .icon {
   width: 40px;
@@ -464,7 +464,7 @@ hr {
   padding: 0px;
   opacity: 0.3;
   border-radius: 100%;
-  background: #ed1d24;
+  background: #216150;
 }
 .slick-dots li:hover button, .slick-dots li.slick-active button {
   opacity: 1;
@@ -503,7 +503,7 @@ hr {
 }
 .slick-arrow:hover:before {
   color: #ffffff;
-  background: #ed1d24;
+  background: #266150;
 }
 
 .slick-prev:before {
@@ -550,7 +550,7 @@ hr {
 }
 .carousel_nav button:hover {
   color: #ffffff;
-  background-color: #ce0b2b;
+  background-color: #266150;
 }
 .carousel_nav.align_right {
   justify-content: flex-end;
@@ -701,7 +701,7 @@ hr {
 .product_action_btns a:hover {
   color: #ffffff;
   transform: translateY(-5px);
-  background-color: #ce0b2b;
+  background-color: #266150;
 }
 
 /* product action btns - end
@@ -733,7 +733,7 @@ hr {
   color: #555555;
 }
 .post_meta a:hover {
-  color: #ce0b2b;
+  color: #266150;
 }
 .post_meta .post_admin {
   align-items: center;
@@ -782,7 +782,7 @@ hr {
 }
 .pagination_nav li:hover a, .pagination_nav li.active a {
   color: #ffffff;
-  background-color: #ce0b2b;
+  background-color: #266150;
 }
 
 /* pagination - end
@@ -1116,7 +1116,7 @@ button {
 }
 
 .bg_black {
-  background-color: #000000;
+  background-color: #216150;
 }
 
 .bg_default_black {
@@ -1168,11 +1168,11 @@ button {
 }
 
 .bg_electronic_blue {
-  background-color: #0063d1;
+  background-color: #216150;
 }
 
 .bg_supermarket_red {
-  background-color: #cc1414;
+  background-color: #266150;
 }
 
 .bg_onelook_orange {
@@ -2055,7 +2055,7 @@ button {
   line-height: 27px;
   position: absolute;
   border-radius: 45px;
-  background-color: #da0a2c;
+  background-color: #266150;
   box-shadow: 0px 1px 4px 0px rgba(2, 3, 3, 0.5);
 }
 
@@ -2668,7 +2668,7 @@ button {
   right: 6px;
   width: 50px;
   height: 50px;
-  color: #ffffff;
+  color: #266150;
   font-size: 16px;
   line-height: 52px;
   text-align: center;
@@ -2984,7 +2984,7 @@ button {
   margin: 0px;
 }
 .medical_search_bar .form_item input {
-  height: 60px;
+  height: 30px;
   border: none;
 }
 .medical_search_bar .option_select {
@@ -3009,7 +3009,7 @@ button {
   line-height: 62px;
   text-align: center;
   margin-right: -1px;
-  background-color: #4e97fd;
+  background-color: #266150;
 }
 
 /* medical header - end
@@ -3271,7 +3271,7 @@ button {
   min-height: 50px;
   padding: 10px 0px;
   align-items: center;
-  background-color: #181818;
+  background-color: #266150;
 }
 .supermarket_header .welcome_text {
   font-size: 14px;
@@ -3303,7 +3303,7 @@ button {
   color: #ffffff;
 }
 .supermarket_header .info_list i {
-  color: #d04b4b;
+  color: #ffff;
   margin-right: 5px;
 }
 .supermarket_header .currency_select .nice-select {
@@ -3331,7 +3331,7 @@ button {
   align-items: center;
 }
 .supermarket_header .medical_search_bar {
-  border: 1px solid #cc1414;
+  border: 1px solid #266150;
 }
 .supermarket_header .medical_search_bar .form_item {
   width: 60%;
@@ -3356,7 +3356,7 @@ button {
 }
 .supermarket_header .medical_search_bar .submit_btn {
   width: 15%;
-  background-color: #cc1414;
+  background-color: #266150;
 }
 .supermarket_header .action_btns_group > li:not(:last-child) {
   margin-right: 30px;
@@ -3376,7 +3376,7 @@ button {
   line-height: 1;
 }
 .supermarket_header .action_btns_group span {
-  color: #6e6e9b;
+  color: #266150;
   font-size: 14px;
 }
 .supermarket_header .action_btns_group strong {
@@ -3393,7 +3393,7 @@ button {
   line-height: 25px;
 }
 .supermarket_header .alart_text {
-  color: #df4949;
+  color: #ffff;
   font-size: 13px;
   min-height: 25px;
   margin-top: 10px;
@@ -3401,7 +3401,7 @@ button {
   padding-right: 30px;
   align-items: center;
   display: inline-flex;
-  background-color: #fde3e1;
+  background-color: #266150;
 }
 .supermarket_header .alart_text small {
   height: 25px;
@@ -3554,7 +3554,7 @@ button {
   line-height: 22px;
   display: inline-block;
   transform: translateY(-2px);
-  background-color: #ff5656;
+  background-color: #266150;
 }
 
 /* fashion minimal header - end
@@ -4523,7 +4523,7 @@ button {
   content: "";
   width: 32px;
   position: absolute;
-  background-color: #cc1414;
+  background-color: #216150;
 }
 .supermarket_footer .footer_useful_links li {
   position: relative;
@@ -4540,7 +4540,7 @@ button {
   bottom: -1px;
   content: "";
   position: absolute;
-  background-color: #cc1414;
+  background-color: #216150;
 }
 .supermarket_footer .footer_useful_links li:last-child:before {
   display: none;
@@ -4589,18 +4589,18 @@ button {
   margin: 0px auto;
 }
 .supermarket_footer .footer_electronic_hotline i {
-  color: #cc1414;
+  color: #216150;
 }
 .supermarket_footer .circle_social_links a {
   width: 50px;
   height: 50px;
-  color: #ffffff;
+  color: #216150;
   line-height: 50px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(2, 2, 2, 0.6);
 }
 .supermarket_footer .circle_social_links a:hover {
   color: #ffffff;
-  background-color: #cc1414;
+  background-color: #000000;
 }
 
 .supermarket_footer_contact li {
@@ -4620,8 +4620,9 @@ button {
   line-height: 35px;
   text-align: center;
   margin-right: 20px;
+  padding: 10px;
   border-radius: 100%;
-  background-color: #cc1414;
+  background-color: #216150;
 }
 
 /* supermarket footer - end
@@ -10417,7 +10418,7 @@ button {
   width: 30px;
   height: 30px;
   font-size: 16px;
-  background-color: #2e2e2e;
+  background-color: #216150;
 }
 .electronic_trending_carousel .carousel_nav button:not(:last-child) {
   margin-right: 5px;
@@ -11017,19 +11018,19 @@ button {
   padding: 10px 40px;
 }
 .home_supermarket .carousel_nav button {
-  width: 54px;
-  height: 54px;
-  color: #7b8186;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
   font-size: 16px;
   line-height: 52px;
-  border-radius: 100%;
-  border: 3px solid #ededed;
-  background-color: #ffffff;
+  /* border-radius: 100%; */
+  border: 1px solid #ededed;
+  background-color: #216150;
 }
 .home_supermarket .carousel_nav button:hover {
   color: #ffffff;
-  border-color: #cc1414;
-  background-color: #cc1414;
+  border-color: #000000;
+  background-color: #000000;
 }
 .home_supermarket .carousel_nav button:not(:last-child) {
   margin-right: 5px;
@@ -11069,7 +11070,7 @@ button {
   background-color: #ffffff;
 }
 .supermarket_slider .slick-dots li:hover a, .supermarket_slider .slick-dots li.slick-active a {
-  background-color: #cc1414;
+  background-color: #266150;
 }
 .supermarket_slider .slick-dots span {
   display: none;
@@ -11192,7 +11193,7 @@ button {
   font-weight: 600;
 }
 .supermarket_deals_item:hover .item_title a {
-  color: #cc1414;
+  color: #216150;
 }
 .supermarket_deals_item .item_instock {
   line-height: 1;
@@ -15943,7 +15944,7 @@ button {
   transform: translateY(-50%);
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   border-top: 12px solid transparent;
-  border-left: 12px solid #cc1414;
+  border-left: 12px solid #216150;
   border-right: 12px solid transparent;
   border-bottom: 12px solid transparent;
 }
@@ -16019,7 +16020,7 @@ button {
   font-weight: 600;
 }
 .supermarket_product_item:hover .item_title a {
-  color: #cc1414;
+  color: #216150;
 }
 .supermarket_product_item .item_price strong {
   color: #343f49;
@@ -16045,9 +16046,9 @@ button {
   border: 2px solid transparent;
 }
 .supermarket_tab_nav a:hover, .supermarket_tab_nav a.active {
-  color: #333e48;
-  background-color: #ffffff;
-  border-color: #cc1414;
+  color: #ffffff;
+  background-color: #216150;
+  border-color: #216150;
 }
 
 .supermarket_product_listlayout {
@@ -16118,7 +16119,7 @@ button {
   font-weight: 500;
 }
 .supermarket_product_listlayout:hover .item_title a {
-  color: #cc1414;
+  color: #216150;
 }
 .supermarket_product_listlayout .product_action_btns {
   margin-bottom: 20px;
@@ -16137,16 +16138,16 @@ button {
 }
 .supermarket_product_listlayout .product_action_btns a:hover {
   transform: unset;
-  background-color: #cc1414;
+  background-color: #216150;
 }
 .supermarket_product_listlayout .product_action_btns .addtocart_btn {
   width: auto;
   padding: 0px 20px;
   border-radius: 45px;
-  background-color: #cc1414;
+  background-color: #216150;
 }
 .supermarket_product_listlayout .product_action_btns .addtocart_btn:hover {
-  background-color: #0062bd;
+  background-color: #000000;
 }
 .supermarket_product_listlayout .info_list li {
   display: flex;
@@ -16162,6 +16163,7 @@ button {
   font-size: 14px;
   line-height: 32px;
   text-align: center;
+  padding : 7px; 
   margin-right: 15px;
   border-radius: 100%;
   background-color: #f1faff;
@@ -16232,13 +16234,13 @@ button {
   margin-bottom: 10px;
 }
 .supermarket_product_small .item_title a {
-  color: #0062bd;
+  color: #216150;
   font-size: 15px;
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
 }
 .supermarket_product_small:hover .item_title a {
-  color: #cc1414;
+  color: #216150;
 }
 .supermarket_product_small .item_price {
   display: block;
@@ -19012,7 +19014,7 @@ blockquote .blockquote_title {
 }
 .billing_form .form_item input {
   height: 40px;
-  padding: 0px;
+  padding: 10px;
   border: none;
   border-bottom: 2px solid #e6e6e6;
 }
@@ -20370,6 +20372,7 @@ blockquote .blockquote_title {
   .fashion_product_item .product_action_btns .addtocart_btn {
     min-width: 100px;
     padding: 0px 5px;
+    text-decoration: none;
   }
 
   .column5_element_grid .element-item {
@@ -27925,4 +27928,35 @@ blockquote .blockquote_title {
 /* ====================================================================================================
 9 - media screen and (max-width: 320px) - end
 ==================================================================================================== */
+/*# sourceMappingURL=style.css.map */a'}.icon-fulcrum:before{content:'\f50b'}.icon-galactic-republic:before{content:'\f50c'}.icon-galactic-senate:before{content:'\f50d'}.icon-jedi-order:before{content:'\f50e'}.icon-mandalorian:before{content:'\f50f'}.icon-old-republic:before{content:'\f510'}.icon-phoenix-squadron:before{content:'\f511'}.icon-sith:before{content:'\f512'}.icon-trade-federation:before{content:'\f513'}.icon-wolf-pack-battalion:before{content:'\f514'}.icon-blender:before{content:'\f517'}.icon-shoe-prints:before{content:'\f54b'}.icon-tshirt:before{content:'\f553'}.icon-concierge-bell:before{content:'\f562'}.icon-hornbill:before{content:'\f592'}.icon-mailchimp:before{content:'\f59e'}.icon-megaport:before{content:'\f5a3'}.icon-nimblr:before{content:'\f5a8'}.icon-rev:before {content:'\f5b2'}.icon-shopware:before{content:'\f5b5'}.icon-squarespace:before{content:'\f5be'}.icon-themeco:before{content:'\f5c6'}.icon-weebly:before{content:'\f5cc'}.icon-wix:before{content:'\f5cf'}.icon-ello:before{content:'\f5f1'}.icon-hackerrank:before{content:'\f5f7'}.icon-kaggle:before{content:'\f5fa'}.icon-markdown:before{content:'\f60f'}.icon-neos:before{content:'\f612'}.icon-zhihu:before{content:'\f63f'}.icon-alipay:before{content:'\f642'}.icon-the-red-yeti:before{content:'\f69d'}.icon-acquisitions-incorporated:before{content:'\f6af'}.icon-critical-role:before{content:'\f6c9'}.icon-d-and-d-beyond:before{content:'\f6ca'}.icon-dev:before{content:'\f6cc'}.icon-fantasy-flight-games:before{content:'\f6dc'}.icon-penny-arcade:before{content:'\f704'}.icon-wizards-of-the-coast:before{content:'\f730'}.icon-think-peaks:before{content:'\f731'}.icon-reacteurope:before{content:'\f75d'}.icon-adobe:before{content:'\f778'}.icon-artstation:before{content:'\f77a'}.icon-atlassian:before{content:'\f77b'}.icon-canadian-maple-leaf:before{content:'\f785'}.icon-centos:before{content:'\f789'}.icon-confluence:before{content:'\f78d'}.icon-dhl:before{content:'\f790'}.icon-diaspora:before{content:'\f791'}.icon-fedex:before{content:'\f797'}.icon-fedora:before{content:'\f798'}.icon-figma:before{content:'\f799'}.icon-intercom:before{content:'\f7af'}.icon-invision:before{content:'\f7b0'}.icon-jira:before{content:'\f7b1'}.icon-mendeley:before{content:'\f7b3'}.icon-raspberry-pi:before{content:'\f7bb'}.icon-redhat:before{content:'\f7bc'}.icon-sketch:before{content:'\f7c6'}.icon-sourcetree:before{content:'\f7d3'}.icon-suse:before{content:'\f7d6'}.icon-ubuntu:before{content:'\f7df'}.icon-ups:before{content:'\f7e0'}.icon-usps:before{content:'\f7e1'}.icon-yarn:before{content:'\f7e3'}
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a'}.icon-fulcrum:before{content:'\f50b'}.icon-galactic-republic:before{content:'\f50c'}.icon-galactic-senate:before{content:'\f50d'}.icon-jedi-order:before{content:'\f50e'}.icon-mandalorian:before{content:'\f50f'}.icon-old-republic:before{content:'\f510'}.icon-phoenix-squadron:before{content:'\f511'}.icon-sith:before{content:'\f512'}.icon-trade-federation:before{content:'\f513'}.icon-wolf-pack-battalion:before{content:'\f514'}.icon-blender:before{content:'\f517'}.icon-shoe-prints:before{content:'\f54b'}.icon-tshirt:before{content:'\f553'}.icon-concierge-bell:before{content:'\f562'}.icon-hornbill:before{content:'\f592'}.icon-mailchimp:before{content:'\f59e'}.icon-megaport:before{content:'\f5a3'}.icon-nimblr:before{content:'\f5a8'}.icon-rev:before {content:'\f5b2'}.icon-shopware:before{content:'\f5b5'}.icon-squarespace:before{content:'\f5be'}.icon-themeco:before{content:'\f5c6'}.icon-weebly:before{content:'\f5cc'}.icon-wix:before{content:'\f5cf'}.icon-ello:before{content:'\f5f1'}.icon-hackerrank:before{content:'\f5f7'}.icon-kaggle:before{content:'\f5fa'}.icon-markdown:before{content:'\f60f'}.icon-neos:before{content:'\f612'}.icon-zhihu:before{content:'\f63f'}.icon-alipay:before{content:'\f642'}.icon-the-red-yeti:before{content:'\f69d'}.icon-acquisitions-incorporated:before{content:'\f6af'}.icon-critical-role:before{content:'\f6c9'}.icon-d-and-d-beyond:before{content:'\f6ca'}.icon-dev:before{content:'\f6cc'}.icon-fantasy-flight-games:before{content:'\f6dc'}.icon-penny-arcade:before{content:'\f704'}.icon-wizards-of-the-coast:before{content:'\f730'}.icon-think-peaks:before{content:'\f731'}.icon-reacteurope:before{content:'\f75d'}.icon-adobe:before{content:'\f778'}.icon-artstation:before{content:'\f77a'}.icon-atlassian:before{content:'\f77b'}.icon-canadian-maple-leaf:before{content:'\f785'}.icon-centos:before{content:'\f789'}.icon-confluence:before{content:'\f78d'}.icon-dhl:before{content:'\f790'}.icon-diaspora:before{content:'\f791'}.icon-fedex:before{content:'\f797'}.icon-fedora:before{content:'\f798'}.icon-figma:before{content:'\f799'}.icon-intercom:before{content:'\f7af'}.icon-invision:before{content:'\f7b0'}.icon-jira:before{content:'\f7b1'}.icon-mendeley:before{content:'\f7b3'}.icon-raspberry-pi:before{content:'\f7bb'}.icon-redhat:before{content:'\f7bc'}.icon-sketch:before{content:'\f7c6'}.icon-sourcetree:before{content:'\f7d3'}.icon-suse:before{content:'\f7d6'}.icon-ubuntu:before{content:'\f7df'}.icon-ups:before{content:'\f7e0'}.icon-usps:before{content:'\f7e1'}.icon-yarn:before{content:'\f7e3'}
+/*# sourceMappingURL=style.css.map */
+
+
+
+
+
+
+
+
+
+
+
+
+
+

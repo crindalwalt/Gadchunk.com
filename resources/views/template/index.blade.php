@@ -1,5 +1,6 @@
 <x-main-layout>
-            
+    <x-layouts.header />
+
  
      <!-- main body - start
 		================================================== -->
@@ -65,8 +66,8 @@
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">View Cart</a></li>
-						<li><a href="shop_checkout.html">Checkout</a></li>
+						<li><a href="{{route('cart')}}">View Cart</a></li>
+						<li><a href="{{route('checkout')}}">Checkout</a></li>
 					</ul>
 				</div>
 
@@ -313,7 +314,7 @@
 			<section class="slider_section supermarket_slider sec_ptb_50 clearfix" data-background="{{asset('assets/images/backgrounds/bg_13.jpg')}}">
 				<div class="container maxw_1460">
 					<div class="row justify-content-lg-between">
-						<div class="col-lg-3"> 
+						{{-- <div class="col-lg-3"> 
 							<div class="alldepartments_menu_wrap">
 								<div class="alldepartments_dropdown show_lg collapse" id="alldepartments_dropdown">
 									<div class="card">
@@ -410,9 +411,9 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 
-						<div class="col-lg-6">
+						<div class="col-lg-9">
 							<div class="main_slider clearfix" data-slick='{"arrows": false}'>
 								<div class="item clearfix" data-bg-color="#ffc156">
 									<div class="slider_image order-last" data-animation="fadeInUp" data-delay=".2s">
@@ -605,7 +606,7 @@
 			================================================== -->
 
 
-			<!-- deals_section - start
+			{{-- <!-- deals_section - start
 			================================================== -->
 			<section class="deals_section sec_ptb_50 clearfix">
 				<div class="container maxw_1460">
@@ -786,7 +787,7 @@
 				</div>
 			</section>
 			<!-- deals_section - end
-			================================================== -->
+			================================================== --> --}}
 
 
 			<!-- product_section - start

@@ -9,8 +9,8 @@
 
     <body class="home_supermarket">
     {{-- <div class="main-wrapper main-wrapper-3"> --}}
-        <x-layouts.header />
 
+    
         {{ $slot }}
 
 
