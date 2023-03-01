@@ -4,6 +4,52 @@
     @include('sweetalert::alert')
     <div class="main-content">
         <div class="page-content">
+            {{-- <td> --}}
+            <!-- Small modal -->
+
+
+
+
+
+
+
+            {{-- <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Modal demo</button> --}}
+            {{-- <div class="modal fade bs-example-modal-center modalForAttrDel" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0">Center modal</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Cras mattis consectetur purus sit amet fermentum.
+                                    Cras justo odio, dapibus ac facilisis in,
+                                    egestas eget quam. Morbi leo risus, porta ac
+                                    consectetur ac, vestibulum at eros.</p>
+                                <p>Praesent commodo cursus magna, vel scelerisque
+                                    nisl consectetur et. Vivamus sagittis lacus vel
+                                    augue laoreet rutrum faucibus dolor auctor.</p>
+                                <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+                                    Praesent commodo cursus magna, vel scelerisque
+                                    nisl consectetur et. Donec sed odio dui. Donec
+                                    ullamcorper nulla non metus auctor
+                                    fringilla.</p>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal --> --}}
+            {{-- </td> --}}{{-- Modals end --}}
+
+
+
+
+
+
+
+
+
 
             <!-- start page title -->
             <div class="page-title-box">
@@ -52,8 +98,8 @@
                                                     Variation Name</label>
                                                 <div class="col-sm-12">
                                                     <input class="form-control" type="text"
-                                                        placeholder="Enter product variation i.e color,size etc " id="example-text-input"
-                                                        name="attribute_name">
+                                                        placeholder="Enter product variation i.e color,size etc "
+                                                        id="example-text-input" name="attribute_name">
                                                     @error('attribute_name')
                                                         <div class="text-danger"></div>
                                                     @enderror
@@ -176,10 +222,19 @@
                                                             <th scope="row">{{ $loop->iteration }}</th>
                                                             <td>{{ $var->attribute_name }}</td>
                                                             <td class="">
+                                                                <x-partials.center-modal :product="$var" />
                                                                 <a href="/admin/collection/"
-                                                                    class="btn btn-outline-success btn-sm">Show</a>
+                                                                    class="btn btn-outline-success btn-sm"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target=".modalForAttrDel">Add Values</a>
+                                                                    <a href="/admin/collection/"
+                                                                    class="btn btn-outline-warning btn-sm"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target=".modalForAttrDel">Show</a>
 
-                                                                <form action="{{ route("prod_variation_value.destroy") }}" method="POST" class="d-inline">
+                                                                <form
+                                                                    action="{{ route('prod_variation_value.destroy') }}"
+                                                                    method="POST" class="d-inline">
                                                                     @csrf
                                                                     <input type="hidden" value="{{ $var->id }}"
                                                                         name="attr_id">
@@ -196,8 +251,7 @@
                                             ">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30"
                                                             height="30" fill="currentColor"
-                                                            class="bi bi-exclamation-triangle-fill"
-                                                            viewBox="0 0 16 16">
+                                                            class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                                                             <path
                                                                 d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                                         </svg>
@@ -219,7 +273,39 @@
 
                 </div>
 
+                <script>
+                    let variationOptions = [];
 
+                    function commaSeparation() {
+                        let input = document.querySelector("#attr_value_name");
+                        let outputBox = document.querySelector("#outputBox");
+
+                        let value = input.value;
+
+                        variationOptions.push(value);
+                        outputBox.innerHTML += `<li>option: <span class="badge bg-success px-4 m-2">${value}</span></li>`;
+                        input.value = ""
+                        // console.log(pill);
+                        // variationOptions.forEach(element => {
+                        //     outputBox.innerHTML += `<li>Selected: <span class="badge bg-secondary">${element}</span></li>`;
+                        // });
+
+
+
+
+
+                    }
+                    let variationOptionForm = document.querySelector("#variationOptionForm")
+                    variationOptionForm.addEventListener("submit",(e)=>{
+                        // e.preventDefault();
+                        // alert("Form is submited")
+                        let hidden_input = document.querySelector("#options");
+                        hidden_input.value = variationOptions
+                        console.log(hidden_input);
+                    })
+
+
+                </script>
             </div> <!-- container-fluid -->
         </div>
         <x-partials.admin-footer />

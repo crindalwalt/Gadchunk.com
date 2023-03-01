@@ -106,6 +106,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     // Products Attributes CRUD
     Route::get("/attributes/variation",[ProductAttributeController::class,'index'])->name("product.variation");
     Route::post("/attributes/variation",[ProductAttributeController::class,'store'])->name("prod_variation_value.store");
+    Route::post("/attributes/variation/values",[ProductAttributeController::class,'storeValues'])->name("prod_variation_value.storeValues");
     Route::post("/attributes/variation/destroy",[ProductAttributeController::class,'destroy'])->name("prod_variation_value.destroy");
     Route::get("/attributes/variationValues",[ProductAttributeController::class,'variationValue'])->name("attributes.values.index");
 
