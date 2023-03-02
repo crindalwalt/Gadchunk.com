@@ -7,7 +7,7 @@
 
 
         <div class="page-content">
-
+            {{-- @dd($variations) --}}
             <!-- start page title -->
             <div class="page-title-box">
                 <div class="container-fluid">
@@ -48,15 +48,33 @@
                                     <h4 class="header-title">Add New Category</h4>
                                     <p class="card-title-desc">You can add product categories here</p>
                                     <div class="row mb-3">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
+                                        <label for="example-text-input" class="col-sm-12 col-form-label">Name</label>
+                                        <div class="col-sm-12">
                                             <input class="form-control" type="text" placeholder="Enter category name..." id="example-text-input" name="category_name">
                                             @error('category_name')
                                             <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                            
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="control-label">Brand</label>
+
+                                            <select
+                                                class="select2 form-control select2-multiple" multiple
+
+
+                                                name="attributes[]">
+                                                @foreach($variations as $var)
+                                                <option value="{{ $var->id }}">{{ $var->attribute_name }}</option>
+
+                                                @endforeach
+                                            </select>
+                                            @error('attributes')
+                                            <div class="text-danger fw-semibold">{{$message}}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                         <div class="row mb-3">
                                             <div class="#">
                                                 <input class="btn btn-lg px-4 py-2 btn-primary" type="submit" value="Add Category" id="example-email-input">
