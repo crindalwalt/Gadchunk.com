@@ -42,19 +42,18 @@ class ProductAttributeController extends Controller
     public function storeValues(Request $request)
     {
         // dd($request->all());
-        $values = explode(",",$request->options);
+        $values = explode(",", $request->options);
         $attribute = ProductAttribute::find($request->attribute);
         // dd($attribute);
-        foreach($values as $value){
+        foreach ($values as $value) {
 
-            $attribute->prod_attribute_value->create([
-                'attribute_value'=> $value,
-                'product_attribute_id'=> $attribute->id,
+            $attribute->prod_attribute_value()->create([
+                'attribute_value' => $value,
+                'product_attribute_id' => $attribute->id,
             ]);
         }
-        alert("Success", 'Variation options for '.$attribute->name .' has been added successfully', 'success');
-            return redirect()->back();
-        // dd($values);
+        alert("Success", 'Variation options for ' . $attribute->name . ' has been added successfully', 'success');
+        return redirect()->back();
     }
     public function destroy(Request $request, Product $product)
     {

@@ -222,16 +222,22 @@
                                                             <th scope="row">{{ $loop->iteration }}</th>
                                                             <td>{{ $var->attribute_name }}</td>
                                                             <td class="">
-                                                                <x-partials.center-modal :product="$var" />
+
+
+
+
                                                                 <a href="/admin/collection/"
                                                                     class="btn btn-outline-success btn-sm"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target=".modalForAttrDel">Add Values</a>
-                                                                    <a href="/admin/collection/"
+                                                                    data-bs-target="#modalForAttrDel-{{ $var->id }}">Add
+                                                                    Values</a>
+                                                                <a href="/admin/collection/"
                                                                     class="btn btn-outline-warning btn-sm"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target=".modalForAttrDel">Show</a>
+                                                                    data-bs-target="#modalForAttrDel-{{ $var->id }}">Show</a>
 
+                                                                <x-partials.center-modal :var="$var">
+                                                                </x-partials.center-modal>
                                                                 <form
                                                                     action="{{ route('prod_variation_value.destroy') }}"
                                                                     method="POST" class="d-inline">
@@ -275,36 +281,32 @@
 
                 <script>
                     let variationOptions = [];
+                    var common_id = null;
 
-                    function commaSeparation() {
-                        let input = document.querySelector("#attr_value_name");
-                        let outputBox = document.querySelector("#outputBox");
+                    function formroku(id) {
+                        let variationOptionForm = document.querySelector(`#variationOptionForm-${id}`)
+                        variationOptionForm.addEventListener("submit", (e) => {
+                            // e.preventDefault();
+                            // console.log(variationOptionForm)
+                                let hidden_input = document.querySelector(`#options-${id}`);
+                                hidden_input.value = variationOptions
+                                console.log(hidden_input);
+                        })
+                    }
 
+                    function commaSeparation(id) {
+                        // alert(id);
+                        // common_id = id;
+
+                        let input = document.querySelector(`#attr_value-${id}`);
+                        let outputBox = document.querySelector(`#outputBox-${id}`);
                         let value = input.value;
 
                         variationOptions.push(value);
                         outputBox.innerHTML += `<li>option: <span class="badge bg-success px-4 m-2">${value}</span></li>`;
                         input.value = ""
-                        // console.log(pill);
-                        // variationOptions.forEach(element => {
-                        //     outputBox.innerHTML += `<li>Selected: <span class="badge bg-secondary">${element}</span></li>`;
-                        // });
-
-
-
-
-
+                        formroku(id);
                     }
-                    let variationOptionForm = document.querySelector("#variationOptionForm")
-                    variationOptionForm.addEventListener("submit",(e)=>{
-                        // e.preventDefault();
-                        // alert("Form is submited")
-                        let hidden_input = document.querySelector("#options");
-                        hidden_input.value = variationOptions
-                        console.log(hidden_input);
-                    })
-
-
                 </script>
             </div> <!-- container-fluid -->
         </div>
