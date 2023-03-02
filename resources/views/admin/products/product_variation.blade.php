@@ -234,10 +234,11 @@
                                                                 <a href="/admin/collection/"
                                                                     class="btn btn-outline-warning btn-sm"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#modalForAttrDel-{{ $var->id }}">Show</a>
+                                                                    data-bs-target="#modalForAttrShow-{{ $var->id }}">Show</a>
 
-                                                                <x-partials.center-modal :var="$var">
-                                                                </x-partials.center-modal>
+                                                                <x-partials.variation_add :var="$var">
+                                                                </x-partials.variation_add>
+                                                                <x-partials.variation_show :var="$var" />
                                                                 <form
                                                                     action="{{ route('prod_variation_value.destroy') }}"
                                                                     method="POST" class="d-inline">
