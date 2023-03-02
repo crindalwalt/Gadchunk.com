@@ -108,7 +108,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
     Route::get('/users',[ProductController::class,'users'])->name('users.all');
 
-
+    Route::get("/testPivot",[CategoryController::class,'testPivot']);
 
     // Products Attributes CRUD
     Route::get("/attributes/variation",[ProductAttributeController::class,'index'])->name("product.variation");
