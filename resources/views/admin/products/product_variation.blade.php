@@ -226,12 +226,12 @@
 
 
 
-                                                                <a href="/admin/collection/"
+                                                                <a href="#"
                                                                     class="btn btn-outline-success btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#modalForAttrDel-{{ $var->id }}">Add
                                                                     Values</a>
-                                                                <a href="/admin/collection/"
+                                                                <a href="#"
                                                                     class="btn btn-outline-warning btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#modalForAttrShow-{{ $var->id }}">Show</a>

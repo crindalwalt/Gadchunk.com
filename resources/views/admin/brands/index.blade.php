@@ -55,6 +55,13 @@
                                             <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <label for="example-text-input" class="mt-3 col-sm-2 col-form-label">Brand Icon</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control mt-3" type="file" id="example-text-input" name="brand_icon">
+                                            @error('brand_icon')
+                                            <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
                                         <div class="row mb-3">
                                             <div class="#">
@@ -80,6 +87,7 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Brand name</th>
                                         <th>Brand name</th>
                                         <th>Actions</th>
 
