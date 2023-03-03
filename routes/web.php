@@ -62,9 +62,11 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 //    Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
 
    // Category CRUD
-    Route::get('category/',[CategoryController::class,'index']);
+    Route::get('category/',[CategoryController::class,'index'])->name("category.index");
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
+    Route::get('/category/{id}/update/', [CategoryController::class,'edit'])->name('edit_category');
+    Route::Post('/category/{id}/update/', [CategoryController::class,'update'])->name('update_category');
 
     // Collection CRUD
     Route::get('collection/',[CollectionController::class,'index']);
