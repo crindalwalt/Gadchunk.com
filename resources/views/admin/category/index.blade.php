@@ -121,11 +121,13 @@
                                                                 @endif
                                                             </td>
                                                             <td class="">
-                                                                <a href="" class="btn btn-outline-success btn-md"
+                                                                <a href="" class="btn btn-outline-warning btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#modalForCatShow-{{ $category->id }}">Show</a>
-                                                                    {{-- @dd($category->attributes); --}}
-                                                                    <x-partials.category_show :category="$category" />
+                                                                <a href="{{ route('edit_category',$category->id)}}"
+                                                                    class="btn btn-outline-success btn-sm">Update</a>
+                                                                {{-- @dd($category->attributes); --}}
+                                                                <x-partials.category_show :category="$category" />
                                                                 {{-- <form class="d-inline" action="" method="GET">
                                                                     @csrf
                                                                     <button type="submit"
@@ -137,7 +139,7 @@
                                                                     <input type="hidden" value="{{ $category->id }}"
                                                                         name="id">
                                                                     <button type="submit"
-                                                                        class="btn btn-md btn-outline-danger">Delete</button>
+                                                                        class="btn btn-sm btn-outline-danger">Delete</button>
                                                                 </form>
                                                             </td>
 

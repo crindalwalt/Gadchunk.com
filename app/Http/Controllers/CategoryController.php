@@ -41,10 +41,28 @@ class CategoryController extends Controller
         alert("Success", 'Category has been added successfully', 'success');
         return redirect()->back();
     }
-    public function testPivot()
+    public function edit(Category $id)
     {
-        $cat = Category::find(1);
-        return $cat->attributes;
+        // dd($id);
+        $data['category'] = $id;
+        $data['variations'] = ProductAttribute::latest()->get();
+        return view('admin.category.edit', $data);
+
+    }
+    public function update(Request $request,Category $id)
+    {
+        $request->validate([
+            'category_name' => 'required|string',
+        ]);
+        // dd($request->all());
+        $id->update([
+            'name' => $request->category_name,
+        ]);
+        $cat_attributes = $request->input('attributes');
+        $id->attributes()->sync($cat_attributes);
+        
+        alert("Success", 'Category has been updated successfully', 'success');
+        return redirect(route('category.index'));
     }
     public function destroy(Request $request)
     {
