@@ -47,7 +47,8 @@ use App\Http\Controllers\ProductAttributeValueController;
 */
 Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(function(){
     Route::get('/',function (){
-        return view('admin.dashboard');
+
+      return view('admin.dashboard');
     })->name('admin');
 
     // Users CRUD
@@ -73,6 +74,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     // Brand CRUD
     Route::get('brand/',[BrandController::class,'index'])->name('brand.index');
     Route::post('brand/add',[BrandController::class,'store'])->name('brand.store');
+    Route::get('brand_edit/{brand}',[BrandController::class,'edit'])->name('brand.edit');
+    Route::put('brand_update/{brand}',[BrandController::class,'update'])->name('brand.update');
+    Route::post('brand/delete',[BrandController::class,'destroy'])->name('brand.delete');
 
     Route::post("attribute/{var}",function(Request $request,ProductAttribute $var){
 
