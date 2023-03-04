@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'brand_icon'
+    ];
     public function prod_inventory(){
         return $this->belongsTo(ProductInventory::class);
     }

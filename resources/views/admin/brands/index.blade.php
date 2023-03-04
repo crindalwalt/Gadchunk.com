@@ -105,11 +105,8 @@
                                                             <td>{{ $brand->name }}</td>
                                                             <td><img src="{{asset('storage/brand_icons/'.$brand->brand_icon)}}" width="70" height="50"></td>
                                                             <td class="">
-                                                                <form class="d-inline" action="" method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    <button type="submit"
-                                                                        class="btn btn-sm btn-outline-primary">Edit</button>
-                                                                </form>
+                                                                <a href="{{ route('brand.edit',$brand->id)}}"
+                                                                    class="btn btn-outline-success btn-sm">Edit</a>
                                                              
                                                                 <form action="{{route('brand.delete')}}" method="POST" class="d-inline">
                                                                     @csrf
