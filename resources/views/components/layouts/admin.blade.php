@@ -96,6 +96,7 @@
 
     {{-- custom js --}}
     <script src="{{ asset('admin-assets/js/custom/user.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/custom/custom.js') }}"></script>
 </body>
 
 </html>

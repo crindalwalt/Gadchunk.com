@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
     // Users CRUD
     Route::get('users/',[UserController::class,'index']);
+    Route::get('profile/',[UserController::class,'profile'])->name('admin.profile');
 
    // Product Inventory Management
 
@@ -123,6 +124,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post("/attributes/variation/destroy",[ProductAttributeController::class,'destroy'])->name("prod_variation_value.destroy");
     Route::get("/attributes/variationValues",[ProductAttributeController::class,'variationValue'])->name("attributes.values.index");
 
+    Route::post("/cat_attribute",[CategoryController::class , 'attr_filter']);
 
 
     //Collection CRUD

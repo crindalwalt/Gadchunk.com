@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\ProductAttribute;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -71,4 +72,57 @@ class CategoryController extends Controller
         alert("Success", 'Category has been deleted successfully', 'success');
         return redirect()->back();
     }
+
+    // category with attribute
+    public function attr_filter(Request $request){
+        $id = $request->post('id');
+        $values = DB::table('attributes_category')->where('category_id',$id)->get();
+        $loop_div = 1;
+        $html = ' 
+       <div class="div">
+       <h4>Add Variation</h4>
+       <p>You can add variation detail here</p>
+   </div>';
+   foreach ($values as $value){
+       $loop_div++;
+    $html .='<div class="card" id="product_attribute_'.$loop_div.'">
+           <div class="card-body">
+               <div class="row">
+                   <div class="col-md-6 mb-3">
+                       <label class="control-label">Attribute'
+                           .$value->attribute_id .'</label>
+                       <select name="prod_variation[]" class="form-control select2" multiple>
+                           <option>Select</option>';
+        // foreach ($value->prod_attribute_value as $item){
+                            $html.=   '<option value=" "
+                                   class="d-flex justify-content-between">
+                                   
+                                   <small
+                                       class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                               </option>';
+//    };
+
+                $html.=      '</select>
+                       @error()
+                           <div class="text-danger fw-semibold">{{ $message }}</div>
+                       @enderror
+                   </div>
+               </div>
+           </div>
+       
+       <div class="col">
+           <button class="btn btn-md  btn-success m-4" style="float: right" type="button"
+               title="Add another varaition" onclick="add_more('.$loop_div.')">
+               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                   fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                   <path fill-rule="evenodd"
+                       d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+               </svg>
+           </button>
+       </div>
+   </div>';
+    };
+        
+        echo $html;
+   }
 }

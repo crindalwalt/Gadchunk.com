@@ -33,7 +33,7 @@ class ProductController extends Controller
     public function add()
     {
         $data['products'] = Product::all();
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::with('attributes')->get();
         $data['attributes'] = ProductAttribute::all();
         $data['brands'] = Brand::all();
         return view('admin.products.index', $data);
