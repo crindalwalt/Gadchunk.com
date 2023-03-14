@@ -13,13 +13,14 @@ use Illuminate\Http\Request;
 
 class ProductInventoryController extends Controller
 {
-    public function index (){
+    public function index (Product $product){
         $data['inventories'] = ProductInventory::all();
         $data['products'] = Product::all();
         $data['weights'] = Weight::all();
         $data['brands'] = Brand::all();
         $data['types'] = ProductType::all();
         $data['attributes'] = ProductAttribute::get();
+        $data['product'] = $product;
         // $data['values'] = ProductAttributeValue::all();
         return view('admin.inventories.index',$data);
     }

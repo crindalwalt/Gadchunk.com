@@ -28,6 +28,10 @@
     <!-- Bootstrap Css -->
     <link href="{{ asset('admin-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
         type="text/css" />
+
+    {{-- Custom --}}
+    <link href="{{ asset('admin-assets/css/custom.css') }}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('admin-assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -77,7 +81,8 @@
     <script src="{{ asset('admin-assets/js/app.js') }}"></script>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 
     <!-- twitter-bootstrap-wizard js -->

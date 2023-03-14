@@ -57,8 +57,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
 
    // Product Inventory Management
 
-   Route::get('product_inventory/',[ProductInventoryController::class,'index']);
-   Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
+//    Route::get('product_inventory/',[ProductInventoryController::class,'index']);
+//    Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
 
 //    Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
 
@@ -104,7 +104,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');
     Route::post('/prod_type/add',[ProductTypeController::class,'store'])->name('prod_type.store');
 
-    // Products CRUD
+    //! PRODUCT
     Route::get('/products',[ProductController::class,'index'])->name('products.all');
 
     Route::get('/product/add',[ProductController::class,'add'])->name('products.add');
@@ -115,7 +115,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
     Route::get('/users',[ProductController::class,'users'])->name('users.all');
 
-    Route::get("/testPivot",[CategoryController::class,'testPivot']);
+    //! PRODUCT INVENTORY
+    Route::get("/inventory/{product}/manage",[ProductInventoryController::class,'index'])->name("inventory.manage");
+    Route::post("/inventory/store",[ProductInventoryController::class,'store'])->name("inventory.store");
 
     // Products Attributes CRUD
     Route::get("/attributes/variation",[ProductAttributeController::class,'index'])->name("product.variation");

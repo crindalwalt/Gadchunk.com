@@ -17,10 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->integer('price');
-            $table->integer('discounted_price')->nullable();
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->string("brand_id");
+            $table->string("category_id");
+            $table->string("featured_image");
+            // $table->integer('price');
+            // $table->integer('discounted_price')->nullable();
+            // $table->bigInteger('category_id')->unsigned();
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->longText('description');
             $table->integer('is_active')->default(1);
             $table->timestamps();
