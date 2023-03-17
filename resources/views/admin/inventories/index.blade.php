@@ -40,11 +40,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card" id="product_div_'1">
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <form action="{{ route('inventory.store') }}" enctype="multipart/form-data"
                                         method="POST">
                                         @csrf
-
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         <h4 class="header-title">Managing Inventory for <b>{{ $product->name }}</b><span
                                                 class="d-inline-block badge bg-secondary text-white mx-1 px-1 ">{{ $product->category->name }}</span>
                                         </h4>
@@ -56,19 +56,22 @@
                                                 {{-- <h5 class="header-title">Managing Inventory for
                                                     Choose Available Attribute
                                                 </h5> --}}
-                                           @php
-                                               $array = $product->category->attributes
-                                           @endphp    
+                                                @php
+                                                    $array = $product->category->attributes;
+                                                @endphp
                                                 @foreach ($array as $attr)
                                                     <div class="col-6 mb-3">
                                                         <label class="control-label">{{ $attr->attribute_name }}</label>
-                                                        <select name="{{ $attr->attribute_name }}.'[]'" id="attr_{{$attr->id}}"
-                                                            class="form-control select2">
+                                                        <select name="{{ 'attribute' . '[]' }}"
+                                                            id="attr_{{ $attr->id }}" class="form-control select2">
                                                             @php
-                                                                $array_next = $attr->prod_attribute_value
+                                                                $array_next = $attr->prod_attribute_value;
                                                             @endphp
+                                                            <option value="{{ null }}">Select an option
+                                                            </option>
                                                             @foreach ($array_next as $value)
-                                                                <option value="{{ $value->id }}" id="options_{{$value->id}}"
+                                                                <option value="{{ $value->id }}"
+                                                                    id="options_{{ $value->id }}"
                                                                     class="d-flex justify-content-between ">
                                                                     {{ $value->attribute_value }}
                                                                     <small
@@ -76,19 +79,15 @@
                                                                 </option>
                                                             @endforeach
                                                         </select>
-                                                        @error("{{ $attr->attribute_name }}.'[]'")
+                                                        @error("{{ $attr->attribute_name }}")
                                                             <div class="text-danger fw-semibold">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 @endforeach
 
-                                            </div>
-                                            <div class="row">
-
-
-
                                                 <div class="col-6 mb-3">
-                                                    <label for="example-text-input" class="col-sm-6 col-form-label">Retail
+                                                    <label for="example-text-input"
+                                                        class="col-sm-6 col-form-label">Retail
                                                         Price</label>
                                                     <div class="col-sm-12">
                                                         <input class="form-control" type="text"
@@ -101,31 +100,35 @@
                                                 </div>
 
                                                 <div class="col-6 mb-3">
-                                                    <label for="example-text-input" class="col-sm-6 col-form-label">Discount
+                                                    <label for="example-text-input"
+                                                        class="col-sm-6 col-form-label">Discount
                                                         Price</label>
                                                     <div class="col-sm-12">
                                                         <input class="form-control" type="text"
-                                                            placeholder="Enter store price(if any)" id="example-text-input"
-                                                            name="discount_price">
+                                                            placeholder="Enter store price(if any)"
+                                                            id="example-text-input" name="discount_price">
                                                         @error('discount_price')
                                                             <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-6 mb-3">
-                                                    <label for="example-text-input" class="col-sm-6 col-form-label">Stock
+                                                    <label for="example-text-input"
+                                                        class="col-sm-6 col-form-label">Stock
                                                     </label>
                                                     <div class="col-sm-12">
                                                         <input class="form-control" type="text"
                                                             placeholder="Enter store price" id="example-text-input"
-                                                            name="stock_price">
-                                                        @error('stock_price')
+                                                            name="stock">
+                                                        @error('stock')
                                                             <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 mb-3">
-                                                    <label for="example-text-input" class="col-sm-6 col-form-label">Product Image
+                                                    <label for="example-text-input"
+                                                        class="col-sm-6 col-form-label">Product Image
                                                     </label>
                                                     <div class="col-sm-12">
                                                         <input class="form-control" type="file"
@@ -136,11 +139,19 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                
+
                                                 {{-- <button  type="button" class="btn btn-success col-md-2 float-end m-4" onclick="add_more({{$array}},{{$array_next}})">Add</button> --}}
-                                                
+
                                             </div>
                                         </div>
+                                </div>
+                                <div class="container">
+                                    <div class="  form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="in_stock"
+                                            id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">In
+                                            Stock</label>
+                                    </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="#">
@@ -149,8 +160,8 @@
 
                                     </div>
                                 </div>
-                                
-                            </form>
+
+                                </form>
 
                             </div>
 

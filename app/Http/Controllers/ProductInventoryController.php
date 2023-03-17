@@ -30,32 +30,56 @@ class ProductInventoryController extends Controller
     public function store(Request $request)
     {
 
-         dd($request->all());
-        $request->validate([
-            'product_id' => 'required|numeric',
-            'product_type_id' => 'required|numeric',
-            'weight_id' => 'required|numeric',
-            'brand_id' => 'required|numeric',
-            'retail_price' => 'required|numeric',
-            'store_price' => 'required|numeric',
-        ]);
+        //  dd($request->all());
+        // $request->validate([
+        //     'product_id' => 'required',
+        //     // 'product_image' => 'required',
+        //     'stock' =>'required',
+        //     'retail_price' => 'required',
+        //     'store_price' => 'required',
+        // ]);
 
-        $inv = new ProductInventory();
-        $inv->product_id = $request->product_id;
-        $inv->product_type_id = $request->product_type_id;
-        $inv->weight_id = $request->weight_id;
-        $inv->brand_id = $request->brand_id;
-        $inv->retail_price = $request->retail_price;
-        $inv->store_price = $request->store_price;
-        $inv->in_stock = $request->in_stock;
-        $inv->is_active = $request->is_active;
-        $inv->save();
-        if ($inv->save()) {
-            alert("Success", 'Product has been added successfully in Inventory', 'success');
-            return redirect()->back();
-        } else {
-            alert("Error", 'Product not be saved', 'error');
-        }
+        // $inv = new ProductInventory();
+        // $inv->product_id = $request->product_id;
+        // $inv->product_type_id = $request->product_type_id;
+        // $inv->weight_id = $request->weight_id;
+        // $inv->brand_id = $request->brand_id;
+        // $inv->retail_price = $request->retail_price;
+        // $inv->store_price = $request->store_price;
+        // $inv->in_stock = $request->in_stock;
+        // $inv->is_active = $request->is_active;
+        // $inv->save();
+
+
+        $inventory = ProductInventory::create([
+            'product_id' => $request->input("product_id"),
+            'retail_price' => $request->input("retail_price"),
+            'discount_price' => $request->input("discount_price"),
+            'stock' => $request->input("stock"),
+            'in_stock'=> $request->input("in_stock")=="on"?"yes":"no",
+        ]);
+        $productInventory = ProductInventory::find($inventory->id);
+        // dd($inventory->id);
+        // foreach ($request->attributes as $key) {
+        //     $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
+        //         'inventory_id'=> $inventory->id,
+        //         'attribute_id' => $key,
+        //         'product_id'=> $request->input("product_id"),
+        //     ]);
+
+        // dd($request->attribute);
+        $productInventory->inven_prod_attributes()->sync($request->attribute);
+        // }
+
+
+
+        return "sibitishibitibumbumyesyes";
+        // if ($inventory) {
+        //     alert("Success", 'Product has been added successfully in Inventory', 'success');
+        //     return redirect()->back();
+        // } else {
+        //     alert("Error", 'Product not be saved', 'error');
+        // }
 
     }
 
