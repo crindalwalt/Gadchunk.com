@@ -23,4 +23,12 @@ class ProductInventory extends Model
     public function stock(){
         return $this->hasMany(Stock::class);
     }
+// inventory and product images
+    public function inven_prod_images(){
+        return $this->belongsToMany(InventoryImages::class , 'inventory_images');
+    }
+
+    public function inven_prod_attributes(){
+        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes');
+    }
 }
