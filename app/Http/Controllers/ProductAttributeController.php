@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductAttribute;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\ProductAttribute;
 
- class ProductAttributeController extends Controller
+class ProductAttributeController extends Controller
 {
-       public function index()
+    public function index()
     {
         $variations = ProductAttribute::all();
         // $categories = Category::all();
@@ -21,7 +22,7 @@ use Illuminate\Http\Request;
     public function store(Request $request)
     {
 
-        // dd($request->all());
+
         $request->validate([
             'attribute_name' => 'required|string',
             'attribute_description' => 'required|string',
@@ -37,6 +38,28 @@ use Illuminate\Http\Request;
         } else {
             alert("Error", 'Product not be saved', 'error');
         }
+    }
+    public function storeValues(Request $request)
+    {
+        // dd($request->all());
+        $values = explode(",", $request->options);
+        $attribute = ProductAttribute::find($request->attribute);
+        // dd($attribute);
+        foreach ($values as $value) {
 
+            $attribute->prod_attribute_value()->create([
+                'attribute_value' => $value,
+                'product_attribute_id' => $attribute->id,
+            ]);
+        }
+        alert("Success", 'Variation options for ' . $attribute->name . ' has been added successfully', 'success');
+        return redirect()->back();
+    }
+    public function destroy(Request $request, Product $product)
+    {
+        $attr_to_del = ProductAttribute::find($request->input("attr_id"));
+        $attr_to_del->delete();
+        alert("Success", 'Variation has been deleted successfully', 'success');
+        return redirect()->back();
     }
 }

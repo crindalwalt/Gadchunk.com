@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,100 +22,77 @@ class ProductController extends Controller
             'categories' => $categories,
         ]);
     }
+
     public function show(Product $product)
     {
         return view('admin.products.show', [
             'product' => $product,
         ]);
     }
+
     public function add()
     {
-        $products = Product::all();
-        $categories = Category::all();
-        return view('admin.products.index', [
-            'categories' => $categories,
-            'products' => $products,
-
-        ]);
+        $data['products'] = Product::all();
+        $data['categories'] = Category::with('attributes')->get();
+        $data['attributes'] = ProductAttribute::all();
+        $data['brands'] = Brand::all();
+        return view('admin.products.index', $data);
     }
+
     public function store(Request $request)
     {
-        // dd($request->all());
-        // validating the product details
+        // validating comming request
         $request->validate([
-            'name' => 'required|string',
-            'category_id' => 'required|numeric',
-            'description' => 'required|string',
+            "product_name" => ["required", "string"],
+            "product_brand" => ['required'],
+            "category_id" => ["required"],
+            "product_description" => ["required"],
+            "product_image" => ['array'],
         ]);
-        // adding the product to the database table
-        $product = new Product();
 
-        $product->name = $request->name;
-        $product->slug = "/" .trim( strtolower($request->name));
-        $product->category_id = $request->category_id;
-        $product->description = $request->description;
-        $productSave = $product->save();
-
-        if($productSave){
-             // sending a success notification on the admin side
-             alert("Success", 'Product has been added successfully', 'success');
-             // sending admin back to dashboard
-             return redirect()->back();
-        }else{
-            alert("Error", 'Product not be saved', 'error');
-
-        }
-        $key = $product->getKey();
-
-
-
+        // storing image
         if ($request->hasFile('product_image')) {
-
-            foreach ($request->file('product_image') as $image) {
-                $productImage = new ProductImage();
-                $img_name = random_int(1000, 99999999) . time() . "-product" . $key . "." . $image->getClientOriginalExtension();
-
-                $productImage->product_id = $product->id;
-                $uploadPath = 'product-images/';
-                // $databasePath = 'product-images' . $img_name;
-                $productImage->image = $uploadPath . $img_name;
-
-                $image->storeAs("public/" . $uploadPath, $img_name);
-
-                // dd($productImage->save());
-                $saveSuccess = $productImage->save();
+            foreach ($request->file('product_image') as $file) {
+                $filename = 'product-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/product_images', $filename);
             }
-
-            if ($saveSuccess && $productSave) {
-                // sending a success notification on the admin side
-                alert("Success", 'Product has been added successfully', 'success');
-                // sending admin back to dashboard
-                return redirect()->back();
-            } else {
-                alert('Error', 'Product Images could not saved ', 'error');
-                return redirect()->back();
-            }
-
-
-
-
-
-
         } else {
-            alert('Warning', 'Product Images are missing', 'warning');
+            alert("Error", 'product image could not found', 'warning');
             return redirect()->back();
         }
 
+        // sending data to modal
+        $productToSave = Product::create([
+            'name' => $request->input("product_name"),
+            'slug' => "/" . trim(strtolower($request->name)),
+            'brand_id' => $request->input("product_brand"),
+            'category_id' => $request->input("category_id"),
+            'description' => $request->input("product_description"),
+            'featured_image' => $filename,
+        ]);
+
+        // validation to check if saved or not
+        if ($productToSave) {
+            alert("Success", 'Product ' . $request->product_name . ' has been added successfully', 'success');
+            return redirect()->back();
+        } else {
+            alert("Error", 'product could not saved', 'error');
+            return redirect()->back();
+        }
+    } // store method end
 
 
 
-    }
+
+
+    
     public function destroy(Product $product)
     {
         $product->delete();
         alert('Success', 'Product Deleted Successfully', 'success');
         return redirect()->route('products.all');
     }
+
     public function edit(Product $product)
     {
         //        return "editing product no $product->id here we go";
@@ -122,6 +101,7 @@ class ProductController extends Controller
             'categories' => Category::all()
         ]);
     }
+
     public function update(Product $product, Request $request)
     {
         // validating the product details
@@ -172,17 +152,12 @@ class ProductController extends Controller
                 alert('Error', 'Product Images could not saved ', 'error');
                 return redirect()->back();
             }
-
-
-
-
-
-
         } else {
             alert('success', 'Product updated with already existed photos', 'success');
             return redirect()->back();
         }
     }
+
     public function users()
     {
         $users = User::all();

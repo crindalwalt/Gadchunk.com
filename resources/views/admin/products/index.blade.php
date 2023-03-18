@@ -1,5 +1,5 @@
 <x-layouts.admin>
-    {{-- @dd($products) --}}
+    {{--    @dd($categories) --}}
     <!-- ============================================================== -->
     @include('sweetalert::alert')
     <div class="main-content">
@@ -13,11 +13,11 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="page-title">
-                                <h4>Manage Products</h4>
+                                <h4>Add Product</h4>
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="/admin/collections">Products</a></li>
-                                    <li class="breadcrumb-item active">Manage Products</li>
+                                    <li class="breadcrumb-item"><a href="/admin/category">Product</a></li>
+                                    <li class="breadcrumb-item active">Add Products</li>
                                 </ol>
                             </div>
                         </div>
@@ -41,34 +41,34 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('products.store') }}" enctype="multipart/form-data"
+                                    <form action="{{ route('products.store') }}" enctype="multipart/form-data" --}}
                                         method="POST">
                                         @csrf
 
                                         <h4 class="header-title">Add New Products</h4>
-                                        <p class="card-title-desc">You can add products here</p>
+                                        <p class="card-title-desc">You can add products in this section</p>
                                         <div class="row">
 
                                             <div class="col-12 mb-3">
                                                 <label for="example-text-input"
                                                     class="col-sm-2 col-form-label">Name</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-12">
                                                     <input class="form-control" type="text"
                                                         placeholder="Enter product name" id="example-text-input"
-                                                        name="name">
-                                                    @error('name')
+                                                        name="product_name">
+                                                    @error('product_name')
                                                         <div class="text-danger"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 mb-3">
+                                            <div class="col-md-6 mb-3">
                                                 <label class="control-label"> Product Category</label>
-                                                <select name="category_id" class="form-control select2">
+                                                <select name="category_id" class="form-control select2 category_attr">
                                                     <option>Select</option>
                                                     @foreach ($categories as $cat)
                                                         <option value="{{ $cat->id }}"
-                                                            class="d-flex justify-content-between">
+                                                            class="d-flex justify-content-between ">
                                                             {{ $cat->name }}
                                                             <small
                                                                 class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
@@ -79,18 +79,44 @@
                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
                                                 @enderror
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="control-label">Brand</label>
+
+                                                    <select class="select2 form-control select2-multiple"
+                                                        name="product_brand">
+                                                        <option value="{{ null }}">Select</option>
+                                                        @foreach ($brands as $brand)
+                                                            <option value="{{ $brand->id }}">{{ $brand->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('product_brand')
+                                                        <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
 
                                             <div class="col-12 mb-3">
-                                                <label for="example-text-input"
-                                                    class=" col-form-label">Description</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="text"
-                                                        placeholder="Enter product description" id="example-text-input"
-                                                        name="description">
-                                                    @error('description')
+                                                <label for="example-text-input-file"
+                                                    class="col-sm-2 col-form-label">Product Image</label>
+                                                <div class="col-sm-12">
+                                                    <input class="form-control" type="file"
+                                                        id="example-text-input-file" name="product_image[]">
+                                                    @error('product_image')
                                                         <div class="text-danger"></div>
                                                     @enderror
                                                 </div>
+                                            </div>
+
+                                            <div class="col-md-12 mb-3">
+                                                <label class="form-label" for="product_description">Product
+                                                    Description</label>
+                                                <textarea class="form-control" id="product_description" rows="5" placeholder="Enter Description"
+                                                    name="product_description">lorem ipsum</textarea>
+                                                @error('product_description')
+                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                         </div>
@@ -106,46 +132,42 @@
                                 </div>
 
                             </div>
+
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Browse all Products</h4>
-                                    <p class="card-title-desc">All of the below Products are fetched from the
-                                        DateBase</p>
+                                    <h4 class="header-title">Browse all Brand</h4>
+                                    <p class="card-title-desc">All of the below brand are fetched from the DateBase</p>
                                     <div class="table-responsive">
 
                                         <table class="table mb-0">
-                                            @if ($products->isNotEmpty())
+                                            @if ($brands->isNotEmpty())
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th> Name</th>
-                                                        <th> Category</th>
-                                                        <th> Status</th>
+                                                        <th>Product name</th>
+                                                        <th>Category </th>
+                                                        <th>brand </th>
                                                         <th>Actions</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                     @foreach ($products as $product)
                                                         <tr>
                                                             <th scope="row">{{ $loop->iteration }}</th>
-                                                            <td>{{ $product->name }}</td>
-                                                            <td>{{ $product->category_id }}</td>
-                                                            <td>
-                                                                @if ($product->is_active == 0)
-                                                                    Unactive
-                                                                @else
-                                                                    Active
-                                                                @endif
-                                                            </td>
-
+                                                            <td>{{ $product->name }}<br><span class="small">{{ $product->description }}</span></td>
+                                                            <td>{{ $product->category->name }}</td>
+                                                            <td><img src="{{asset('storage/product_images/'.$product->featured_image)}}" width="70" height="50"></td>
                                                             <td class="">
-                                                                <a href="/admin/collection/"
-                                                                    class="btn btn-outline-success btn-sm">Show</a>
+                                                                <a href="{{ route('inventory.manage',$product->id)}}"
+                                                                    class="btn btn-outline-primary btn-sm">Manage Inventory</a>
 
-                                                                <form action="" method="POST" class="d-inline">
+                                                                    <a href="{{ route('brand.edit',$product->id)}}"
+                                                                    class="btn btn-outline-success btn-sm">Edit</a>
+
+                                                                <form action="{{route('brand.delete')}}" method="POST" class="d-inline">
                                                                     @csrf
-                                                                    <input type="hidden" value="" name="id">
+                                                                    <input type="hidden" value="{{$product->id}}" name="id">
                                                                     <button type="submit"
                                                                         class="btn btn-sm btn-outline-danger">Delete</button>
                                                                 </form>
@@ -154,9 +176,10 @@
                                                         </tr>
                                                     @endforeach
                                                 @else
+                                                {{-- http://127.0.0.1:8000/storage/product_images --}}
                                                     <div
                                                         class="text-center text-warning text-lg font-size-24 font-semibold d-flex justify-content-center align-items-center
-                                            ">
+                                        ">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30"
                                                             height="30" fill="currentColor"
                                                             class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -174,6 +197,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
@@ -201,3 +225,4 @@
 
 
 </x-layouts.admin>
+

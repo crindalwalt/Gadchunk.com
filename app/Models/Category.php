@@ -7,14 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class category extends Model
 {
+
     use HasFactory;
-    public function products(){
-        return $this->belongsToMany(Product::class,'product_categories');
+    protected $guarded = [];
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_categories');
     }
-    public function product(){
+    public function product()
+    {
         return $this->hasMany(Product::class);
     }
-    public function promotion(){
+    public function promotion()
+    {
         return $this->hasMany(Promotion::class);
     }
+    public function attributes()
+    {
+        return $this->belongsToMany(ProductAttribute::class,'attributes_category','attribute_id','category_id');
+    }
+
 }

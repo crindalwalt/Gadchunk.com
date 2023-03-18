@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\PropertyFetch;
 
-class Brand extends Model
+class InventoryImages extends Model
 {
+    protected $guarded = [];
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'brand_icon'
-    ];
-    public function prod_inventory(){
+    public function prod_inven(){
         return $this->belongsTo(ProductInventory::class);
     }
 }

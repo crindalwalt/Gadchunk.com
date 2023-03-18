@@ -16,10 +16,11 @@ class UserController extends Controller
         ]);
     }
 
-    // public function index(){
-    //     $users = User::all();
-    //     return view('admin.users.index',[
-    //         'users' => $users,
-    //     ]);
-    // }
+    public function profile(){
+        $user = Auth::user();
+        // @dd($user);
+        return view('admin.User_profile.index',[
+            'user' => $user,
+        ]);
+    }
 }

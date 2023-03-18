@@ -11,26 +11,14 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's databaProductVariation::factory()->create([
-            'variation' => 'color'
-         ]);
-         ProductVariation::factory()->create([
-            'variation' => 'size'
-         ]);
-         ProductVariation::factory()->create([
-            'variation' => 'material'
-         ]);se.
-     *
-     * @return void
-     */
+//    Seeding the application data
     public function run()
     {
 //        Product::factory(10)->create();
         // \App\Models\User::factory(10)->create();
          \App\Models\User::factory()->create([
              'name' => 'Shahzad Farooq',
-             'email' => 'shahzad@mail.com',
+             'email' => 'shezi@mail.com',
              'phone' => '03041232233',
              'userType' => 0,
          ]);

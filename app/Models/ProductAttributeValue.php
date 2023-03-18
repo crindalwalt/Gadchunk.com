@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductAttributeValue extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function prod_attribute(){
         return $this->belongsTo(ProductAttribute::class);
     }

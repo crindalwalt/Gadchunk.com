@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductInventory extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     public function products(){
         return $this->belongsTo(Product::class, 'product_id');
@@ -22,5 +23,13 @@ class ProductInventory extends Model
     }
     public function stock(){
         return $this->hasMany(Stock::class);
+    }
+// inventory and product images
+    public function inven_prod_images(){
+        return $this->hasMany(InventoryImages::class,'inventory_id','product_id');
+    }
+
+    public function inven_prod_attributes(){
+        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes' , 'inventory_id','attribute_id');
     }
 }

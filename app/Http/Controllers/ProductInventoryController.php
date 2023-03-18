@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductAttributeValue;
@@ -13,49 +14,79 @@ use Illuminate\Http\Request;
 
 class ProductInventoryController extends Controller
 {
-    public function index (){
+    public function index (Product $product){
         $data['inventories'] = ProductInventory::all();
         $data['products'] = Product::all();
         $data['weights'] = Weight::all();
         $data['brands'] = Brand::all();
         $data['types'] = ProductType::all();
         $data['attributes'] = ProductAttribute::get();
+        $data['product'] = $product;
         // $data['values'] = ProductAttributeValue::all();
         return view('admin.inventories.index',$data);
     }
 
-   
+
     public function store(Request $request)
     {
 
-        // dd($request->all());
+        //  dd($request->all());
         $request->validate([
-            'product_id' => 'required|numeric',
-            'product_type_id' => 'required|numeric',
-            'weight_id' => 'required|numeric',
-            'brand_id' => 'required|numeric',
-            'retail_price' => 'required|numeric',
-            'store_price' => 'required|numeric',
+            'product_id' => 'required',
+            'retail_price' => 'required',
+            'discount_price' => 'required',
+            'stock' =>'required',
+            'product_image' => 'required',
         ]);
 
-        $inv = new ProductInventory();
-        $inv->product_id = $request->product_id;
-        $inv->product_type_id = $request->product_type_id;
-        $inv->weight_id = $request->weight_id;
-        $inv->brand_id = $request->brand_id;
-        $inv->retail_price = $request->retail_price;
-        $inv->store_price = $request->store_price;
-        $inv->in_stock = $request->in_stock;
-        $inv->is_active = $request->is_active;
-        $inv->save();
-        if ($inv->save()) {
-            alert("Success", 'Product has been added successfully in Inventory', 'success');
+
+        $inventory = ProductInventory::create([
+            'product_id' => $request->input("product_id"),
+            'retail_price' => $request->input("retail_price"),
+            'discount_price' => $request->input("discount_price"),
+            'stock' => $request->input("stock"),
+            'in_stock'=> $request->input("in_stock")=="on"?"yes":"no",
+        ]);
+
+
+        $productInventory = ProductInventory::find($inventory->id);
+        // foreach ($request->attribute as $key) {
+            // $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
+                // 'inventory_id'=> $inventory->id,
+                // 'attribute_id' => $key,
+        //         // 'product_id'=> $request->input("product_id"),
+            // ]);
+            // dd($productInventory->inven_prod_attributes());
+
+        // }
+        // dd('success');
+        $productInventory->inven_prod_attributes()->sync($request->attribute);
+          // storing image
+          if ($request->hasFile('product_image')) {
+            foreach ($request->file('product_image') as $file) {
+                $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/inventory_images', $filename);
+
+                $inventoryImages = $productInventory->inven_prod_images()->create([
+                    'inventory_id'=> $inventory->id,
+                    'product_image' => $filename,
+                    'product_id'=> $request->input("product_id"),
+                ]);
+            }
+        } else {
+            alert("Error", 'product image could not found', 'warning');
+            return redirect()->back();
+        }
+
+
+        // dd('success');
+        // $productInventory->inven_prod_attributes()->sync($request->attribute);
+        // return "sibitishibitibumbumyesyes";
+        if ($inventory) {
+            alert("Success", 'Inventory has been added added successfully', 'success');
             return redirect()->back();
         } else {
             alert("Error", 'Product not be saved', 'error');
         }
-
     }
-
- 
 }

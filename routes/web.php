@@ -1,24 +1,27 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Models\ProductAttribute;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CollectionController;
-use App\Http\Controllers\NavigatorController;
-use App\Http\Controllers\ProductAttributeController;
-use App\Http\Controllers\ProductAttributeValueController;
+use App\Http\Controllers\WeightController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NavigatorController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
-use App\Http\Controllers\ProductInventoryController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ProductTypeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PromotionController;
-use App\Http\Controllers\User\WishlistController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WeightController;
-use App\Models\Category;
-use App\Models\Product;
-use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ProductAttributeController;
+use App\Http\Controllers\ProductInventoryController;
+use App\Http\Controllers\ProductAttributeValueController;
+
 
 
 
@@ -46,30 +49,42 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(function(){
     Route::get('/',function (){
-        return view('admin.dashboard');
+
+      return view('admin.dashboard');
     })->name('admin');
 
     // Users CRUD
     Route::get('users/',[UserController::class,'index']);
+    Route::get('profile/',[UserController::class,'profile'])->name('admin.profile');
 
    // Product Inventory Management
-   
-   Route::get('product_inventory/',[ProductInventoryController::class,'index']);
-   Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
-   
-   Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
-   
+
+//    Route::get('product_inventory/',[ProductInventoryController::class,'index']);
+//    Route::post('/prod_inventory/add/', [ProductInventoryController::class,'store'])->name('inventory.store');
+
+//    Route::post('/var_val/',[ProductAttributeValueController::class,'variation_value']);
+
    // Category CRUD
-    Route::get('category/',[CategoryController::class,'index']);
+    Route::get('category/',[CategoryController::class,'index'])->name("category.index");
     Route::post('/category/delete/',[CategoryController::class,'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class,'store'])->name('store_category');
+    Route::get('/category/{id}/update/', [CategoryController::class,'edit'])->name('edit_category');
+    Route::Post('/category/{id}/update/', [CategoryController::class,'update'])->name('update_category');
 
     // Collection CRUD
     Route::get('collection/',[CollectionController::class,'index']);
 
     // Brand CRUD
     Route::get('brand/',[BrandController::class,'index'])->name('brand.index');
-    Route::post('/brand/add',[BrandController::class,'store'])->name('brand.store');
+    Route::post('brand/add',[BrandController::class,'store'])->name('brand.store');
+    Route::get('brand_edit/{brand}',[BrandController::class,'edit'])->name('brand.edit');
+    Route::put('brand_update/{brand}',[BrandController::class,'update'])->name('brand.update');
+    Route::post('brand/delete',[BrandController::class,'destroy'])->name('brand.delete');
+
+    Route::post("attribute/{var}",function(Request $request,ProductAttribute $var){
+
+        dd($request->all());
+    });
 
     // Promotion CRUD
     Route::get('promotion/',[PromotionController::class,'index']);
@@ -79,19 +94,19 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::post('/weight/add',[WeightController::class,'store'])->name('weight.store');
 
 
-   //Product Variation 
+   //Product Variation
    Route::get('/prod_var',[ProductAttributeController::class,'index'])->name('product.variation');
    Route::post('/prod_var/add',[ProductAttributeController::class,'store'])->name('prod_var.store');
 
-   //Product Variation Value 
+   //Product Variation Value
    Route::post('/prod_var_value/add',[ProductAttributeValueController::class,'store'])->name('prod_var_value.store');
    Route::post('/var_val',[ProductAttributeValueController::class,'variation_value'])->name('prod_var_value.store');
 
-    // Product type 
+    // Product type
     Route::get('/prod_type',[ProductTypeController::class,'index'])->name('product.type');
     Route::post('/prod_type/add',[ProductTypeController::class,'store'])->name('prod_type.store');
 
-    // Products CRUD
+    //! PRODUCT
     Route::get('/products',[ProductController::class,'index'])->name('products.all');
 
     Route::get('/product/add',[ProductController::class,'add'])->name('products.add');
@@ -101,6 +116,20 @@ Route::prefix('admin')->middleware(['auth','isAdmin', 'verified'])->group(functi
     Route::get('/product/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
     Route::get('/users',[ProductController::class,'users'])->name('users.all');
+
+    //! PRODUCT INVENTORY
+    Route::get("/inventory/{product}/manage",[ProductInventoryController::class,'index'])->name("inventory.manage");
+    Route::post("/inventory/store",[ProductInventoryController::class,'store'])->name("inventory.store");
+
+    // Products Attributes CRUD
+    Route::get("/attributes/variation",[ProductAttributeController::class,'index'])->name("product.variation");
+    Route::post("/attributes/variation",[ProductAttributeController::class,'store'])->name("prod_variation_value.store");
+    Route::post("/attributes/variation/values",[ProductAttributeController::class,'storeValues'])->name("prod_variation_value.storeValues");
+    Route::post("/attributes/variation/destroy",[ProductAttributeController::class,'destroy'])->name("prod_variation_value.destroy");
+    Route::get("/attributes/variationValues",[ProductAttributeController::class,'variationValue'])->name("attributes.values.index");
+
+    Route::post("/cat_attribute",[CategoryController::class , 'attr_filter']);
+
 
     //Collection CRUD
     Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
