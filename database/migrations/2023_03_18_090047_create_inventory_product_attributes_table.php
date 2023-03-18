@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('inventory_product_attributes', function (Blueprint $table) {
             $table->id();
             $table->string('inventory_id');
-            $table->string('attribute_id');
+            $table->string('attribute_id')->nullable();
             $table->timestamps();
         });
     }

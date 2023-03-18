@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class InventoryProductAttribute extends Model
 {
     use HasFactory;
-    protected $fillable = ['inventory_id'];
- 
+    protected $guarded = [];
+
 
     public function prod_inven(){
-        return $this->belongsToMany(ProductInventory::class , 'inventory_product_attributes');
+        return $this->belongsToMany(ProductInventory::class ,'inventory_id','attribute_id');
     }
 }

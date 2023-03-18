@@ -63,7 +63,7 @@
                                                     <div class="col-6 mb-3">
                                                         <label class="control-label">{{ $attr->attribute_name }}</label>
                                                         <select name="{{ 'attribute' . '[]' }}"
-                                                            id="attr_{{ $attr->id }}" class="form-control select2">
+                                                            id="attr_{{ $attr->id }}" class="form-control select2" multiple>
                                                             @php
                                                                 $array_next = $attr->prod_attribute_value;
                                                             @endphp

@@ -39,17 +39,6 @@ class ProductInventoryController extends Controller
             'product_image' => 'required',
         ]);
 
-        // $inv = new ProductInventory();
-        // $inv->product_id = $request->product_id;
-        // $inv->product_type_id = $request->product_type_id;
-        // $inv->weight_id = $request->weight_id;
-        // $inv->brand_id = $request->brand_id;
-        // $inv->retail_price = $request->retail_price;
-        // $inv->store_price = $request->store_price;
-        // $inv->in_stock = $request->in_stock;
-        // $inv->is_active = $request->is_active;
-        // $inv->save();
-        // dd($request->product_image);
 
         $inventory = ProductInventory::create([
             'product_id' => $request->input("product_id"),
@@ -58,24 +47,28 @@ class ProductInventoryController extends Controller
             'stock' => $request->input("stock"),
             'in_stock'=> $request->input("in_stock")=="on"?"yes":"no",
         ]);
-        // dd($inventory->id);
-        $productInventory = ProductInventory::find($inventory->id);
-        
-        foreach ($request->attribute as $key) {
-            $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
-                'inventory_id'=> $inventory->id,
-                'attribute_id' => $key,
-                // 'product_id'=> $request->input("product_id"),
-            ]);
 
+
+        $productInventory = ProductInventory::find($inventory->id);
+        // foreach ($request->attribute as $key) {
+            // $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
+                // 'inventory_id'=> $inventory->id,
+                // 'attribute_id' => $key,
+        //         // 'product_id'=> $request->input("product_id"),
+            // ]);
+            // dd($productInventory->inven_prod_attributes());
+
+        // }
         // dd('success');
-        // $productInventory->inven_prod_attributes()->sync($request->attribute);
-        }
+        $productInventory->inven_prod_attributes()->sync($request->attribute);
           // storing image
           if ($request->hasFile('product_image')) {
             foreach ($request->file('product_image') as $file) {
                 $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/inventory_images', $filename);
+
+
+
                 $inventoryImages = $productInventory->inven_prod_images()->create([
                     'inventory_id'=> $inventory->id,
                     'product_image' => $file,
@@ -87,7 +80,7 @@ class ProductInventoryController extends Controller
             // return redirect()->back();
         }
 
-       
+
         // dd('success');
         // $productInventory->inven_prod_attributes()->sync($request->attribute);
         return "sibitishibitibumbumyesyes";

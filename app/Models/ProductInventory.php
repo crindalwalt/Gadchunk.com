@@ -26,10 +26,10 @@ class ProductInventory extends Model
     }
 // inventory and product images
     public function inven_prod_images(){
-        return $this->belongsToMany(InventoryImages::class , 'inventory_images');
+        return $this->hasMany(InventoryImages::class,'inventory_id','product_id');
     }
 
     public function inven_prod_attributes(){
-        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes' , 'inventory_id');
+        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes' , 'inventory_id','attribute_id');
     }
 }
