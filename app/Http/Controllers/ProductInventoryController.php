@@ -67,25 +67,23 @@ class ProductInventoryController extends Controller
                 $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/inventory_images', $filename);
 
-
-
                 $inventoryImages = $productInventory->inven_prod_images()->create([
                     'inventory_id'=> $inventory->id,
-                    'product_image' => $file,
+                    'product_image' => $filename,
                     'product_id'=> $request->input("product_id"),
                 ]);
             }
         } else {
             alert("Error", 'product image could not found', 'warning');
-            // return redirect()->back();
+            return redirect()->back();
         }
 
 
         // dd('success');
         // $productInventory->inven_prod_attributes()->sync($request->attribute);
-        return "sibitishibitibumbumyesyes";
+        // return "sibitishibitibumbumyesyes";
         if ($inventory) {
-            alert("Success", 'Product has been added successfully in Inventory', 'success');
+            alert("Success", 'Inventory has been added added successfully', 'success');
             return redirect()->back();
         } else {
             alert("Error", 'Product not be saved', 'error');

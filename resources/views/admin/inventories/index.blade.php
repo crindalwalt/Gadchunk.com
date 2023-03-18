@@ -180,6 +180,7 @@
                                                     <th>#</th>
                                                     <th> Name</th>
                                                     <th> Retail Price</th>
+                                                    <th> Retail Price</th>
                                                     <th> Stock Price</th>
                                                     <th> Status</th>
                                                     <th>Actions</th>
@@ -193,8 +194,9 @@
                                                         <th scope="row">{{ $loop->iteration }}</th>
                                                         <td>{{ $inv->product_id }}</td>
                                                         <td>{{ $inv->retail_price }}</td>
+                                                        <td>{{ $inv->discount_price }}</td>
                                                         <td>{{ $inv->store_price }}</td>
-                                                        <td>{{ $inv->is_active }}</td>
+                                                        <td>{{ $inv->in_stock }}</td>
 
                                                         <td class="">
                                                             <a href="/admin/collection/"
