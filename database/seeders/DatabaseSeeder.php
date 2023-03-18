@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
              'userType' => 0,
          ]);
 
-        // Category::factory(5)->create();
+
     }
+
 }
