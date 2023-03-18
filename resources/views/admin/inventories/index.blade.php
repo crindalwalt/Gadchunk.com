@@ -44,6 +44,7 @@
                                     <form action="{{ route('inventory.store') }}" enctype="multipart/form-data"
                                         method="POST">
                                         @csrf
+
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         <h4 class="header-title">Managing Inventory for <b>{{ $product->name }}</b><span
                                                 class="d-inline-block badge bg-secondary text-white mx-1 px-1 ">{{ $product->category->name }}</span>
@@ -77,6 +78,7 @@
                                                                     <small
                                                                         class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
                                                                 </option>
+
                                                             @endforeach
                                                         </select>
                                                         @error("{{ $attr->attribute_name }}")

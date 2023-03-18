@@ -10,7 +10,7 @@ class ProductInventory extends Model
     protected $guarded = [];
     use HasFactory;
     public function products(){
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class, 'product_id');
     }
     public function prod_type(){
         return $this->hasMany(ProductType::class);
