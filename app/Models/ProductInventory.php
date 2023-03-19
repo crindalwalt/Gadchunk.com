@@ -30,6 +30,6 @@ class ProductInventory extends Model
     }
 
     public function inven_prod_attributes(){
-        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes');
+        return $this->belongsToMany(InventoryProductAttribute::class ,'inventory_product_attributes' , 'inventory_id');
     }
 }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('inventory_id');
             $table->string('attribute_id');
-            $table->string('product_id');
             $table->timestamps();
         });
     }

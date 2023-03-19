@@ -31,13 +31,13 @@ class ProductInventoryController extends Controller
     {
 
         //  dd($request->all());
-        // $request->validate([
-        //     'product_id' => 'required',
-        //     // 'product_image' => 'required',
-        //     'stock' =>'required',
-        //     'retail_price' => 'required',
-        //     'store_price' => 'required',
-        // ]);
+        $request->validate([
+            'product_id' => 'required',
+            'retail_price' => 'required',
+            'discount_price' => 'required',
+            'stock' =>'required',
+            'product_image' => 'required',
+        ]);
 
         // $inv = new ProductInventory();
         // $inv->product_id = $request->product_id;
@@ -49,7 +49,7 @@ class ProductInventoryController extends Controller
         // $inv->in_stock = $request->in_stock;
         // $inv->is_active = $request->is_active;
         // $inv->save();
-
+        // dd($request->product_image);
 
         $inventory = ProductInventory::create([
             'product_id' => $request->input("product_id"),
@@ -58,30 +58,44 @@ class ProductInventoryController extends Controller
             'stock' => $request->input("stock"),
             'in_stock'=> $request->input("in_stock")=="on"?"yes":"no",
         ]);
-        $productInventory = ProductInventory::find($inventory->id);
         // dd($inventory->id);
-        // foreach ($request->attributes as $key) {
-        //     $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
-        //         'inventory_id'=> $inventory->id,
-        //         'attribute_id' => $key,
-        //         'product_id'=> $request->input("product_id"),
-        //     ]);
+        $productInventory = ProductInventory::find($inventory->id);
+        
+        foreach ($request->attribute as $key) {
+            $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
+                'inventory_id'=> $inventory->id,
+                'attribute_id' => $key,
+                // 'product_id'=> $request->input("product_id"),
+            ]);
 
-        // dd($request->attribute);
-        $productInventory->inven_prod_attributes()->sync($request->attribute);
-        // }
+        // dd('success');
+        // $productInventory->inven_prod_attributes()->sync($request->attribute);
+        }
+          // storing image
+          if ($request->hasFile('product_image')) {
+            foreach ($request->file('product_image') as $file) {
+                $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/inventory_images', $filename);
+                $inventoryImages = $productInventory->inven_prod_images()->create([
+                    'inventory_id'=> $inventory->id,
+                    'product_image' => $file,
+                    'product_id'=> $request->input("product_id"),
+                ]);
+            }
+        } else {
+            alert("Error", 'product image could not found', 'warning');
+            // return redirect()->back();
+        }
 
-
-
+       
+        // dd('success');
+        // $productInventory->inven_prod_attributes()->sync($request->attribute);
         return "sibitishibitibumbumyesyes";
-        // if ($inventory) {
-        //     alert("Success", 'Product has been added successfully in Inventory', 'success');
-        //     return redirect()->back();
-        // } else {
-        //     alert("Error", 'Product not be saved', 'error');
-        // }
-
+        if ($inventory) {
+            alert("Success", 'Product has been added successfully in Inventory', 'success');
+            return redirect()->back();
+        } else {
+            alert("Error", 'Product not be saved', 'error');
+        }
     }
-
-
 }

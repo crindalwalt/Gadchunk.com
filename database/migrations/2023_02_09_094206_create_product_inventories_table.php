@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('product_inventories', function (Blueprint $table) {
             $table->id();
-            $table->string('retail_price');
-            $table->string('discount_price');
-            $table->string('stock');
-            $table->string('product_image')->nullable();
-            $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('in_stock')->default("off");
+           $table->string('retail_price');
+           $table->string('discount_price');
+           $table->string('stock');
+           $table->bigInteger('product_id')->unsigned();
+           $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+           $table->string('in_stock')->default("off");
             $table->string('is_active')->default("off");
             $table->timestamps();
         });
