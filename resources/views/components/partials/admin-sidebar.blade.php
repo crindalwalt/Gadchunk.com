@@ -136,7 +136,7 @@
                 </li>
                 {{-- Order pane --}}
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route("orders.index") }}" class="waves-effect">
                         <i class="dripicons-to-do"></i>
                         {{-- <span class="badge rounded-pill bg-danger float-end">6</span> --}}
                         <span>Orders</span>
