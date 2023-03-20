@@ -11,8 +11,8 @@ class NavigatorController extends Controller
 {
     //
     public function  index (){
-        // $categories = Category::latest()->get();
-        $data['products'] = ProductInventory::with('products')->get();
+        $data['categories'] = Category::latest()->get();
+        $data['inventory_products'] = ProductInventory::with('products')->get();
         return view('template.index', $data);
     }
 }

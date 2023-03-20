@@ -41,16 +41,16 @@ class CollectionController extends Controller
         $collection->title = $request->title;
         $collection->discount_percentage = $request->discount_price;
         $collection->description = $request->description;
+
+    
         $collection->collection_products = $request->collection_products;
-        dd($collection);
+        // dd($collection);
         if ($request->hasFile('banner_image')) {
-            $filename = 'product-' . time() . rand(99, 199) . '.' . $request->file('banner_image')->getClientOriginalExtension();
+            $filename = 'collection-product-' . time() . rand(99, 199) . '.' . $request->file('banner_image')->getClientOriginalExtension();
             $request->file('banner_image')->storeAs('public/collections', $filename);
-        }
-        if (isset($filename)) {
             $collection->banner_image = $filename;
         }
-        
+      
         $collection->save();
 
         if($collection->save()){

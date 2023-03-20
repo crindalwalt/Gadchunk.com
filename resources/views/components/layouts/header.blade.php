@@ -27,7 +27,7 @@
             <ul class="info_list ul_li_right clearfix">
               <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
               <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
-              <li>
+              {{-- <li>
                 <form action="#">
                   <div class="currency_select option_select mb-0">
                     <select>
@@ -37,7 +37,7 @@
                     </select>
                   </div>
                 </form>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>
@@ -62,7 +62,7 @@
                 <li>
                   <button type="button" class="cart_btn">
                     <i class="fal fa-shopping-cart"></i>
-                    <span class="btn_badge">2</span>
+                    <span class="btn_badge" id="cart-count">0</span>
                   </button>
                 </li>
                 <li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -94,17 +94,26 @@
             <div class="supermarket_header_btns clearfix">
               <ul class="action_btns_group ul_li_right clearfix">
                 <li>
+                  <div class="dropdown show">
+                    <a class="btn btn-transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Account Details
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Profile</a>
+                      <a class="dropdown-item" href="#">Setting</a>
+                      <hr class="m-0">
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
                   <button type="button">
                     <span>Need</span>
                     <strong>Help?</strong>
                   </button>
                 </li>
-                <li>
-                  <button type="button">
-                    <span>Your</span>
-                    <strong>Account</strong>
-                  </button>
-                </li>
+             
                 <li>
                   <button type="button" class="cart_btn">
                     <i class="fal fa-shopping-bag"></i>
@@ -112,10 +121,7 @@
                   </button>
                 </li>
               </ul>
-              <span class="alart_text float-right">
-                <small>£</small>
-                New here? Get your Coupons!
-              </span>
+              
             </div>
           </div>
         </div>
@@ -123,15 +129,18 @@
     </div>
 
     <div class="header_bottom clearfix">
-      <div class="container maxw_1460">
+      <div class="container_fluid">
         <nav class="main_menu bg_supermarket_red clearfix">
           <ul class="ul_li clearfix">
-            {{-- <li>
-              <button class="alldepartments_btn bg_supermarket_red text-uppercase" type="button" data-toggle="collapse" data-target="#alldepartments_dropdown" aria-expanded="false" aria-controls="alldepartments_dropdown">
-                <i class="far fa-bars"></i> All Departments
+            <li>
+              <button class="alldepartments_btn bg_white text-dark text-uppercase font-weight-bold border" type="button" >
+                 Home
               </button>
-            </li> --}}
-            <li class="menu_item_has_child">
+            </li>
+            <li><a href="{{route('shop')}}">Shop</a></li>
+            <li><a href="#!">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            {{-- <li class="menu_item_has_child ">
               <a href="#!">Home</a>
               <div class="mega_menu text-center">
                 <div class="background" data-bg-color="#ffffff">
@@ -458,7 +467,7 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </li> --}}
             <li class="menu_item_has_child">
               <a href="#!">Pages</a>
               <ul class="submenu">
@@ -495,9 +504,8 @@
                 </li>
               </ul>
             </li>
-            <li><a href="#!">About us</a></li>
-            <li><a href="contact.html">Contact us</a></li>
-            <li><a href="{{route('shop')}}">Shop</a></li>
+            
+          
           </ul>
         </nav>
       </div>
