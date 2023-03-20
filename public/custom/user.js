@@ -33,6 +33,8 @@ $(".add-cart").click(function () {
     })
 
 });
+// window.location.reload(true);
+
 
  // Remove from cart
 
@@ -40,6 +42,7 @@ $(".add-cart").click(function () {
     //  alert('enter');
     $("#"+$(this).data('productremove')).remove();
     setTimeout(function(){
+      
         window.location.reload(true);
     },1000);
         $.get($(this).data('route') , function(res){
@@ -68,7 +71,7 @@ $(".add-cart").click(function () {
   // Add in wishlist
 $(".add-wishlist").click(function () {
     var route = $(this).data('route');
-    // alert(route);
+    alert(route);
     $.get(route, function (response) {
         if (response == 1) {
             $("#wishlist-count").html(response.count);
@@ -111,7 +114,10 @@ $(document).on('click', '.wishremove', function () {
 
  $(document).on('change' , '.quantity' , function(){
     var quantity = $(this).val();
-    console.log(quantity);
+    setTimeout(function(){
+        window.location.reload(true);
+    },1000);
+    // console.log(quantity);
     var url = $(this).data('route')+"/"+quantity;
     $.get(url , function(res){
         $('.total_price').html(res.totalPrice);

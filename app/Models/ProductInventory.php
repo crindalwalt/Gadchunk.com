@@ -21,6 +21,9 @@ class ProductInventory extends Model
     public function weight(){
         return $this->hasMany(Weight::class);
     }
+    public function wishlist(){
+        return $this->belongsToMany(Wishlist::class);
+    }
     public function stock(){
         return $this->hasMany(Stock::class);
     }

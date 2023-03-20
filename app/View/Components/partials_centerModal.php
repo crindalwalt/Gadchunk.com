@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class partials.centerModal extends Component
+class partials_centerModal extends Component
 {
     /**
      * Create a new component instance.

@@ -15,6 +15,8 @@ class CartController extends Controller
     {
         $data['products']= $this->getProducts();
         $data['total'] = $this->Total();
+        $data['sub_total'] = $this->Sub_Total();
+        $data['discount'] = $this->Discount();
         return view('template.cart', $data);
     }
 
@@ -89,9 +91,10 @@ class CartController extends Controller
     // checkout function 
     public function checkout()
     {
-
-        $data['products'] = $this->getProducts();
+  $data['products']= $this->getProducts();
         $data['total'] = $this->Total();
+        $data['sub_total'] = $this->Sub_Total();
+        $data['discount'] = $this->Discount();
         return view('template.checkout', $data);
     }
 
@@ -101,10 +104,31 @@ class CartController extends Controller
         $products = $this->getProducts();
         $sum = 0;
         foreach ($products as $pro) {
+            $sum += $pro->squantity * $pro->discount_price;
+        }
+        return $sum;
+    }
+
+      // function discount price in cart 
+      public function Discount()
+      {
+          $total = $this->Total();
+          $sub_total = $this->Sub_Total();
+           $discount = $total-$sub_total;
+          return $discount;
+      }
+
+    //subtotal function
+    public function Sub_Total()
+    {
+        $products = $this->getProducts();
+        $sum = 0;
+        foreach ($products as $pro) {
             $sum += $pro->squantity * $pro->retail_price;
         }
         return $sum;
     }
+
 
     // fucntion to change quantity in session
     public function changeQuantity($id, $quantity)

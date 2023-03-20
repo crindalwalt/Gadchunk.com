@@ -30,6 +30,7 @@
 
     <!-- custom - css include -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css " rel="stylesheet">
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('demo_assets/css/style.css')}}"> --}}
 
 

@@ -1,5 +1,6 @@
 <x-main-layout>
     {{-- Selective header  --}}
+    {{-- @dd($products->all()); --}}
 
     <div>
 
@@ -20,7 +21,7 @@
         <!-- header_section - start
   ================================================== -->
         <header class="header_section default_header sticky_header clearfix">
-            <div class="header_top text-white" data-bg-color="#000000">
+            {{-- <div class="header_top text-white" data-bg-color="#000000">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-7">
@@ -37,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="header_bottom clearfix">
                 <div class="container">
@@ -500,38 +501,17 @@
                                     </button>
                                 </li>
                                 <li>
-                                    <button type="button" class="user_btn" data-toggle="collapse"
-                                        data-target="#use_deropdown" aria-expanded="false"
-                                        aria-controls="use_deropdown">
-                                        <i class="fal fa-user"></i>
+
+                                    <button type="button" class="cart_btn">
+                                        <i class="fal fa-heart"></i>
+                                        <span class="btn_badge " id="wishlist-count">0</span>
                                     </button>
-                                    <div id="use_deropdown" class="collapse_dropdown collapse">
-                                        <div class="dropdown_content">
-                                            <div class="profile_info clearfix">
-                                                <div class="user_thumbnail">
-                                                    <img src="assets/images/meta/img_01.png"
-                                                        alt="thumbnail_not_found">
-                                                </div>
-                                                <div class="user_content">
-                                                    <h4 class="user_name">Jone Doe</h4>
-                                                    <span class="user_title">Seller</span>
-                                                </div>
-                                            </div>
-                                            <ul class="settings_options ul_li_block clearfix">
-                                                <li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a>
-                                                </li>
-                                                <li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a>
-                                                </li>
-                                                <li><a href="#!"><i class="fal fa-sign-out-alt"></i> Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                 </li>
                                 <li>
                                     <button type="button" class="cart_btn">
                                         <i class="fal fa-shopping-cart"></i>
-                                        <span class="btn_badge">2</span>
+                                        <span class="btn_badge" id="cart-count">0</span>
                                     </button>
                                 </li>
                             </ul>
@@ -568,7 +548,7 @@
         <!-- breadcrumb_section - start
    ================================================== -->
         <section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix"
-            data-background="{{asset('assets/images/breadcrumb/bg_01.jpg')}}">
+            data-background="{{ asset('assets/images/breadcrumb/bg_01.jpg') }}">
             <div class="overlay" data-bg-color="#1d1d1d"></div>
             <div class="container">
                 <h1 class="page_title text-white">Cart Page</h1>
@@ -599,100 +579,58 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            @if ($products->count() > 0)
+                               @foreach ($products as $item)
+                               <tr  id="productremove{{ $item->id }}">
                                 <td>
                                     <div class="cart_product">
                                         <div class="item_image">
-                                            <img src="assets/images/cart/img_04.jpg" alt="image_not_found">
+                                            <img src="" alt="image_not_found">
                                         </div>
                                         <div class="item_content">
-                                            <h4 class="item_title">Men's Polo T-shirt</h4>
-                                            <span class="item_type">Clothes</span>
+                                            <h4 class="item_title">{{$item->products->name}}</h4>
+                                            <span class="item_type">{{$item->products->category->name}}</span>
                                         </div>
-                                        <button type="button" class="remove_btn">
+                                        <button type="button" class="remove_btn " id="remove-product"
+                                        data-route="{{ route('cart.remove', $item->id) }}"
+                                        data-remove="productremove{{ $item->id }}">
                                             <i class="fal fa-times"></i>
                                         </button>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="price_text">$69.00</span>
+                                    <span class="price_text">Rs.{{$item->discount_price}}</span>
                                 </td>
                                 <td>
                                     <div class="quantity_input">
-                                        <form action="#">
                                             <span class="input_number_decrement">–</span>
-                                            <input class="input_number" type="text" value="2">
+                                            <input  class="input_number quantity"
+                                            data-route="{{ route('cart.quantity', $item->id) }}"
+                                            value="{{ $item->squantity ? $item->squantity : '0' }}"
+                                            min="1" step="1"
+                                            id="quantity{{ $item->id }}" data-decimals="0" required>                                            
                                             <span class="input_number_increment">+</span>
-                                        </form>
                                     </div>
                                 </td>
-                                <td><span class="total_price">$138.00</span></td>
+                                <td> Rs.<span class="total_price">{{$total}}</span></td>
                             </tr>
+                               @endforeach
+                            @else
+                                <div class="text-center">
+                                    <h3 class="text-danger">Cart is empty</h3>
+                                </div>
+                            @endif
 
-                            <tr>
-                                <td>
-                                    <div class="cart_product">
-                                        <div class="item_image">
-                                            <img src="assets/images/cart/img_05.jpg" alt="image_not_found">
-                                        </div>
-                                        <div class="item_content">
-                                            <h4 class="item_title">Men's Polo T-shirt</h4>
-                                            <span class="item_type">Clothes</span>
-                                        </div>
-                                        <button type="button" class="remove_btn">
-                                            <i class="fal fa-times"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="price_text">$23.00</span>
-                                </td>
-                                <td>
-                                    <div class="quantity_input">
-                                        <form action="#">
-                                            <span class="input_number_decrement">–</span>
-                                            <input class="input_number" type="text" value="1">
-                                            <span class="input_number_increment">+</span>
-                                        </form>
-                                    </div>
-                                </td>
-                                <td><span class="total_price">$23.00</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="cart_product">
-                                        <div class="item_image">
-                                            <img src="assets/images/cart/img_06.jpg" alt="image_not_found">
-                                        </div>
-                                        <div class="item_content">
-                                            <h4 class="item_title">Men's Polo T-shirt</h4>
-                                            <span class="item_type">Clothes</span>
-                                        </div>
-                                        <button type="button" class="remove_btn">
-                                            <i class="fal fa-times"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="price_text">$36.00</span>
-                                </td>
-                                <td>
-                                    <div class="quantity_input">
-                                        <form action="#">
-                                            <span class="input_number_decrement">–</span>
-                                            <input class="input_number" type="text" value="1">
-                                            <span class="input_number_increment">+</span>
-                                        </form>
-                                    </div>
-                                </td>
-                                <td><span class="total_price">$36.00</span></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
-
-                <div class="coupon_wrap mb_50">
+                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cart_update_btn">
+                        <a href="{{route('shop')}}"><button type="button"  class="custom_btn bg_secondary text-uppercase">Back to Shop</button>
+                        </a>
+                    </div>
+                </div>
+                {{-- <div class="coupon_wrap mb_50">
                     <div class="row justify-content-lg-between">
                         <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
                             <div class="coupon_form">
@@ -711,17 +649,18 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row justify-content-lg-end">
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
                             <h3 class="table_title text-center" data-bg-color="#ededed">Cart Total</h3>
                             <ul class="ul_li_block clearfix">
-                                <li><span>Subtotal</span> <span>$197.99</span></li>
-                                <li><span>Total</span> <span>$197.99</span></li>
+                                <li><span>Subtotal</span> <span>Rs. {{$sub_total}}</span></li>
+                                <li><span>Discount</span> <span>Rs. {{$discount}}</span></li>
+                                <li><span>Total</span> <span class="total_price">Rs. {{$total}}</span></li>
                             </ul>
-                            <a href="{{ route('checkout') }}" class="custom_btn bg_success">Proceed to Checkout</a>
+                            <a href="{{ route('checkout') }}" class="custom_btn bg_success"><button class="text-white">Proceed to Checkout</button></a>
                         </div>
                     </div>
                 </div>
