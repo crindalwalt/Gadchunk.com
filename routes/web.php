@@ -16,7 +16,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\CollectionController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductTypeController;
 
 use App\Http\Controllers\ProductAttributeController;
@@ -177,6 +177,10 @@ Route::middleware('auth', 'verified')->group(function () {
    Route::get('add-cart/{id}/{quantity?}', [CartController::class, 'add'])->name('add-cart');
    Route::get('cart_remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
    Route::get('change/{id}/{quantity?}', [CartController::class, 'ChangeQty'])->name('cart.quantity');
+
+   //order routes
+   Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
+
 
    // checkout routes
    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');

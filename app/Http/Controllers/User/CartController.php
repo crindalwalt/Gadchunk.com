@@ -154,4 +154,10 @@ class CartController extends Controller
             : response()->json(['totalPrice' => $total_price, 'products' => $products ]);
     }
 
+
+    // function of order save
+    public function order(Request $request){
+   
+    }
+
 }

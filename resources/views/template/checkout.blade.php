@@ -621,9 +621,13 @@
 						</div>
 					</div> --}}
 
+
                 <div class="billing_form mb_50">
                     <h3 class="form_title mb_30">Billing details</h3>
-                    <form action="#">
+                    <form role="form" action="{{ route('stripe.post') }}" method="post"
+                        class="require-validation" data-cc-on-file="false"
+                        data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                        @csrf
                         <div class="form_wrap">
 
                             <div class="row">
@@ -687,160 +691,205 @@
                                 <input type="email" name="email">
                             </div>
 
-                            <div class="checkbox_item">
-                                <label for="account_create_checkbox"><input id="account_create_checkbox"
-                                        type="checkbox"> Create an account?</label>
-                            </div>
-
-                            <hr>
-
-                            <div class="checkbox_item mb_30">
-                                <label for="ship_address_checkbox"><input id="ship_address_checkbox" type="checkbox">
-                                    Ship to a different address?</label>
-                            </div>
-
                             <div class="form_item mb-0">
                                 <span class="input_title">Order notes<sup>*</sup></span>
                                 <textarea name="note" placeholder="Note about your order, eg. special notes fordelivery."></textarea>
                             </div>
 
                         </div>
-                    </form>
-                </div>
 
-                <div class="billing_form">
-                    <h3 class="form_title mb_30">Your order</h3>
-                    <form action="#">
-                        <div class="form_wrap">
+                        <div class="billing_form">
+                            <h3 class="form_title mb_30">Your order</h3>
 
-                            <div class="checkout_table">
-                                <table class="table text-center mb_50">
-                                    <thead class="text-uppercase text-uppercase">
-                                        <tr>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                            <div class="form_wrap">
 
-                                        @if ($products->count() > 0)
-                                            @foreach ($products as $item)
-                                                <tr>
-                                                    <td>
-                                                        <div class="cart_product">
-                                                            <div class="item_image">
-                                                                <img src="assets/images/cart/img_04.jpg"
-                                                                    alt="image_not_found">
+                                <div class="checkout_table">
+                                    <table class="table text-center mb_50">
+                                        <thead class="text-uppercase text-uppercase">
+                                            <tr>
+                                                <th>Product Name</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @if ($products->count() > 0)
+                                                @foreach ($products as $item)
+                                                    <tr>
+                                                        <td>
+                                                            <div class="cart_product">
+                                                                <div class="item_image">
+                                                                    <img src="assets/images/cart/img_04.jpg"
+                                                                        alt="image_not_found">
+                                                                </div>
+                                                                <div class="item_content">
+                                                                    <h4 class="item_title mb-0">
+                                                                        {{ $item->products->name }}
+                                                                    </h4>
+                                                                </div>
                                                             </div>
-                                                            <div class="item_content">
-                                                                <h4 class="item_title mb-0">{{ $item->products->name }}
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="price_text">{{ $item->discount_price }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="quantity_text">{{ $item->squantity }}</span>
-                                                    </td>
-                                                    <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-                                                </tr>
-                                            @endforeach
-                                        @else
-                                            <div class="text-center">
-                                                <h3 class="text-danger">Cart have no item</h3>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price_text">{{ $item->discount_price }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="quantity_text">{{ $item->squantity }}</span>
+                                                        </td>
+                                                        <td><span class="total_price">Rs.{{ $sub_total }}</span>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <div class="text-center">
+                                                    <h3 class="text-danger">Cart have no item</h3>
+                                                </div>
+                                            @endif
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <span class="subtotal_text">Subtotal</span>
+                                                </td>
+                                                <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
+
+                                            <tr>
+                                                <td class="text-left">
+                                                    <span class="subtotal_text">TOTAL</span>
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <span class="total_price">Rs.{{ $total }}</span>
+                                                </td>
+                                                <input type="hidden" value="{{ $total }}" name="amount">
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success text-center">
+
+                                        <a href="#" class="close" data-dismiss="alert"
+                                            aria-label="close">×</a>
+
+                                        <p>{{ Session::get('success') }}</p>
+
+                                    </div>
+                                @endif
+
+                                <div class="accordion" id="accordionExample">
+
+                                    <h2>Payment Method</h2>
+                                    <input type="hidden" name="payment_method" id="payment_method">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link check_payment_method" type="button"
+                                                    data-value="jazzcash" role="button" value="jazzcash"
+                                                    data-toggle="collapse" data-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    Jazzcash
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <input class="form-control border border-danger" name="jazzcash"
+                                                    type="text" placeholder="Enter jazzcash number...."
+                                                    maxlength="11">
                                             </div>
-                                        @endif
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <span class="subtotal_text">Subtotal</span>
-                                            </td>
-                                            <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-
-                                        <tr>
-                                            <td class="text-left">
-                                                <span class="subtotal_text">TOTAL</span>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <span class="total_price">Rs.{{ $total }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="accordion" id="accordionExample">
-
-                                <h2>Payment Method</h2>
-                                <input type="hidden"  name="payment_method" id="payment_method">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-value="jazzcash" role="button" value="jazzcash" data-toggle="collapse"
-                                            data-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Jazzcash
-                                        </button>
-                                        </h5>
-                                    </div>
-
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <input class="form-control border border-danger" type="text"
-                                                placeholder="Enter jazzcash number...." maxlength="11">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed"  data-value="easypaisa" value="easypaisa" type="button"
-                                            data-toggle="collapse" data-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            EasyPaisa
-                                        </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <input class="form-control border border-danger" type="text"
-                                                placeholder="Enter Easypaisa number...." maxlength="11">
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed check_payment_method"
+                                                    data-value="easypaisa" value="easypaisa" type="button"
+                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                    EasyPaisa
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <input class="form-control border border-danger" name="easypaisa"
+                                                    type="text" placeholder="Enter Easypaisa number...."
+                                                    maxlength="11">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-value="stripe"  value="stripe" type="button"
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed check_payment_method"
+                                                    data-value="stripe" value="stripe" type="button"
                                                     data-toggle="collapse" data-target="#collapseThree"
                                                     aria-expanded="false" aria-controls="collapseThree">
                                                     Stripe (Bank Account)
                                                 </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div id="card-element"></div>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class='form-row row'>
+                                                    <div class='col-xs-12 form-group card required'>
+                                                        <label class='control-label'>Card Number</label> <input
+                                                            class='form-control card-number'
+                                                            type='text'>
+                                                    </div>
+                                                </div>
+                                                <div class='form-row row'>
+                                                    <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                                        <label class='control-label'>CVC</label> <input
+                                                            autocomplete='off' class='form-control card-cvc'
+                                                            placeholder='ex. 311' size='4' type='text'>
+                                                    </div>
+                                                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                        <label class='control-label'>Expiration Month</label> <input
+                                                            class='form-control card-expiry-month' placeholder='MM'
+                                                            size='2' type='text'>
+                                                    </div>
+                                                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                        <label class='control-label'>Expiration Year</label> <input
+                                                            class='form-control card-expiry-year' placeholder='YYYY'
+                                                            size='4' type='text'>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class='form-row row'>
+
+                                                    <div class='col-md-12 error form-group hide'>
+
+                                                        <div class='alert-danger alert'>Put Valid details</div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <button type="submit" class="custom_btn bg_default_red mt-3">PLACE ORDER</button>
+
                                 </div>
-                                <button type="submit" class="custom_btn bg_default_red mt-3">PLACE ORDER</button>
 
                             </div>
-
-                        </div>
                     </form>
                 </div>
+            </div>
+
+
 
             </div>
         </section>
