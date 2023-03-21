@@ -17,10 +17,8 @@ class UserController extends Controller
     }
 
     public function profile(){
-        $user = Auth::user();
-        // @dd($user);
-        return view('admin.User_profile.index',[
-            'user' => $user,
-        ]);
+        $data['user']= Auth::user();
+        // @dd($data);
+        return view('template.profile', $data);
     }
 }

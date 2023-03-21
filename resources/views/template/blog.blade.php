@@ -1,5 +1,6 @@
 <x-main-layout>
     {{-- Selective header  --}}
+    {{-- @dd($products->all()); --}}
 
     <div>
 
@@ -492,6 +493,7 @@
 
                         <div class="col-lg-3">
                             <ul class="action_btns_group ul_li_right clearfix">
+
                                 <li>
 
                                     <button type="button" class="cart_btn">
@@ -527,12 +529,339 @@
         </header>
         <!-- header_section - end
   ================================================== -->
-    </div>
 
+
+
+    </div>
     <!-- main body - start
   ================================================== -->
     <main>
 
+
+        <!-- sidebar mobile menu & sidebar cart - start
+   ================================================== -->
+        <div class="sidebar-menu-wrapper">
+            <div class="cart_sidebar">
+                <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
+
+                <ul class="cart_items_list ul_li_block mb_30 clearfix">
+                    <li>
+                        <div class="item_image">
+                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
+                        </div>
+                        <div class="item_content">
+                            <h4 class="item_title">Yellow Blouse</h4>
+                            <span class="item_price">$30.00</span>
+                        </div>
+                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                    </li>
+                    <li>
+                        <div class="item_image">
+                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
+                        </div>
+                        <div class="item_content">
+                            <h4 class="item_title">Yellow Blouse</h4>
+                            <span class="item_price">$30.00</span>
+                        </div>
+                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                    </li>
+                    <li>
+                        <div class="item_image">
+                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
+                        </div>
+                        <div class="item_content">
+                            <h4 class="item_title">Yellow Blouse</h4>
+                            <span class="item_price">$30.00</span>
+                        </div>
+                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                    </li>
+                </ul>
+
+                <ul class="total_price ul_li_block mb_30 clearfix">
+                    <li>
+                        <span>Subtotal:</span>
+                        <span>$90</span>
+                    </li>
+                    <li>
+                        <span>Vat 5%:</span>
+                        <span>$4.5</span>
+                    </li>
+                    <li>
+                        <span>Discount 20%:</span>
+                        <span>- $18.9</span>
+                    </li>
+                    <li>
+                        <span>Total:</span>
+                        <span>$75.6</span>
+                    </li>
+                </ul>
+
+                <ul class="btns_group ul_li_block clearfix">
+                    <li><a href="shop_cart.html">View Cart</a></li>
+                    <li><a href="shop_checkout.html">Checkout</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar_mobile_menu">
+                <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
+
+                <div class="msb_widget brand_logo text-center">
+                    <a href="index.html">
+                        <img src="assets/images/logo/logo_25_1x.png" srcset="assets/images/logo/logo_25_2x.png 2x"
+                            alt="logo_not_found">
+                    </a>
+                </div>
+
+                <div class="msb_widget mobile_menu_list clearfix">
+                    <h3 class="title_text mb_15 text-uppercase"><i class="far fa-bars mr-2"></i> Menu List</h3>
+                    <ul class="ul_li_block clearfix">
+                        <li class="active dropdown">
+                            <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Home</a>
+                            <ul class="ul_li_block dropdown-menu">
+                                <li><a href="home_carparts.html">Carparts</a></li>
+                                <li><a href="home_classic_ecommerce.html">Classic Ecommerce</a></li>
+                                <li><a href="home_creative_onelook.html">Creative Onelook</a></li>
+                                <li><a href="home_electronic.html">Electronic</a></li>
+                                <li><a href="home_fashion.html">Fashion</a></li>
+                                <li><a href="home_fashion_minimal.html">Fashion Minimal</a></li>
+                                <li><a href="home_furniture.html">Furniture</a></li>
+                                <li><a href="home_gadget.html">Gadget</a></li>
+                                <li><a href="home_lookbook_creative.html">Lookbook Creative</a></li>
+                                <li><a href="home_lookbook_slide.html">Lookbook Slide</a></li>
+                                <li><a href="home_medical.html">Medical</a></li>
+                                <li><a href="home_modern.html">Modern</a></li>
+                                <li><a href="home_modern_minimal.html">Modern Minimal</a></li>
+                                <li><a href="home_motorcycle.html">Motorcycle</a></li>
+                                <li><a href="home_parallax_shop.html">Parallax Shop</a></li>
+                                <li><a href="home_simple_shop.html">Simple Shop</a></li>
+                                <li><a href="home_single_story_black.html">Single Story Black</a></li>
+                                <li><a href="home_single_story_white.html">Single Story White</a></li>
+                                <li><a href="home_sports.html">Sports</a></li>
+                                <li><a href="home_supermarket.html">Supermarket</a></li>
+                                <li><a href="home_watch.html">Watch</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown ul_li_block">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Carparts</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="carparts_shop.html">Shop Page</a></li>
+                                        <li><a href="carparts_shop_grid.html">Shop Grid</a></li>
+                                        <li><a href="carparts_shop_list.html">Shop List</a></li>
+                                        <li><a href="carparts_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Classic Ecommerce</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="classic_ecommerce_shop.html">Shop Page</a></li>
+                                        <li><a href="classic_ecommerce_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Electronic</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="electronic_shop.html">Shop Page</a></li>
+                                        <li><a href="electronic_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Fashion</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="fashion_shop.html">Shop Page</a></li>
+                                        <li><a href="fashion_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Fashion Minimal</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="fashion_minimal_shop.html">Shop Page</a></li>
+                                        <li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Fashion Minimal</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="fashion_minimal_shop.html">Shop Page</a></li>
+                                        <li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Furniture</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="furniture_shop.html">Shop Page</a></li>
+                                        <li><a href="furniture_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Gadget</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="gadget_shop.html">Shop Page</a></li>
+                                        <li><a href="gadget_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Medical</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="medical_shop.html">Shop Page</a></li>
+                                        <li><a href="medical_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Modern Minimal</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="modern_minimal_shop.html">Shop Page</a></li>
+                                        <li><a href="modern_minimal_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Modern</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="modern_shop.html">Shop Page</a></li>
+                                        <li><a href="modern_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Motorcycle</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="motorcycle_shop_grid.html">Shop Grid</a></li>
+                                        <li><a href="motorcycle_shop_list.html">Shop List</a></li>
+                                        <li><a href="motorcycle_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Simple Shop</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="simple_shop.html">Shop Page</a></li>
+                                        <li><a href="simple_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Sports</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="sports_shop.html">Shop Page</a></li>
+                                        <li><a href="sports_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Lookbook</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="lookbook_creative_shop.html">Shop Page</a></li>
+                                        <li><a href="lookbook_creative_shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Shop Other Pages</a>
+                                    <ul class="dropdown-menu ul_li_block">
+                                        <li><a href="#!"><del>Shop Page</del></a></li>
+                                        <li><a href="shop_details.html">Shop Details</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Shop Inner Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="shop_cart.html">Shopping Cart</a></li>
+                                        <li><a href="shop_checkout.html">Checkout Step 1</a></li>
+                                        <li><a href="shop_checkout_step2.html">Checkout Step 2</a></li>
+                                        <li><a href="shop_checkout_step3.html">Checkout Step 3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="404.html">404 Page</a></li>
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="blog.html">Blog Page</a></li>
+                                        <li><a href="blog_details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Compare</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="compare_1.html">Compare V.1</a></li>
+                                        <li><a href="compare_2.html">Compare V.2</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Register</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="signup.html">Sign Up</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Conatct</a></li>
+                    </ul>
+                </div>
+
+                <div class="user_info">
+                    <h3 class="title_text mb_30 text-uppercase"><i class="fas fa-user mr-2"></i> User Info</h3>
+                    <div class="profile_info clearfix">
+                        <div class="user_thumbnail">
+                            <img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
+                        </div>
+                        <div class="user_content">
+                            <h4 class="user_name">Jone Doe</h4>
+                            <span class="user_title">Seller</span>
+                        </div>
+                    </div>
+                    <ul class="settings_options ul_li_block clearfix">
+                        <li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
+                        <li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
+                        <li><a href="#!"><i class="fal fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+        <!-- sidebar mobile menu & sidebar cart - end
+   ================================================== -->
 
 
         <!-- breadcrumb_section - start
@@ -541,11 +870,11 @@
             data-background="assets/images/breadcrumb/bg_01.jpg">
             <div class="overlay" data-bg-color="#1d1d1d"></div>
             <div class="container">
-                <h1 class="page_title text-white">Checkout</h1>
+                <h1 class="page_title text-white">About</h1>
                 <ul class="breadcrumb_nav ul_li_center clearfix">
                     <li><a href="#!">Home</a></li>
-                    <li>Shop</li>
-                    <li>Checkout</li>
+                    <li>Pages</li>
+                    <li>About Us</li>
                 </ul>
             </div>
         </section>
@@ -553,304 +882,194 @@
    ================================================== -->
 
 
-        <!-- checkout_section - start
+        <!-- blog_section - start
    ================================================== -->
-        <section class="checkout_section sec_ptb_140 clearfix">
+        <section class="blog_section sec_ptb_140 clearfix">
             <div class="container">
-
-                {{-- <ul class="checkout_step ul_li clearfix">
-						<li class="activated"><a href="shop_checkout.html"><span>01.</span> Shopping Cart</a></li>
-						<li class="active"><a href="shop_checkout_step2.html"><span>02.</span> Checkout</a></li>
-						<li><a href="shop_checkout_step3.html"><span>03.</span> Order Completed</a></li>
-					</ul>
-
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="checkout_collapse_content">
-								<div class="wrap_heade">
-									<p class="mb-0">
-										Returning customer? <a class="collapsed" data-toggle="collapse" href="#loginform_collapse" aria-expanded="false" role="button">Click here to login</a>
-									</p>
-								</div>
-								<div id="loginform_collapse" class="collapse_form_wrap collapse">
-									<div class="card-body">
-										<form action="#">
-											<div class="row">
-												<div class="col-lg-6">
-													<div class="form_item">
-														<input type="email" name="email" placeholder="Email">
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="form_item">
-														<input type="password" name="password" placeholder="Password">
-													</div>
-												</div>
-											</div>
-											<div class="login_button">
-												<div class="checkbox_item">
-													<label for="remember_checkbox"><input id="remember_checkbox" type="checkbox"> Remember me</label>
-												</div>
-												<button type="submit" class="custom_btn bg_default_red">Login Now</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-6">
-							<div class="checkout_collapse_content">
-								<div class="wrap_heade">
-									<p class="mb-0">
-										<i class="ti-info-alt"></i>
-										Have a coupon? <a class="collapsed" data-toggle="collapse" href="#coupon_collapse" aria-expanded="false">Click here to enter your code</a>
-									</p>
-								</div>
-								<div id="coupon_collapse" class="collapse_form_wrap collapse">
-									<div class="card-body">
-										<form action="#">
-											<div class="form_item">
-												<input type="text" name="coupon" placeholder="Coupon Code">
-											</div>
-											<button type="submit" class="custom_btn bg_default_red">Apply coupon</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> --}}
-
-                <div class="billing_form mb_50">
-                    <h3 class="form_title mb_30">Billing details</h3>
-                    <form action="#">
-                        <div class="form_wrap">
-
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form_item">
-                                        <span class="input_title">First Name<sup>*</sup></span>
-                                        <input type="text" name="firstname">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form_item">
-                                        <span class="input_title">Last Name<sup>*</sup></span>
-                                        <input type="text" name="lastname">
-                                    </div>
-                                </div>
+                <div class="row justify-content-lg-between">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_01.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
                             </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Company Name<sup>*</sup></span>
-                                <input type="text" name="company">
-                            </div>
-
-                            <div class="option_select">
-                                <span class="input_title">Country<sup>*</sup></span>
-                                <select name="country">
-                                    <option value="USA" selected>United States</option>
-                                    <option value="USA">United States</option>
-                                    <option value="USA">United States</option>
-                                    <option value="USA">United States</option>
-                                </select>
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Address<sup>*</sup></span>
-                                <input type="text" name="address" placeholder="House number and street name">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Town/City<sup>*</sup></span>
-                                <input type="text" name="city">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">County<sup>*</sup></span>
-                                <input type="text" name="county">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Postcode / Zip<sup>*</sup></span>
-                                <input type="text" name="postcode">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Phone<sup>*</sup></span>
-                                <input type="tel" name="phone">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Email Address<sup>*</sup></span>
-                                <input type="email" name="email">
-                            </div>
-
-                            <div class="checkbox_item">
-                                <label for="account_create_checkbox"><input id="account_create_checkbox"
-                                        type="checkbox"> Create an account?</label>
-                            </div>
-
-                            <hr>
-
-                            <div class="checkbox_item mb_30">
-                                <label for="ship_address_checkbox"><input id="ship_address_checkbox" type="checkbox">
-                                    Ship to a different address?</label>
-                            </div>
-
-                            <div class="form_item mb-0">
-                                <span class="input_title">Order notes<sup>*</sup></span>
-                                <textarea name="note" placeholder="Note about your order, eg. special notes fordelivery."></textarea>
-                            </div>
-
                         </div>
-                    </form>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_02.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_03.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_04.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_05.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="blog_grid">
+                            <a class="blog_image" href="blog_details.html">
+                                <img src="assets/images/blog/main_blog/img_06.jpg" alt="image_not_found">
+                            </a>
+                            <div class="blog_content">
+                                <span class="blog_post_time text-uppercase bg_default_red text-white"><i
+                                        class="fal fa-calendar-alt mr-1"></i> SEPTEMBER 21, 2020</span>
+                                <ul class="blog_category ul_li clearfix">
+                                    <li><a href="#!">BACKPACK</a></li>
+                                    <li><a href="#!">FASHIONLIFE</a></li>
+                                    <li><a href="#!">STYLE</a></li>
+                                </ul>
+                                <h3 class="blog_title">
+                                    <a href="#!">Traveling Solo Is Awesome</a>
+                                </h3>
+                                <p class="mb_30">
+                                    Our place rule night were. Make, air great creepeth multiply herb evening saying
+                                    beast very meat hath.Our place rule night were. Make, air great creepeth multiply
+                                    herb evening saying beast very meat hath.
+                                </p>
+                                <a class="custom_btn bg_default_black text-uppercase" href="blog_details.html">Read
+                                    More <i class="fal fa-arrow-circle-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="billing_form">
-                    <h3 class="form_title mb_30">Your order</h3>
-                    <form action="#">
-                        <div class="form_wrap">
-
-                            <div class="checkout_table">
-                                <table class="table text-center mb_50">
-                                    <thead class="text-uppercase text-uppercase">
-                                        <tr>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @if ($products->count() > 0)
-                                            @foreach ($products as $item)
-                                                <tr>
-                                                    <td>
-                                                        <div class="cart_product">
-                                                            <div class="item_image">
-                                                                <img src="assets/images/cart/img_04.jpg"
-                                                                    alt="image_not_found">
-                                                            </div>
-                                                            <div class="item_content">
-                                                                <h4 class="item_title mb-0">{{ $item->products->name }}
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="price_text">{{ $item->discount_price }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="quantity_text">{{ $item->squantity }}</span>
-                                                    </td>
-                                                    <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-                                                </tr>
-                                            @endforeach
-                                        @else
-                                            <div class="text-center">
-                                                <h3 class="text-danger">Cart have no item</h3>
-                                            </div>
-                                        @endif
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <span class="subtotal_text">Subtotal</span>
-                                            </td>
-                                            <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-
-                                        <tr>
-                                            <td class="text-left">
-                                                <span class="subtotal_text">TOTAL</span>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <span class="total_price">Rs.{{ $total }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="accordion" id="accordionExample">
-
-                                <h2>Payment Method</h2>
-                                <input type="hidden"  name="payment_method" id="payment_method">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-value="jazzcash" role="button" value="jazzcash" data-toggle="collapse"
-                                            data-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Jazzcash
-                                        </button>
-                                        </h5>
-                                    </div>
-
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <input class="form-control border border-danger" type="text"
-                                                placeholder="Enter jazzcash number...." maxlength="11">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed"  data-value="easypaisa" value="easypaisa" type="button"
-                                            data-toggle="collapse" data-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            EasyPaisa
-                                        </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <input class="form-control border border-danger" type="text"
-                                                placeholder="Enter Easypaisa number...." maxlength="11">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-value="stripe"  value="stripe" type="button"
-                                                    data-toggle="collapse" data-target="#collapseThree"
-                                                    aria-expanded="false" aria-controls="collapseThree">
-                                                    Stripe (Bank Account)
-                                                </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div id="card-element"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="custom_btn bg_default_red mt-3">PLACE ORDER</button>
-
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-
+                <ul class="pagination_nav ul_li_center text-uppercase clearfix">
+                    <li><a href="#!">Prev</a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li><a href="#!">2</a></li>
+                    <li><a href="#!">3</a></li>
+                    <li><a href="#!">4</a></li>
+                    <li><a href="#!">5</a></li>
+                    <li><a href="#!">...</a></li>
+                    <li><a href="#!">13</a></li>
+                    <li><a href="#!">Next</a></li>
+                </ul>
             </div>
         </section>
-        <!-- checkout_section - end
+        <!-- blog_section - end
    ================================================== -->
+
 
     </main>
     <!-- main body - end
-================================================== -->
-
+  ================================================== -->
 
 
 

@@ -62,7 +62,7 @@
                 <li>
                   <button type="button" class="cart_btn">
                     <i class="fal fa-shopping-cart"></i>
-                    <span class="btn_badge" id="cart-count">0</span>
+                    <span class="btn_badge" >0</span>
                   </button>
                 </li>
                 <li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -100,10 +100,10 @@
                     </a>
                   
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#">Profile</a>
+                      <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
                       <a class="dropdown-item" href="#">Setting</a>
                       <hr class="m-0">
-                      <a class="dropdown-item" href="#">Logout</a>
+                      <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                     </div>
                   </div>
                 </li>
@@ -115,10 +115,20 @@
                 </li>
              
                 <li>
-                  <button type="button" class="cart_btn">
-                    <i class="fal fa-shopping-bag"></i>
-                    <span class="btn_badge">2</span>
-                  </button>
+                  <a href="{{route('cart')}}">
+
+                    <button type="button" class="cart_btn">
+                      <i class="fal fa-shopping-bag"></i>
+                      <span class="btn_badge" id="cart-count">{{ session()->get('count', '0') }}</span>
+                    </button>
+                  </a>
+                  <a href="{{route('wishlist')}}">
+
+                    <button type="button" class="cart_btn ml-2">
+                      <i class="fal fa-heart"></i>
+                      <span class="btn_badge" id="wishlist-count">0</span>
+                    </button>
+                  </a>
                 </li>
               </ul>
               
@@ -133,13 +143,15 @@
         <nav class="main_menu bg_supermarket_red clearfix">
           <ul class="ul_li clearfix">
             <li>
-              <button class="alldepartments_btn bg_white text-dark text-uppercase font-weight-bold border" type="button" >
-                 Home
-              </button>
+              <a href="/">
+                <button class="alldepartments_btn bg_white text-dark text-uppercase font-weight-bold border" type="button" >
+                  Home
+               </button>
+              </a>
             </li>
             <li><a href="{{route('shop')}}">Shop</a></li>
-            <li><a href="#!">About us</a></li>
-            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="{{route('about')}}">About us</a></li>
+            <li><a href="{{route('contact')}}">Contact us</a></li>
             {{-- <li class="menu_item_has_child ">
               <a href="#!">Home</a>
               <div class="mega_menu text-center">
@@ -472,16 +484,16 @@
               <a href="#!">Pages</a>
               <ul class="submenu">
                 <li class="menu_item_has_child">
-                  <a href="#!">Shop Inner Pages</a>
+                  <a href="#!">Site pages</a>
                   <ul class="submenu">
-                    <li><a href="shop_cart.html">Shopping Cart</a></li>
-                    <li><a href="shop_checkout.html">Checkout Step 1</a></li>
-                    <li><a href="shop_checkout_step2.html">Checkout Step 2</a></li>
-                    <li><a href="shop_checkout_step3.html">Checkout Step 3</a></li>
+                    <li><a href="{{route('cart')}}">Shopping Cart</a></li>
+                    <li><a href="{{route('checkout')}}">Checkout</a></li>
+                    <li><a href="{{route('about')}}">About Us</a></li>
+                    <li><a href="{{route('contact')}}">Contact  Us</a></li>
                   </ul>
                 </li>
-                <li><a href="404.html">404 Page</a></li>
-                <li class="menu_item_has_child">
+                <li><a href="{{route('error')}}">404 Page</a></li>
+                {{-- <li class="menu_item_has_child">
                   <a href="#!">Blogs</a>
                   <ul class="submenu">
                     <li><a href="blog.html">Blog Page</a></li>
@@ -494,12 +506,12 @@
                     <li><a href="compare_1.html">Compare V.1</a></li>
                     <li><a href="compare_2.html">Compare V.2</a></li>
                   </ul>
-                </li>
+                </li> --}}
                 <li class="menu_item_has_child">
                   <a href="#!">Register</a>
                   <ul class="submenu">
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
                   </ul>
                 </li>
               </ul>

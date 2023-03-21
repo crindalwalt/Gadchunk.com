@@ -23,6 +23,8 @@
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+<script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js "></script>
+
     <!-- animation - jquery include -->
     <script src="{{asset('assets/js/parallaxie.js')}}"></script>
     <script src="{{asset('assets/js/wow.min.js')}}"></script>
@@ -44,6 +46,7 @@
     <script src="{{asset('assets/js/nice-select.min.js')}}"></script>
     <script src="{{asset('assets/js/custom.js')}}"></script>
     <script src="{{asset('demo_assets/js/custom.js')}}"></script>
+    <script src="{{asset('custom/user.js')}}"></script>
     {{-- </div> --}}
     </body>
 

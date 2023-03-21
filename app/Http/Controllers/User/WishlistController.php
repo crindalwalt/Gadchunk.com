@@ -12,7 +12,7 @@ class WishlistController extends Controller
     // wishlist page
     public function index()
     {
-        $data['wishlists'] = Wishlist::all();
+        $data['wishlists'] = Wishlist::with('product')->get();
         return view('template.wishlist',$data );
     }
      // Add in wishlist

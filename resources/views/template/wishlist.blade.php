@@ -1,5 +1,6 @@
 <x-main-layout>
    <main class="main">
+    {{-- @dd($wishlists->all()) --}}
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
             <h1 class="page-title">Wishlist<span>Shop</span></h1>
@@ -20,11 +21,10 @@
             <table class="table table-wishlist table-mobile">
                 <thead>
                     <tr>
-                        <th>Product</th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
                         <th>Price</th>
-                        <th>Stock Status</th>
-                        <th></th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -42,28 +42,10 @@
                                                         alt="Product image">
                                                 </a>
                                             </figure>
-
-                                            <h3 class="product-title">
-                                                <a href="#">{{ $wishlist->product->name }}</a>
-                                            </h3><!-- End .product-title -->
                                         </div><!-- End .product -->
                                     </td>
-                                    <td class="price-col">{{ $wishlist->product->standard }}</td>
-                                    <td class="stock-col"><span class="in-stock">In stock</span></td>
-                                    <td class="action-col">
-                                        <div class="dropdown">
-                                            <button class="btn btn-block btn-outline-primary-2" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="icon-list-alt"></i>Select Options
-                                            </button>
-
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">First option</a>
-                                                <a class="dropdown-item" href="#">Another option</a>
-                                                <a class="dropdown-item" href="#">The best option</a>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td class="product-title">{{$wishlist->product->product_id}}</td>
+                                    <td class="price-col">{{ $wishlist->product->retail_price }}</td>
                                     <td class="remove-col">
                                         
                                       <button type="button" class="btn btn-danger btn-remove wishremove" data-route="{{route('wishlist.remove' , $wishlist->id)}}" 

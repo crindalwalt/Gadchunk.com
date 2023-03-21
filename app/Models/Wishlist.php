@@ -9,6 +9,6 @@ class Wishlist extends Model
 {
     use HasFactory;
     public function product(){
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(ProductInventory::class);
     }
 }
