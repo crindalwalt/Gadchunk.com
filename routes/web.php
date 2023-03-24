@@ -16,6 +16,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductTypeController;
 
@@ -180,6 +181,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
    //order routes
    Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
+   Route::post('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 
    // checkout routes
