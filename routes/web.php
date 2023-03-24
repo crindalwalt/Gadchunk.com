@@ -74,8 +74,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    Route::get('/category/{id}/update/', [CategoryController::class, 'edit'])->name('edit_category');
    Route::Post('/category/{id}/update/', [CategoryController::class, 'update'])->name('update_category');
 
-   // Collection CRUD
-   Route::get('collection/', [CollectionController::class, 'index']);
 
    // Brand CRUD
    Route::get('brand/', [BrandController::class, 'index'])->name('brand.index');
@@ -84,10 +82,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    Route::put('brand_update/{brand}', [BrandController::class, 'update'])->name('brand.update');
    Route::post('brand/delete', [BrandController::class, 'destroy'])->name('brand.delete');
 
-   Route::post("attribute/{var}", function (Request $request, ProductAttribute $var) {
+   // Route::post("attribute/{var}", function (Request $request, ProductAttribute $var) {
 
-      //   dd($request->all());
-   });
+   //    //   dd($request->all());
+   // });
 
    // Promotion CRUD
    Route::get('promotion/', [PromotionController::class, 'index']);
@@ -132,11 +130,18 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    Route::get("/attributes/variationValues", [ProductAttributeController::class, 'variationValue'])->name("attributes.values.index");
 
    Route::post("/cat_attribute", [CategoryController::class, 'attr_filter']);
+Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
+Route::get('/search',[NavigatorController::class , 'searchQuery'])->name('search');
 
 
    //Collection CRUD
    Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
+<<<<<<< HEAD
+   Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
+   Route::post('/collection/{collection}/delete', [CollectionController::class, 'destroy'])->name('collections.destroy');
+=======
    Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
+>>>>>>> 35632d8bcf2fd5b71eae29d7ea4a54e88018f69b
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
    Route::get('/collection/{collection}', [CollectionController::class, 'show'])->name('collectons.show');
 });
@@ -163,7 +168,7 @@ Route::middleware('auth', 'verified')->group(function () {
    // site page
 
    Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
-   Route::get('/product_detail', [NavigatorController::class, 'single_item'])->name('product_detail');
+   Route::get('/product_detail/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
    Route::get('/about', [NavigatorController::class, 'about'])->name('about');
    Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
 
@@ -178,7 +183,6 @@ Route::middleware('auth', 'verified')->group(function () {
    Route::get('add-cart/{id}/{quantity?}', [CartController::class, 'add'])->name('add-cart');
    Route::get('cart_remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
    Route::get('change/{id}/{quantity?}', [CartController::class, 'ChangeQty'])->name('cart.quantity');
-
    //order routes
    Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
    Route::post('/orders', [OrderController::class, 'index'])->name('orders.index');
@@ -200,6 +204,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
 Route::get('/404', [NavigatorController::class, 'error'])->name('error');
 
+Route::get('/test/{id}/{quantity}', [CartController::class, 'itemtotal']);
 
 
 

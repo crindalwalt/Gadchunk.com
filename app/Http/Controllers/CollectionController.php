@@ -11,11 +11,8 @@ class CollectionController extends Controller
 {
     public function index(){
         $data['products'] = Product::all();
-        $data['collections'] = Collection::all();
-        return view('admin.collection.index',[
-            'products' => $data['products'],
-            'collections' => $data['collections'],
-        ]);
+        $data['collections'] = Collection::get(3);
+        return view('admin.collection.index', $data);
     }
     public function show (Collection $collection){
         return view('admin.collection.show',[
@@ -43,7 +40,7 @@ class CollectionController extends Controller
         $collection->description = $request->description;
 
     
-        $collection->collection_products = $request->collection_products;
+        $collection->product_id = $request->collection_products;
         // dd($collection);
         if ($request->hasFile('banner_image')) {
             $filename = 'collection-product-' . time() . rand(99, 199) . '.' . $request->file('banner_image')->getClientOriginalExtension();
@@ -63,5 +60,11 @@ class CollectionController extends Controller
             return redirect()->back();
         }
 
+    }
+
+    public function destroy(Collection $collection){
+        $collection->delete();
+        alert('Success', 'Collection Deleted Successfully', 'success');
+        return redirect()->back();
     }
 }

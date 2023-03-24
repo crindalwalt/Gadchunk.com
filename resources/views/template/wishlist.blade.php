@@ -1,4 +1,6 @@
 <x-main-layout>
+    <x-layouts.header :categories=$categories />
+
    <main class="main">
     {{-- @dd($wishlists->all()) --}}
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">

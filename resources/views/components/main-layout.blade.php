@@ -21,8 +21,8 @@
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    {{-- <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sw/eetalert2.all.min.js "></script> --}}
 
     <!-- animation - jquery include -->
     <script src="{{ asset('assets/js/parallaxie.js') }}"></script>
