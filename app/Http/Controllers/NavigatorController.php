@@ -82,9 +82,8 @@ class NavigatorController extends Controller
    }
 
 
-<<<<<<< HEAD
    public function searchQuery(Request $request){
-   
+
       $search = $request->input('search');
       if ($search) {
          $data['inventory_products'] = ProductInventory::with('products')->whereHas('products', function ($query) use($search){$query->where('name', 'like', '%'.$search.'%');})->get();
@@ -97,14 +96,10 @@ class NavigatorController extends Controller
          $data['inventory_products'] = ProductInventory::get();
          $data['attributes'] = ProductAttribute::get();
          $data['categories'] = Category::all();
-         $data['collections'] = Collection::all();   
+         $data['collections'] = Collection::all();
       }
       return view('template.shop', $data);
-   
-      }
-=======
-   public function searchQuery(){
 
-   }
->>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
+      }
+
 }
