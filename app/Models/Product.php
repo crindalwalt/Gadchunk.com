@@ -22,6 +22,15 @@ class Product extends Model
     public function prod_inventory(){
         return $this->hasMany(ProductInventory::class);
     }
+    public function images()
+    {
+        return $this->hasMany(InventoryImages::class);
+    }
 
+
+    public function attributes()
+    {
+        return $this->hasMany(InventoryProductAttribute::class);
+    }
 
 }

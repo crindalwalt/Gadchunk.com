@@ -140,9 +140,13 @@ $(document).on("click", '.filter', function () {
             }
         }
     }
+    console.log(arr)
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: '/filter',
+        headers:{
+         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        },
         data: {
             "result": arr,
         },
@@ -151,6 +155,7 @@ $(document).on("click", '.filter', function () {
             console.log(data);
         },
         error: function (data) {
+            console.log(data);
             // alert('error');
             // Swal.fire({
             //     icon: "error",
@@ -172,4 +177,4 @@ $(document).on("change", '.search_category', function () {
      $("#search").val(val);
 });
 
-// 
+//

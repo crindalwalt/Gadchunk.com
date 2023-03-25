@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 use PhpParser\Node\Expr\PropertyFetch;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class InventoryImages extends Model
 {
@@ -13,4 +15,10 @@ class InventoryImages extends Model
     public function prod_inven(){
         return $this->belongsTo(ProductInventory::class);
     }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    
 }

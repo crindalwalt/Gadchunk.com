@@ -34,13 +34,16 @@ class NavigatorController extends Controller
       return view('template.shop', $data);
    }
 
-   public function single_item($id)
+   public function single_item(Product $id)
    {
-      $data['products'] = ProductInventory::where('product_id', $id)->with('products','inven_prod_images')->first();
-      $data['categories'] = Category::all();
+    //   $data['product'] = $id;
+    //   $data['categories'] = Category::all();
 
       // @dd($data['products']);
-      return view('template.shop_details', $data);
+      return view('template.shop_details', [
+        'categories' => Category::all(),
+        'product' => $id,
+      ]);
    }
 
    public function about()
@@ -64,20 +67,21 @@ class NavigatorController extends Controller
 
    public function filter(Request $request)
    {
-      
+
       // @dd($request);
       $array = null;
-      if (isset($request->array)) {
-         $array = $request->array;
-         foreach($array as $item){
-            $products = ProductAttributeValue::whereIn('attribute_value', $item)->get();
-         }
-      }
-      return response()->json(['data' => $products]);
+    //   if (isset($request->array)) {
+    //      $array = $request->array;
+    //      foreach($array as $item){
+    //         $products = ProductAttributeValue::whereIn('attribute_value', $item)->get();
+
+    //      }
+    //   }
+      return response()->json(['data' => $request->input("result")]);
    }
 
 
    public function searchQuery(){
-      
+
    }
 }

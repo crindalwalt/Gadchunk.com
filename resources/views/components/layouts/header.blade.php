@@ -133,7 +133,14 @@
                                         <button type="button" class="cart_btn">
                                             <i class="fal fa-shopping-bag"></i>
                                             <span class="btn_badge"
-                                                id="cart-count">{{ count(Session::get('cart')) }}</span>
+                                                id="cart-count">
+                                                {{-- @if(count(Session::get('cart'))>0 )
+                                                {{ count(Session::get('cart')) }}
+                                                @else
+                                                0
+                                                @endif --}}
+                                                0
+                                            </span>
                                         </button>
                                     </a>
                                     <a href="{{ route('wishlist') }}">
