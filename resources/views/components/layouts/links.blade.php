@@ -9,30 +9,37 @@
 
     <title>Zeelma
     </title>
-    <link rel="shortcut icon" href="{{asset('assets/images/logo/favourite_icon_01.png')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favourite_icon_01.png') }}">
 
     <!-- fraimwork - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
     <!-- icon - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.css') }}">
 
     {{-- Nice Select --}}
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css')}}">
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nice-select.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/magnific-popup.css') }}">
+
     <!-- animation - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
 
     <!-- carousel - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick-theme.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slick-theme.css') }}">
 
     <!-- custom - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css " rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    {{-- <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css " rel="stylesheet"> --}}
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('demo_assets/css/style.css')}}"> --}}
 
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 
 </div>

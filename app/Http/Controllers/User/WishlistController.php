@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ class WishlistController extends Controller
     public function index()
     {
         $data['wishlists'] = Wishlist::with('product')->get();
+        $data['categories'] = Category::all();
+
         return view('template.wishlist',$data );
     }
      // Add in wishlist

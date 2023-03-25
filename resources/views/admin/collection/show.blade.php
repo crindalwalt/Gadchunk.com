@@ -59,11 +59,11 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label font-size-44">Discount Price : </label>
-                                                            {{$collection->discount_price}}
+                                                            {{$collection->discount_percentage}}
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label font-size-44">Banner Image : </label>
-                                                            <img src="{{ asset("storage/image/$collection->banner_image")}}"
+                                                            <img src="{{ asset("storage/collections/$collection->banner_image")}}"
                                                             alt="this image" class="img-fluid mx-auto d-block">                                                        </div>
                                                         <div class="mb-3">
                                                             <label class="form-label font-size-44">Description : </label>

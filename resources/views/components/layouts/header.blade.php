@@ -1,33 +1,38 @@
 <div>
-	<!-- backtotop - start -->
-  <div id="thetop"></div>
-  <div class="backtotop bg_supermarket_red">
-    <a href="#" class="scroll">
-      <i class="far fa-arrow-up"></i>
-    </a>
-  </div>
-  <!-- backtotop - end -->
+  {{-- @dd($categories) --}}
 
-  <!-- preloader - start -->
-  <!-- <div id="preloader"></div> -->
-  <!-- preloader - end -->
+    <!-- backtotop - start -->
+    <div id="thetop"></div>
+    <div class="backtotop bg_supermarket_red">
+        <a href="#" class="scroll">
+            <i class="far fa-arrow-up"></i>
+        </a>
+    </div>
+    <!-- backtotop - end -->
+
+    <!-- preloader - start -->
+    <!-- <div id="preloader"></div> -->
+    <!-- preloader - end -->
 
 
-  <!-- header_section - start
+    <!-- header_section - start
   ================================================== -->
-  <header class="header_section supermarket_header bg-white clearfix">
-    <div class="header_top text-white clearfix">
-      <div class="container maxw_1460">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-5">
-            <p class="welcome_text mb-0">Welcome to Worldwide Online marketplace Store</p>
-          </div>
+    <header class="header_section supermarket_header bg-white clearfix">
+        <div class="header_top text-white clearfix">
+            <div class="container maxw_1460">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-5">
+                        <p class="welcome_text mb-0">Welcome to Worldwide Online marketplace Store</p>
+                    </div>
 
-          <div class="col-lg-7">
-            <ul class="info_list ul_li_right clearfix">
-              <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
-              <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
-              {{-- <li>
+                    <div class="col-lg-7">
+                        <ul class="info_list ul_li_right clearfix">
+                            <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
+                            <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
+                            <li><a href="{{route('login')}}"> Login</a></li>
+                            <li><a href="{{route('register')}}">Register</a></li>
+
+                            {{-- <li>
                 <form action="#">
                   <div class="currency_select option_select mb-0">
                     <select>
@@ -38,121 +43,132 @@
                   </div>
                 </form>
               </li> --}}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="header_middle clearfix">
-      <div class="container maxw_1460">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-3">
-            <div class="brand_logo">
-              <a class="brand_link" href="index.html">
-                <img src="assets/images/logo/logo_18_1x.png" srcset="assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
-              </a>
-
-              <ul class="mh_action_btns ul_li clearfix">
-                <li>
-                  <button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
-                    <i class="fal fa-search"></i>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="cart_btn">
-                    <i class="fal fa-shopping-cart"></i>
-                    <span class="btn_badge" >0</span>
-                  </button>
-                </li>
-                <li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <form action="#">
-              <div class="medical_search_bar">
-                <div class="form_item">
-                  <input type="search" name="search" placeholder="search here...">
-                </div>
-                <div class="option_select mb-0">
-                  <select>
-                    <option data-display="All Category">Select A Option</option>
-                    <option value="1">Some option</option>
-                    <option value="2">Another option</option>
-                    <option value="3" disabled>A disabled option</option>
-                    <option value="4">Potato</option>
-                  </select>
-                </div>
-                <button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
-              </div>
-            </form>
-          </div>
-
-          <div class="col-lg-3">
-            <div class="supermarket_header_btns clearfix">
-              <ul class="action_btns_group ul_li_right clearfix">
-                <li>
-                  <div class="dropdown show">
-                    <a class="btn btn-transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Account Details
-                    </a>
-                  
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
-                      <a class="dropdown-item" href="#">Setting</a>
-                      <hr class="m-0">
-                      <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        </ul>
                     </div>
-                  </div>
-                </li>
-                <li>
-                  <button type="button">
-                    <span>Need</span>
-                    <strong>Help?</strong>
-                  </button>
-                </li>
-             
-                <li>
-                  <a href="{{route('cart')}}">
-
-                    <button type="button" class="cart_btn">
-                      <i class="fal fa-shopping-bag"></i>
-                      <span class="btn_badge" id="cart-count">{{ session()->get('count', '0') }}</span>
-                    </button>
-                  </a>
-                  <a href="{{route('wishlist')}}">
-
-                    <button type="button" class="cart_btn ml-2">
-                      <i class="fal fa-heart"></i>
-                      <span class="btn_badge" id="wishlist-count">0</span>
-                    </button>
-                  </a>
-                </li>
-              </ul>
-              
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="header_bottom clearfix">
-      <div class="container_fluid">
-        <nav class="main_menu bg_supermarket_red clearfix">
-          <ul class="ul_li clearfix">
-            <li>
-              <a href="/">
-                <button class="alldepartments_btn bg_white text-dark text-uppercase font-weight-bold border" type="button" >
-                  Home
-               </button>
-              </a>
-            </li>
-            <li><a href="{{route('shop')}}">Shop</a></li>
-            <li><a href="{{route('about')}}">About us</a></li>
-            <li><a href="{{route('contact')}}">Contact us</a></li>
-            {{-- <li class="menu_item_has_child ">
+        <div class="header_middle clearfix">
+            <div class="container maxw_1460">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-3">
+                        <div class="brand_logo">
+                            <a class="brand_link" href="index.html">
+                                <img src="assets/images/logo/logo_18_1x.png"
+                                    srcset="assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
+                            </a>
+
+                            <ul class="mh_action_btns ul_li clearfix">
+                                <li>
+                                    <button type="button" class="search_btn" data-toggle="collapse"
+                                        data-target="#search_body_collapse" aria-expanded="false"
+                                        aria-controls="search_body_collapse">
+                                        <i class="fal fa-search"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="cart_btn">
+                                        <i class="fal fa-shopping-cart"></i>
+                                        <span class="btn_badge">0</span>
+                                    </button>
+                                </li>
+                                <li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form action="{{route('search')}}">
+                            <div class="medical_search_bar">
+                                <div class="form_item">
+                                    <input type="text" id="search" name="search" placeholder="search here...">
+                                </div>
+                                <div class="option_select mb-0">
+                                    <select class="search_category" >
+                                        <option data-display="All Category">Select A Option</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->name }}"name="cat-{{$cat->id}}">{{ $cat->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="supermarket_header_btns clearfix">
+                            <ul class="action_btns_group ul_li_right clearfix">
+                                <li>
+                                    <div class="dropdown show">
+                                        <a class="btn btn-transparent dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Account Details
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                            <a class="dropdown-item" href="#">Setting</a>
+                                            <hr class="m-0">
+                                            <form action="{{ route('logout', Auth::user()->id) }}" method="post">
+                                                @csrf
+                                                <button class="dropdown-item btn btn-primary">Logout</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button type="button">
+                                        <span>Need</span>
+                                        <strong>Help?</strong>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('cart') }}">
+
+                                        <button type="button" class="cart_btn">
+                                            <i class="fal fa-shopping-bag"></i>
+                                            <span class="btn_badge"
+                                                id="cart-count">{{ count(Session::get('cart')) }}</span>
+                                        </button>
+                                    </a>
+                                    <a href="{{ route('wishlist') }}">
+
+                                        <button type="button" class="cart_btn ml-2">
+                                            <i class="fal fa-heart"></i>
+                                            <span class="btn_badge" id="wishlist-count">0</span>
+                                        </button>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_bottom clearfix">
+            <div class="container_fluid">
+                <nav class="main_menu bg_supermarket_red clearfix">
+                    <ul class="ul_li clearfix">
+                        <li>
+                            <a href="/">
+                                <button
+                                    class="alldepartments_btn bg_white text-dark text-uppercase font-weight-bold border"
+                                    type="button">
+                                    Home
+                                </button>
+                            </a>
+                        </li>
+                        <li><a href="{{ route('shop') }}">Shop</a></li>
+                        <li><a href="{{ route('about') }}">About us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact us</a></li>
+                        {{-- <li class="menu_item_has_child ">
               <a href="#!">Home</a>
               <div class="mega_menu text-center">
                 <div class="background" data-bg-color="#ffffff">
@@ -480,20 +496,20 @@
                 </div>
               </div>
             </li> --}}
-            <li class="menu_item_has_child">
-              <a href="#!">Pages</a>
-              <ul class="submenu">
-                <li class="menu_item_has_child">
-                  <a href="#!">Site pages</a>
-                  <ul class="submenu">
-                    <li><a href="{{route('cart')}}">Shopping Cart</a></li>
-                    <li><a href="{{route('checkout')}}">Checkout</a></li>
-                    <li><a href="{{route('about')}}">About Us</a></li>
-                    <li><a href="{{route('contact')}}">Contact  Us</a></li>
-                  </ul>
-                </li>
-                <li><a href="{{route('error')}}">404 Page</a></li>
-                {{-- <li class="menu_item_has_child">
+                        <li class="menu_item_has_child">
+                            <a href="#!">Pages</a>
+                            <ul class="submenu">
+                                <li class="menu_item_has_child">
+                                    <a href="#!">Site pages</a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ route('cart') }}">Shopping Cart</a></li>
+                                        <li><a href="{{ route('checkout') }}">Checkout</a></li>
+                                        <li><a href="{{ route('about') }}">About Us</a></li>
+                                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ route('error') }}">404 Page</a></li>
+                                {{-- <li class="menu_item_has_child">
                   <a href="#!">Blogs</a>
                   <ul class="submenu">
                     <li><a href="blog.html">Blog Page</a></li>
@@ -507,36 +523,29 @@
                     <li><a href="compare_2.html">Compare V.2</a></li>
                   </ul>
                 </li> --}}
-                <li class="menu_item_has_child">
-                  <a href="#!">Register</a>
-                  <ul class="submenu">
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            
-          
-          </ul>
-        </nav>
-      </div>
-    </div>
+                            </ul>
+                        </li>
 
-    <div id="search_body_collapse" class="search_body_collapse collapse">
-      <div class="search_body">
-        <div class="container-fluid prl_90">
-          <form action="#">
-            <div class="form_item mb-0">
-              <input type="search" name="search" placeholder="Type here...">
-              <button type="submit"><i class="fal fa-search"></i></button>
+
+                    </ul>
+                </nav>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- header_section - end
+
+        <div id="search_body_collapse" class="search_body_collapse collapse">
+            <div class="search_body">
+                <div class="container-fluid prl_90">
+                    <form action="#">
+                        <div class="form_item mb-0">
+                            <input type="search" name="search" placeholder="Type here...">
+                            <button type="submit"><i class="fal fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header_section - end
   ================================================== -->
 
 

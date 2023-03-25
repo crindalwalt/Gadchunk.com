@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductInventory;
 use Session;
@@ -13,10 +14,11 @@ class CartController extends Controller
 
     public function index()
     {
-        $data['products']= $this->getProducts();
+        $data['products'] = $this->getProducts();
         $data['total'] = $this->Total();
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
+        $data['categories'] = Category::all();
         return view('template.cart', $data);
     }
 
@@ -51,14 +53,14 @@ class CartController extends Controller
         }
     }
     // remove from Cart
-      public function remove($id)
-      {
-          $product = $this->getItem($id);
-          $oldCart = Session::has('cart') ? Session::get('cart') : [];
-          unset($oldCart[$product]);
-          Session::put('cart', $oldCart);
-          return response()->json(['success' => 'Product remove from cart', 'count' => sizeof($oldCart)]);
-      }
+    public function remove($id)
+    {
+        $product = $this->getItem($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : [];
+        unset($oldCart[$product]);
+        Session::put('cart', $oldCart);
+        return response()->json(['success' => 'Product remove from cart', 'count' => sizeof($oldCart)]);
+    }
 
     // fetch ids of the products
     public static function getProductIds()
@@ -72,7 +74,7 @@ class CartController extends Controller
     }
 
     // fucnciton to get products depending on the ids
-    
+
     public function getProducts()
     {
         $products = ProductInventory::whereIn('id', $this->getProductIds())->get();
@@ -91,12 +93,30 @@ class CartController extends Controller
     // checkout function 
     public function checkout()
     {
-  $data['products']= $this->getProducts();
+        $data['products'] = $this->getProducts();
         $data['total'] = $this->Total();
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
         return view('template.checkout', $data);
     }
+
+      // function total price in cart 
+    //   public function itemTotal($id,$quantity)
+    //   {
+    //     $products = ProductInventory::where('id', $id)->get();
+    //     $Cart = Session::get('cart');
+    //     @dd($products);
+    //     foreach ($Cart as $value) {
+    //         if ($value['product_id'] == $id) {
+    //             $value['quantity'] = $quantity;
+    //         }
+    //         break;
+    //     }
+    //     foreach($products as item){}
+    //           $result= $value['quantity'] * $products['discount_price'];
+    //           @dd($result);
+    //       return $result;
+    //   }
 
     // function total price in cart 
     public function Total()
@@ -109,14 +129,14 @@ class CartController extends Controller
         return $sum;
     }
 
-      // function discount price in cart 
-      public function Discount()
-      {
-          $total = $this->Total();
-          $sub_total = $this->Sub_Total();
-           $discount = $total-$sub_total;
-          return $discount;
-      }
+    // function discount price in cart 
+    public function Discount()
+    {
+        $total = $this->Total();
+        $sub_total = $this->Sub_Total();
+        $discount = $total - $sub_total;
+        return $discount;
+    }
 
     //subtotal function
     public function Sub_Total()
@@ -149,15 +169,16 @@ class CartController extends Controller
     public function ChangeQty($id, $quantity)
     {
         $products = $this->changeQuantity($id, $quantity);
+        $sub_total = $this->Sub_Total();
+        $discount = $this->Discount();
         $total_price = $this->Total();
         return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 1000 items"])
-            : response()->json(['totalPrice' => $total_price, 'products' => $products ]);
+            : response()->json(['totalPrice' => $total_price, 'products' => $products ,'sub_total' => $sub_total , 'discount' => $discount]);
     }
 
 
     // function of order save
-    public function order(Request $request){
-   
+    public function order(Request $request)
+    {
     }
-
 }

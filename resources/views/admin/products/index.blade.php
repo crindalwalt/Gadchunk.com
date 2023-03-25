@@ -175,7 +175,7 @@
 
                                                         </tr>
                                                     @endforeach
-                                                @elseinven_prod_images
+                                                @else 
                                                 {{-- http://127.0.0.1:8000/storage/product_images --}}
                                                     <div
                                                         class="text-center text-warning text-lg font-size-24 font-semibold d-flex justify-content-center align-items-center

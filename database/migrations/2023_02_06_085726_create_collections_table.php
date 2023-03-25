@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText("title");
             $table->string("discount_percentage");
             $table->longText("banner_image");
+            $table->string("product_id");
             $table->longText("description");
 
             $table->timestamps();
