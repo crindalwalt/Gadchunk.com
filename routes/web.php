@@ -135,13 +135,17 @@ Route::get('/search',[NavigatorController::class , 'searchQuery'])->name('search
 
    //Collection CRUD
    Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
+<<<<<<< HEAD
    Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
    Route::post('/collection/{collection}/delete', [CollectionController::class, 'destroy'])->name('collections.destroy');
+=======
+   Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
+>>>>>>> 35632d8bcf2fd5b71eae29d7ea4a54e88018f69b
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
    Route::get('/collection/{collection}', [CollectionController::class, 'show'])->name('collectons.show');
 });
 
-
+   Route::get("/orders",[OrderController::class,'index'])->name("orders.index");
 Route::get('/dashboard', function () {
    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
