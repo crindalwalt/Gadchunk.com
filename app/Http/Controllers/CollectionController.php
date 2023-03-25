@@ -11,7 +11,7 @@ class CollectionController extends Controller
 {
     public function index(){
         $data['products'] = Product::all();
-        $data['collections'] = Collection::get(3);
+        $data['collections'] = Collection::get();
         return view('admin.collection.index', $data);
     }
     public function show (Collection $collection){
@@ -19,7 +19,7 @@ class CollectionController extends Controller
             'collection' => $collection,
         ]);
     }
-   
+
     public function store (Request $request)
     {
         // @dd($request->all());
@@ -39,7 +39,7 @@ class CollectionController extends Controller
         $collection->discount_percentage = $request->discount_price;
         $collection->description = $request->description;
 
-    
+
         $collection->product_id = $request->collection_products;
         // dd($collection);
         if ($request->hasFile('banner_image')) {
@@ -47,7 +47,7 @@ class CollectionController extends Controller
             $request->file('banner_image')->storeAs('public/collections', $filename);
             $collection->banner_image = $filename;
         }
-      
+
         $collection->save();
 
         if($collection->save()){

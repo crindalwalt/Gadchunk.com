@@ -20,6 +20,6 @@ class Order extends Model
 
     public function detail()
     {
-        return h
+        return $this->hasMany(OrderDetail::class)
     }
 }

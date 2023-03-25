@@ -45,8 +45,20 @@
                                         method="POST">
                                         @csrf
 
-                                        <h4 class="header-title">Add New Category</h4>
-                                        <p class="card-title-desc">You can add product categories here</p>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h4 class="header-title">Add New Category</h4>
+                                                <p class="card-title-desc">You can add product categories here</p>
+                                            </div>
+                                            <div>
+                                                <div class="float-end d-none d-sm-block">
+                                                    <a href="{{ route('product.variation') }}" class="btn btn-primary shadow-lg">
+                                                        <i class="dripicons-link"></i>
+                                                        Manage Attribute
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <label for="example-text-input"
                                                 class="col-sm-12 col-form-label">Name</label>
@@ -124,7 +136,7 @@
                                                                 <a href="" class="btn btn-outline-warning btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#modalForCatShow-{{ $category->id }}">Show</a>
-                                                                <a href="{{ route('edit_category',$category->id)}}"
+                                                                <a href="{{ route('edit_category', $category->id) }}"
                                                                     class="btn btn-outline-success btn-sm">Update</a>
                                                                 {{-- @dd($category->attributes); --}}
                                                                 <x-partials.category_show :category="$category" />

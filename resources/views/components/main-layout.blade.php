@@ -1,13 +1,11 @@
 <html class="no-js" lang="en">
 
 <head>
-<<<<<<< HEAD
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-=======
+
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
->>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
+
     <x-layouts.links />
-    {{-- @include('sweetalert::alert')  --}}
+
 </head>
 
 <body class="home_supermarket">
