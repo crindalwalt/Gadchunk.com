@@ -1,10 +1,10 @@
 <x-main-layout>
-    <x-layouts.header :categories=$categories />
-
+    {{-- @dd($wishlists->all()) --}}
+    <x-layouts.header :wishlists=$wishlists  />
    <main class="main">
     {{-- @dd($wishlists->all()) --}}
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
-        <div class="container">
+        <div class="container py-4">
             <h1 class="page-title">Wishlist<span>Shop</span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
@@ -19,8 +19,9 @@
     </nav><!-- End .breadcrumb-nav -->
 
     <div class="page-content">
-        <div class="container">
+        <div class="container shadow rounded ">
             <table class="table table-wishlist table-mobile">
+                @if (!Auth::user()->wishlist->count()== 0)
                 <thead>
                     <tr>
                         <th>Product Image</th>
@@ -31,8 +32,6 @@
                 </thead>
 
                 <tbody>
-
-                    {{-- @if (!Auth::user()->wishlist->count()== 0) --}}
                         <div id="wishlist">
                             @foreach ($wishlists as $wishlist)
                                 <tr id="remove{{$wishlist->id}}">
@@ -40,13 +39,13 @@
                                         <div class="product">
                                             <figure class="product-media">
                                                 <a href="#">
-                                                    <img src=""
+                                                    <img src="{{asset('storage/product_images'.$wishlist->product->product_image)}}"
                                                         alt="Product image">
                                                 </a>
                                             </figure>
                                         </div><!-- End .product -->
                                     </td>
-                                    <td class="product-title">{{$wishlist->product->product_id}}</td>
+                                    <td class="product-title">{{ $wishlist->product->product_id}}</td>
                                     <td class="price-col">{{ $wishlist->product->retail_price }}</td>
                                     <td class="remove-col">
                                         
@@ -57,11 +56,11 @@
                                 </tr>
                             @endforeach
                         </div>
-                    {{-- @else
+                    @else
                         <div class="text-center">
                             <h3 class="text-danger">Wishlist is empty</h3>
                         </div>
-                    @endif --}}
+                    @endif
 
 
                 </tbody>

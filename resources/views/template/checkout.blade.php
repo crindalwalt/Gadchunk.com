@@ -1,7 +1,7 @@
 <x-main-layout>
     {{-- Selective header  --}}
 
-    <x-layouts.header :categories=$categories />
+    <x-layouts.header :wishlists=$wishlists  />
 
     <!-- main body - start
   ================================================== -->

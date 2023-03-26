@@ -1,5 +1,4 @@
 <div>
-  {{-- @dd($categories) --}}
 
     <!-- backtotop - start -->
     <div id="thetop"></div>
@@ -28,9 +27,9 @@
                     <div class="col-lg-7">
                         <ul class="info_list ul_li_right clearfix">
                             <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
-                            <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
+                            <li><a href="{{route('order_list')}}"><i class="fal fa-truck"></i> Track Your Order</a></li>
                             @if(Auth::check())
-                            <li> <strong>{{Auth::user()->name}}</strong> Login!</li>
+                            <li> <a href="{{route('profile')}}"><i class="fal fa-user"></i><strong>{{Auth::user()->name}}</strong></a></li>
                             @else
                             <li><a href="{{route('login')}}"> Login</a></li>
                             <li><a href="{{route('register')}}">Register</a></li>
@@ -118,10 +117,12 @@
                                     </div>
                                 </li>
                                 <li>
+                                   <a href="{{route('contact')}}">
                                     <button type="button">
-                                        <span>Need</span>
-                                        <strong>Help?</strong>
-                                    </button>
+                                      <span>Need</span>
+                                      <strong>Help?</strong>
+                                  </button>
+                                   </a>
                                 </li>
 
                                 <li>
@@ -131,8 +132,6 @@
                                             <i class="fal fa-shopping-bag"></i>
                                             <span class="btn_badge"
                                                 id="cart-count">
-<<<<<<< HEAD
-
                                                 @if(Session::get('cart'))
                                                 {{count(Session::get('cart'))}}
                                                 @else
@@ -140,22 +139,20 @@
                                                 @endif
                     
                                               </span>
-=======
-                                                {{-- @if(count(Session::get('cart'))>0 )
-                                                {{ count(Session::get('cart')) }}
-                                                @else
-                                                0
-                                                @endif --}}
-                                                0
-                                            </span>
->>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
+
                                         </button>
                                     </a>
                                     <a href="{{ route('wishlist') }}">
 
                                         <button type="button" class="cart_btn ml-2">
                                             <i class="fal fa-heart"></i>
-                                            <span class="btn_badge" id="wishlist-count">0</span>
+                                            <span class="btn_badge" id="wishlist-count">
+                                              {{-- @if(Auth::user()->wishlist)
+                                                {{count($wishlists)}}
+                                              @else --}}
+                                                0
+                                              {{-- @endif --}}
+                                            </span>
                                         </button>
                                     </a>
                                 </li>

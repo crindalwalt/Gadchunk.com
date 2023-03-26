@@ -2,7 +2,7 @@
     {{-- Selective header  --}}
     {{-- @dd($products->all()); --}}
 
-    <x-layouts.header :categories=$categories />
+    <x-layouts.header :wishlists=$wishlists />
 
 
     <!-- main body - start
@@ -44,14 +44,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @dd(Session::all()) --}}
+                            {{-- @dd($products) --}}
                             @if ($products->count() > 0)
                                @foreach ($products as $item)
+                            
                                <tr  id="productremove{{ $item->id }}">
                                 <td>
                                     <div class="cart_product">
                                         <div class="item_image">
-                                            <img src="" alt="image_not_found">
+                                            <img src="{{asset('storage/product_images'.$item->product_images)}}" alt="image_not_found">
                                         </div>
                                         <div class="item_content">
                                             <h4 class="item_title">{{$item->products->name}}</h4>
@@ -80,7 +81,9 @@
                                 </td>
                                 <td> Rs.<span class="">{{$item->squantity* $item->discount_price}}</span></td>
                             </tr>
+                            
                                @endforeach
+
                             @else
                                 <div class="text-center">
                                     <h3 class="text-danger">Cart is empty</h3>

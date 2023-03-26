@@ -1,5 +1,5 @@
 <x-main-layout>
-    <x-layouts.header :categories=$categories />
+    <x-layouts.header :wishlists=$wishlists  />
     {{-- @dd($inventory_products[0]->inven_prod_images) --}}
     <!-- main body - start
   ================================================== -->
@@ -434,7 +434,7 @@
 
                     <div class="col-lg-9 order-last">
                         <ul class="electronic_filter_bar ul_li mb_30">
-                            <li>
+                            {{-- <li>
                                 <ul class="layout_btns nav ul_li clearfix" role="tablist">
                                     <li>
                                         <a class="active" data-toggle="tab" href="#grid_layout"><i
@@ -471,7 +471,7 @@
                                 <p class="result_text mb-0 d-flex align-items-center"><span
                                         class="active_page">1</span> of 3 <a class="next_btn" href="#!"><i
                                             class="fal fa-long-arrow-right"></i></a></p>
-                            </li>
+                            </li> --}}
                         </ul>
 
                         <div class="tab-content mb_50">
@@ -751,9 +751,9 @@
                             </div>
                         </div>
 
-                        <div class="abtn_wrap text-center mb_50">
+                        {{-- <div class="abtn_wrap text-center mb_50">
                             <a href="#!" class="custom_btn btn_border border_electronic">Load more</a>
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="advertisement_image">
                             <a href="#!">
@@ -868,9 +868,25 @@
 										</div>
 									</div>
 								</div> --}}
-                            <h3 class="sb_widget_title text-uppercase">Filters</h3>
+                            {{-- <h3 class="sb_widget_title text-uppercase">All Categories</h3> --}}
+                            <div class="sb_widget sb_color_checkbox">
+                                <h3 class="sb_widget_title text-uppercase">All Categories</h3>
+                                @foreach ($categories as $cat)
+                                {{-- <form action="#"> --}}
+                                    <ul class="ul_li_block clearfix">
+                                            <li>
+                                                <div class="checkbox_item">
+                                                    {{-- <input id="oculus_rift_checkbox.{{$cat->id}}" value="{{$cat->name}}" type="checkbox" data-type="{{$value->attribute_value}}" class="filter"> --}}
+                                                    <label
+                                                        for="oculus_rift_checkbox.{{$cat->id}}"><strong>{{$loop->iteration}} - </strong> {{ $cat->name }}</label>
+                                                </div>
+                                            </li>
+                                    </ul>
+                                {{-- </form> --}}
+                                @endforeach
+                            </div>
 
-                            @foreach ($attributes as $attr)
+                            {{-- @foreach ($attributes as $attr)
                                 <div class="sb_widget sb_color_checkbox">
                                     <h3 class="sb_widget_title text-uppercase">{{ $attr->attribute_name }}</h3>
                                     <form action="#">
@@ -887,7 +903,7 @@
                                         </ul>
                                     </form>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
 
                             {{-- <div class="sb_widget sb_pricing_range">
                                 <h3 class="sb_widget_title text-uppercase">Price Range</h3>

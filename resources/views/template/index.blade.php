@@ -1,7 +1,7 @@
 <x-main-layout>
-    <x-layouts.header :categories=$categories />
+    <x-layouts.header :wishlists=$wishlists />
 
-
+{{-- @dd($wishlists) --}}
     <!-- main body - start
   ================================================== -->
     <main>
@@ -837,7 +837,8 @@
                             <div id="best_deals_tab" class="tab-pane active">
                                 <ul class="supermarket_product_columns has_4columns ul_li clearfix">
                                     @foreach ($inventory_products as $item)
-                                        <li>
+                                       <a href="{{route('product_detail',$item->id)}}">
+										<li>
                                             <div class="supermarket_product_item">
                                                 <ul class="product_label ul_li_block clearfix">
                                                     <li data-bg-color="#cc1414">-70%</li>
@@ -872,6 +873,7 @@
                                                 </div>
                                             </div>
                                         </li>
+									   </a>
                                     @endforeach
 
                                 </ul>
