@@ -21,7 +21,7 @@ class authCheck
             if (Auth::user()->userType == 0){
                 return $next($request);
             }else{
-                return redirect('/');
+                return redirect('/web');
             }
         }else{
             return redirect('/login');

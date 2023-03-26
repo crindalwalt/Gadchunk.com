@@ -1,7 +1,7 @@
 <html class="no-js" lang="en">
 
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <x-layouts.links />
     {{-- @include('sweetalert::alert')  --}}
 </head>

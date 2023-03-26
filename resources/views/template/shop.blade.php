@@ -8,7 +8,7 @@
 
         <!-- sidebar mobile menu & sidebar cart - start
    ================================================== -->
-        <div class="sidebar-menu-wrapper">
+        {{-- <div class="sidebar-menu-wrapper">
             <div class="cart_sidebar">
                 <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
@@ -325,7 +325,7 @@
             </div>
 
             <div class="overlay"></div>
-        </div>
+        </div> --}}
         <!-- sidebar mobile menu & sidebar cart - end
    ================================================== -->
 
@@ -478,9 +478,10 @@
                             <div id="grid_layout" class="tab-pane active">
                                 <ul class="electronic_product_columns ul_li has_4columns clearfix" id="result">
                                     @foreach ($inventory_products as $item)
-									<a href="{{ route('product_detail', $item->product_id) }}"
+									<a href="{{ route('product_detail', $item->product_id ) }}"
 										style="text-decoration: none">
                                         <li>
+                                            {{-- {{  '/product/'.$item->products->slug.'/'.$item->product_id }} --}}
                                                 <div class="electronic_product_item">
                                                     {{-- <ul class="product_label ul_li clearfix">
 														<li>-$30</li>
@@ -517,7 +518,6 @@
 
                                 </ul>
                             </div>
-
                             <div id="list_layout" class="tab-pane fade">
                                 <ul class="electronic_product_columns ul_li has_4columns clearfix">
                                     <li>

@@ -10,7 +10,7 @@
 
         <!-- sidebar mobile menu & sidebar cart - start
    ================================================== -->
-        <div class="sidebar-menu-wrapper">
+        {{-- <div class="sidebar-menu-wrapper">
             <div class="cart_sidebar">
                 <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
@@ -329,7 +329,7 @@
             </div>
 
             <div class="overlay"></div>
-        </div>
+        </div> --}}
         <!-- sidebar mobile menu & sidebar cart - end
    ================================================== -->
 

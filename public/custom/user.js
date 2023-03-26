@@ -149,6 +149,7 @@ $(document).on("click", '.filter', function () {
         success: function (data) {
             // $("#result").html(data);
             console.log(data);
+
         },
         error: function (data) {
             // alert('error');
@@ -166,10 +167,37 @@ $(document).on("click", '.filter', function () {
 
 });
 
-// search category value
-$(document).on("change", '.search_category', function () {
-    var val = $(this).val();
-     $("#search").val(val);
-});
 
-// 
+// search functionality on page
+// $(document).on("click", '.search_bar', function () {
+//     //  $(this).val();
+//      var val = $("#search").val();
+//     // alert(val);
+//     $.ajax({
+//         type: "GET",
+//         url: '/search',
+//         data: {
+//             "result": val,
+//         },
+//         success: function (data) {
+//             // $("#result").html(data);
+//             console.log(data);
+            
+//         },
+//         error: function (data) {
+//             // alert('error');
+//             // Swal.fire({
+//             //     icon: "error",
+//             //     title: "Error!",
+//             //     text: "Something went wrong!",
+//             //     type: "error",
+//             //     timer: 3000,
+//             // });
+//             alertify.set('notifier','position', 'top-right');
+//             alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
+//         }
+//     });
+
+// });
+
+

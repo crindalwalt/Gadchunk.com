@@ -29,8 +29,12 @@
                         <ul class="info_list ul_li_right clearfix">
                             <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
                             <li><a href="#!"><i class="fal fa-truck"></i> Track Your Order</a></li>
+                            @if(Auth::check())
+                            <li> <strong>{{Auth::user()->name}}</strong> Login!</li>
+                            @else
                             <li><a href="{{route('login')}}"> Login</a></li>
                             <li><a href="{{route('register')}}">Register</a></li>
+                            @endif
 
                             {{-- <li>
                 <form action="#">
@@ -54,7 +58,7 @@
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-3">
                         <div class="brand_logo">
-                            <a class="brand_link" href="index.html">
+                            <a class="brand_link" href="/">
                                 <img src="assets/images/logo/logo_18_1x.png"
                                     srcset="assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
                             </a>
@@ -80,18 +84,11 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <form action="{{route('search')}}">
+                        <form action="{{route('search')}}" method="POST">
+                          @csrf
                             <div class="medical_search_bar">
                                 <div class="form_item">
-                                    <input type="text" id="search" name="search" placeholder="search here...">
-                                </div>
-                                <div class="option_select mb-0">
-                                    <select class="search_category" >
-                                        <option data-display="All Category">Select A Option</option>
-                                        @foreach ($categories as $cat)
-                                            <option value="{{ $cat->name }}"name="cat-{{$cat->id}}">{{ $cat->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" name="search" placeholder="search here...">
                                 </div>
                                 <button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
                             </div>
@@ -113,7 +110,7 @@
                                             <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                                             <a class="dropdown-item" href="#">Setting</a>
                                             <hr class="m-0">
-                                            <form action="{{ route('logout', Auth::user()->id) }}" method="post">
+                                            <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
                                                 @csrf
                                                 <button class="dropdown-item btn btn-primary">Logout</button>
                                             </form>
@@ -133,7 +130,15 @@
                                         <button type="button" class="cart_btn">
                                             <i class="fal fa-shopping-bag"></i>
                                             <span class="btn_badge"
-                                                id="cart-count">{{ count(Session::get('cart')) }}</span>
+                                                id="cart-count">
+
+                                                @if(Session::get('cart'))
+                                                {{count(Session::get('cart'))}}
+                                                @else
+                                                  0
+                                                @endif
+                    
+                                              </span>
                                         </button>
                                     </a>
                                     <a href="{{ route('wishlist') }}">

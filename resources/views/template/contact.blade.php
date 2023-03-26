@@ -10,7 +10,7 @@
 
 			<!-- sidebar mobile menu & sidebar cart - start
 			================================================== -->
-			<div class="sidebar-menu-wrapper">
+			{{-- <div class="sidebar-menu-wrapper">
 				<div class="cart_sidebar">
 					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
@@ -305,7 +305,7 @@
 				</div>
 
 				<div class="overlay"></div>
-			</div>
+			</div> --}}
 			<!-- sidebar mobile menu & sidebar cart - end
 			================================================== -->
 
@@ -328,10 +328,10 @@
 
 			<!-- map_section - start
 			================================================== -->
-			<div class="map_section clearfix">
+			{{-- <div class="map_section clearfix">
 				<div id="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="12" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia." data-mlat="40.701083" data-mlon="-74.1522848">
 				</div>
-			</div>
+			</div> --}}
 			<!-- map_section - end
 			================================================== -->
 
@@ -421,78 +421,3 @@
 
 
 </x-main-layout>
-
-
-<div class="accordion" id="accordionExample">
-	<div class="card">
-		<div class="card-header" id="headingOne">
-			<h5 class="mb-0">
-				<button class="btn btn-link" type="button" data-toggle="collapse"
-					data-target="#collapseOne" aria-expanded="true"
-					aria-controls="collapseOne">
-					Jazzcash
-				</button>
-			</h5>
-		</div>
-
-		<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-			data-parent="#accordionExample">
-			<div class="card-body">
-				<input class="form-control border border-danger" type="text"
-					placeholder="Enter jazzcash number...." maxlength="11">
-			</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingTwo">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" type="button"
-					data-toggle="collapse" data-target="#collapseTwo"
-					aria-expanded="false" aria-controls="collapseTwo">
-					Collapsible Group Item #2
-				</button>
-			</h5>
-		</div>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-			data-parent="#accordionExample">
-			<div class="card-body">
-				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-				richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-				dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-				tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-				assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-				wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-				vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-				synth nesciunt you probably haven't heard of them accusamus labore
-				sustainable VHS.
-			</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingThree">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" type="button"
-					data-toggle="collapse" data-target="#collapseThree"
-					aria-expanded="false" aria-controls="collapseThree">
-					Collapsible Group Item #3
-				</button>
-			</h5>
-		</div>
-		<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-			data-parent="#accordionExample">
-			<div class="card-body">
-				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-				richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-				dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-				tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-				assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-				wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-				vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-				synth nesciunt you probably haven't heard of them accusamus labore
-				sustainable VHS.
-			</div>
-		</div>
-	</div>
-	<button type="submit" class="custom_btn bg_default_red">PLACE ORDER</button>
-
-</div>

@@ -1,7 +1,7 @@
 	<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section supermarket_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 bg_white clearfix">
+			<div class="footer_widget_area sec_ptb_100 bg_white clearfix" data-bg-color="#191e22">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
@@ -127,7 +127,7 @@
 							</div>
 						</div>
 
-						<div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
+						{{-- <div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
 							<ul class="circle_social_links ul_li_right clearfix">
 								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
@@ -135,22 +135,31 @@
 								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
 								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>
 
 			<div class="footer_bottom text-white clearfix" data-bg-color="#191e22">
 				<div class="container">
-					<div class="row justify-content-lg-between">
+					<div class="row justify-content-lg-between align-items-center">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<p class="copyright_text mb-0">© <a href="#!" class="author_link text-white">jthemes</a> - All rights Reserved</p>
+							<p class="copyright_text mb-0">© <a href="#!" class="author_link text-white">Company</a> - All rights Reserved</p>
 						</div>
 
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						{{-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<div class="payment_methods float-lg-right float-md-right">
 								<img src="assets/images/payment_methods_01.png" alt="image_not_found">
 							</div>
+						</div> --}}
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<ul class="circle_social_links ul_li_right clearfix payment_methods float-lg-right float-md-right">
+								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
+								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
+								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+							</ul>
 						</div>
 					</div>
 				</div>

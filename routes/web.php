@@ -129,18 +129,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    Route::get("/attributes/variationValues", [ProductAttributeController::class, 'variationValue'])->name("attributes.values.index");
 
    Route::post("/cat_attribute", [CategoryController::class, 'attr_filter']);
-Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
-Route::get('/search',[NavigatorController::class , 'searchQuery'])->name('search');
 
 
    //Collection CRUD
    Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
-<<<<<<< HEAD
-   Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
-   Route::post('/collection/{collection}/delete', [CollectionController::class, 'destroy'])->name('collections.destroy');
-=======
+
    Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
->>>>>>> 35632d8bcf2fd5b71eae29d7ea4a54e88018f69b
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
    Route::get('/collection/{collection}', [CollectionController::class, 'show'])->name('collectons.show');
 });
@@ -167,7 +161,7 @@ Route::middleware('auth', 'verified')->group(function () {
    // site page
 
    Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
-   Route::get('/product_detail/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
+   Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
    Route::get('/about', [NavigatorController::class, 'about'])->name('about');
    Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
 
@@ -196,6 +190,10 @@ Route::middleware('auth', 'verified')->group(function () {
 
    // Profile routes
    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
+   Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
+Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('search');
+
 });
 
 

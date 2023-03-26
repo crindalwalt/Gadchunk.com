@@ -819,7 +819,7 @@
                             </ul>
                         </div>
 
-                        <div class="supermarket_advertisement_3">
+                        {{-- <div class="supermarket_advertisement_3">
                             <img src="assets/images/offer/supermarket/img_05.jpg" alt="image_not_found">
                             <div class="item_content text-white">
                                 <h3 class="item_title text-white">
@@ -829,7 +829,7 @@
                                 <span class="item_price"><sup>£</sup>7,90</span>
                                 <a class="custom_btn bg_black btn_round" href="#!">Shop Now</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="col-lg-9">
@@ -3215,26 +3215,28 @@
 
         <!-- advertisement_section - start
    ================================================== -->
-        <section class="advertisement_section sec_ptb_50 pb-0 clearfix">
+        <section class="advertisement_section sec_ptb_50  pb-4 clearfix">
             <div class="container maxw_1460">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4">
+                    @foreach ($collections as $collection)
+					<div class="col-lg-4">
                         <div class="sm_offer_item offer_fullimage text-white">
                             <img src="assets/images/offer/supermarket/img_06.jpg" alt="image_not_found">
                             <div class="item_content">
                                 <h3 class="item_title text-white">
-                                    Smartphone Bestseller Products 2019
+									{{ $collection->title }}
                                 </h3>
-                                <span class="item_price">Price: $298.99</span>
-                                <a class="text_btn" href="#!">
-                                    <span>Pre - Order Now</span>
-                                    <i class="fal fa-long-arrow-right"></i>
-                                </a>
+                                <span class="item_price">Price: {{ $collection->discount_percentage }}</span>
+								<a class="text_btn" href="{{ route('shop') }}">
+									<span>Pre - Order Now</span>
+									<i class="fal fa-long-arrow-right"></i>
+								</a>
                             </div>
                         </div>
                     </div>
+					@endforeach
 
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="sm_offer_item offer_fullimage text-white">
                             <img src="assets/images/offer/supermarket/img_07.jpg" alt="image_not_found">
                             <div class="item_content">
@@ -3264,7 +3266,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
@@ -4817,7 +4819,7 @@
 
         <!-- advertisement_section - start
    ================================================== -->
-        <section class="advertisement_section sec_ptb_50 clearfix">
+        {{-- <section class="advertisement_section sec_ptb_50 clearfix">
             <div class="container maxw_1460">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
@@ -4853,7 +4855,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- advertisement_section - end
    ================================================== -->
 
@@ -4936,7 +4938,7 @@
 
         <!-- bestseller_section - start
    ================================================== -->
-        <section class="bestseller_section sec_ptb_100 clearfix">
+        {{-- <section class="bestseller_section sec_ptb_100 clearfix">
             <div class="container">
                 <div class="row justify-content-lg-between">
 
@@ -5185,7 +5187,7 @@
 
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- bestseller_section - end
    ================================================== -->
 
