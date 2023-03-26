@@ -2,7 +2,7 @@
     {{-- Selective header  --}}
     {{-- @dd($products) --}}
     <x-layouts.header :categories=$categories />
-
+    {{-- @dd($product) --}}
     <!-- main body - start
   ================================================== -->
     <main>
@@ -20,7 +20,7 @@
                             <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
                         </div>
                         <div class="item_content">
-                            <h4 class="item_title">{{$products['product_id']}}</h4>
+                            <h4 class="item_title">{{ $product->name }}hulalala</h4>
                             <span class="item_price">$30.00</span>
                         </div>
                         <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
@@ -364,7 +364,8 @@
                                     <a class="popup_image zoom-image"
                                         data-image="assets/images/details/shop/img_01.jpg"
                                         href="assets/images/details/shop/img_01.jpg">
-                                        <img src="{{asset('storage/inventory_images/'.$products->inven_prod_images)}}" alt="image_not_found">
+                                        <img src="{{asset('storage/inventory_images/'.$product->images[0]->product_image)}}" alt="image_not_found">
+                                        {{-- @dd() --}}
                                     </a>
                                 </div>
                                 <div id="tab_2" class="tab-pane fade">
@@ -407,7 +408,7 @@
 
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                         <div class="shop_details_content">
-                            <h2 class="item_title">{{ $products->products->name }}</h2>
+                            <h2 class="item_title">{{ $product->name }}</h2>
                             <span class="item_price"></span>
                             <hr>
                             <div class="row mb_30 align-items-center justify-content-lg-between">
@@ -416,7 +417,7 @@
                                         <span class="brand_title">Category:</span>
                                         <span class="brand_image d-flex align-items-center justify-content-center"
                                             data-bg-color="#f7f7f7">
-                                             {{ $products->products->category->name}}
+                                             {{ $product->category->name}}
                                         </span>
                                     </div>
                                 </div>
@@ -436,9 +437,13 @@
                                 </div>
                             </div>
                             <p class="mb-0">
-                               {{$products->products->description}}
+                               {{$product->description}}
                             </p>
                             <hr>
+                            @dd($product->prod_inventory)
+                            {{-- @foreach ($product->attributes as )
+
+                            @endforeach --}}
                             <div class="item_color_list mb_30 clearfix">
                                 <h4 class="list_title mb_15 text-uppercase">Color</h4>
                                 <ul class="ul_li clearfix">

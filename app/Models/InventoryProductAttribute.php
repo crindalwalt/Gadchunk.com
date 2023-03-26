@@ -14,4 +14,8 @@ class InventoryProductAttribute extends Model
     public function prod_inven(){
         return $this->belongsToMany(ProductInventory::class ,'inventory_id','attribute_id');
     }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

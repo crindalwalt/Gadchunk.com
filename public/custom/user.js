@@ -140,9 +140,13 @@ $(document).on("click", '.filter', function () {
             }
         }
     }
+    console.log(arr)
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: '/filter',
+        headers:{
+         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        },
         data: {
             "result": arr,
         },
@@ -152,6 +156,7 @@ $(document).on("click", '.filter', function () {
 
         },
         error: function (data) {
+            console.log(data);
             // alert('error');
             // Swal.fire({
             //     icon: "error",
@@ -168,6 +173,7 @@ $(document).on("click", '.filter', function () {
 });
 
 
+<<<<<<< HEAD
 // search functionality on page
 // $(document).on("click", '.search_bar', function () {
 //     //  $(this).val();
@@ -201,3 +207,6 @@ $(document).on("click", '.filter', function () {
 // });
 
 
+=======
+//
+>>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f

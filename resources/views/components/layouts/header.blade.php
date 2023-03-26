@@ -131,6 +131,7 @@
                                             <i class="fal fa-shopping-bag"></i>
                                             <span class="btn_badge"
                                                 id="cart-count">
+<<<<<<< HEAD
 
                                                 @if(Session::get('cart'))
                                                 {{count(Session::get('cart'))}}
@@ -139,6 +140,15 @@
                                                 @endif
                     
                                               </span>
+=======
+                                                {{-- @if(count(Session::get('cart'))>0 )
+                                                {{ count(Session::get('cart')) }}
+                                                @else
+                                                0
+                                                @endif --}}
+                                                0
+                                            </span>
+>>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
                                         </button>
                                     </a>
                                     <a href="{{ route('wishlist') }}">

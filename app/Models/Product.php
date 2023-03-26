@@ -3,8 +3,9 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -12,15 +13,24 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function categories(){
-        return $this->belongsToMany( Category::class, 'product_categories');
-    }
+    // public function categories(){
+    //     return $this->belongsToMany( Category::class, 'product_categories');
+    // }
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'category_id');
     }
     public function prod_inventory(){
         return $this->hasMany(ProductInventory::class);
     }
-   
+    public function images()
+    {
+        return $this->hasMany(InventoryImages::class);
+    }
+
+
+    public function attributes()
+    {
+        return $this->hasMany(InventoryProductAttribute::class);
+    }
 
 }
