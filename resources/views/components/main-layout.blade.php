@@ -2,8 +2,9 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <x-layouts.links />
-    {{-- @include('sweetalert::alert')  --}}
+
 </head>
 
 <body class="home_supermarket">

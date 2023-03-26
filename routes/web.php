@@ -170,6 +170,18 @@ Route::middleware('auth', 'verified')->group(function () {
 
     // site page
 
+<<<<<<< HEAD
+   Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
+   Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
+   Route::get('/about', [NavigatorController::class, 'about'])->name('about');
+   Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
+=======
+    Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
+    Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
+    Route::get('/about', [NavigatorController::class, 'about'])->name('about');
+    Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
+>>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
+
 
     // add wishlist controller
     Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist');
@@ -194,12 +206,17 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+<<<<<<< HEAD
    // Profile routes
    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
    Route::get('/track_order', [UserController::class, 'track_order'])->name('order_list');
 
    // Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
 
+=======
+    // Profile routes
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+>>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
 });
 
 

@@ -62,7 +62,7 @@
                                             <div class="col-sm-10">
                                                 <input class="form-control mt-3" type="file" id="example-text-input"
                                                     name="brand_icon">
-                                                    <span class="text-danger">* Only png,svg image extension is applicable </span>
+                                                    <span class="text-dark bg-warning p-2 d-inline-block mt-3 rounded-3">* Only png,svg image extension is applicable </span>
                                                 @error('brand_icon')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -107,7 +107,7 @@
                                                             <td class="">
                                                                 <a href="{{ route('brand.edit',$brand->id)}}"
                                                                     class="btn btn-outline-success btn-sm">Edit</a>
-                                                             
+
                                                                 <form action="{{route('brand.delete')}}" method="POST" class="d-inline">
                                                                     @csrf
                                                                     <input type="hidden" value="{{$brand->id}}" name="id">

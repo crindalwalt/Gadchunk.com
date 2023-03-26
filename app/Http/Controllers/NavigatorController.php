@@ -87,7 +87,7 @@ $data['wishlists']=Wishlist::all();
 
 
    public function searchQuery(Request $request){
-   
+
       $search = $request->input('search');
       if ($search) {
          $data['inventory_products'] = ProductInventory::with('products')->whereHas('products', function ($query) use($search){$query->where('name', 'like', '%'.$search.'%');})->get();
