@@ -15,8 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        // $data['orders'] = Order::latest()->get();
-        return view("admin.orders.index");
+        $data['orders'] = Order::get();
+        return view("admin.orders.index",$data);
     }
 
     /**

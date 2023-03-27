@@ -105,78 +105,56 @@
                         <div class="form_wrap">
 
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form_item">
-                                        <span class="input_title">First Name<sup>*</sup></span>
-                                        <input type="text" name="firstname">
+                                        <span class="input_title">Name<sup>*</sup></span>
+                                        <input type="text" name="user_id" value="{{Auth::user()->name}}">
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form_item">
-                                        <span class="input_title">Last Name<sup>*</sup></span>
-                                        <input type="text" name="lastname">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Company Name<sup>*</sup></span>
-                                <input type="text" name="company">
-                            </div>
-
-                            <div class="option_select">
-                                <span class="input_title">Country<sup>*</sup></span>
-                                <select name="country">
-                                    <option value="USA" selected>United States</option>
-                                    <option value="USA">United States</option>
-                                    <option value="USA">United States</option>
-                                    <option value="USA">United States</option>
-                                </select>
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Address<sup>*</sup></span>
-                                <input type="text" name="address" placeholder="House number and street name">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Town/City<sup>*</sup></span>
-                                <input type="text" name="city">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">County<sup>*</sup></span>
-                                <input type="text" name="county">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Postcode / Zip<sup>*</sup></span>
-                                <input type="text" name="postcode">
-                            </div>
-
-                            <div class="form_item">
-                                <span class="input_title">Phone<sup>*</sup></span>
-                                <input type="tel" name="phone">
                             </div>
 
                             <div class="form_item">
                                 <span class="input_title">Email Address<sup>*</sup></span>
-                                <input type="email" name="email">
+                                <input type="email" name="checkout_email" value="{{Auth::user()->email}}">
+                            </div>    
+                            <div class="form_item">
+                                <span class="input_title">Town/City<sup>*</sup></span>
+                                <input type="text" name="checkout_city">
+                            </div>                      
+                            <div class="form_item">
+                                <span class="input_title">Country<sup>*</sup></span>
+                                <input type="text" name="checkout_country">
                             </div>
+
+                            <div class="form_item">
+                                <span class="input_title">Address<sup>*</sup></span>
+                                <input type="text" name="checkout_address" placeholder="House number and street name">
+                            </div>
+
+                            <div class="form_item">
+                                <span class="input_title">Postcode / Zip<sup>*</sup></span>
+                                <input type="text" name="checkout_postcode">
+                            </div>
+
+                            <div class="form_item">
+                                <span class="input_title">Phone<sup>*</sup></span>
+                                <input type="tel" name="checkout_phone" value="{{Auth::user()->phone}}">
+                            </div>
+
 
                             <div class="form_item mb-0">
                                 <span class="input_title">Order notes<sup>*</sup></span>
-                                <textarea name="note" placeholder="Note about your order, eg. special notes fordelivery."></textarea>
+                                <textarea name="checkout_note" placeholder="Note about your order, eg. special notes fordelivery."></textarea>
                             </div>
 
                         </div>
 
                         <div class="billing_form">
-                            <h3 class="form_title mb_30">Your order</h3>
+                            <h3 class=" m-4">Your order</h3>
 
                             <div class="form_wrap">
 
+                                @if ($products->count() > 0)
                                 <div class="checkout_table">
                                     <table class="table text-center mb_50">
                                         <thead class="text-uppercase text-uppercase">
@@ -189,7 +167,7 @@
                                         </thead>
                                         <tbody>
 
-                                            @if ($products->count() > 0)
+                                           
                                                 @foreach ($products as $item)
                                                     <tr>
                                                         <td>
@@ -205,21 +183,21 @@
                                                                 </div>
                                                             </div>
                                                         </td>
+                                                        <input type="hidden" value="{{ $item->products->id }}" name="product_id">
+
                                                         <td>
                                                             <span class="price_text">{{ $item->discount_price }}</span>
                                                         </td>
                                                         <td>
                                                             <span class="quantity_text">{{ $item->squantity }}</span>
+                                                            <input type="hidden" value="{{$item->squantity }}" name="quantity">
+
                                                         </td>
                                                         <td><span class="total_price">Rs.{{ $sub_total }}</span>
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                            @else
-                                                <div class="text-center">
-                                                    <h3 class="text-danger">Cart have no item</h3>
-                                                </div>
-                                            @endif
+                                         
                                             <tr>
                                                 <td></td>
                                                 <td></td>
@@ -237,28 +215,24 @@
                                                 <td>
                                                     <span class="total_price">Rs.{{ $total }}</span>
                                                 </td>
-                                                <input type="hidden" value="{{ $total }}" name="amount">
+                                                <input type="hidden" value="{{ $total }}" name="total_amount">
 
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-
-                                @if (Session::has('success'))
-                                    <div class="alert alert-success text-center">
-
-                                        <a href="#" class="close" data-dismiss="alert"
-                                            aria-label="close">×</a>
-
-                                        <p>{{ Session::get('success') }}</p>
-
-                                    </div>
-                                @endif
+                                @else
+                                <div class="text-center">
+                                    <h3 class="text-danger">Cart have no item</h3>
+                                </div>
+                            @endif
+            
+                                <input type="hidden" value="{{ $total }}" name="total_amount">
 
                                 <div class="accordion" id="accordionExample">
 
-                                    <h2>Payment Method</h2>
+                                    <h3 class="text-primary">Payment Method</h3>
                                     <input type="hidden" name="payment_method" id="payment_method">
                                     <div class="card">
                                         <div class="card-header" id="headingOne">

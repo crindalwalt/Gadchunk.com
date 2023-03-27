@@ -15,10 +15,19 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("payment_id");
-            $table->string("subTotal");
-
+            $table->unsignedBigInteger('user_id');
+            $table->string('checkout_email');
+            $table->string('checkout_city');
+            $table->string('checkout_country');
+            $table->string('checkout_address');
+            $table->string('checkout_postcode');
+            $table->string('checkout_phone');
+            $table->text('checkout_note')->nullable();
+            $table->string('total_amount');
+            $table->integer('quantity');
+            $table->string('order_number');
+            $table->string('payment_method');
+            $table->enum('status', ['pending', 'approved','dispatched', 'cancelled','delivered'])->default('pending');
             $table->timestamps();
         });
     }

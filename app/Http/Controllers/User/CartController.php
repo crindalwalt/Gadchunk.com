@@ -102,6 +102,9 @@ class CartController extends Controller
         $data['total'] = $this->Total();
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
+        $data['wishlists']=Wishlist::all();
+        $data['collections']= Collection::all();
+
         return view('template.checkout', $data);
     }
 
