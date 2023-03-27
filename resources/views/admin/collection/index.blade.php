@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <label class="control-label">Collection Product</label>
-                                                <select name="collection_products" class="form-control select2"
+                                                <select name="collection_products[]" class="form-control select2"
                                                     multiple>
                                                     <option>Select</option>
                                                     @foreach ($products as $product)

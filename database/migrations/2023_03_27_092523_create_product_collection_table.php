@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collections', function (Blueprint $table) {
+        Schema::create('product_collection', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->text("slug");
-            $table->longText("title");
-            $table->string("discount_percentage");
-            $table->longText("banner_image");
-            $table->longText("description");
-
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('collection_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collections');
+        Schema::dropIfExists('product_collections');
     }
 };

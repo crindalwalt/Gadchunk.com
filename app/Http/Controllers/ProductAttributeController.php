@@ -22,15 +22,22 @@ class ProductAttributeController extends Controller
     public function store(Request $request)
     {
 
-
+        // @dd($request->all());
         $request->validate([
             'attribute_name' => 'required|string',
             'attribute_description' => 'required|string',
+            'attribute_icon' => 'required',
         ]);
 
         $variation = new ProductAttribute();
         $variation->attribute_name = $request->attribute_name;
         $variation->attribute_description = $request->attribute_description;
+        // storing image
+        if ($request->hasFile('attribute_icon')) {
+            $filename = 'icon-' . time() . rand(99, 199) . '.' . $request->file('attribute_icon')->getClientOriginalExtension();
+            $request->file('attribute_icon')->storeAs('public/attributeIcons', $filename);
+            $variation->attribute_icon = $filename;
+        }
         $variation->save();
         if ($variation->save()) {
             alert("Success", 'Variation has been added successfully', 'success');

@@ -138,7 +138,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
 
    Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
-   Route::get('/collection/{collection}', [CollectionController::class, 'show'])->name('collectons.show');
+   Route::get('/collection/{id}', [CollectionController::class, 'show'])->name('collectons.show');
+   Route::get('/collection/{id}', [CollectionController::class, 'destroy'])->name('collections.destroy');
 
 });
 

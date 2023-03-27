@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('product_attributes', function (Blueprint $table) {
             $table->id();
             $table->string('attribute_name');
+            $table->string('attribute_icon'); 
             $table->integer('category_id')->nullable();
             $table->string('attribute_description');
             $table->timestamps();
