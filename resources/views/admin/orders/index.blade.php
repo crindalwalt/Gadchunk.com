@@ -1,8 +1,7 @@
-
 <x-layouts.admin>
-    {{--    @dd($categories)--}}
+    {{-- @dd($orders) --}}
     <!-- ============================================================== -->
-    {{--    @include('sweetalert::alert')--}}
+    {{--    @include('sweetalert::alert') --}}
 
     @include('sweetalert::alert')
     <div class="main-content">
@@ -47,16 +46,18 @@
                                         <div class="text-center">
                                             <p class="font-size-16"> All Orders</p>
                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                    <span class="avatar-title rounded-circle bg-soft-primary">
-                                                            <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
-                                                        </span>
+                                                <span class="avatar-title rounded-circle bg-soft-primary">
+                                                    <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
+                                                </span>
                                             </div>
-                                            <h5 class="font-size-22">58</h5>
+                                            <h5 class="font-size-22">{{count($orders)}}</h5>
 
                                             <p class="text-muted">Order you recieved</p>
 
                                             <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70">
+                                                <div class="progress-bar progress-bar bg-primary" role="progressbar"
+                                                    style="width: 100%" aria-valuenow="70" aria-valuemin="0"
+                                                    aria-valuemax="70">
                                                 </div>
 
                                             </div>
@@ -73,16 +74,18 @@
                                         <div class="text-center">
                                             <p class="font-size-16">Pending Orders</p>
                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                    <span class="avatar-title rounded-circle bg-soft-success">
-                                                            <i class="mdi mdi-account-outline text-success font-size-20"></i>
-                                                        </span>
+                                                <span class="avatar-title rounded-circle bg-soft-success">
+                                                    <i class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                </span>
                                             </div>
                                             <h5 class="font-size-22">18</h5>
 
                                             <p class="text-muted">Order waiting to proceed</p>
 
                                             <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar bg-warning" role="progressbar"
+                                                    style="width: 100%" aria-valuenow="80" aria-valuemin="0"
+                                                    aria-valuemax="100">
                                                 </div>
 
                                             </div>
@@ -99,16 +102,18 @@
                                         <div class="text-center">
                                             <p class="font-size-16">Delivered Order</p>
                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                    <span class="avatar-title rounded-circle bg-soft-success">
-                                                            <i class="mdi mdi-account-outline text-success font-size-20"></i>
-                                                        </span>
+                                                <span class="avatar-title rounded-circle bg-soft-success">
+                                                    <i class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                </span>
                                             </div>
                                             <h5 class="font-size-22">40</h5>
 
                                             <p class="text-muted">Order you have completed</p>
 
                                             <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar bg-success" role="progressbar"
+                                                    style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                                                    aria-valuemax="100">
                                                 </div>
 
                                             </div>
@@ -131,7 +136,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">All Orders</h4>
                                     <div class="table-responsive">
-                                         @if($products->isNotEmpty())
+                                         @if ($products->isNotEmpty())
                                             <table class="table table-centered table-nowrap mb-0">
                                                 <thead class="thead-light">
                                                 <tr>
@@ -145,7 +150,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($products as $product)
+                                                @foreach ($products as $product)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><img src="{{ asset('storage/' . $product->productImage[0]->image) }}" width="42" class="me-3" alt="">{{ $product->name   }}</td>
@@ -203,79 +208,129 @@
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">Products of the Month</h4>
                                     <div class="table-responsive">
-                                        <table class="table table-centered table-nowrap mb-0">
-                                            <thead class="thead-light">
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Product</th>
-
-                                                <th>Customer</th>
-                                                <th>Price</th>
-                                                <th>Invoice</th>
-                                                <th>Status</th>
-                                            </tr>
+                                        <table class="table table-striped">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">Order #</th>
+                                                    <th scope="col">Full Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Total Amount</th>
+                                                    <th scope="col">Payment Method</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Details</th>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>#2356</td>
-                                                <td><img src="assets/images/product/img-7.png" width="42" class="me-3" alt="">Green Chair</td>
-                                                <td>Kenneth Gittens</td>
-                                                <td>$200.00</td>
-                                                <td>42</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
+                                                @foreach ($orders as $order)
+                                                    <tr>
+                                                        <th scope="row"> {{ $order->order_number }}</th>
+                                                        <td>{{ $order->user_id }} </td>
+                                                        <td>{{ $order->checkout_email }}</td>
+                                                        <td>{{ $order->total_amount }}</td>
+                                                        <td>{{ $order->payment_method }}</td>
+                                                        <td>
+                                                            <select id="{{ $order->id }}"
+                                                                onchange="changeStatus({{ $order->id }})"
+                                                                name="status" class="form-select">
+                                                                <?php $status = old('status', @$order->status); ?>
+                                                                <option value="pending"
+                                                                    @if ($order->status == 'pending') selected="selected" @endif>
+                                                                    Pending</option>
+                                                                <option value="approved"
+                                                                    @if ($order->status == 'approved') selected="selected" @endif>
+                                                                    Approved</option>
+                                                                <option value="cancelled"
+                                                                    @if ($order->status == 'cancelled') selected="selected" @endif>
+                                                                    Cancelled</option>
+                                                                <option value="dispatched"
+                                                                    @if ($order->status == 'dispatched') selected="selected" @endif>
+                                                                    Dispatched</option>
+                                                                <option value="delivered"
+                                                                    @if ($order->status == 'delivered') selected="selected" @endif>
+                                                                    Delivered</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                Details
+                                                            </button>
 
-                                            <tr>
-                                                <td>#2564</td>
-                                                <td><img src="assets/images/product/img-8.png" width="42" class="me-3" alt="">Office Chair</td>
-                                                <td>Alfred Gordon</td>
-                                                <td>$242.00</td>
-                                                <td>54</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                </td>
-                                            </tr>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalCenterTitle">
+                                                                                {{ $order->order_number }}</h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
 
+                                                                            <div class="table-responsive">
+                                                                                <table class="table">
 
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">#</th>
+                                                                                            <th scope="col">Product
+                                                                                                Name</th>
+                                                                                            <th scope="col">Color
+                                                                                            </th>
+                                                                                            <th scope="col">Price
+                                                                                            </th>
+                                                                                            <th scope="col">Image
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        @foreach ($order->items as $detail)
+                                                                                            <tr>
+                                                                                                <th scope="row">1
+                                                                                                </th>
+                                                                                                <td>{{ $detail->product->name }}
+                                                                                                </td>
+                                                                                                <td>{{ $detail->color }}
+                                                                                                </td>
+                                                                                                <td>{{ $detail->total_amount }}
+                                                                                                </td>
+                                                                                                <td><img src="{{ asset('storage/product_images/'. $detail->product->product_image) }}"
+                                                                                                        alt=""
+                                                                                                        height="100px"
+                                                                                                        width="100px">
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        @endforeach
 
-                                            <tr>
-                                                <td>#2125</td>
-                                                <td><img src="assets/images/product/img-10.png" width="42" class="me-3" alt="">Gray Chair</td>
-                                                <td>Keena Reyes</td>
-                                                <td>$320.00</td>
-                                                <td>65</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                </td>
-                                            </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                            <tr>
-                                                <td>#8587</td>
-                                                <td><img src="assets/images/product/img-11.png" width="42" class="me-3" alt="">Steel Chair</td>
-                                                <td>Timothy Zuniga</td>
-                                                <td>$342.00</td>
-                                                <td>52</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>#2354</td>
-                                                <td><img src="assets/images/product/img-12.png" width="42" class="me-3" alt="">Home Chair</td>
-                                                <td>Joann Wiliams</td>
-                                                <td>$320.00</td>
-                                                <td>25</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
-
-
+                                                        </td>
+                                                   
+                                                @endforeach
                                             </tbody>
+
                                         </table>
+
                                     </div>
                                     <!-- end table-responsive -->
                                 </div>

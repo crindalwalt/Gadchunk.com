@@ -130,7 +130,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::post("/attributes/variation/destroy", [ProductAttributeController::class, 'destroy'])->name("prod_variation_value.destroy");
     Route::get("/attributes/variationValues", [ProductAttributeController::class, 'variationValue'])->name("attributes.values.index");
 
-
    Route::post("/cat_attribute", [CategoryController::class, 'attr_filter']);
 
 
@@ -148,8 +147,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 // Main Site Page
 Route::get('/', [NavigatorController::class, 'index'])->name('home');
+
+Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
+Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
+Route::get('/about', [NavigatorController::class, 'about'])->name('about');
+Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
+Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('search');
 
 
 
@@ -163,19 +169,10 @@ Route::get('/', [NavigatorController::class, 'index'])->name('home');
 Route::middleware('auth', 'verified')->group(function () {
 
     // site page
-
-// <<<<<<< HEAD
    Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
    Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
    Route::get('/about', [NavigatorController::class, 'about'])->name('about');
    Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
-// =======
-//     Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
-//     Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
-//     Route::get('/about', [NavigatorController::class, 'about'])->name('about');
-//     Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
-// >>>>>>> e71bad31a8f120ea283d5dbe2b6e6179119f6e0f
-
 
     // add wishlist controller
     Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist');
@@ -200,13 +197,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
    // Profile routes
    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+   Route::get('/track_order', [UserController::class, 'track_order'])->name('order_list');
 
-   Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
-Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('search');
-
+   // Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
 
 });
 

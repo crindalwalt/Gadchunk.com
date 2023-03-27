@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductAttributeValue;
 use App\Models\ProductInventory;
+use App\Models\Wishlist;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,7 @@ class NavigatorController extends Controller
       $data['inventory_products'] = ProductInventory::with('products')->get();
       $data['collections'] = Collection::all();
       $data['categories'] = Category::all();
+      $data['wishlists']=Wishlist::all();
 
       return view('template.index', $data);
    }
@@ -31,6 +33,7 @@ class NavigatorController extends Controller
       $data['attributes'] = ProductAttribute::get();
       $data['categories'] = Category::all();
       $data['collections'] = Collection::all();
+      $data['wishlists']=Wishlist::all();
 
       return view('template.shop', $data);
    }
@@ -50,13 +53,14 @@ class NavigatorController extends Controller
    public function about()
    {
       $data['categories'] = Category::all();
-
+$data['wishlists']=Wishlist::all();
       return view('template.blog' ,$data);
    }
 
    public function contact()
    {
       $data['categories'] = Category::all();
+      $data['wishlists']=Wishlist::all();
 
       return view('template.contact' ,$data);
    }
@@ -66,20 +70,20 @@ class NavigatorController extends Controller
       return view('template.404');
    }
 
-   public function filter(Request $request)
-   {
+   // public function filter(Request $request)
+   // {
 
-      // @dd($request);
-      $array = null;
-    //   if (isset($request->array)) {
-    //      $array = $request->array;
-    //      foreach($array as $item){
-    //         $products = ProductAttributeValue::whereIn('attribute_value', $item)->get();
+   //    // @dd($request);
+   //    $array = null;
+   //  //   if (isset($request->array)) {
+   //  //      $array = $request->array;
+   //  //      foreach($array as $item){
+   //  //         $products = ProductAttributeValue::whereIn('attribute_value', $item)->get();
 
-    //      }
-    //   }
-      return response()->json(['data' => $request->input("result")]);
-   }
+   //  //      }
+   //  //   }
+   //    return response()->json(['data' => $request->input("result")]);
+   // }
 
 
    public function searchQuery(Request $request){
@@ -91,15 +95,20 @@ class NavigatorController extends Controller
                $data['attributes'] = ProductAttribute::get();
                $data['categories'] = Category::all();
                $data['collections'] = Collection::all();
+               $data['wishlists']=Wishlist::all();
+
       } else {
          $data['categories'] = Category::all();
          $data['inventory_products'] = ProductInventory::get();
          $data['attributes'] = ProductAttribute::get();
          $data['categories'] = Category::all();
-         $data['collections'] = Collection::all();
-      }
-      return view('template.shop', $data);
+         $data['collections'] = Collection::all();   
+         $data['wishlists']=Wishlist::all();
 
       }
+      return view('template.shop', $data);
+   
+      }
+
 
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Collection;
 use App\Models\Product;
 use App\Models\ProductInventory;
+use App\Models\Wishlist;
 use Session;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,9 @@ class CartController extends Controller
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
         $data['categories'] = Category::all();
+        $data['wishlists']=Wishlist::all();
+        $data['collections']= Collection::all();
+
         return view('template.cart', $data);
     }
 
@@ -97,6 +102,9 @@ class CartController extends Controller
         $data['total'] = $this->Total();
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
+        $data['wishlists']=Wishlist::all();
+        $data['collections']= Collection::all();
+
         return view('template.checkout', $data);
     }
 

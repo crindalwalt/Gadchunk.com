@@ -120,6 +120,17 @@
                     </ul>
                 </li> --}}
 
+                {{-- Order pane --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-stack"></i>
+                        <span>Order Management</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('orders.index')}}">Manage Orders</a></li>
+                    </ul>
+                </li>
+
 
                 <li class="menu-title">Customers</li>
 

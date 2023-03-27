@@ -1,7 +1,7 @@
 <x-main-layout>
     {{-- Selective header  --}}
     {{-- @dd($products) --}}
-    <x-layouts.header :categories=$categories />
+    <x-layouts.header :wishlists=$wishlists  />
     {{-- @dd($product) --}}
     <!-- main body - start
   ================================================== -->
@@ -440,7 +440,7 @@
                                {{$product->description}}
                             </p>
                             <hr>
-                            @dd($product->prod_inventory)
+                            {{-- @dd($product->prod_inventory) --}}
                             {{-- @foreach ($product->attributes as )
 
                             @endforeach --}}
