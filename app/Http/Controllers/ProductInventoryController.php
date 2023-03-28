@@ -23,6 +23,10 @@ class ProductInventoryController extends Controller
         $data['attributes'] = ProductAttribute::get();
         $data['product'] = $product;
         // $data['values'] = ProductAttributeValue::all();
+        return view('admin.inventories.add',$data);
+    }
+    public function IndexPage (){
+        $data['inventories'] = ProductInventory::all();
         return view('admin.inventories.index',$data);
     }
 
@@ -34,7 +38,7 @@ class ProductInventoryController extends Controller
         $request->validate([
             'product_id' => 'required',
             'retail_price' => 'required',
-            'discount_price' => 'required',
+            // 'discount_price' => 'required',
             'stock' =>'required',
             'product_image' => 'required',
         ]);
@@ -49,7 +53,7 @@ class ProductInventoryController extends Controller
         ]);
 
 
-        $productInventory = ProductInventory::find($inventory->id);
+        // $productInventory = ProductInventory::find($inventory->id);
         // foreach ($request->attribute as $key) {
             // $inventoryAttributes = $productInventory->inven_prod_attributes()->create([
                 // 'inventory_id'=> $inventory->id,
@@ -60,14 +64,14 @@ class ProductInventoryController extends Controller
 
         // }
         // dd('success');
-        $productInventory->inven_prod_attributes()->sync($request->attribute);
+        $inventory->inven_prod_attributes()->sync($request->attribute);
           // storing image
           if ($request->hasFile('product_image')) {
             foreach ($request->file('product_image') as $file) {
                 $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/inventory_images', $filename);
 
-                $inventoryImages = $productInventory->inven_prod_images()->create([
+                $inventoryImages = $inventory->inven_prod_images()->create([
                     'inventory_id'=> $inventory->id,
                     'product_image' => $filename,
                     'product_id'=> $request->input("product_id"),

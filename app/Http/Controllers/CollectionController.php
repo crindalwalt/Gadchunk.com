@@ -32,39 +32,28 @@ class CollectionController extends Controller
             'banner_image' => 'required',
             'collection_products' => 'required',
         ]);
-        Collection::create([
-            'name' => $request->name,
-            'slug' => $request->title,
-            'title' => $request->title,
-            'discount_percentage' => $request->discount_price,
-            'description' => $request->description,
+        // Collection::create([
+        //     'name' => $request->name,
+        //     'slug' => $request->title,
+        //     'title' => $request->title,
+        //     'discount_percentage' => $request->discount_price,
+        //     'description' => $request->description,
 
-        ]);
+        // ]);
         $collection = new Collection();
         $collection->name = $request->name;
         $collection->slug = $request->title;
         $collection->title = $request->title;
         $collection->discount_percentage = $request->discount_price;
         $collection->description = $request->description;
-        $product_ids = [];
-        // foreach($request->collection_products as $collection){
-
-        //     $product_ids[] = $collection;
-        // }
-        dd($collection->getKey());
-        $collectionProducts = $collection->products()->sync($request->collection_products);
         if ($request->hasFile('banner_image')) {
             $filename = 'collection-product-' . time() . rand(99, 199) . '.' . $request->file('banner_image')->getClientOriginalExtension();
             $request->file('banner_image')->storeAs('public/collections', $filename);
             $collection->banner_image = $filename;
         }
-
         $collection->save();
-        if(!$collectionProducts){
-            return "no data";
-        }
-
-        if($collection->save()  ){
+        $collectionProducts = $collection->products()->sync($request->collection_products);
+        if($collection->save() &&  $collectionProducts ){
             alert("Success", 'Collection has been added successfully','success');
 
             return redirect()->back();

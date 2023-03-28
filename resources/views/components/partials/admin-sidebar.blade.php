@@ -74,9 +74,7 @@
                         <span>Product Inventory</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/product_inventory">Manage Inventory</a></li>
-                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
-
+                        <li><a href="{{ route('inventory.index') }}">Manage Inventory</a></li>
                     </ul>
                 </li>
                 <li>

@@ -121,6 +121,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
 
     //! PRODUCT INVENTORY
     Route::get("/inventory/{product}/manage", [ProductInventoryController::class, 'index'])->name("inventory.manage");
+    Route::get("/inventory/manage", [ProductInventoryController::class, 'IndexPage'])->name("inventory.index");
     Route::post("/inventory/store", [ProductInventoryController::class, 'store'])->name("inventory.store");
 
     // Products Attributes CRUD
@@ -139,7 +140,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
    Route::get('/collection/{id}', [CollectionController::class, 'show'])->name('collectons.show');
-   Route::get('/collection/{id}', [CollectionController::class, 'destroy'])->name('collections.destroy');
+   Route::post('/collection/{id}/delete', [CollectionController::class, 'destroy'])->name('collections.destroy');
 
 });
 

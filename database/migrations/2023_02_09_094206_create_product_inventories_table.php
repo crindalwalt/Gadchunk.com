@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_inventories', function (Blueprint $table) {
             $table->id();
            $table->string('retail_price');
-           $table->string('discount_price');
+           $table->string('discount_price')->nullable();
            $table->string('stock');
            $table->bigInteger('product_id')->unsigned();
            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
