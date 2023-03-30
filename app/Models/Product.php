@@ -29,6 +29,7 @@ class Product extends Model
     {
         return $this->hasMany(InventoryImages::class);
     }
+    
 
 
     public function attributes()

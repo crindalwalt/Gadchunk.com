@@ -1,7 +1,7 @@
 <x-main-layout>
     {{-- Selective header  --}}
     {{-- @dd($products) --}}
-    <x-layouts.header :wishlists=$wishlists  />
+    <x-layouts.header :wishlists=$wishlists />
     {{-- @dd($product) --}}
     <!-- main body - start
   ================================================== -->
@@ -351,6 +351,7 @@
         <!-- breadcrumb_section - end
    ================================================== -->
 
+        {{-- @dd($product->category->attributes) --}}
 
         <!-- details_section - start
    ================================================== -->
@@ -361,10 +362,10 @@
                         <div class="shop_details_image">
                             <div class="tab-content zoom-gallery">
                                 <div id="tab_1" class="tab-pane active">
-                                    <a class="popup_image zoom-image"
-                                        data-image="assets/images/details/shop/img_01.jpg"
+                                    <a class="popup_image zoom-image" data-image="assets/images/details/shop/img_01.jpg"
                                         href="assets/images/details/shop/img_01.jpg">
-                                        <img src="{{asset('storage/inventory_images/'.$product->images[0]->product_image)}}" alt="image_not_found">
+                                        <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                            alt="image_not_found">
                                         {{-- @dd() --}}
                                     </a>
                                 </div>
@@ -417,12 +418,12 @@
                                         <span class="brand_title">Category:</span>
                                         <span class="brand_image d-flex align-items-center justify-content-center"
                                             data-bg-color="#f7f7f7">
-                                             {{ $product->category->name}}
+                                            {{ $product->category->name }}
                                         </span>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-7">
+                                {{-- <div class="col-lg-7">
                                     <div class="rating_review_wrap d-flex align-items-center clearfix">
                                         <ul class="rating_star ul_li">
                                             <li><i class="fas fa-star"></i></li>
@@ -434,17 +435,26 @@
                                         <span>4 Review(s)</span>
                                         <button type="button" class="add_review_btn">Add Your Review</button>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <p class="mb-0">
-                               {{$product->description}}
+                                {{ $product->description }}
                             </p>
                             <hr>
-                            {{-- @dd($product->prod_inventory) --}}
-                            {{-- @foreach ($product->attributes as )
-
-                            @endforeach --}}
-                            <div class="item_color_list mb_30 clearfix">
+                            @foreach ($product->category->attributes as $attributes)
+                                {{-- @dd($attributes) --}}
+                                <div class="item_size_list mb_30 clearfix">
+                                    <h4 class="list_title mb_15 text-uppercase">{{ $attributes->attribute_name }}</h4>
+                                    <ul class="ul_li clearfix">
+                                        @foreach ($attributes->prod_attribute_value as $value)
+                                            <li> {{ $value->attribute_value }}</li>
+                                        @endforeach
+                                        {{-- <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
+                                    Guide</a></li> --}}
+                                    </ul>
+                                </div>
+                            @endforeach
+                            {{-- <div class="item_color_list mb_30 clearfix">
                                 <h4 class="list_title mb_15 text-uppercase">Color</h4>
                                 <ul class="ul_li clearfix">
                                     <li>
@@ -471,38 +481,51 @@
                                     <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
                                             Guide</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
 
                             <ul class="btns_group_1 ul_li mb_30 clearfix">
-                                <li>
+                                {{-- <li>
                                     <div class="quantity_input">
-                                        <form action="#">
-                                            <span class="input_number_decrement">–</span>
-                                            <input class="input_number" type="text" value="1">
-                                            <span class="input_number_increment">+</span>
-                                        </form>
+                                        <span class="input_number_decrement">–</span>
+                                        <input class="input_number quantity"
+                                            data-route="{{ route('cart.quantity', $product->id) }}"
+                                            value="{{ $product->squantity ? $product->squantity : '0' }}" min="1"
+                                            step="1" id="quantity{{ $product->id }}" data-decimals="0" required>
+                                        <span class="input_number_increment">+</span>
                                     </div>
+                                </li> --}}
+                                <li>
+                                    <a href="#!"><i
+                                            class="fal fa-heart bg_supermarket_red text-white p-2  rounded add-wishlist"
+                                            data-route="{{ route('add.wishlist', $product->id) }}"></i></a>
+
                                 </li>
                                 <li>
-                                    <a class="custom_btn bg_black text-uppercase" href="#!"><i
-                                            class="fal fa-shopping-bag mr-2"></i> Add To Cart</a>
+                                    {{-- <a class="custom_btn bg_black text-uppercase" href="#!"><i
+                                            class="fal fa-shopping-bag mr-2"></i> Add To Cart</a> --}}
+                                    <a class="custom_btn btn_sm bg_electronic_blue add-cart"
+                                        data-route="{{ route('add-cart', $product->id) }}">Add To
+                                        Cart</a>
                                 </li>
                             </ul>
 
-                            <ul class="btns_group_2 ul_li clearfix">
-                                <li><a href="#!"><span><i class="far fa-heart"></i></span> Add to Wishlist</a>
+                            {{-- <ul class="btns_group_2 ul_li clearfix">
+                                <li>
+                                    <a href="#!">     <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                        data-route="{{ route('add.wishlist', $product->id) }}"></i>  Add To Wishlist</a>
+
                                 </li>
                                 <li><a href="#!"><span><i class="fal fa-repeat"></i></span> Compare</a></li>
-                            </ul>
+                            </ul> --}}
 
                             <hr>
 
-                            <ul class="product_info ul_li_block clearfix">
+                            {{-- <ul class="product_info ul_li_block clearfix">
                                 <li><strong>SKU:</strong> U2012</li>
                                 <li><strong>Categories:</strong> <a href="#!">Dress</a> <a
                                         href="#!">Handbag</a> <a href="#!">T-Shirts</a></li>
                                 <li><strong>Tags:</strong> <a href="#!">Hot</a> <a href="#!">Women</a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>
@@ -756,10 +779,10 @@
                                                     href="#!"><i class="fal fa-heart"></i></a></li>
                                             <li><a class="tooltips" data-placement="top" title="Add To Cart"
                                                     href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-                                            <li><a class="tooltips" data-placement="top" title="Quick View"
+                                            {{-- <li><a class="tooltips" data-placement="top" title="Quick View"
                                                     href="#!" data-toggle="modal"
                                                     data-target="#quickview_modal"><i class="fal fa-search"></i></a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </div>
                                     <div class="item_content">
@@ -1117,8 +1140,7 @@
                             </div>
                         </div>
                         <div class="carousel_nav">
-                            <button type="button" class="ss4_left_arrow"><i
-                                    class="fal fa-angle-left"></i></button>
+                            <button type="button" class="ss4_left_arrow"><i class="fal fa-angle-left"></i></button>
                             <button type="button" class="ss4_right_arrow"><i
                                     class="fal fa-angle-right"></i></button>
                         </div>

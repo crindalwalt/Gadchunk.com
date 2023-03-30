@@ -47,6 +47,7 @@ class NavigatorController extends Controller
       return view('template.shop_details', [
         'categories' => Category::all(),
         'product' => $id,
+        'wishlists' => Wishlist::all()
       ]);
    }
 
@@ -102,12 +103,12 @@ $data['wishlists']=Wishlist::all();
          $data['inventory_products'] = ProductInventory::get();
          $data['attributes'] = ProductAttribute::get();
          $data['categories'] = Category::all();
-         $data['collections'] = Collection::all();   
+         $data['collections'] = Collection::all();
          $data['wishlists']=Wishlist::all();
 
       }
       return view('template.shop', $data);
-   
+
       }
 
 

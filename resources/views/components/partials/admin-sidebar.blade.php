@@ -105,32 +105,10 @@
 
                     </ul>
                 </li>
-                {{-- Weight pane --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-stack"></i>
-                        <span>Weight</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/weight">Manage Weight</a></li>
-                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
-
-                    </ul>
-                </li>
-
-                {{-- Order pane --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-stack"></i>
-                        <span>Order Management</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('orders.index')}}">Manage Orders</a></li>
-                    </ul>
-                </li>
 
 
-                <li class="menu-title">Customers</li>
+
+                <li class="menu-title">Analytics</li>
 
                 {{-- Customers pane --}}
                 <li>
@@ -143,21 +121,17 @@
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
                     </ul>
                 </li>
+
                 {{-- Order pane --}}
                 <li>
-                    <a href="{{ route("orders.index") }}" class="waves-effect">
-                        <i class="dripicons-to-do"></i>
-                        {{-- <span class="badge rounded-pill bg-danger float-end">6</span> --}}
-                        <span>Orders</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-stack"></i>
+                        <span>Order Management</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/orders">All Orders</a></li>
-                        <li><a href="/admin/orders/new">New Orders</a></li>
-                        <li><a href="/admin/orders/completed">Completed Orders</a></li>
-
+                        <li><a href="{{ route('orders.index') }}">Manage Orders</a></li>
                     </ul>
                 </li>
-
 
                 {{--                <li> --}}
                 {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
@@ -209,7 +183,7 @@
                 {{--                    </ul> --}}
                 {{--                </li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-graph-pie"></i>
                         <span>Analytics</span>
@@ -222,36 +196,40 @@
                         <li><a href="charts-knob.html">Knob Chart</a></li>
                         <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
 
-                <li class="menu-title">Marketing</li>
-                {{-- Promotion pane --}}
+                <li class="menu-title">Settings</li>
+                {{-- Profile pane --}}
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('profile') }}" class=" waves-effect">
                         <i class="dripicons-article"></i>
-                        <span>Promotion</span>
+                        <span>Profile Page</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
+                    {{-- <ul class="sub-menu" aria-expanded="false">
                         <li><a href="/admin/promotion">All Promotions</a></li>
-                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
 
-                    </ul>
+                    </ul> --}}
                 </li>
 
 
 
-                {{-- Email Pane --}}
+                {{-- logout Pane --}}
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-mail"></i>
-                        <span>Email</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
+
+                    <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
+                        @csrf
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <i class="dripicons-power"></i>
+                            <span>Logout</span>
+                        </a>
+                    </form>
+                    {{-- <ul class="sub-menu" aria-expanded="false">
                         <li><a href="email-inbox.html">Inbox</a></li>
                         <li><a href="email-read.html">Email Read</a></li>
                         <li><a href="email-compose.html">Email Compose</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
 
 

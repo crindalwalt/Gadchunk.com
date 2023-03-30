@@ -52,10 +52,7 @@ use App\Http\Controllers\User\WishlistController;
 */
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(function () {
-    Route::get('/', function () {
-
-        return view('admin.dashboard');
-    })->name('admin');
+    Route::get('/', [UserController::class, 'dashboard'])->name('admin');
 
     // Users CRUD
     Route::get('users/', [UserController::class, 'index']);
@@ -211,10 +208,12 @@ Route::middleware('auth', 'verified')->group(function () {
 
 Route::get('/404', [NavigatorController::class, 'error'])->name('error');
 
-Route::get('/test/{id}/{quantity}', [CartController::class, 'itemtotal']);
+// Route::get('/test/{id}/{quantity}', [CartController::class, 'SingleTotal']);
 
 
-
+Route::get('/thank', function () {
+    return view('template.thankyou');
+});
 
 
 

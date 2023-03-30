@@ -32,7 +32,7 @@ class CartController extends Controller
     {
         // Initialize and check the session exist or not
         $oldCart = Session::has("cart") ? Session::get("cart") : [];
-        // loop the cart array 
+        // loop the cart array
         foreach ($oldCart as $item) {
             // if id which we get is equal to product id then show error
             if ($item['product_id'] == $id) {
@@ -40,7 +40,7 @@ class CartController extends Controller
             }
         }
 
-        // store the product id and quantity in session 
+        // store the product id and quantity in session
         $item['product_id'] = $id;
         $item['quantity'] = $quantity;
         $oldCart[] = $item;
@@ -95,7 +95,7 @@ class CartController extends Controller
     }
 
 
-    // checkout function 
+    // checkout function
     public function checkout()
     {
         $data['products'] = $this->getProducts();
@@ -108,7 +108,7 @@ class CartController extends Controller
         return view('template.checkout', $data);
     }
 
-      // function total price in cart 
+      // function total price in cart
     //   public function itemTotal($id,$quantity)
     //   {
     //     $products = ProductInventory::where('id', $id)->get();
@@ -126,18 +126,45 @@ class CartController extends Controller
     //       return $result;
     //   }
 
-    // function total price in cart 
+    // function total price in cart
     public function Total()
     {
         $products = $this->getProducts();
         $sum = 0;
         foreach ($products as $pro) {
-            $sum += $pro->squantity * $pro->discount_price;
+            // $sum += $pro->squantity * $pro->retail_price;
+            $trim_value = trim($pro->discount_price ,'%');
+            if ($trim_value == '0'|| $trim_value == NULL ) {
+                $sum+= $pro->squantity * $pro->retail_price;
+            } else {
+                $discount_formula = ($trim_value/100)* $pro->retail_price;
+                $simple_value = $pro->squantity * $pro->retail_price;
+                $discount_value=$pro->squantity * $discount_formula;
+                $sum += $simple_value - $discount_value;
+                // $sum += $pro->squantity * $discount_formula;
+            }
         }
         return $sum;
     }
+    // function single item price in cart
+    public function SingleTotal($id,$quantity)
+    {
+        $product = ProductInventory::find($id);
+        $trim_value = trim($product->discount_price ,'%');
+        if ($trim_value == '0%'|| $trim_value == '0'|| $trim_value == NULL ) {
+            $single_item_total= $quantity * $product->retail_price;
+        } else {
+            $discount_formula = ($trim_value/100)* $product->retail_price;
+            $simple_value = $quantity * $product->retail_price;
+            $discount_value= $quantity * $discount_formula;
+            $single_item_total= $simple_value - $discount_value;
+        }
 
-    // function discount price in cart 
+
+        return $single_item_total;
+    }
+
+    // function discount price in cart
     public function Discount()
     {
         $total = $this->Total();
@@ -177,11 +204,12 @@ class CartController extends Controller
     public function ChangeQty($id, $quantity)
     {
         $products = $this->changeQuantity($id, $quantity);
+        $single_total = $this->SingleTotal($id,$quantity);
         $sub_total = $this->Sub_Total();
         $discount = $this->Discount();
         $total_price = $this->Total();
         return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 1000 items"])
-            : response()->json(['totalPrice' => $total_price, 'products' => $products ,'sub_total' => $sub_total , 'discount' => $discount]);
+            : response()->json([ 'id'=>$id, 'totalPrice' => $total_price,'single_total' => $single_total, 'products' => $products ,'sub_total' => $sub_total , 'discount' => $discount]);
     }
 
 

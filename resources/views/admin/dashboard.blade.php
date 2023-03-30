@@ -42,7 +42,7 @@
 
 
                     <div class="row">
-                        <div class="col-xl-8">
+                        {{-- <div class="col-xl-8">
                             <div class="card">
                                 <div class="card-body">
 
@@ -148,24 +148,22 @@
 
                                 </div>
                             </div>
-                        </div>
-
-
+                        </div> --}}
                         <div class="col-xl-4">
                             <div class="row">
                                 <div class="col-xl-6 col-md-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="text-center">
-                                                <p class="font-size-16">Orders</p>
+                                                <p class="font-size-16">Collections</p>
                                                 <div class="mini-stat-icon mx-auto mb-4 mt-3">
                                                     <span class="avatar-title rounded-circle bg-soft-primary">
                                                         <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
                                                     </span>
                                                 </div>
-                                                <h5 class="font-size-22">58</h5>
+                                                <h5 class="font-size-22">{{ count($collection) }}</h5>
 
-                                                <p class="text-muted">70% Target</p>
+                                                {{-- <p class="text-muted">70% Target</p>
 
                                                 <div class="progress mt-3" style="height: 4px;">
                                                     <div class="progress-bar progress-bar bg-primary" role="progressbar"
@@ -173,28 +171,26 @@
                                                         aria-valuemax="70">
                                                     </div>
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
 
                                 <div class="col-xl-6 col-md-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="text-center">
-                                                <p class="font-size-16">Users</p>
+                                                <p class="font-size-16">Categories</p>
                                                 <div class="mini-stat-icon mx-auto mb-4 mt-3">
                                                     <span class="avatar-title rounded-circle bg-soft-success">
                                                         <i
                                                             class="mdi mdi-account-outline text-success font-size-20"></i>
                                                     </span>
                                                 </div>
-                                                <h5 class="font-size-22">136</h5>
+                                                <h5 class="font-size-22">{{ count($category) }}</h5>
 
-                                                <p class="text-muted">80% Target</p>
+                                                {{-- <p class="text-muted">80% Target</p>
 
                                                 <div class="progress mt-3" style="height: 4px;">
                                                     <div class="progress-bar progress-bar bg-success"
@@ -202,16 +198,14 @@
                                                         aria-valuemin="0" aria-valuemax="80">
                                                     </div>
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
 
-                            <div class="card">
+                            {{-- <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">Revenue Stastics</h4>
 
@@ -243,12 +237,198 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
+                        <div class="col-xl-4">
+                            <div class="row">
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Product Listed</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary">
+                                                        <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-22">{{ count($product) }}</h5>
+
+                                                {{-- <p class="text-muted">70% Target</p>
+
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-primary" role="progressbar"
+                                                        style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                        aria-valuemax="70">
+                                                    </div>
+
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Brands</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-success">
+                                                        <i
+                                                            class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-22">{{ count($brand) }}</h5>
+
+                                                {{-- <p class="text-muted">80% Target</p>
+
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-success"
+                                                        role="progressbar" style="width: 80%" aria-valuenow="80"
+                                                        aria-valuemin="0" aria-valuemax="80">
+                                                    </div>
+
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title mb-4">Revenue Stastics</h4>
+
+                                    <div class="media">
+
+                                        <h4>$14,235 </h4>
+
+
+                                        <div class="media-body ps-3">
+
+                                            <div class="dropdown">
+                                                <button class="btn btn-light btn-sm dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    Today<i class="mdi mdi-chevron-down ms-1"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                    <a class="dropdown-item" href="#">last Month</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <div id="stastics-chart"></div>
+                                    </div>
+
+                                </div>
+                            </div> --}}
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="row">
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Orders</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary">
+                                                        <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-22">{{ count($order) }}</h5>
+
+                                                {{-- <p class="text-muted">70% Target</p>
+
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-primary" role="progressbar"
+                                                        style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                        aria-valuemax="70">
+                                                    </div>
+
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Users</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-success">
+                                                        <i
+                                                            class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-22">{{ count($user) }}</h5>
+
+                                                {{-- <p class="text-muted">80% Target</p>
+
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-success"
+                                                        role="progressbar" style="width: 80%" aria-valuenow="80"
+                                                        aria-valuemin="0" aria-valuemax="80">
+                                                    </div>
+
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            {{-- <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title mb-4">Revenue Stastics</h4>
+
+                                    <div class="media">
+
+                                        <h4>$14,235 </h4>
+
+
+                                        <div class="media-body ps-3">
+
+                                            <div class="dropdown">
+                                                <button class="btn btn-light btn-sm dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    Today<i class="mdi mdi-chevron-down ms-1"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                    <a class="dropdown-item" href="#">last Month</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <div id="stastics-chart"></div>
+                                    </div>
+
+                                </div>
+                            </div> --}}
+                        </div>
+
+
 
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
 
                         <div class="col-xl-4">
                             <div class="card">
@@ -682,16 +862,11 @@
 
 
                         </div>
-
-
-
-
-
-                    </div>
+                    </div> --}}
 
                     <div class="row">
 
-                        <div class="col-xl-4">
+                        {{-- <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">Sales By Social Source
@@ -807,9 +982,9 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-xl-8">
+                        <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">All Orders</h4>

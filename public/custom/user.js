@@ -90,7 +90,7 @@ $(".add-wishlist").click(function () {
             // });
         } else {
             alertify.set('notifier','position', 'top-right');
-            alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
+            alertify.notify('Already Added in Wishlist', 'error', 4, function(){  console.log('dismissed'); });
         }
     })
 
@@ -126,6 +126,7 @@ $(document).on('change', '.quantity', function () {
     var url = $(this).data('route') + "/" + quantity;
     $.get(url, function (res) {
         $('.total_price').html(res.totalPrice);
+        $('.single_total'+res.id).html(res.single_total);
         $('.sub_total').html(res.sub_total);
         $('.discount').html(res.discount);
     })

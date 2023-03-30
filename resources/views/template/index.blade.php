@@ -1,7 +1,7 @@
 <x-main-layout>
     <x-layouts.header :wishlists=$wishlists />
 
-{{-- @dd($wishlists) --}}
+    {{-- @dd($wishlists) --}}
     <!-- main body - start
   ================================================== -->
     <main>
@@ -280,7 +280,7 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="contact.html">Conatct</a></li>    
+							<li><a href="contact.html">Conatct</a></li>
 						</ul>
 					</div>
 
@@ -312,10 +312,11 @@
         <!-- slider_section - start
    ================================================== -->
         <section class="slider_section supermarket_slider sec_ptb_50 clearfix"
-            data-background="{{ asset('assets/images/backgrounds/bg_13.jpg') }}">
+            style="background: rgb(60,60,48);
+        background: linear-gradient(98deg, rgba(60,60,48,1) 0%, rgba(177,182,110,1) 100%, rgba(35,183,213,1) 100%); ">
             <div class="container maxw_1460">
                 <div class="row justify-content-lg-between">
-                    {{-- <div class="col-lg-3"> 
+                    {{-- <div class="col-lg-3">
 							<div class="alldepartments_menu_wrap">
 								<div class="alldepartments_dropdown show_lg collapse" id="alldepartments_dropdown">
 									<div class="card">
@@ -415,7 +416,7 @@
 						</div> --}}
 
                     <div class="col-lg-9">
-                        <div class="main_slider clearfix" data-slick='{"arrows": false}'>
+                        <div class="main_slider clearfix " data-slick='{"arrows": false}'>
                             @foreach ($collections as $collection)
                                 <div class="item clearfix" data-bg-color="#ffc156">
                                     <div class="slider_image order-last" data-animation="fadeInUp" data-delay=".2s">
@@ -426,8 +427,7 @@
                                         <h4 data-animation="fadeInUp" data-delay=".4s">{{ $collection->name }}</h4>
                                         <h3 data-animation="fadeInUp" data-delay=".6s">{{ $collection->title }}</h3>
                                         <div class="item_price" data-animation="fadeInUp" data-delay=".8s">
-                                            <small>Price</small>
-                                            <sup>Rs</sup>{{ $collection->discount_percentage }}
+                                            {{ $collection->discount_percentage }}
                                         </div>
                                         <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
                                             <a href="{{ route('shop') }}"
@@ -837,43 +837,43 @@
                             <div id="best_deals_tab" class="tab-pane active">
                                 <ul class="supermarket_product_columns has_4columns ul_li clearfix">
                                     @foreach ($inventory_products as $item)
-                                       <a href="{{route('product_detail',$item->id)}}">
-										<li>
-                                            <div class="supermarket_product_item">
-                                                <ul class="product_label ul_li_block clearfix">
-                                                    <li data-bg-color="#cc1414">-70%</li>
-                                                    <li data-bg-color="#0062bd">NEW</li>
-                                                </ul>
-                                                <a class="item_image" href="#!">
-                                                    <img src="{{ asset('storage/inventory_images/' . $item->inven_prod_images[0]->product_image) }}"
-                                                        alt="image_not_found">
-                                                </a>
-                                                <div class="item_content">
-                                                    <span
-                                                        class="item_type text-uppercase">{{ $item->products->category->name }}</span>
-                                                    <h3 class="item_title">
-                                                        <a href="#!">
+                                        <li>
+                                            {{-- <a href="{{ route('product_detail', $item->id) }}"> --}}
+                                                <div class="supermarket_product_item">
+                                                    <ul class="product_label ul_li_block clearfix">
+                                                        @if ($item->discount_price)
+                                                            <li data-bg-color="#cc1414">{{ $item->discount_price }}
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                    <a class="item_image" href="{{ route('product_detail', $item->id) }}">
+                                                        <img src="{{ asset('storage/inventory_images/' . $item->inven_prod_images[0]->product_image) }}"
+                                                            alt="image_not_found">
+                                                    </a>
+                                                    <div class="item_content">
+                                                        <span
+                                                            class="item_type text-uppercase">{{ $item->products->category->name }}</span>
+                                                        <h3 class="item_title">
                                                             {{ $item->products->name }}
-                                                        </a>
-                                                    </h3>
-                                                    <div class="item_price">
-                                                        <strong>Rs. {{ $item->discount_price }}</strong>
-                                                        <del>Rs. {{ $item->retail_price }}</del>
-                                                        <div class="d-flex justify-content-end">
+                                                        </h3>
+                                                        <div class="item_price">
+                                                            <strong>Rs. {{ $item->retail_price }}</strong>
+                                                            {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
+                                                            <div class="d-flex justify-content-end">
 
-                                                            <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
-                                                                data-route="{{ route('add-cart', $item->id) }}"></i>
-                                                            <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
-                                                                data-route="{{ route('add.wishlist', $item->id) }}"></i>
+                                                                <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
+                                                                    data-route="{{ route('add-cart', $item->id) }}"></i>
+                                                                <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                                                    data-route="{{ route('add.wishlist', $item->id) }}"></i>
 
 
+                                                            </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            {{-- </a> --}}
                                         </li>
-									   </a>
                                     @endforeach
 
                                 </ul>
@@ -894,7 +894,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -918,7 +918,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -942,7 +942,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -966,7 +966,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -990,7 +990,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1013,7 +1013,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1037,7 +1037,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1061,7 +1061,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1085,7 +1085,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1109,7 +1109,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1133,7 +1133,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1157,7 +1157,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1185,7 +1185,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1209,7 +1209,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1233,7 +1233,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1257,7 +1257,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1281,7 +1281,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1304,7 +1304,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1328,7 +1328,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1352,7 +1352,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1376,7 +1376,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1400,7 +1400,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1424,7 +1424,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1448,7 +1448,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1476,7 +1476,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1500,7 +1500,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1524,7 +1524,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1548,7 +1548,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1572,7 +1572,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1595,7 +1595,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1619,7 +1619,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1643,7 +1643,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1667,7 +1667,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1691,7 +1691,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1715,7 +1715,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1739,7 +1739,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1767,7 +1767,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1791,7 +1791,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1815,7 +1815,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1839,7 +1839,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1863,7 +1863,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1886,7 +1886,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1910,7 +1910,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1934,7 +1934,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1958,7 +1958,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -1982,7 +1982,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2006,7 +2006,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2030,7 +2030,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2058,7 +2058,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2082,7 +2082,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2106,7 +2106,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2130,7 +2130,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2154,7 +2154,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2177,7 +2177,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2201,7 +2201,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2225,7 +2225,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2249,7 +2249,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2273,7 +2273,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2297,7 +2297,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2321,7 +2321,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2349,7 +2349,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2373,7 +2373,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2397,7 +2397,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2421,7 +2421,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2445,7 +2445,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2468,7 +2468,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2492,7 +2492,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2516,7 +2516,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2540,7 +2540,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2564,7 +2564,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2588,7 +2588,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2612,7 +2612,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2640,7 +2640,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2664,7 +2664,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2688,7 +2688,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2712,7 +2712,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2736,7 +2736,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2759,7 +2759,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2783,7 +2783,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2807,7 +2807,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2831,7 +2831,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2855,7 +2855,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2879,7 +2879,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2903,7 +2903,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2931,7 +2931,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2955,7 +2955,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -2979,7 +2979,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3003,7 +3003,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3027,7 +3027,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3050,7 +3050,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3074,7 +3074,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3098,7 +3098,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3122,7 +3122,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3146,7 +3146,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3170,7 +3170,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3194,7 +3194,7 @@
 													<span class="item_type text-uppercase">Speakers</span>
 													<h3 class="item_title">
 														<a href="#!">
-															Wireless Audio System Multiroom 360 
+															Wireless Audio System Multiroom 360
 														</a>
 													</h3>
 													<div class="item_price">
@@ -3221,22 +3221,22 @@
             <div class="container maxw_1460">
                 <div class="row justify-content-center">
                     @foreach ($collections as $collection)
-					<div class="col-lg-4">
-                        <div class="sm_offer_item offer_fullimage text-white">
-                            <img src="assets/images/offer/supermarket/img_06.jpg" alt="image_not_found">
-                            <div class="item_content">
-                                <h3 class="item_title text-white">
-									{{ $collection->title }}
-                                </h3>
-                                <span class="item_price">Price: {{ $collection->discount_percentage }}</span>
-								<a class="text_btn" href="{{ route('shop') }}">
-									<span>Pre - Order Now</span>
-									<i class="fal fa-long-arrow-right"></i>
-								</a>
+                        <div class="col-lg-4">
+                            <div class="sm_offer_item offer_fullimage text-white">
+                                <img src="assets/images/offer/supermarket/img_06.jpg" alt="image_not_found">
+                                <div class="item_content">
+                                    <h3 class="item_title text-white">
+                                        {{ $collection->title }}
+                                    </h3>
+                                    <span class="item_price">Price: {{ $collection->discount_percentage }}</span>
+                                    <a class="text_btn" href="{{ route('shop') }}">
+                                        <span>Pre - Order Now</span>
+                                        <i class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-					@endforeach
+                    @endforeach
 
                     {{-- <div class="col-lg-4">
                         <div class="sm_offer_item offer_fullimage text-white">

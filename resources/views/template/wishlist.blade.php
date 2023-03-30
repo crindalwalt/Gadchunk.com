@@ -34,23 +34,24 @@
                 <tbody>
                         <div id="wishlist">
                             @foreach ($wishlists as $wishlist)
+                            {{-- @dd($wishlist->product->products->featured_image); --}}
                                 <tr id="remove{{$wishlist->id}}">
                                     <td class="product-col">
                                         <div class="product">
                                             <figure class="product-media">
                                                 <a href="#">
-                                                    <img src="{{asset('storage/product_images'.$wishlist->product->product_image)}}"
-                                                        alt="Product image">
+                                                    <img src="{{asset('storage/product_images/'.$wishlist->product->products->featured_image)}}"
+                                                     height="80px" width="80px"   alt="Product image">
                                                 </a>
                                             </figure>
                                         </div><!-- End .product -->
                                     </td>
-                                    <td class="product-title">{{ $wishlist->product->product_id}}</td>
+                                    <td class="product-title">{{ $wishlist->product->products->name}}</td>
                                     <td class="price-col">{{ $wishlist->product->retail_price }}</td>
                                     <td class="remove-col">
-                                        
-                                      <button type="button" class="btn btn-danger btn-remove wishremove" data-route="{{route('wishlist.remove' , $wishlist->id)}}" 
- 
+
+                                      <button type="button" class="btn btn-danger btn-remove wishremove" data-route="{{route('wishlist.remove' , $wishlist->id)}}"
+
                                       data-item="remove{{$wishlist->id}}" >Remove</button>
                                     </td>
                                 </tr>
@@ -65,7 +66,7 @@
 
                 </tbody>
             </table><!-- End .table table-wishlist -->
-         
+
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->

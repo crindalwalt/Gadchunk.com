@@ -107,7 +107,7 @@
 				</div>
 			</div>
 
-			<div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
+			{{-- <div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-5 col-md-7 col-sm-9 col-xs-12">
@@ -127,7 +127,7 @@
 							</div>
 						</div>
 
-						{{-- <div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
+						<div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
 							<ul class="circle_social_links ul_li_right clearfix">
 								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
@@ -135,12 +135,12 @@
 								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
 								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
 							</ul>
-						</div> --}}
+						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
-			<div class="footer_bottom text-white clearfix" data-bg-color="#191e22">
+			<div class="footer_bottom text-white clearfix" data-bg-color="#23292d">
 				<div class="container">
 					<div class="row justify-content-lg-between align-items-center">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

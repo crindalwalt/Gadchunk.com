@@ -21,12 +21,12 @@
             <div class="container maxw_1460">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-5">
-                        <p class="welcome_text mb-0">Welcome to Worldwide Online marketplace Store</p>
+                        <p class="welcome_text mb-0">Welcome to Online marketplace Store</p>
                     </div>
 
                     <div class="col-lg-7">
                         <ul class="info_list ul_li_right clearfix">
-                            <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li>
+                            {{-- <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li> --}}
                             <li><a href="{{route('order_list')}}"><i class="fal fa-truck"></i> Track Your Order</a></li>
                             @if(Auth::check())
                             <li> <a href="{{route('profile')}}"><i class="fal fa-user"></i><strong>{{Auth::user()->name}}</strong></a></li>
@@ -55,7 +55,7 @@
         <div class="header_middle clearfix">
             <div class="container maxw_1460">
                 <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div class="brand_logo">
                             <a class="brand_link" href="/">
                                 <img src="assets/images/logo/logo_18_1x.png"
@@ -94,7 +94,7 @@
                         </form>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="supermarket_header_btns clearfix">
                             <ul class="action_btns_group ul_li_right clearfix">
                                 <li>
@@ -107,7 +107,7 @@
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
-                                            <a class="dropdown-item" href="#">Setting</a>
+                                            {{-- <a class="dropdown-item" href="#">Setting</a> --}}
                                             <hr class="m-0">
                                             <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
                                                 @csrf
@@ -137,7 +137,7 @@
                                                 @else
                                                   0
                                                 @endif
-                    
+
                                               </span>
 
                                         </button>
@@ -156,6 +156,7 @@
                                         </button>
                                     </a>
                                 </li>
+
                             </ul>
 
                         </div>

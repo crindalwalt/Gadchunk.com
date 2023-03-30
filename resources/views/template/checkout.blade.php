@@ -116,11 +116,11 @@
                             <div class="form_item">
                                 <span class="input_title">Email Address<sup>*</sup></span>
                                 <input type="email" name="checkout_email" value="{{Auth::user()->email}}">
-                            </div>    
+                            </div>
                             <div class="form_item">
                                 <span class="input_title">Town/City<sup>*</sup></span>
                                 <input type="text" name="checkout_city">
-                            </div>                      
+                            </div>
                             <div class="form_item">
                                 <span class="input_title">Country<sup>*</sup></span>
                                 <input type="text" name="checkout_country">
@@ -167,13 +167,13 @@
                                         </thead>
                                         <tbody>
 
-                                           
+
                                                 @foreach ($products as $item)
                                                     <tr>
                                                         <td>
                                                             <div class="cart_product">
                                                                 <div class="item_image">
-                                                                    <img src="assets/images/cart/img_04.jpg"
+                                                                    <img src="{{asset('storage/inventory_images/'.$item->inven_prod_images[0]->product_image)}}"
                                                                         alt="image_not_found">
                                                                 </div>
                                                                 <div class="item_content">
@@ -197,7 +197,7 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                         
+
                                             <tr>
                                                 <td></td>
                                                 <td></td>
@@ -205,13 +205,21 @@
                                                     <span class="subtotal_text">Subtotal</span>
                                                 </td>
                                                 <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-
+                                            </tr>
                                             <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <span class="subtotal_text">Discount</span>
+                                                </td>
+                                                <td><span class="discount">{{ $discount }}</span></td>
+                                            </tr>
+                                            <tr class="bg-secondary">
+                                                <td></td>
+                                                <td></td>
                                                 <td class="text-left">
                                                     <span class="subtotal_text">TOTAL</span>
                                                 </td>
-                                                <td></td>
-                                                <td></td>
                                                 <td>
                                                     <span class="total_price">Rs.{{ $total }}</span>
                                                 </td>
@@ -227,7 +235,7 @@
                                     <h3 class="text-danger">Cart have no item</h3>
                                 </div>
                             @endif
-            
+
                                 <input type="hidden" value="{{ $total }}" name="total_amount">
 
                                 <div class="accordion" id="accordionExample">

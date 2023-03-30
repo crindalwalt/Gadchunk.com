@@ -92,8 +92,8 @@ class PaymentController extends Controller
 
     // validation to check if saved or not
     if ($OrderSave && $OrderDetail) {
-    Session::flash('success', 'Payment successful!');
-    return back();
+    // Session::flash('success', 'Payment successful!');
+    return view('template.thankyou');
     } else {
         alert("Error", 'product could not placed', 'error');
         return redirect()->back();
