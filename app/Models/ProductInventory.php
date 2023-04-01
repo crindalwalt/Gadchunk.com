@@ -12,6 +12,9 @@ class ProductInventory extends Model
     public function products(){
         return $this->belongsTo(Product::class, 'product_id');
     }
+    // public function reviews(){
+    //     return $this->hasMany(Reviews::class);
+    // }
     public function prod_type(){
         return $this->hasMany(ProductType::class);
     }
@@ -27,6 +30,10 @@ class ProductInventory extends Model
     public function stock(){
         return $this->hasMany(Stock::class);
     }
+    // public function images()
+    // {
+    //     return $this->hasMany(InventoryImages::class);
+    // }
 // inventory and product images
     public function inven_prod_images(){
         return $this->hasMany(InventoryImages::class,'inventory_id','product_id');

@@ -186,6 +186,7 @@ Route::middleware('auth', 'verified')->group(function () {
     //order routes
     Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
     Route::post('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/review', [OrderController::class, 'review'])->name('review.add');
 
 
     // checkout routes

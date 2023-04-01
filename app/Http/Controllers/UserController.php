@@ -44,6 +44,7 @@ class UserController extends Controller
 
     public function track_order(){
         $data['user']= Auth::user();
+        $data['orders'] = Order::where('user_id', Auth::user()->id)->first();
         $data['categories']= Category::all();
         $data['wishlists']= Wishlist::all();
         // @dd($data);

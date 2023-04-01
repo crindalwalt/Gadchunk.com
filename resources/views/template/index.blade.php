@@ -418,6 +418,7 @@
                     <div class="col-lg-9">
                         <div class="main_slider clearfix " data-slick='{"arrows": false}'>
                             @foreach ($collections as $collection)
+                            {{-- @dd( $collection->products[0]) --}}
                                 <div class="item clearfix" data-bg-color="#ffc156">
                                     <div class="slider_image order-last" data-animation="fadeInUp" data-delay=".2s">
                                         <img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
@@ -426,6 +427,7 @@
                                     <div class="slider_content">
                                         <h4 data-animation="fadeInUp" data-delay=".4s">{{ $collection->name }}</h4>
                                         <h3 data-animation="fadeInUp" data-delay=".6s">{{ $collection->title }}</h3>
+                                        <h3 data-animation="fadeInUp" data-delay=".6s">{{  $collection->products[0]->name }}</h3>
                                         <div class="item_price" data-animation="fadeInUp" data-delay=".8s">
                                             {{ $collection->discount_percentage }}
                                         </div>

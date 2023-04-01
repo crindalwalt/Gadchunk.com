@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductAttributeValue;
 use App\Models\ProductInventory;
+use App\Models\Reviews;
 use App\Models\Wishlist;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
@@ -40,21 +41,19 @@ class NavigatorController extends Controller
 
    public function single_item(Product $id)
    {
-    //   $data['product'] = $id;
-    //   $data['categories'] = Category::all();
-
-      // @dd($data['products']);
-      return view('template.shop_details', [
-        'categories' => Category::all(),
-        'product' => $id,
-        'wishlists' => Wishlist::all()
-      ]);
+      $data['product'] = $id;
+      $data['categories'] = Category::all();
+      $data['wishlists'] = Wishlist::all();
+      $data['inventory_products'] = ProductInventory::with('products')->get();
+    //   $data['reviews'] = Reviews::all();
+    //   @dd(  $data['reviews']);
+      return view('template.shop_details', $data);
    }
 
    public function about()
    {
       $data['categories'] = Category::all();
-$data['wishlists']=Wishlist::all();
+        $data['wishlists']=Wishlist::all();
       return view('template.blog' ,$data);
    }
 

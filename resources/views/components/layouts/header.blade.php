@@ -58,8 +58,8 @@
                     <div class="col-lg-2">
                         <div class="brand_logo">
                             <a class="brand_link" href="/">
-                                <img src="assets/images/logo/logo_18_1x.png"
-                                    srcset="assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
+                                <img src=""
+                                    srcset="" alt="logo_not_found">
                             </a>
 
                             <ul class="mh_action_btns ul_li clearfix">
@@ -147,11 +147,11 @@
                                         <button type="button" class="cart_btn ml-2">
                                             <i class="fal fa-heart"></i>
                                             <span class="btn_badge" id="wishlist-count">
-                                              {{-- @if(Auth::user()->wishlist)
+                                              @if(Auth::user()->wishlist)
                                                 {{count($wishlists)}}
-                                              @else --}}
+                                              @else
                                                 0
-                                              {{-- @endif --}}
+                                              @endif
                                             </span>
                                         </button>
                                     </a>

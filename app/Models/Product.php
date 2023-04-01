@@ -29,8 +29,10 @@ class Product extends Model
     {
         return $this->hasMany(InventoryImages::class);
     }
-    
 
+    public function reviews(){
+        return $this->hasMany(Reviews::class );
+    }
 
     public function attributes()
     {
