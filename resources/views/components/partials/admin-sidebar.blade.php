@@ -61,8 +61,8 @@
                         <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/prod_type">Products Type</a></li>
-                        <li><a href="/admin/prod_var">Products Variation</a></li>
+                        {{-- <li><a href="/admin/prod_type">Products Type</a></li>
+                        <li><a href="/admin/prod_var">Products Variation</a></li> --}}
                         <li><a href="/admin/product/add">Manage Products</a></li>
 
                     </ul>
@@ -120,6 +120,13 @@
                         <li><a href="/admin/users">All Customers</a></li>
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
                     </ul>
+                </li>
+                {{-- Customers pane --}}
+                <li>
+                    <a href="{{route('contact.message.show')}}" class="waves-effect">
+                        <i class="dripicons-user"></i>
+                        <span>All Messages</span>
+                    </a>
                 </li>
 
                 {{-- Order pane --}}

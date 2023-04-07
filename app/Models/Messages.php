@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wishlist extends Model
+class Messages extends Model
 {
     use HasFactory;
-    public function product(){
-        return $this->belongsTo(Product::class);
-    }
+    protected $fillable = [
+        'user_id',
+        'name',
+        'email',
+        'subject',
+        'message'
+    ];
     public function user(){
         return $this->belongsTo(User::class);
     }

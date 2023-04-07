@@ -173,27 +173,27 @@
                                                         <td>
                                                             <div class="cart_product">
                                                                 <div class="item_image">
-                                                                    <img src="{{asset('storage/inventory_images/'.$item->inven_prod_images[0]->product_image)}}"
+                                                                    <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
                                                                         alt="image_not_found">
                                                                 </div>
                                                                 <div class="item_content">
                                                                     <h4 class="item_title mb-0">
-                                                                        {{ $item->products->name }}
+                                                                        {{ $item->name }}
                                                                     </h4>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <input type="hidden" value="{{ $item->products->id }}" name="product_id">
+                                                        <input type="hidden" value="{{ $item->id }}" name="product_id">
 
                                                         <td>
-                                                            <span class="price_text">{{ $item->discount_price }}</span>
+                                                            <span class="price_text">{{ $item->prod_inventory->discount_price }}</span>
                                                         </td>
                                                         <td>
-                                                            <span class="quantity_text">{{ $item->squantity }}</span>
-                                                            <input type="hidden" value="{{$item->squantity }}" name="quantity">
+                                                            <span class="quantity_text">{{ $item->prod_inventory->squantity }}</span>
+                                                            <input type="hidden" value="{{$item->prod_inventory->squantity }}" name="quantity">
 
                                                         </td>
-                                                        <td><span class="total_price">Rs.{{ $sub_total }}</span>
+                                                        <td><span class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price }}</span>
                                                         </td>
                                                     </tr>
                                                 @endforeach

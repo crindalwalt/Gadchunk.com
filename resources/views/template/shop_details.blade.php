@@ -846,7 +846,8 @@
                                                             data-route="{{ route('add.wishlist', $inventory->id) }}"></i></a>
                                                 </li>
                                                 <li><a class="tooltips" data-placement="top" title="Add To Cart"
-                                                        href="javascript:void"><i class="fal fa-shopping-basket add-cart "
+                                                        href="javascript:void"><i
+                                                            class="fal fa-shopping-basket add-cart "
                                                             data-route="{{ route('add-cart', $inventory->id) }}"></i></a>
                                                 </li>
                                                 {{-- <li><a class="tooltips" data-placement="top" title="Quick View"
@@ -856,11 +857,14 @@
                                             </ul>
                                         </div>
                                         <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="#!"> {{ $inventory->products->name }}</a>
-                                            </h3>
-                                            <span class="item_price"><strong>Rs.
-                                                    {{ $inventory->retail_price }}</strong></span>
+                                            <a href="{{ route('product_detail', $inventory->products->id) }}"
+                                                style="text-decoration: none">
+                                                <h3 class="item_title">
+                                                    {{ $inventory->products->name }}
+                                                </h3>
+                                                <span class="item_price"><strong>Rs.
+                                                        {{ $inventory->retail_price }}</strong></span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

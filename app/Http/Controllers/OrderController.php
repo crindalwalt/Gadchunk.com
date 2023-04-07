@@ -21,6 +21,8 @@ class OrderController extends Controller
     public function index()
     {
         $data['orders'] = Order::get();
+        $data['orders_pending'] = Order::where('status','pending')->get();
+        $data['orders_deliver'] = Order::where('status','delivered')->get();
         return view("admin.orders.index", $data);
     }
 
@@ -76,7 +78,7 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        @dd($request);
     }
 
     /**
@@ -90,6 +92,19 @@ class OrderController extends Controller
         //
     }
 
+    public function update_status(Request $request , Order $id){
+        $request->validate([
+            'status' => 'required',
+        ]);
+        $update_status= Order::where("id", $id->id)->update(["status" => $request->status]);
+        if($update_status){
+            alert('Success', 'Status Update Successfully', 'success');
+            return redirect()->back();
+        }else {
+            return view('template.404');
+        }
+     
+    }
     public function review(Request $request)
     {
         $request->validate([

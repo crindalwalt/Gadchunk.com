@@ -1,137 +1,137 @@
  <x-layouts.admin>
-    {{-- @dd($orders) --}}
-    <!-- ============================================================== -->
-    {{--    @include('sweetalert::alert') --}}
+     {{-- @dd($orders) --}}
+     <!-- ============================================================== -->
+     {{--    @include('sweetalert::alert') --}}
 
-    @include('sweetalert::alert')
-    <div class="main-content">
+     @include('sweetalert::alert')
+     <div class="main-content">
 
-        <div class="page-content">
+         <div class="page-content">
 
-            <!-- start page title -->
-            <div class="page-title-box">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="page-title">
-                                <h4>Orders</h4>
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
-                                    <li class="breadcrumb-item active">Order Management</li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-end d-none d-sm-block">
-                                <a href="" class="btn btn-success">Dashboard</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end page title -->
-
-
-            <div class="container-fluid">
-
-                <div class="page-content-wrapper">
-
-                    <div class="col-xl-12">
-                        <div class="row">
-                            {{-- All Orders --}}
-                            <div class="col-xl-4 col-md-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <p class="font-size-16"> All Orders</p>
-                                            <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                <span class="avatar-title rounded-circle bg-soft-primary">
-                                                    <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
-                                                </span>
-                                            </div>
-                                            <h5 class="font-size-22">{{count($orders)}}</h5>
-
-                                            <p class="text-muted">Order you recieved</p>
-
-                                            <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-primary" role="progressbar"
-                                                    style="width: 100%" aria-valuenow="70" aria-valuemin="0"
-                                                    aria-valuemax="70">
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+             <!-- start page title -->
+             <div class="page-title-box">
+                 <div class="container-fluid">
+                     <div class="row align-items-center">
+                         <div class="col-sm-6">
+                             <div class="page-title">
+                                 <h4>Orders</h4>
+                                 <ol class="breadcrumb m-0">
+                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
+                                     <li class="breadcrumb-item active">Order Management</li>
+                                 </ol>
+                             </div>
+                         </div>
+                         <div class="col-sm-6">
+                             <div class="float-end d-none d-sm-block">
+                                 <a href="" class="btn btn-success">Dashboard</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- end page title -->
 
 
-                            </div>
-                            {{-- Pending Orders --}}
-                            <div class="col-xl-4 col-md-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <p class="font-size-16">Pending Orders</p>
-                                            <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                <span class="avatar-title rounded-circle bg-soft-success">
-                                                    <i class="mdi mdi-account-outline text-success font-size-20"></i>
-                                                </span>
-                                            </div>
-                                            <h5 class="font-size-22">18</h5>
+             <div class="container-fluid">
 
-                                            <p class="text-muted">Order waiting to proceed</p>
+                 <div class="page-content-wrapper">
 
-                                            <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-warning" role="progressbar"
-                                                    style="width: 100%" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100">
-                                                </div>
+                     <div class="col-xl-12">
+                         <div class="row">
+                             {{-- All Orders --}}
+                             <div class="col-xl-4 col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <div class="text-center">
+                                             <p class="font-size-16"> All Orders</p>
+                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                 <span class="avatar-title rounded-circle bg-soft-primary">
+                                                     <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
+                                                 </span>
+                                             </div>
+                                             <h5 class="font-size-22">{{ count($orders) }}</h5>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                             <p class="text-muted">Order you recieved</p>
 
+                                             <div class="progress mt-3" style="height: 4px;">
+                                                 <div class="progress-bar progress-bar bg-primary" role="progressbar"
+                                                     style="width: 100%" aria-valuenow="70" aria-valuemin="0"
+                                                     aria-valuemax="70">
+                                                 </div>
 
-                            </div>
-                            {{-- Delivered Orders --}}
-                            <div class="col-xl-4 col-md-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <p class="font-size-16">Delivered Order</p>
-                                            <div class="mini-stat-icon mx-auto mb-4 mt-3">
-                                                <span class="avatar-title rounded-circle bg-soft-success">
-                                                    <i class="mdi mdi-account-outline text-success font-size-20"></i>
-                                                </span>
-                                            </div>
-                                            <h5 class="font-size-22">40</h5>
-
-                                            <p class="text-muted">Order you have completed</p>
-
-                                            <div class="progress mt-3" style="height: 4px;">
-                                                <div class="progress-bar progress-bar bg-success" role="progressbar"
-                                                    style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-                                                    aria-valuemax="100">
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
 
 
-                            </div>
-                        </div>
-                    </div>
+                             </div>
+                             {{-- Pending Orders --}}
+                             <div class="col-xl-4 col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <div class="text-center">
+                                             <p class="font-size-16">Pending Orders</p>
+                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                 <span class="avatar-title rounded-circle bg-soft-success">
+                                                     <i class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                 </span>
+                                             </div>
+                                             <h5 class="font-size-22">{{ count($orders_pending) }}</h5>
+
+                                             <p class="text-muted">Order waiting to proceed</p>
+
+                                             <div class="progress mt-3" style="height: 4px;">
+                                                 <div class="progress-bar progress-bar bg-warning" role="progressbar"
+                                                     style="width: 100%" aria-valuenow="80" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                 </div>
+
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
 
 
-                    <!-- Filters bar for product -->
-                    <div class="row">
+                             </div>
+                             {{-- Delivered Orders --}}
+                             <div class="col-xl-4 col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <div class="text-center">
+                                             <p class="font-size-16">Delivered Order</p>
+                                             <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                 <span class="avatar-title rounded-circle bg-soft-success">
+                                                     <i class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                 </span>
+                                             </div>
+                                             <h5 class="font-size-22">{{ count($orders_deliver) }}</h5>
+
+                                             <p class="text-muted">Order you have completed</p>
+
+                                             <div class="progress mt-3" style="height: 4px;">
+                                                 <div class="progress-bar progress-bar bg-success" role="progressbar"
+                                                     style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                 </div>
+
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
 
 
-                        {{-- <div class="col-xl-12">
+                             </div>
+                         </div>
+                     </div>
+
+
+                     <!-- Filters bar for product -->
+                     <div class="row">
+
+
+                         {{-- <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">All Orders</h4>
@@ -203,158 +203,155 @@
                             </div>
                         </div> --}}
 
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title mb-4">Products of the Month</h4>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col">Order #</th>
-                                                    <th scope="col">Full Name</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Total Amount</th>
-                                                    <th scope="col">Payment Method</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Details</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($orders as $order)
-                                                    <tr>
-                                                        <th scope="row"> {{ $order->order_number }}</th>
-                                                        <td>{{ $order->user_id }} </td>
-                                                        <td>{{ $order->checkout_email }}</td>
-                                                        <td>{{ $order->total_amount }}</td>
-                                                        <td>{{ $order->payment_method }}</td>
-                                                        <td>
-                                                            <select id="{{ $order->id }}"
-                                                                onchange="changeStatus({{ $order->id }})"
-                                                                name="status" class="form-select">
-                                                                <?php $status = old('status', @$order->status); ?>
-                                                                <option value="pending"
-                                                                    @if ($order->status == 'pending') selected="selected" @endif>
-                                                                    Pending</option>
-                                                                <option value="approved"
-                                                                    @if ($order->status == 'approved') selected="selected" @endif>
-                                                                    Approved</option>
-                                                                <option value="cancelled"
-                                                                    @if ($order->status == 'cancelled') selected="selected" @endif>
-                                                                    Cancelled</option>
-                                                                <option value="dispatched"
-                                                                    @if ($order->status == 'dispatched') selected="selected" @endif>
-                                                                    Dispatched</option>
-                                                                <option value="delivered"
-                                                                    @if ($order->status == 'delivered') selected="selected" @endif>
-                                                                    Delivered</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                                Details
-                                                            </button>
+                         <div class="col-xl-12">
+                             <div class="card">
+                                 <div class="card-body">
+                                     <h4 class="header-title mb-4">Products of the Month</h4>
+                                     <div class="table-responsive">
+                                         <table class="table table-striped">
+                                             <thead class="thead-dark">
+                                                 <tr>
+                                                     <th scope="col">Order #</th>
+                                                     <th scope="col">Full Name</th>
+                                                     <th scope="col">Email</th>
+                                                     <th scope="col">Total Amount</th>
+                                                     <th scope="col">Payment Method</th>
+                                                     <th scope="col">Status</th>
+                                                     <th scope="col">Action</th>
+                                                 </tr>
+                                             </thead>
+                                             <tbody>
+                                                 @foreach ($orders as $order)
+                                                     <tr>
+                                                         <th scope="row"> {{ $order->order_number }}</th>
+                                                         <td>{{ $order->user->name }} </td>
+                                                         <td>{{ $order->checkout_email }}</td>
+                                                         <td>{{ $order->total_amount }}</td>
+                                                         <td>{{ $order->payment_method }}</td>
+                                                         <td>{{ $order->status }}</td>
+                                                        
+                                                         <td>
 
-                                                            <!-- Modal -->
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                                aria-labelledby="exampleModalLabel"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalCenterTitle">
-                                                                                {{ $order->order_number }}</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
+                                                             <!-- Button trigger modal -->
+                                                             <button type="button" class="btn btn-primary"
+                                                                 data-bs-toggle="modal"
+                                                                 data-bs-target="#exampleModal">
+                                                                 Update Status
+                                                             </button>
 
-                                                                            <div class="table-responsive">
-                                                                                <table class="table">
+                                                             <!-- Modal -->
+                                                             <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                 aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                 <div class="modal-dialog">
+                                                                     <form action="{{ route('orders.update',$order->id) }}" method="post">
+                                                                         @csrf
+                                                                         <div class="modal-content">
+                                                                             <div class="modal-header">
+                                                                                 <h5 class="modal-title"
+                                                                                     id="exampleModalCenterTitle">
+                                                                                     {{ $order->order_number }}</h5>
+                                                                                 <button type="button" class="close"
+                                                                                     data-bs-dismiss="modal"
+                                                                                     aria-label="Close">
+                                                                                     <span
+                                                                                         aria-hidden="true">&times;</span>
+                                                                                 </button>
+                                                                             </div>
+                                                                             <input type="text" hidden name="status" value="{{ $order->status}}">
+                                                                             <div class="modal-body">
+                                                                                 <div class="form-check">
+                                                                                     <input class="form-check-input"
+                                                                                         type="radio" name="status" value="pending"
+                                                                                         id="flexRadioDefault1">
+                                                                                     <label class="form-check-label"
+                                                                                         for="flexRadioDefault1">
+                                                                                         Pending
+                                                                                     </label>
+                                                                                 </div>
 
-                                                                                    <thead>
-                                                                                        <tr>
-                                                                                            <th scope="col">#</th>
-                                                                                            <th scope="col">Product
-                                                                                                Name</th>
-                                                                                            <th scope="col">Color
-                                                                                            </th>
-                                                                                            <th scope="col">Price
-                                                                                            </th>
-                                                                                            <th scope="col">Image
-                                                                                            </th>
-                                                                                        </tr>
-                                                                                    </thead>
-                                                                                    <tbody>
-                                                                                        @foreach ($order->items as $detail)
-                                                                                            <tr>
-                                                                                                <th scope="row">1
-                                                                                                </th>
-                                                                                                <td>{{ $detail->product->name }}
-                                                                                                </td>
-                                                                                                <td>{{ $detail->color }}
-                                                                                                </td>
-                                                                                                <td>{{ $detail->total_amount }}
-                                                                                                </td>
-                                                                                                <td><img src="{{ asset('storage/product_images/'. $detail->product->product_image) }}"
-                                                                                                        alt=""
-                                                                                                        height="100px"
-                                                                                                        width="100px">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        @endforeach
+                                                                                 <div class="form-check">
+                                                                                     <input class="form-check-input"
+                                                                                         type="radio" name="status" value="approved"
+                                                                                         id="flexRadioDefault2">
+                                                                                     <label class="form-check-label"
+                                                                                         for="flexRadioDefault2">
+                                                                                         Approved
+                                                                                     </label>
+                                                                                 </div>
 
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Close</button>
-                                                                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                                 <div class="form-check">
+                                                                                     <input class="form-check-input"
+                                                                                         type="radio" name="status" value="dispatched"
+                                                                                         id="flexRadioDefault3">
+                                                                                     <label class="form-check-label"
+                                                                                         for="flexRadioDefault3">
+                                                                                         Dispatched
+                                                                                     </label>
+                                                                                 </div>
 
-                                                        </td>
-                                                   
-                                                @endforeach
-                                            </tbody>
+                                                                                 <div class="form-check">
+                                                                                     <input class="form-check-input"
+                                                                                         type="radio" name="status" value="delivered"
+                                                                                         id="flexRadioDefault4">
+                                                                                     <label class="form-check-label"
+                                                                                         for="flexRadioDefault4">
+                                                                                         Delivered
+                                                                                     </label>
+                                                                                 </div>
+                                                                                 <div class="form-check">
+                                                                                     <input class="form-check-input"
+                                                                                         type="radio" name="status" value="cancelled"
+                                                                                         id="flexRadioDefault5">
+                                                                                     <label class="form-check-label"
+                                                                                         for="flexRadioDefault5">
+                                                                                         Cancelled
+                                                                                     </label>
+                                                                                 </div>
+                                                                             </div>
+                                                                             <div class="modal-footer">
+                                                                                 <button type="button"
+                                                                                     class="btn btn-secondary"
+                                                                                     data-bs-dismiss="modal">Close</button>
+                                                                                 <button type="submit"
+                                                                                     class="btn btn-primary">Save
+                                                                                     changes</button>
+                                                                             </div>
+                                                                         </div>
+                                                                     </form>
+                                                                 </div>
+                                                             </div>
 
-                                        </table>
+                                                         </td>
+                                                 @endforeach
+                                             </tbody>
 
-                                    </div>
-                                    <!-- end table-responsive -->
-                                </div>
-                            </div>
-                        </div>
+                                         </table>
+
+                                     </div>
+                                     <!-- end table-responsive -->
+                                 </div>
+                             </div>
+                         </div>
 
 
 
-                    </div>
-                    <!-- end row -->
+                     </div>
+                     <!-- end row -->
 
-                </div>
+                 </div>
 
 
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
+             </div> <!-- container-fluid -->
+         </div>
+         <!-- End Page-content -->
 
 
 
 
 
-        <x-partials.admin-footer />
-    </div>
+         <x-partials.admin-footer />
+     </div>
 
 
 
@@ -364,9 +361,9 @@
 
 
 
-    <!-- ============================================================== -->
+     <!-- ============================================================== -->
 
 
 
 
-</x-layouts.admin>
+ </x-layouts.admin>

@@ -71,12 +71,13 @@
                                                         <td>{{ $inv->in_stock }}</td>
 
                                                         <td class="">
-                                                            <a href="/admin/collection/"
-                                                                class="btn btn-outline-success btn-sm">Show</a>
+                                                            {{-- <a href=""
+                                                                class="btn btn-outline-success btn-sm">Show</a> --}}
 
-                                                            <form action="" method="POST" class="d-inline">
+                                                            <form action="{{ route('inventory.destroy', $inv->id) }}" method="POST" class="d-inline">
                                                                 @csrf
-                                                                <input type="hidden" value="" name="id">
+                                                                <input type="hidden" value="{{ $inv->id }}"
+                                                                name="id">
                                                                 <button type="submit"
                                                                     class="btn btn-sm btn-outline-danger">Delete</button>
                                                             </form>

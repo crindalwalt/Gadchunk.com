@@ -27,12 +27,15 @@
                     <div class="col-lg-7">
                         <ul class="info_list ul_li_right clearfix">
                             {{-- <li><a href="#!"><i class="fal fa-map-marker-alt"></i> Store Locator</a></li> --}}
-                            <li><a href="{{route('order_list')}}"><i class="fal fa-truck"></i> Track Your Order</a></li>
-                            @if(Auth::check())
-                            <li> <a href="{{route('profile')}}"><i class="fal fa-user"></i><strong>{{Auth::user()->name}}</strong></a></li>
+                           <li><a href="{{ route('order_list') }}"><i class="fal fa-truck"></i> Track Your Order</a>
+                           </li>
+
+                            @if (Auth::check())
+                                <li> <a href="{{ route('profile') }}"><i
+                                            class="fal fa-user"></i><strong>{{ Auth::user()->name }}</strong></a></li>
                             @else
-                            <li><a href="{{route('login')}}"> Login</a></li>
-                            <li><a href="{{route('register')}}">Register</a></li>
+                                <li><a href="{{ route('login') }}"> Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
                             @endif
 
                             {{-- <li>
@@ -55,11 +58,10 @@
         <div class="header_middle clearfix">
             <div class="container maxw_1460">
                 <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 ">
                         <div class="brand_logo">
-                            <a class="brand_link" href="/">
-                                <img src=""
-                                    srcset="" alt="logo_not_found">
+                            <a class="brand_link m-0 " href="/">
+                                <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" width="70%" alt="logo_not_found">
                             </a>
 
                             <ul class="mh_action_btns ul_li clearfix">
@@ -83,8 +85,8 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <form action="{{route('search')}}" method="POST">
-                          @csrf
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
                             <div class="medical_search_bar">
                                 <div class="form_item">
                                     <input type="text" name="search" placeholder="search here...">
@@ -99,17 +101,20 @@
                             <ul class="action_btns_group ul_li_right clearfix">
                                 <li>
                                     <div class="dropdown show">
-                                        <a class="btn btn-transparent dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Account Details
-                                        </a>
+                                       @if (Auth::check())
+                                       <a class="btn btn-transparent dropdown-toggle" href="#" role="button"
+                                       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                       Account Details
+                                   </a>
 
+                                       @endif
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                                             {{-- <a class="dropdown-item" href="#">Setting</a> --}}
                                             <hr class="m-0">
-                                            <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
+                                            <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0') }}"
+                                                method="post">
                                                 @csrf
                                                 <button class="dropdown-item btn btn-primary">Logout</button>
                                             </form>
@@ -117,12 +122,12 @@
                                     </div>
                                 </li>
                                 <li>
-                                   <a href="{{route('contact')}}">
-                                    <button type="button">
-                                      <span>Need</span>
-                                      <strong>Help?</strong>
-                                  </button>
-                                   </a>
+                                    <a href="{{ route('contact') }}">
+                                        <button type="button">
+                                            <span>Need</span>
+                                            <strong>Help?</strong>
+                                        </button>
+                                    </a>
                                 </li>
 
                                 <li>
@@ -130,15 +135,14 @@
 
                                         <button type="button" class="cart_btn">
                                             <i class="fal fa-shopping-bag"></i>
-                                            <span class="btn_badge"
-                                                id="cart-count">
-                                                @if(Session::get('cart'))
-                                                {{count(Session::get('cart'))}}
+                                            <span class="btn_badge" id="cart-count">
+                                                @if (Session::get('cart'))
+                                                    {{ count(Session::get('cart')) }}
                                                 @else
-                                                  0
+                                                    0
                                                 @endif
 
-                                              </span>
+                                            </span>
 
                                         </button>
                                     </a>
@@ -146,13 +150,16 @@
 
                                         <button type="button" class="cart_btn ml-2">
                                             <i class="fal fa-heart"></i>
-                                            <span class="btn_badge" id="wishlist-count">
-                                              @if(Auth::user()->wishlist)
-                                                {{count($wishlists)}}
-                                              @else
-                                                0
-                                              @endif
-                                            </span>
+                                            @if (Auth::user())
+                                                <span class="btn_badge" id="wishlist-count">
+                                                    @if (Auth::user()->wishlist)
+                                                        {{ count(Auth::user()->wishlist) }}
+                                                    @else
+                                                        0
+                                                    @endif
+
+                                                </span>
+                                            @endif
                                         </button>
                                     </a>
                                 </li>
@@ -509,7 +516,7 @@
                 </div>
               </div>
             </li> --}}
-                        <li class="menu_item_has_child">
+                        {{-- <li class="menu_item_has_child">
                             <a href="#!">Pages</a>
                             <ul class="submenu">
                                 <li class="menu_item_has_child">
@@ -521,7 +528,7 @@
                                         <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('error') }}">404 Page</a></li>
+                                <li><a href="{{ route('error') }}">404 Page</a></li> --}}
                                 {{-- <li class="menu_item_has_child">
                   <a href="#!">Blogs</a>
                   <ul class="submenu">

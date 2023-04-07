@@ -47,53 +47,55 @@
                         <tbody>
                             {{-- @dd($products) --}}
                             @if ($products->count() > 0)
-                               @foreach ($products as $item)
-                                {{-- @dd($item->inven_prod_images) --}}
-                               <tr  id="productremove{{ $item->id }}">
-                                <td>
-                                    <div class="cart_product">
-                                        <div class="item_image">
-                                            <img src="{{asset('storage/inventory_images/'.$item->inven_prod_images[0]->product_image)}}" alt="image_not_found">
-                                        </div>
-                                        <div class="item_content">
-                                            <h4 class="item_title">{{$item->products->name}}</h4>
-                                            <span class="item_type">{{$item->products->category->name}}</span>
-                                        </div>
-                                        <button type="button" class="remove_btn " id="remove-product"
-                                        data-route="{{ route('cart.remove', $item->id) }}"
-                                        data-remove="productremove{{ $item->id }}">
-                                            <i class="fal fa-times"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="price_text">Rs.{{$item->retail_price}}</span>
-                                </td>
-                               @if ($item->discount_price)
-                               <td>
-                                <span class="price_text">{{$item->discount_price}}</span>
-                            </td>
-                               @else
-                               <td>
-                                <span class="price_text">0%</span>
-                            </td>
-                               @endif
-                                <td>
-                                    <div class="quantity_input">
-                                            <span class="input_number_decrement">–</span>
-                                            <input  class="input_number quantity"
-                                            data-route="{{ route('cart.quantity', $item->id) }}"
-                                            value="{{ $item->squantity ? $item->squantity : '0' }}"
-                                            min="1" step="1"
-                                            id="quantity{{ $item->id }}" data-decimals="0" required>
-                                            <span class="input_number_increment">+</span>
-                                    </div>
-                                </td>
-                                <td> Rs. <span class="single_total{{ $item->id }}">{{ $item->retail_price }}</span></td>
-                            </tr>
-
-                               @endforeach
-
+                                @foreach ($products as $item)
+                                    {{-- @dd($item->inven_prod_images) --}}
+                                    <tr id="productremove{{ $item->id }}">
+                                        <td>
+                                            <div class="cart_product">
+                                                <div class="item_image">
+                                                    <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
+                                                        alt="image_not_found">
+                                                </div>
+                                                <div class="item_content">
+                                                    <h4 class="item_title">{{ $item->name }}</h4>
+                                                    <span class="item_type">{{ $item->category->name }}</span>
+                                                </div>
+                                                <button type="button" class="remove_btn " id="remove-product"
+                                                    data-route="{{ route('cart.remove', $item->id) }}"
+                                                    data-remove="productremove{{ $item->id }}">
+                                                    <i class="fal fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="price_text">Rs.{{ $item->prod_inventory->retail_price }}</span>
+                                        </td>
+                                        @if ($item->prod_inventory->discount_price)
+                                            <td>
+                                                <span
+                                                    class="price_text">{{ $item->prod_inventory->discount_price }}</span>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <span class="price_text">0%</span>
+                                            </td>
+                                        @endif
+                                        <td>
+                                            <div class="quantity_input">
+                                                <span class="input_number_decrement">–</span>
+                                                <input class="input_number quantity"
+                                                    data-route="{{ route('cart.quantity', $item->id) }}"
+                                                    value="{{ $item->squantity ? $item->squantity : '0' }}"
+                                                    min="1" step="1" id="quantity{{ $item->id }}"
+                                                    data-decimals="0" required>
+                                                <span class="input_number_increment">+</span>
+                                            </div>
+                                        </td>
+                                        <td> Rs. <span
+                                                class="single_total{{ $item->id }}">{{ $item->prod_inventory->retail_price }}</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             @else
                                 <div class="text-center">
                                     <h3 class="text-danger">Cart is empty</h3>
@@ -105,7 +107,8 @@
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="cart_update_btn">
-                        <a href="{{route('shop')}}"><button type="button"  class="custom_btn bg_secondary text-uppercase">Back to Shop</button>
+                        <a href="{{ route('shop') }}"><button type="button"
+                                class="custom_btn bg_secondary text-uppercase">Back to Shop</button>
                         </a>
                     </div>
                 </div>
@@ -135,11 +138,12 @@
                         <div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
                             <h3 class="table_title text-center" data-bg-color="#ededed">Cart Total</h3>
                             <ul class="ul_li_block clearfix">
-                                <li><span>Subtotal</span> <span class="sub_total">Rs.{{$sub_total}} </span></li>
-                                <li><span>Discount</span> <span class="discount"> {{$discount}}</span></li>
-                                <li><span>Total</span> <span class="total_price">Rs. {{$total}}</span></li>
+                                <li><span>Subtotal</span> <span class="sub_total">Rs.{{ $sub_total }} </span></li>
+                                <li><span>Discount</span> <span class="discount"> {{ $discount }}</span></li>
+                                <li><span>Total</span> <span class="total_price">Rs. {{ $total }}</span></li>
                             </ul>
-                            <a href="{{ route('checkout') }}" class="custom_btn bg_success"><button class="text-white">Proceed to Checkout</button></a>
+                            <a href="{{ route('checkout') }}" class="custom_btn bg_success"><button
+                                    class="text-white">Proceed to Checkout</button></a>
                         </div>
                     </div>
                 </div>

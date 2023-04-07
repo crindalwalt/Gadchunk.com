@@ -352,7 +352,7 @@
              <div class="container maxw_1600">
                  <div class="row justify-content-lg-between">
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                         <div class="electronic_trending_carousel position-relative" data-bg-color="#131315">
+                         <div class="electronic_trending_carousel position-relative border rounded" data-bg-color="#9c9f96">
                              <div class="slideshow1_slider" data-slick='{"dots": false}'>
                                  @foreach ($collections as $collection)
                                      <div class="item">
@@ -478,56 +478,62 @@
                          <div class="tab-content mb_50">
                              <div id="grid_layout" class="tab-pane active">
                                  <ul class="electronic_product_columns ul_li has_4columns clearfix" id="result">
-                                     @foreach ($inventory_products as $item)
-                                         <a href="{{ route('product_detail', $item->product_id) }}"
-                                             style="text-decoration: none">
 
-                                             <li>
-                                                <ul class="product_label ul_li_block clearfix">
-                                                    @if ($item->discount_price)
-                                                        <li data-bg-color="#cc1414">{{ $item->discount_price }}</li>
-                                                    @endif
-                                                </ul>
-                                                 {{-- {{  '/product/'.$item->products->slug.'/'.$item->product_id }} --}}
-                                                 <div class="electronic_product_item">
+                                  @include('template.component.filtered_products')
+                                     {{-- @if ($result)
+                                    @foreach ($result as $item)
+                                    <a href="{{ route('product_detail', $item->id) }}"
+                                        style="text-decoration: none">
 
-                                                     {{-- <ul class="product_label ul_li clearfix">
-														<li>-$30</li>
-													</ul> --}}
-                                                     <div class="item_image">
-                                                         {{-- @dd($item) --}}
+                                        <li>
+                                           <ul class="product_label ul_li_block clearfix">
+                                               @if ($item->discount_price)
+                                                   <li data-bg-color="#cc1414">{{ $item->discount_price }}</li>
+                                               @endif
+                                           </ul>
+                                            <div class="electronic_product_item">
 
-                                                         <img src="{{ asset('storage/inventory_images/' . $item->inven_prod_images[0]->product_image) }}"
-                                                             alt="image_not_found">
-                                                     </div>
-                                                     <div class="item_content">
-                                                         <span
-                                                             class="item_name">{{ $item->products->category->name }}</span>
-                                                         <h3 class="item_title">
-                                                             <a href="#!">{{ $item->products->name }}</a>
-                                                         </h3>
-                                                         <div class="d-flex ">
-                                                             <span
-                                                                 class="item_price">Rs.{{ $item->retail_price }}</span>
-                                                             <span class="ml-4">
-                                                                 <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
-                                                                     data-route="{{ route('add-cart', $item->id) }}"></i>
-                                                                 <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
-                                                                     data-route="{{ route('add.wishlist', $item->id) }}"></i>
-                                                             </span>
-                                                         </div>
+                                                <ul class="product_label ul_li clearfix">
+                                                   @if ($item->prod_inventory->discount_price)
+                                                   <li data-bg-color="#cc1414">{{ $item->prod_inventory->discount_price }}
+                                                   </li>
+                                               @endif
+                                           </ul>
+                                                <div class="item_image">
 
-                                                     </div>
+                                                    <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
+                                                        alt="image_not_found">
+                                                </div>
+                                                <div class="item_content">
+                                                    <span
+                                                        class="item_name">{{ $item->category->name }}</span>
+                                                    <h3 class="item_title">
+                                                        <a href="#!">{{ $item->name }}</a>
+                                                    </h3>
+                                                    <div class="d-flex ">
+                                                        <span
+                                                            class="item_price">Rs.{{ $item->prod_inventory->retail_price }}</span>
+                                                        <span class="ml-4">
+                                                            <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
+                                                                data-route="{{ route('add-cart', $item->id) }}"></i>
+                                                            <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                                                data-route="{{ route('add.wishlist', $item->id) }}"></i>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
 
 
-                                                 </div>
-                                             </li>
-                                         </a>
-                                     @endforeach
+                                            </div>
+                                        </li>
+                                    </a>
+                                @endforeach
+                                    @endif --}}
+
 
                                  </ul>
                              </div>
-                             <div id="list_layout" class="tab-pane fade">
+                             {{-- <div id="list_layout" class="tab-pane fade">
                                  <ul class="electronic_product_columns ul_li has_4columns clearfix">
                                      <li>
                                          <div class="electronic_product_item">
@@ -757,7 +763,7 @@
                                          </div>
                                      </li>
                                  </ul>
-                             </div>
+                             </div> --}}
                          </div>
 
                          {{-- <div class="abtn_wrap text-center mb_50">
@@ -884,10 +890,12 @@
                                      {{-- <form action="#"> --}}
                                      <ul class="ul_li_block clearfix">
                                          <li>
-                                             <div class="checkbox_item">
-                                                 {{-- <input id="oculus_rift_checkbox.{{$cat->id}}" value="{{$cat->name}}" type="checkbox" data-type="{{$value->attribute_value}}" class="filter"> --}}
-                                                 <label for="oculus_rift_checkbox.{{ $cat->id }}"><strong>{{ $loop->iteration }}
-                                                         - </strong> {{ $cat->name }}</label>
+                                             <div class="form-check">
+                                                 <input id="oculus_rift_checkbox.{{ $cat->id }}"
+                                                     value="{{ $cat->id }}" type="checkbox"
+                                                     data-type="{{ $cat->id }}" class="filter">
+                                                 <label for="oculus_rift_checkbox.{{ $cat->id }}">
+                                                     {{ $cat->name }}</label><span class="badge bg-primary text-white">{{ $cat->product->count() }}</span>
                                              </div>
                                          </li>
                                      </ul>
@@ -929,6 +937,7 @@
                      </div>
 
                  </div>
+               
              </div>
          </section>
          <!-- product_section - end

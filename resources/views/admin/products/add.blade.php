@@ -113,7 +113,7 @@
                                     <div class="table-responsive">
 
                                         <table class="table mb-0">
-                                            {{-- @if ($products->isNotEmpty()) --}}
+                                            {{-- @if ($products->isEmpty()) --}}
                                             <thead>
                                                 <tr>
                                                     <th>#</th>

@@ -28,7 +28,7 @@ class CartController extends Controller
     }
 
     // add products in cart
-    public function add($id, $quantity = 1)
+    public function add($id, $quantity = 1,)
     {
         // Initialize and check the session exist or not
         $oldCart = Session::has("cart") ? Session::get("cart") : [];
@@ -82,14 +82,13 @@ class CartController extends Controller
 
     public function getProducts()
     {
-        $products = ProductInventory::whereIn('id', $this->getProductIds())->get();
+        $products = Product::whereIn('id', $this->getProductIds())->get();
         foreach ($products as $pro) {
             foreach (Session::get('cart') as $cart) {
                 if ($pro->id == $cart['product_id']) {
-                    $pro->squantity = $cart['quantity'];
+                    $pro->prod_inventory->squantity = $cart['quantity'];
                 }
             }
-            // $newProducts =
         }
         return $products;
     }
@@ -133,13 +132,13 @@ class CartController extends Controller
         $sum = 0;
         foreach ($products as $pro) {
             // $sum += $pro->squantity * $pro->retail_price;
-            $trim_value = trim($pro->discount_price ,'%');
+            $trim_value = trim($pro->prod_inventory->discount_price ,'%');
             if ($trim_value == '0'|| $trim_value == NULL ) {
-                $sum+= $pro->squantity * $pro->retail_price;
+                $sum+= $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
             } else {
-                $discount_formula = ($trim_value/100)* $pro->retail_price;
-                $simple_value = $pro->squantity * $pro->retail_price;
-                $discount_value=$pro->squantity * $discount_formula;
+                $discount_formula = ($trim_value/100)* $pro->prod_inventory->retail_price;
+                $simple_value = $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
+                $discount_value=$pro->prod_inventory->squantity * $discount_formula;
                 $sum += $simple_value - $discount_value;
                 // $sum += $pro->squantity * $discount_formula;
             }
@@ -149,17 +148,16 @@ class CartController extends Controller
     // function single item price in cart
     public function SingleTotal($id,$quantity)
     {
-        $product = ProductInventory::find($id);
-        $trim_value = trim($product->discount_price ,'%');
+        $product = Product::with('prod_inventory')->find($id);
+        $trim_value = trim($product->prod_inventory->discount_price ,'%');
         if ($trim_value == '0%'|| $trim_value == '0'|| $trim_value == NULL ) {
-            $single_item_total= $quantity * $product->retail_price;
+            $single_item_total= $quantity * $product->prod_inventory->retail_price;
         } else {
-            $discount_formula = ($trim_value/100)* $product->retail_price;
-            $simple_value = $quantity * $product->retail_price;
+            $discount_formula = ($trim_value/100)* $product->prod_inventory->retail_price;
+            $simple_value = $quantity * $product->prod_inventory->retail_price;
             $discount_value= $quantity * $discount_formula;
             $single_item_total= $simple_value - $discount_value;
         }
-
 
         return $single_item_total;
     }
@@ -179,7 +177,7 @@ class CartController extends Controller
         $products = $this->getProducts();
         $sum = 0;
         foreach ($products as $pro) {
-            $sum += $pro->squantity * $pro->retail_price;
+            $sum += $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
         }
         return $sum;
     }

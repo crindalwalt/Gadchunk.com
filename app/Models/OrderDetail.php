@@ -16,7 +16,7 @@ class OrderDetail extends Model
         'total_amount'
     ];
     function product(){
-        return $this->belongsTo(Product::class,'product_id','id');
+        return $this->belongsTo(Product::class);
     }
 
     function order(){

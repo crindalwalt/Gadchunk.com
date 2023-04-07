@@ -54,4 +54,7 @@ class User extends Authenticatable
        public function reviews(){
         return $this->hasMany(Reviews::class,'user_id');
     }
+    public function messages(){
+        return $this->hasMany(Messages::class ,'user_id');
+    }
 }

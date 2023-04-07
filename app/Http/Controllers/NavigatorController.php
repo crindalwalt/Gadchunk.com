@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Collection;
+use App\Models\Messages;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductAttributeValue;
@@ -15,100 +17,143 @@ use Illuminate\Http\Request;
 
 class NavigatorController extends Controller
 {
-   //
-   public function  index()
-   {
-      $data['categories'] = Category::all();
-      $data['inventory_products'] = ProductInventory::with('products')->get();
-      $data['collections'] = Collection::all();
-      $data['categories'] = Category::all();
-      $data['wishlists']=Wishlist::all();
+    //
+    public function  index()
+    {
+        $data['categories'] = Category::all();
+        //   $data['inventory_products'] = ProductInventory::with('products')->get();
+        $data['collections'] = Collection::all();
+        $data['products'] = Product::latest()->get();
 
-      return view('template.index', $data);
-   }
+        $data['categories'] = Category::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['orders'] = Order::all();
 
-   public function shop()
-   {
-      $data['categories'] = Category::all();
-      $data['inventory_products'] = ProductInventory::get();
-      $data['attributes'] = ProductAttribute::get();
-      $data['categories'] = Category::all();
-      $data['collections'] = Collection::all();
-      $data['wishlists']=Wishlist::all();
+        return view('template.index', $data);
+    }
 
-      return view('template.shop', $data);
-   }
+    public function shop()
+    {
+        $data['categories'] = Category::all();
+        $data['inventory_products'] = Product::get();
+        $data['attributes'] = ProductAttribute::get();
+        $data['categories'] = Category::all();
+        $data['collections'] = Collection::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['orders'] = Order::all();
 
-   public function single_item(Product $id)
-   {
-      $data['product'] = $id;
-      $data['categories'] = Category::all();
-      $data['wishlists'] = Wishlist::all();
-      $data['inventory_products'] = ProductInventory::with('products')->get();
-    //   $data['reviews'] = Reviews::all();
-    //   @dd(  $data['reviews']);
-      return view('template.shop_details', $data);
-   }
+        return view('template.shop', $data);
+    }
 
-   public function about()
-   {
-      $data['categories'] = Category::all();
-        $data['wishlists']=Wishlist::all();
-      return view('template.blog' ,$data);
-   }
+    public function single_item(Product $id)
+    {
+        $data['product'] = $id;
+        $data['categories'] = Category::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['inventory_products'] = ProductInventory::with('products')->get();
+        $data['orders'] = Order::all();
 
-   public function contact()
-   {
-      $data['categories'] = Category::all();
-      $data['wishlists']=Wishlist::all();
+        //   $data['reviews'] = Reviews::all();
+        //   @dd(  $data['reviews']);
+        return view('template.shop_details', $data);
+    }
 
-      return view('template.contact' ,$data);
-   }
+    public function about()
+    {
+        $data['categories'] = Category::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['orders'] = Order::all();
 
-   public function error()
-   {
-      return view('template.404');
-   }
+        return view('template.blog', $data);
+    }
 
-   // public function filter(Request $request)
-   // {
+    public function contact()
+    {
+        $data['categories'] = Category::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['orders'] = Order::all();
 
-   //    // @dd($request);
-   //    $array = null;
-   //  //   if (isset($request->array)) {
-   //  //      $array = $request->array;
-   //  //      foreach($array as $item){
-   //  //         $products = ProductAttributeValue::whereIn('attribute_value', $item)->get();
+        return view('template.contact', $data);
+    }
+    public function message(Request $request)
+    {
+        // @dd($request->all());
+        $request->validate([
+            "name" => ["required", "string"],
+            "email" => ['required'],
+            "subject" => ["required"],
+            "message" => ["required"]
+        ]);
 
-   //  //      }
-   //  //   }
-   //    return response()->json(['data' => $request->input("result")]);
-   // }
+        $MessageSave = Messages::create([
+            'user_id' => $request->input("user_id"),
+            'name' => $request->input("name"),
+            'email' => $request->input("email"),
+            'subject' => $request->input("subject"),
+            'message' => $request->input("message")
+        ]);
+                @dd($request->all());
 
+         // validation to check if saved or not
+         if ($MessageSave) {
+            alert("Success", 'Product sent successfully', 'success');
+            // return redirect()->back();
+        } else {
+            alert("Error", 'Message could not sent', 'error');
+            return redirect()->back();
+        }
+    }
 
-   public function searchQuery(Request $request){
-
-      $search = $request->input('search');
-      if ($search) {
-         $data['inventory_products'] = ProductInventory::with('products')->whereHas('products', function ($query) use($search){$query->where('name', 'like', '%'.$search.'%');})->get();
-               $data['categories'] = Category::all();
-               $data['attributes'] = ProductAttribute::get();
-               $data['categories'] = Category::all();
-               $data['collections'] = Collection::all();
-               $data['wishlists']=Wishlist::all();
-
-      } else {
-         $data['categories'] = Category::all();
-         $data['inventory_products'] = ProductInventory::get();
-         $data['attributes'] = ProductAttribute::get();
-         $data['categories'] = Category::all();
-         $data['collections'] = Collection::all();
-         $data['wishlists']=Wishlist::all();
-
-      }
-      return view('template.shop', $data);
-
-      }
+    public function MessageShow(){
+        $data['messages'] = Messages::all();
+        return view('admin.messages.index',$data);
+    }
 
 
+    public function error()
+    {
+        return view('template.404');
+    }
+
+    public function filter(Request $request)
+    {
+
+       if (isset($request->result)) {
+          $value = $request->result;
+             $inventory_products  = Product::where('category_id', $value)->get();
+          return view('template.component.filtered_products')->with('inventory_products', $inventory_products);
+        }else{
+            $inventory_products = Product::get();
+            return view('template.component.filtered_products')->with('inventory_products', $inventory_products);
+        }
+    }
+
+
+    public function searchQuery(Request $request)
+    {
+
+        $search = $request->input('search');
+        if ($search) {
+            $data['inventory_products'] = Product::with('prod_inventory')->whereHas('prod_inventory', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })->get();
+            $data['categories'] = Category::all();
+            $data['attributes'] = ProductAttribute::get();
+            $data['categories'] = Category::all();
+            $data['collections'] = Collection::all();
+            $data['wishlists'] = Wishlist::all();
+            $data['orders'] = Order::all();
+
+        } else {
+            $data['categories'] = Category::all();
+            $data['inventory_products'] = ProductInventory::get();
+            $data['attributes'] = ProductAttribute::get();
+            $data['categories'] = Category::all();
+            $data['collections'] = Collection::all();
+            $data['wishlists'] = Wishlist::all();
+            $data['orders'] = Order::all();
+
+        }
+        return view('template.shop', $data);
+    }
 }

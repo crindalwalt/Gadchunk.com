@@ -65,8 +65,8 @@ class CollectionController extends Controller
 
     }
 
-    public function destroy(Collection $collection){
-        $collection->delete();
+    public function destroy($id){
+        Collection::find($id)->delete();
         alert('Success', 'Collection Deleted Successfully', 'success');
         return redirect()->back();
     }

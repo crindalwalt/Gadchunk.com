@@ -312,8 +312,7 @@
         <!-- slider_section - start
    ================================================== -->
         <section class="slider_section supermarket_slider sec_ptb_50 clearfix"
-            style="background: rgb(60,60,48);
-        background: linear-gradient(98deg, rgba(60,60,48,1) 0%, rgba(177,182,110,1) 100%, rgba(35,183,213,1) 100%); ">
+            style="background-color: #d7d5d5; ">
             <div class="container maxw_1460">
                 <div class="row justify-content-lg-between">
                     {{-- <div class="col-lg-3">
@@ -419,7 +418,7 @@
                         <div class="main_slider clearfix " data-slick='{"arrows": false}'>
                             @foreach ($collections as $collection)
                             {{-- @dd( $collection->products[0]) --}}
-                                <div class="item clearfix" data-bg-color="#ffc156">
+                                <div class="item clearfix" data-bg-color="#e3e3d4">
                                     <div class="slider_image order-last" data-animation="fadeInUp" data-delay=".2s">
                                         <img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
                                             alt="image_not_found" height="500px" width="500px">
@@ -433,8 +432,7 @@
                                         </div>
                                         <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
                                             <a href="{{ route('shop') }}"
-                                                class="custom_btn btn_round bg_supermarket_red">Start
-                                                Buying</a>
+                                                class="custom_btn btn_round bg_supermarket_red">Shop Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -816,7 +814,7 @@
                             </div>
                             <ul class="ul_li_block nav" role="tablist">
                                 @foreach ($categories as $cat)
-                                    <li><a value="{{ $cat->id }}">{{ $cat->name }}</a></li>
+                                    <li><a value="{{ $cat->id }}">{{ $cat->name }} <span class="badge badge-success" style="float: right">{{$cat->product->count()}}</a></span></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -838,28 +836,28 @@
                         <div class="tab-content">
                             <div id="best_deals_tab" class="tab-pane active">
                                 <ul class="supermarket_product_columns has_4columns ul_li clearfix">
-                                    @foreach ($inventory_products as $item)
+                                    @foreach ($products as $item)
                                         <li>
                                             {{-- <a href="{{ route('product_detail', $item->id) }}"> --}}
                                                 <div class="supermarket_product_item">
                                                     <ul class="product_label ul_li_block clearfix">
-                                                        @if ($item->discount_price)
-                                                            <li data-bg-color="#cc1414">{{ $item->discount_price }}
+                                                        @if ($item->prod_inventory->discount_price)
+                                                            <li data-bg-color="#cc1414">{{ $item->prod_inventory->discount_price }}
                                                             </li>
                                                         @endif
                                                     </ul>
                                                     <a class="item_image" href="{{ route('product_detail', $item->id) }}">
-                                                        <img src="{{ asset('storage/inventory_images/' . $item->inven_prod_images[0]->product_image) }}"
+                                                        <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
                                                             alt="image_not_found">
                                                     </a>
                                                     <div class="item_content">
                                                         <span
-                                                            class="item_type text-uppercase">{{ $item->products->category->name }}</span>
+                                                            class="item_type text-uppercase">{{ $item->name }}</span>
                                                         <h3 class="item_title">
-                                                            {{ $item->products->name }}
+                                                            {{ $item->name }}
                                                         </h3>
                                                         <div class="item_price">
-                                                            <strong>Rs. {{ $item->retail_price }}</strong>
+                                                            <strong>Rs. {{ $item->prod_inventory->retail_price }}</strong>
                                                             {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
                                                             <div class="d-flex justify-content-end">
 
