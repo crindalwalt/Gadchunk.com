@@ -23,11 +23,11 @@
 
                                 <div class="text-center">
                                     <a href="/">
-                                        <img src="{{ asset('assets/images/zeelma-logo.png') }}" height="52" alt="logo">
+                                        <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" height="60" alt="logo">
                                     </a>
 
                                     <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
-                                    <p class="text-muted">Sign in to continue to Zeelma.</p>
+                                    <p class="text-muted">Sign in to continue to Gadchunk.</p>
                                 </div>
 
                                 <!-- Session Status -->

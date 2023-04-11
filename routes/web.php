@@ -52,14 +52,13 @@ use App\Http\Controllers\User\WishlistController;
 */
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(function () {
-    Route::get('/', function () {
-
-        return view('admin.dashboard');
-    })->name('admin');
+    Route::get('/', [UserController::class, 'dashboard'])->name('admin');
 
     // Users CRUD
     Route::get('users/', [UserController::class, 'index']);
-    Route::get('profile/', [UserController::class, 'profile'])->name('admin.profile');
+    Route::get('/profile', [UserController::class, 'profile'])->name('admin.profile');
+    Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('admin.profile.update');
+    Route::post('/profile/{id}/delete', [UserController::class, 'destroy'])->name('admin.profile.destroy');
 
     // Product Inventory Management
 
@@ -109,19 +108,21 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::post('/prod_type/add', [ProductTypeController::class, 'store'])->name('prod_type.store');
 
     //! PRODUCT
-    Route::get('/products', [ProductController::class, 'index'])->name('products.all');
+    Route::get('/product', [ProductController::class, 'index'])->name('products.all');
 
     Route::get('/product/add', [ProductController::class, 'add'])->name('products.add');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::post('/product/{product}/update', [ProductController::class, 'update'])->name('products.update');
-    Route::post('/product/{product}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/product/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::post('/product/{id}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/product/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::post('/product/add', [ProductController::class, 'store'])->name('products.store');
     Route::get('/users', [ProductController::class, 'users'])->name('users.all');
 
     //! PRODUCT INVENTORY
     Route::get("/inventory/{product}/manage", [ProductInventoryController::class, 'index'])->name("inventory.manage");
+    Route::get("/inventory/manage", [ProductInventoryController::class, 'IndexPage'])->name("inventory.index");
     Route::post("/inventory/store", [ProductInventoryController::class, 'store'])->name("inventory.store");
+    Route::post("/inventory/{id}/delete", [ProductInventoryController::class, 'destroy'])->name("inventory_products.destroy");
 
     // Products Attributes CRUD
     Route::get("/attributes/variation", [ProductAttributeController::class, 'index'])->name("product.variation");
@@ -136,13 +137,20 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
    //Collection CRUD
    Route::get('/collection', [CollectionController::class, 'index',])->name('collections.index');
 
-   Route::get('/collection/adad', [CollectionController::class, 'add',])->name('collections.add');
+   Route::get('/collection/add', [CollectionController::class, 'add',])->name('collections.add');
    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collections.store');
-   Route::get('/collection/{collection}', [CollectionController::class, 'show'])->name('collectons.show');
+   Route::get('/collection/{id}', [CollectionController::class, 'show'])->name('collectons.show');
+   Route::post('/collection/{id}', [CollectionController::class, 'destroy'])->name('collections.destroy');
+
+   //order management
+Route::get("/orders", [OrderController::class, 'index'])->name("orders.index");
+Route::post("/orders/{id}/update", [OrderController::class, 'update_status'])->name("orders.update");
+
+
+// Route::post('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 });
 
-Route::get("/orders", [OrderController::class, 'index'])->name("orders.index");
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -173,6 +181,8 @@ Route::middleware('auth', 'verified')->group(function () {
    Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
    Route::get('/about', [NavigatorController::class, 'about'])->name('about');
    Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
+   Route::post('/contact/message', [NavigatorController::class, 'message'])->name('contact.message');
+   Route::get('/contact/message/show', [NavigatorController::class, 'MessageShow'])->name('contact.message.show');
 
     // add wishlist controller
     Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist');
@@ -186,7 +196,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('change/{id}/{quantity?}', [CartController::class, 'ChangeQty'])->name('cart.quantity');
     //order routes
     Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
-    Route::post('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/review', [OrderController::class, 'review'])->name('review.add');
 
 
     // checkout routes
@@ -201,7 +211,7 @@ Route::middleware('auth', 'verified')->group(function () {
    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
    Route::get('/track_order', [UserController::class, 'track_order'])->name('order_list');
 
-   // Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
+   Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
 
 });
 
@@ -209,10 +219,12 @@ Route::middleware('auth', 'verified')->group(function () {
 
 Route::get('/404', [NavigatorController::class, 'error'])->name('error');
 
-Route::get('/test/{id}/{quantity}', [CartController::class, 'itemtotal']);
+// Route::get('/test/{id}/{quantity}', [CartController::class, 'SingleTotal']);
 
 
-
+Route::get('/thank', function () {
+    return view('template.thankyou');
+});
 
 
 

@@ -6,19 +6,19 @@
             <div class="navbar-brand-box">
                 <a href="/admin" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="32">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="32">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="60">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="60">
                         </span>
                 </a>
 
                 <a href="/admin" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="22">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="22">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="20">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="20">
                         </span>
                 </a>
             </div>
@@ -62,7 +62,7 @@
                 </button>
             </div>
 
-            <div class="dropdown d-inline-block">
+            {{-- <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="mdi mdi-bell-outline bx-tada"></i>
@@ -147,7 +147,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class=admin-"dropdown d-inline-block ">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
@@ -160,9 +160,6 @@
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <a class="dropdown-item" href="{{route('admin.profile')}}"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-wallet-outline font-size-16 align-middle me-1"></i> My Wallet</a>
-                    <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-end">11</span><i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline font-size-16 align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
                     <form method="POST" action="{{ route('logout') }}" class="d-inline">
                         @csrf
@@ -174,12 +171,12 @@
                     </form>
                 </div>
             </div>
-
+{{--
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                     <i class="mdi mdi-cog-outline font-size-20"></i>
                 </button>
-            </div>
+            </div> --}}
 
         </div>
     </div>

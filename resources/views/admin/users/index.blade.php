@@ -72,15 +72,20 @@
                                                             {{ $user->name   }}</td>
                                                         <td>{{ $user->email  }}</td>
                                                         <td>{{$user->phone}}</td>
-                                                        <td>{{$user->userType}}</td>
-
+                                                        @if ($user->userType == 1)
+                                                        <td>User</td>
+                                                        @else
+                                                        <td>Admin</td>
+                                                        @endif
                                                         <td>
-                                                            <a href="/admin/user/{{$user->id}}" class="btn btn-outline-success btn-sm">Show</a>
-                                                            <form class="d-inline" action="/admin/user/{{$user->id}}/edit" method="GET">
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-outline-primary btn-sm">Edit</button>
-                                                            </form>
-                                                            <form class="d-inline" action="/admin/user/{{$user->id}}/delete" method="POST">
+                                                            {{-- <a href="/admin/user/{{$user->id}}" class="btn btn-outline-success btn-sm">Show</a> --}}
+                                                            {{-- <form class="d-inline" action="/admin/user/{{$user->id}}/edit" method="GET">
+                                                                @csrf --}}
+                                                                @if ($user->userType == 0)
+                                                                <a href="{{ route('admin.profile') }}"><button type="submit" class="btn btn-outline-primary btn-sm">Edit</button></a>
+                                                                @endif
+                                                            {{-- </form> --}}
+                                                            <form class="d-inline" action="{{ route('admin.profile.destroy',$user->id) }}" method="POST">
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                                                             </form>

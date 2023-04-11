@@ -18,7 +18,7 @@ class IsAdminCheck
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if (Auth::user()->userType == 1){
+            if (Auth::user()->userType == 0){
                 return $next($request);
             }else{
                 return redirect()->back();

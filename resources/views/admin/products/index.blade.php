@@ -135,8 +135,8 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Browse all Brand</h4>
-                                    <p class="card-title-desc">All of the below brand are fetched from the DateBase</p>
+                                    <h4 class="header-title">Browse all Products</h4>
+                                    <p class="card-title-desc">All of the below products are Dynamic</p>
                                     <div class="table-responsive">
 
                                         <table class="table mb-0">
@@ -166,11 +166,11 @@
                                                                 <a href="{{ route('inventory.manage', $product->id) }}"
                                                                     class="btn btn-outline-primary btn-sm">Manage
                                                                     Inventory</a>
+{{--
+                                                                <a href="{{ route('products.edit', $product->id) }}"
+                                                                    class="btn btn-outline-success btn-sm">Edit</a> --}}
 
-                                                                <a href="{{ route('brand.edit', $product->id) }}"
-                                                                    class="btn btn-outline-success btn-sm">Edit</a>
-
-                                                                <form action="{{ route('brand.delete') }}"
+                                                                <form action="{{ route('products.destroy',$product->id) }}"
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     <input type="hidden" value="{{ $product->id }}"

@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collections', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->text("slug");
-            $table->longText("title");
-            $table->string("discount_percentage");
-            $table->longText("banner_image");
-            $table->longText("description");
-
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('subject');
+            $table->string('description');
+            $table->string('stars_rating');
+            $table->enum('status', ['pending', 'approved','cancelled'])->default('pending');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collections');
+        Schema::dropIfExists('reviews');
     }
 };

@@ -1,7 +1,7 @@
 <x-main-layout>
     {{-- Selective header  --}}
-    {{-- @dd($products) --}}
-    <x-layouts.header :wishlists=$wishlists  />
+    {{-- @dd($product->category) --}}
+    <x-layouts.header :wishlists=$wishlists />
     {{-- @dd($product) --}}
     <!-- main body - start
   ================================================== -->
@@ -351,6 +351,7 @@
         <!-- breadcrumb_section - end
    ================================================== -->
 
+        {{-- @dd($product->category->attributes) --}}
 
         <!-- details_section - start
    ================================================== -->
@@ -361,33 +362,31 @@
                         <div class="shop_details_image">
                             <div class="tab-content zoom-gallery">
                                 <div id="tab_1" class="tab-pane active">
-                                    <a class="popup_image zoom-image"
-                                        data-image="assets/images/details/shop/img_01.jpg"
+                                    <a class="popup_image zoom-image" data-image="assets/images/details/shop/img_01.jpg"
                                         href="assets/images/details/shop/img_01.jpg">
-                                        <img src="{{asset('storage/inventory_images/'.$product->images[0]->product_image)}}" alt="image_not_found">
-                                        {{-- @dd() --}}
+                                        <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                            alt="image_not_found">
                                     </a>
+
                                 </div>
-                                <div id="tab_2" class="tab-pane fade">
-                                    <img src="assets/images/details/shop/img_01.jpg" alt="image_not_found">
-                                </div>
-                                <div id="tab_3" class="tab-pane fade">
-                                    <a class="popup_image" href="assets/images/details/shop/img_06.jpg">
-                                        <img src="assets/images/details/shop/img_06.jpg" alt="image_not_found">
-                                    </a>
-                                </div>
-                                <div id="tab_4" class="tab-pane fade">
-                                    <img src="assets/images/details/shop/img_01.jpg" alt="image_not_found">
-                                </div>
+
+                                {{-- <div id="tab_2" class="tab-pane fade">
+                                <img src=" {{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}" alt="image_not_found">
+                            </div> --}}
+
                             </div>
 
                             <ul class="nav ul_li clearfix" role="tablist">
-                                <li>
-                                    <a class="active" data-toggle="tab" href="#tab_1">
-                                        <img src="assets/images/details/shop/img_02.jpg" alt="image_not_found">
-                                    </a>
-                                </li>
-                                <li>
+                                @foreach ($product->images as $image)
+                                    <li>
+                                        <a class="active" data-toggle="tab" href="#tab_1">
+                                            <img src=" {{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                                alt="image_not_found">
+                                        </a>
+                                    </li>
+                                @endforeach
+
+                                {{-- <li>
                                     <a data-toggle="tab" href="#tab_2">
                                         <img src="assets/images/details/shop/img_03.jpg" alt="image_not_found">
                                     </a>
@@ -401,7 +400,7 @@
                                     <a data-toggle="tab" href="#tab_4">
                                         <img src="assets/images/details/shop/img_05.jpg" alt="image_not_found">
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -417,12 +416,14 @@
                                         <span class="brand_title">Category:</span>
                                         <span class="brand_image d-flex align-items-center justify-content-center"
                                             data-bg-color="#f7f7f7">
-                                             {{ $product->category->name}}
+                                            {{ $product->category->name }}
+                                            {{-- @dd($product->reviews[0]->star_rating) --}}
+
                                         </span>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-7">
+                                {{-- <div class="col-lg-7">
                                     <div class="rating_review_wrap d-flex align-items-center clearfix">
                                         <ul class="rating_star ul_li">
                                             <li><i class="fas fa-star"></i></li>
@@ -434,17 +435,26 @@
                                         <span>4 Review(s)</span>
                                         <button type="button" class="add_review_btn">Add Your Review</button>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <p class="mb-0">
-                               {{$product->description}}
+                                {{ $product->description }}
                             </p>
                             <hr>
-                            {{-- @dd($product->prod_inventory) --}}
-                            {{-- @foreach ($product->attributes as )
-
-                            @endforeach --}}
-                            <div class="item_color_list mb_30 clearfix">
+                            @foreach ($product->category->attributes as $attributes)
+                                {{-- @dd($attributes) --}}
+                                <div class=" d-flex item_size_list mb_30 clearfix">
+                                    <h4 class="list_title mb_15 text-uppercase">{{ $attributes->attribute_name }}</h4>
+                                    @foreach ($attributes->prod_attribute_value as $value)
+                                        <ul class="ul_li clearfix">
+                                            <li> {{ $value->attribute_value }}</li>
+                                        </ul>
+                                    @endforeach
+                                    {{-- <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
+                                    Guide</a></li> --}}
+                                </div>
+                            @endforeach
+                            {{-- <div class="item_color_list mb_30 clearfix">
                                 <h4 class="list_title mb_15 text-uppercase">Color</h4>
                                 <ul class="ul_li clearfix">
                                     <li>
@@ -471,44 +481,109 @@
                                     <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
                                             Guide</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
 
                             <ul class="btns_group_1 ul_li mb_30 clearfix">
-                                <li>
+                                {{-- <li>
                                     <div class="quantity_input">
-                                        <form action="#">
-                                            <span class="input_number_decrement">–</span>
-                                            <input class="input_number" type="text" value="1">
-                                            <span class="input_number_increment">+</span>
-                                        </form>
+                                        <span class="input_number_decrement">–</span>
+                                        <input class="input_number quantity"
+                                            data-route="{{ route('cart.quantity', $product->id) }}"
+                                            value="{{ $product->squantity ? $product->squantity : '0' }}" min="1"
+                                            step="1" id="quantity{{ $product->id }}" data-decimals="0" required>
+                                        <span class="input_number_increment">+</span>
                                     </div>
+                                </li> --}}
+                                <li>
+
+                                    <a class="custom_btn btn_sm bg_electronic_blue add-wishlist"
+                                        data-route="{{ route('add.wishlist', $product->id) }}">Add To
+                                        Wishlist</a>
+
                                 </li>
                                 <li>
-                                    <a class="custom_btn bg_black text-uppercase" href="#!"><i
-                                            class="fal fa-shopping-bag mr-2"></i> Add To Cart</a>
+                                    {{-- <a class="custom_btn bg_black text-uppercase" href="#!"><i
+                                            class="fal fa-shopping-bag mr-2"></i> Add To Cart</a> --}}
+                                    <a class="custom_btn btn_sm bg_electronic_blue add-cart"
+                                        data-route="{{ route('add-cart', $product->id) }}">Add To
+                                        Cart</a>
                                 </li>
                             </ul>
 
-                            <ul class="btns_group_2 ul_li clearfix">
-                                <li><a href="#!"><span><i class="far fa-heart"></i></span> Add to Wishlist</a>
+                            {{-- <ul class="btns_group_2 ul_li clearfix">
+                                <li>
+                                    <a href="#!">     <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                        data-route="{{ route('add.wishlist', $product->id) }}"></i>  Add To Wishlist</a>
+
                                 </li>
                                 <li><a href="#!"><span><i class="fal fa-repeat"></i></span> Compare</a></li>
-                            </ul>
+                            </ul> --}}
 
                             <hr>
 
-                            <ul class="product_info ul_li_block clearfix">
+                            {{-- <ul class="product_info ul_li_block clearfix">
                                 <li><strong>SKU:</strong> U2012</li>
                                 <li><strong>Categories:</strong> <a href="#!">Dress</a> <a
                                         href="#!">Handbag</a> <a href="#!">T-Shirts</a></li>
                                 <li><strong>Tags:</strong> <a href="#!">Hot</a> <a href="#!">Women</a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>
 
                 <div class="details_description_tab mb_100">
-                    <ul class="nav ul_li text-uppercase" role="tablist">
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <h2>Reviews Section</h2>
+                        @if (count($product->reviews) > 0)
+
+                            @foreach ($product->reviews as $review)
+                                <div class="row mb_50">
+                                    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                                        <div class="content_wrap">
+                                            <h4 class=" mt-4 mb-0">{{ $review->user->name }}</h4>
+                                            @if ($review->stars_rating == 1)
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                            @elseif ($review->stars_rating == 2)
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                            @elseif ($review->stars_rating == 3)
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                            @elseif ($review->stars_rating == 4)
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                            @elseif ($review->stars_rating == 5)
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                                <span class="bi bi-star-fill text-warning"></span>
+                                            @endif
+                                            <span>{{ $review->created_at->format('d/m/Y') }}
+                                            </span>
+                                            {{-- <h5 class="text-secondary m-0">{{ $review->stars_rating }}</h5> --}}
+                                            {{-- <h4 class="text-secondary">{{ $review->subject }}</h4> --}}
+                                            <p class="mb_30">
+                                                {{ $review->description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="shadow p-3 m-5 bg-white rounded">
+                                <h3 class="text-center mb-3">No Rating Yet</h3>
+                            </div>
+
+                        @endif
+
+
+                    </div>
+
+                    {{-- <ul class="nav ul_li text-uppercase" role="tablist">
                         <li>
                             <a class="active" data-toggle="tab" href="#description_tab">Product Description</a>
                         </li>
@@ -609,33 +684,43 @@
                         </div>
 
                         <div id="reviews_tab" class="tab-pane fade">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form_item">
-                                            <input type="text" name="name" placeholder="Your Name">
-                                        </div>
-                                    </div>
+                            <div class="row mb_50">
 
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form_item">
-                                            <input type="email" name="email" placeholder="Your Email">
-                                        </div>
-                                    </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="content_wrap">
+                                        <p class="mb_30">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur
+                                        </p>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form_item">
-                                            <input type="text" name="subject" placeholder="Subject">
-                                        </div>
+                                        <h4 class="list_title">Pretium turpis et arcu</h4>
+                                        <p class="mb_30">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur
+                                        </p>
+
+                                        <h4 class="list_title">Unordered list</h4>
+                                        <p class="mb_30">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur.
+                                        </p>
+
+                                        <ul class="product_info ul_li_block clearfix">
+                                            <li><strong>Color:</strong> Brown, Grey, Nude, Red</li>
+                                            <li><strong>Size:</strong> L, M, S, XL, XS</li>
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <div class="form_item">
-                                    <textarea name="message" placeholder="Your Message"></textarea>
-                                </div>
-                                <button type="submit" class="custom_btn bg_default_red text-uppercase">Submit
-                                    Review</button>
-                            </form>
+                            </div>
                         </div>
 
                         <div id="information_tab" class="tab-pane fade">
@@ -718,7 +803,7 @@
                                 <img src="assets/images/icons/aware_icons.png" alt="image_not_found">
                             </span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <hr class="mt-0 mb_100">
@@ -727,56 +812,64 @@
                     <h3 class="title_text mb_30">Popular Products</h3>
                     <div class="popular_products_carousel arrow_ycenter mt__30">
                         <div class="slideshow4_slider row" data-slick='{"dots": false}'>
-                            <div class="col item">
-                                <div class="ecommerce_product_grid">
-                                    <ul class="product_label ul_li clearfix">
-                                        <li class="bg_leafgreen">10% OFF</li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div id="ptab1_1" class="tab-pane fade active">
-                                            <div class="item_image">
-                                                <img src="assets/images/shop/classic_ecommerce/img_01.png"
-                                                    alt="image_not_found">
-                                            </div>
-                                        </div>
-                                        <div id="ptab1_2" class="tab-pane fade">
-                                            <div class="item_image">
-                                                <img src="assets/images/shop/classic_ecommerce/img_02.png"
-                                                    alt="image_not_found">
-                                            </div>
-                                        </div>
-                                        <div id="ptab1_3" class="tab-pane fade">
-                                            <div class="item_image">
-                                                <img src="assets/images/shop/classic_ecommerce/img_03.png"
-                                                    alt="image_not_found">
-                                            </div>
-                                        </div>
-                                        <ul class="product_action_btns ul_li_center clearfix">
-                                            <li><a class="tooltips" data-placement="top" title="Add To Wishlist"
-                                                    href="#!"><i class="fal fa-heart"></i></a></li>
-                                            <li><a class="tooltips" data-placement="top" title="Add To Cart"
-                                                    href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-                                            <li><a class="tooltips" data-placement="top" title="Quick View"
-                                                    href="#!" data-toggle="modal"
-                                                    data-target="#quickview_modal"><i class="fal fa-search"></i></a>
-                                            </li>
+                            @foreach ($inventory_products as $inventory)
+                                <div class="col item">
+                                    <div class="ecommerce_product_grid">
+                                        <ul class="product_label ul_li clearfix">
+                                            @if ($inventory->discount_price)
+                                                <li class="bg_leafgreen">{{ $inventory->discount_price }}</li>
+                                            @endif
                                         </ul>
+                                        <div class="tab-content">
+                                            <div id="ptab1_1" class="tab-pane fade active">
+                                                <div class="item_image">
+                                                    <img src="{{ asset('storage/inventory_images/' . $inventory->inven_prod_images[0]->product_image) }}"
+                                                        alt="image_not_found">
+                                                </div>
+                                            </div>
+                                            {{-- <div id="ptab1_2" class="tab-pane fade">
+                                        <div class="item_image">
+                                            <img src="assets/images/shop/classic_ecommerce/img_02.png"
+                                                alt="image_not_found">
+                                        </div>
                                     </div>
-                                    <div class="item_content">
-                                        <h3 class="item_title">
-                                            <a href="#!">Rag & Bone Beck Coat</a>
-                                        </h3>
-                                        <ul class="product_color ul_li nav clearfix">
-                                            <li class="active"><a class="pbg_brown" data-toggle="tab"
-                                                    href="#ptab1_1"></a></li>
-                                            <li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab1_2"></a></li>
-                                            <li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
-                                        </ul>
-                                        <span class="item_price"><strong>$25.00</strong> <del>$30.00</del></span>
+                                    <div id="ptab1_3" class="tab-pane fade">
+                                        <div class="item_image">
+                                            <img src="assets/images/shop/classic_ecommerce/img_03.png"
+                                                alt="image_not_found">
+                                        </div>
+                                    </div> --}}
+                                            <ul class="product_action_btns ul_li_center clearfix ">
+                                                <li>
+                                                    <a class="tooltips" data-placement="top" title="Add To Wishlist"
+                                                        href="javascript:void"><i class="fal fa-heart add-wishlist"
+                                                            data-route="{{ route('add.wishlist', $inventory->id) }}"></i></a>
+                                                </li>
+                                                <li><a class="tooltips" data-placement="top" title="Add To Cart"
+                                                        href="javascript:void"><i
+                                                            class="fal fa-shopping-basket add-cart "
+                                                            data-route="{{ route('add-cart', $inventory->id) }}"></i></a>
+                                                </li>
+                                                {{-- <li><a class="tooltips" data-placement="top" title="Quick View"
+                                                href="#!" data-toggle="modal"
+                                                data-target="#quickview_modal"><i class="fal fa-search"></i></a>
+                                        </li> --}}
+                                            </ul>
+                                        </div>
+                                        <div class="item_content">
+                                            <a href="{{ route('product_detail', $inventory->products->id) }}"
+                                                style="text-decoration: none">
+                                                <h3 class="item_title">
+                                                    {{ $inventory->products->name }}
+                                                </h3>
+                                                <span class="item_price"><strong>Rs.
+                                                        {{ $inventory->retail_price }}</strong></span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            @endforeach
+                            {{--
                             <div class="col item">
                                 <div class="ecommerce_product_grid">
                                     <ul class="product_label ul_li clearfix">
@@ -1114,11 +1207,10 @@
                                         <span class="item_price"><strong>$25.00</strong> <del>$35.00</del></span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="carousel_nav">
-                            <button type="button" class="ss4_left_arrow"><i
-                                    class="fal fa-angle-left"></i></button>
+                            <button type="button" class="ss4_left_arrow"><i class="fal fa-angle-left"></i></button>
                             <button type="button" class="ss4_right_arrow"><i
                                     class="fal fa-angle-right"></i></button>
                         </div>

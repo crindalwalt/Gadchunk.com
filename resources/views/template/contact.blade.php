@@ -312,7 +312,7 @@
 
 			<!-- breadcrumb_section - start
 			================================================== -->
-			<section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix" data-background="assets/images/breadcrumb/bg_01.jpg">
+			<section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix" data-background="{{ asset('images/contact.jpg') }}">
 				<div class="overlay" data-bg-color="#1d1d1d"></div>
 				<div class="container">
 					<h1 class="page_title text-white">Contact Us</h1>
@@ -354,7 +354,7 @@
 											<i class="fal fa-map-marked-alt"></i>
 										</span>
 										<p class="mb-0">
-											75 South Park Avenue, Melbourne, Australia
+											shop # 7 Avenue mall, Lahore, Pakistan
 										</p>
 									</li>
 									<li>
@@ -367,7 +367,7 @@
 										<span class="icon">
 											<i class="fal fa-paper-plane"></i>
 										</span>
-										<p class="mb-0">Jthemes@gmail.com</p>
+										<p class="mb-0">support@gmail.com</p>
 									</li>
 								</ul>
 							</div>
@@ -375,8 +375,10 @@
 
 						<div class="col-lg-7">
 							<div class="main_contact_form">
-								<h3 class="title_text mb_30">FeedBack</h3>
-								<form action="#">
+								<h3 class="title_text mb_30">Contact Us</h3>
+								<form action="{{ route('contact.message') }}" method="post">
+                                    @csrf
+                                    <input type="text" hidden name="user_id" value="{{ Auth::user()->id }}" >
 									<div class="row">
 										<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 											<div class="form_item">
@@ -400,7 +402,7 @@
 									<div class="form_item">
 										<textarea name="message" placeholder="Your Message"></textarea>
 									</div>
-									<button type="submit" class="custom_btn bg_default_red text-uppercase">view projects</button>
+									<button type="submit" class="custom_btn bg_default_red text-uppercase">Send</button>
 								</form>
 							</div>
 						</div>

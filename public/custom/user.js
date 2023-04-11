@@ -13,8 +13,8 @@ $(".add-cart").click(function () {
     $.get(route, function (response) {
         $("#cart-count").html(response.count);
         if (response.success) {
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Product added in cart!', 'success', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Product added in cart!', 'success', 4, function () { console.log('dismissed'); });
             // Swal.fire({
             //     icon: "success",
             //     title: "Success!",
@@ -24,8 +24,8 @@ $(".add-cart").click(function () {
             // });
 
         } else {
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Product Already Added', 'warning', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Product Already Added', 'warning', 4, function () { console.log('dismissed'); });
             // Swal.fire({
             //     icon: "error",
             //     title: "Error",
@@ -51,8 +51,8 @@ $(document).on('click', '#remove-product', function () {
     }, 1000);
     $.get($(this).data('route'), function (res) {
         if (response.success) {
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Product remove from cart', 'success', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Product remove from cart', 'success', 4, function () { console.log('dismissed'); });
             // Swal.fire({
             //     icon: "success",
             //     title: "Success!",
@@ -62,8 +62,8 @@ $(document).on('click', '#remove-product', function () {
             // });
 
         } else {
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Something went wrong', 'error', 4, function () { console.log('dismissed'); });
         }
     })
 
@@ -79,8 +79,8 @@ $(".add-wishlist").click(function () {
             setTimeout(function () {
                 window.location.reload(true);
             }, 1000);
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Product added in wishlist', 'success', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Product added in wishlist', 'success', 4, function () { console.log('dismissed'); });
             // Swal.fire({
             //     icon: "success",
             //     title: "Success!",
@@ -89,8 +89,8 @@ $(".add-wishlist").click(function () {
             //     timer: 3000,
             // });
         } else {
-            alertify.set('notifier','position', 'top-right');
-            alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.notify('Already Added in Wishlist', 'error', 4, function () { console.log('dismissed'); });
         }
     })
 
@@ -102,9 +102,9 @@ $(document).on('click', '.wishremove', function () {
     item = $(this).data('item');
     $.get($(this).data('route'), function (res) {
         $("#" + item).remove();
-          setTimeout(function () {
-        window.location.reload(true);
-    }, 1000);
+        setTimeout(function () {
+            window.location.reload(true);
+        }, 1000);
         Swal.fire({
             icon: "success",
             title: "Success!",
@@ -126,6 +126,7 @@ $(document).on('change', '.quantity', function () {
     var url = $(this).data('route') + "/" + quantity;
     $.get(url, function (res) {
         $('.total_price').html(res.totalPrice);
+        $('.single_total' + res.id).html(res.single_total);
         $('.sub_total').html(res.sub_total);
         $('.discount').html(res.discount);
     })
@@ -133,47 +134,46 @@ $(document).on('change', '.quantity', function () {
 
 // product filters
 
-// var arr = [];
-// $(document).on("click", '.filter', function () {
-//     var val = $(this).val();
-//     if ($(this).data('type') == val) {
-//         if ($(this).is(":checked")) {
-//             arr.push($(this).val());
-//         } else {
-//             const index = arr.indexOf(val);
-//             if (index > -1) {
-//                 arr.splice(index, 1);
-//             }
-//         }
-//     }
-//     console.log(arr)
-//     $.ajax({
-//         type: "POST",
-//         url: '/filter',
-//         headers:{
-//          'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-//         },
-//         data: {
-//             "result": arr,
-//         },
-//         success: function (data) {
-//             // $("#result").html(data);
-//             console.log(data);
+var arr = [];
+$(document).on("click", '.filter', function () {
+    var val = $(this).val();
+    if ($(this).data('type') == val) {
+        if ($(this).is(":checked")) {
+            arr.push($(this).val());
+        } else {
+            const index = arr.indexOf(val);
+            if (index > -1) {
+                arr.splice(index, 1);
+            }
+        }
+    }
+    $.ajax({
+        type: "GET",
+        url: '/filter',
+        // headers:{
+        //  'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        // },
+        data: {
+            "result": arr,
+        },
+        success: function (data) {
+            $("#result").html(data);
+            console.log(data);
 
-//         },
-//         error: function (data) {
-//             console.log(data);
-//             // alert('error');
-//             // Swal.fire({
-//             //     icon: "error",
-//             //     title: "Error!",
-//             //     text: "Something went wrong!",
-//             //     type: "error",
-//             //     timer: 3000,
-//             // });
-//             alertify.set('notifier','position', 'top-right');
-//             alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
-//         }
-//     });
-// });
+        },
+        error: function (data) {
+            console.log(data);
+            // alert('error');
+            // Swal.fire({
+            //     icon: "error",
+            //     title: "Error!",
+            //     text: "Something went wrong!",
+            //     type: "error",
+            //     timer: 3000,
+            // });
+            alertify.set('notifier','position', 'top-right');
+            alertify.notify('Something went wrong', 'error', 4, function(){  console.log('dismissed'); });
+        }
+    });
+});
 

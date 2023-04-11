@@ -9,7 +9,7 @@
 							<div class="footer_widget footer_useful_links clearfix">
 								<h3 class="footer_widget_title">Buyer Central</h3>
 								<ul class="ul_li_block clearfix">
-									<li><a href="#!">Sign in</a></li>
+									<li><a href="{{ route('register') }}">Sign in</a></li>
 									<li><a href="#!">Buyer Protection</a></li>
 									<li><a href="#!">Payment Options</a></li>
 									<li><a href="#!">Shipping Policy</a></li>
@@ -58,11 +58,11 @@
 							<div class="footer_widget footer_useful_links clearfix">
 								<h3 class="footer_widget_title">Information</h3>
 								<ul class="ul_li_block clearfix">
-									<li><a href="#!">About Us</a></li>
+									<li><a href="{{ route('about') }}">About Us</a></li>
 									<li><a href="#!">Band of Trust</a></li>
 									<li><a href="#!">Market History</a></li>
 									<li><a href="#!">News</a></li>
-									<li><a href="#!">Contact us</a></li>
+									<li><a href="{{ route('contact') }}">Contact us</a></li>
 								</ul>
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 										</div>
 										<div class="item_content">
 											<p class="mb-0">
-												1789 Street Name, City Name, United States
+												shop #123,Lahore,Pakistan
 											</p>
 										</div>
 									</li>
@@ -95,7 +95,7 @@
 											<i class="fas fa-envelope"></i>
 										</div>
 										<div class="item_content">
-											<p class="mb-0">Email: support@uxnaqvi.com</p>
+											<p class="mb-0">Email: support@mail.com</p>
 											<p class="mb-0">9AM-5PM, Mon - Sat, GMT+3</p>
 										</div>
 									</li>
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 
-			<div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
+			{{-- <div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-5 col-md-7 col-sm-9 col-xs-12">
@@ -127,7 +127,7 @@
 							</div>
 						</div>
 
-						{{-- <div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
+						<div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
 							<ul class="circle_social_links ul_li_right clearfix">
 								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
@@ -135,12 +135,12 @@
 								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
 								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
 							</ul>
-						</div> --}}
+						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
-			<div class="footer_bottom text-white clearfix" data-bg-color="#191e22">
+			<div class="footer_bottom text-white clearfix" data-bg-color="#282824 ">
 				<div class="container">
 					<div class="row justify-content-lg-between align-items-center">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

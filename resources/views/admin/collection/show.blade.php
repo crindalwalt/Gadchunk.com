@@ -51,7 +51,8 @@
                                                 <div class="row">
                                                         <div class="mb-3">
                                                             <label class="form-label font-size-44"> Name : </label>
-                                                            {{$collection->name}}
+                                                            @dd($collection->id)
+                                                            {{$collection->products}}
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label font-size-44"> Title : </label>
@@ -69,20 +70,20 @@
                                                             <label class="form-label font-size-44">Description : </label>
                                                             {{$collection->description}}
                                                         </div>
-                                                    
-                                                    
-                    
+
+
+
                                                 </div>
                                             </div>
                                             <!-- end product img -->
                                         </div>
-                                        
+
                                     </div>
                                     <!-- end row -->
                                 </div>
                             </div>
 
-                         
+
                         </div>
                     </div>
                     <!-- end card -->

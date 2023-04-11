@@ -38,136 +38,6 @@
 
 
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card" id="product_div_'1">
-                                <div class="card-body">
-                                    <form action="{{ route('inventory.store') }}" enctype="multipart/form-data"
-                                        method="POST">
-                                        @csrf
-
-                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <h4 class="header-title">Managing Inventory for <b>{{ $product->name }}</b><span
-                                                class="d-inline-block badge bg-secondary text-white mx-1 px-1 ">{{ $product->category->name }}</span>
-                                        </h4>
-                                        <p class="card-title-desc">{{ $product->description }}</p>
-
-                                        <div class="bg-soft " id="add_div">
-                                            <div class="row">
-
-                                                {{-- <h5 class="header-title">Managing Inventory for
-                                                    Choose Available Attribute
-                                                </h5> --}}
-                                                @php
-                                                    $array = $product->category->attributes;
-                                                @endphp
-                                                @foreach ($array as $attr)
-                                                    <div class="col-6 mb-3">
-                                                        <label class="control-label">{{ $attr->attribute_name }}</label>
-                                                        <select name="{{ 'attribute' . '[]' }}"
-                                                            id="attr_{{ $attr->id }}" class="form-control select2" multiple>
-                                                            @php
-                                                                $array_next = $attr->prod_attribute_value;
-                                                            @endphp
-                                                            <option value="{{ null }}">Select an option
-                                                            </option>
-                                                            @foreach ($array_next as $value)
-                                                                <option value="{{ $value->id }}"
-                                                                    id="options_{{ $value->id }}"
-                                                                    class="d-flex justify-content-between ">
-                                                                    {{ $value->attribute_value }}
-                                                                    <small
-                                                                        class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                                </option>
-
-                                                            @endforeach
-                                                        </select>
-                                                        @error("{{ $attr->attribute_name }}")
-                                                            <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                @endforeach
-
-                                                <div class="col-6 mb-3">
-                                                    <label for="example-text-input"
-                                                        class="col-sm-6 col-form-label">Retail
-                                                        Price</label>
-                                                    <div class="col-sm-12">
-                                                        <input class="form-control" type="text"
-                                                            placeholder="Enter retail price" id="example-text-input"
-                                                            name="retail_price">
-                                                        @error('retail_price')
-                                                            <div class="text-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-6 mb-3">
-                                                    <label for="example-text-input"
-                                                        class="col-sm-6 col-form-label">Discount
-                                                        Price</label>
-                                                    <div class="col-sm-12">
-                                                        <input class="form-control" type="text"
-                                                            placeholder="Enter store price(if any)"
-                                                            id="example-text-input" name="discount_price">
-                                                        @error('discount_price')
-                                                            <div class="text-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 mb-3">
-                                                    <label for="example-text-input"
-                                                        class="col-sm-6 col-form-label">Stock
-                                                    </label>
-                                                    <div class="col-sm-12">
-                                                        <input class="form-control" type="text"
-                                                            placeholder="Enter store price" id="example-text-input"
-                                                            name="stock">
-                                                        @error('stock')
-                                                            <div class="text-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 mb-3">
-                                                    <label for="example-text-input"
-                                                        class="col-sm-6 col-form-label">Product Image
-                                                    </label>
-                                                    <div class="col-sm-12">
-                                                        <input class="form-control" type="file"
-                                                            placeholder="Enter store price" id="example-text-input"
-                                                            name="product_image[]" multiple>
-                                                        @error('product_image[]')
-                                                            <div class="text-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                {{-- <button  type="button" class="btn btn-success col-md-2 float-end m-4" onclick="add_more({{$array}},{{$array_next}})">Add</button> --}}
-
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="container">
-                                    <div class="  form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" name="in_stock"
-                                            id="flexSwitchCheckChecked" checked>
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">In
-                                            Stock</label>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="#">
-                                        <input class="btn btn-lg px-4 py-2 btn-primary m-3" type="submit"
-                                            value="Add to Inventory" id="example-email-input">
-
-                                    </div>
-                                </div>
-
-                                </form>
-
-                            </div>
-
-                        </div>
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Inventory Products</h4>
@@ -182,8 +52,8 @@
                                                     <th>#</th>
                                                     <th> Name</th>
                                                     <th> Retail Price</th>
-                                                    <th> Retail Price</th>
-                                                    <th> Stock Price</th>
+                                                    <th> Discount Price </th>
+                                                    <th> Stock </th>
                                                     <th> Status</th>
                                                     <th>Actions</th>
 
@@ -194,19 +64,135 @@
                                                 @foreach ($inventories as $inv)
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $inv->product_id }}</td>
+                                                        <td>{{ $inv->products->name }}</td>
                                                         <td>{{ $inv->retail_price }}</td>
-                                                        <td>{{ $inv->discount_price }}</td>
-                                                        <td>{{ $inv->store_price }}</td>
+                                                        @if ($inv->discount_price)
+                                                            <td>{{ $inv->discount_price }}</td>
+                                                        @else
+                                                            <td>NULL</td>
+                                                        @endif
+                                                        <td>{{ $inv->stock }}</td>
                                                         <td>{{ $inv->in_stock }}</td>
 
                                                         <td class="">
-                                                            <a href="/admin/collection/"
-                                                                class="btn btn-outline-success btn-sm">Show</a>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-outline-success"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal1{{ $inv->id }}">
+                                                                show
+                                                            </button>
 
-                                                            <form action="" method="POST" class="d-inline">
+                                                            <!-- Modal -->
+                                                            <div class="modal fade"
+                                                                id="exampleModal1{{ $inv->id }}" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <form action="" method="post">
+                                                                        @csrf
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalCenterTitle">
+                                                                                    {{ $inv->products->name }}
+                                                                                    <span>Detail</span>
+                                                                                </h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <span
+                                                                                        aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <h3>Name Product : <span
+                                                                                        class="text-secondary">{{ $inv->products->name }}</span>
+                                                                                </h3>
+                                                                                <h3>Retail Price : <span
+                                                                                        class="text-secondary">{{ $inv->retail_price }}</span>
+                                                                                </h3>
+                                                                                <h3>Discount Price : <span
+                                                                                        class="text-secondary">{{ $inv->discount_price }}</span>
+                                                                                </h3>
+                                                                                {{-- <h3>Variation Available : </h3>
+                                                                                @dd($inv->inven_prod_attributes->attribute_id)
+                                                                                <p>
+                                                                                    @foreach ($inv->inven_prod_attributes as $attr)
+                                                                                    <h5>=> {{ $attr->attribute_name }}</h5>
+                                                                                    @foreach ($array_next as $value)
+                                                                                    <li value="{{ $value->id }}"
+                                                                                        id="options_{{ $value->id }}"
+                                                                                        class="d-flex justify-content-between ">
+                                                                                        {{ $value->attribute_value }}
+                                                                                        <small
+                                                                                            class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
+                                                                                    </li>
+                                                                                @endforeach
+                                                                                    @endforeach
+                                                                                </p> --}}
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                {{-- <button type="submit"
+                                                                                    class="btn btn-primary">Save
+                                                                                    changes</button> --}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-outline-primary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal{{ $inv->id }}">
+                                                                Edit
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade "
+                                                                id="exampleModal{{ $inv->id }}" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog ">
+                                                                    <form action="" method="post">
+                                                                        @csrf
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalCenterTitle">
+                                                                                    {{ $inv->products->name }}
+                                                                                </h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <span
+                                                                                        aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+
+
+                                                                            </div>
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">Update</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <form
+                                                                action="{{ route('inventory_products.destroy', $inv->id) }}"
+                                                                method="POST" class="d-inline">
                                                                 @csrf
-                                                                <input type="hidden" value="" name="id">
+                                                                <input type="hidden" value="{{ $inv->id }}"
+                                                                    name="id">
                                                                 <button type="submit"
                                                                     class="btn btn-sm btn-outline-danger">Delete</button>
                                                             </form>

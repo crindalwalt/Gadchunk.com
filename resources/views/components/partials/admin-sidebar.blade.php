@@ -61,8 +61,8 @@
                         <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/prod_type">Products Type</a></li>
-                        <li><a href="/admin/prod_var">Products Variation</a></li>
+                        {{-- <li><a href="/admin/prod_type">Products Type</a></li>
+                        <li><a href="/admin/prod_var">Products Variation</a></li> --}}
                         <li><a href="/admin/product/add">Manage Products</a></li>
 
                     </ul>
@@ -74,9 +74,7 @@
                         <span>Product Inventory</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/product_inventory">Manage Inventory</a></li>
-                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
-
+                        <li><a href="{{ route('inventory.index') }}">Manage Inventory</a></li>
                     </ul>
                 </li> --}}
                 <li>
@@ -106,33 +104,11 @@
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
                     </ul>
-                </li>
-                {{-- Weight pane --}}
-                {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-stack"></i>
-                        <span>Weight</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/weight">Manage Weight</a></li>
-                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
-
-                    </ul>
                 </li> --}}
 
-                {{-- Order pane --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-stack"></i>
-                        <span>Order Management</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('orders.index')}}">Manage Orders</a></li>
-                    </ul>
-                </li>
 
 
-                <li class="menu-title">Customers</li>
+                <li class="menu-title">Analytics</li>
 
                 {{-- Customers pane --}}
                 <li>
@@ -145,26 +121,194 @@
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
                     </ul>
                 </li>
+                {{-- Customers pane --}}
+                <li>
+                    <a href="{{route('contact.message.show')}}" class="waves-effect">
+                        <i class="dripicons-user"></i>
+                        <span>All Messages</span>
+                    </a>
+                </li>
+
                 {{-- Order pane --}}
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect has-arrow ">
-                        <i class="dripicons-to-do"></i>
-                        {{-- <span class="badge rounded-pill bg-danger float-end"></span> --}}
-                        <span>Orders</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-stack"></i>
+                        <span>Order Management</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route("orders.index") }}">All Orders</a></li>
-                        <li><a href="/admin/orders/new">New Orders</a></li>
-                        <li><a href="/admin/orders/completed">Completed Orders</a></li>
-
+                        <li><a href="{{ route('orders.index') }}">Manage Orders</a></li>
                     </ul>
+                </li>
+
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
+                {{--                        <i class="dripicons-suitcase"></i> --}}
+                {{--                        <span>UI Elements</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="ui-alerts.html">Alerts</a></li> --}}
+                {{--                        <li><a href="ui-buttons.html">Buttons</a></li> --}}
+                {{--                        <li><a href="ui-cards.html">Cards</a></li> --}}
+                {{--                        <li><a href="ui-carousel.html">Carousel</a></li> --}}
+                {{--                        <li><a href="ui-dropdowns.html">Dropdowns</a></li> --}}
+                {{--                        <li><a href="ui-grid.html">Grid</a></li> --}}
+                {{--                        <li><a href="ui-images.html">Images</a></li> --}}
+                {{--                        <li><a href="ui-lightbox.html">Lightbox</a></li> --}}
+                {{--                        <li><a href="ui-modals.html">Modals</a></li> --}}
+                {{--                        <li><a href="ui-rangeslider.html">Range Slider</a></li> --}}
+                {{--                        <li><a href="ui-session-timeout.html">Session Timeout</a></li> --}}
+                {{--                        <li><a href="ui-progressbars.html">Progress Bars</a></li> --}}
+                {{--                        <li><a href="ui-sweet-alert.html">Sweet-Alert</a></li> --}}
+                {{--                        <li><a href="ui-tabs-accordions.html">Accordions</a></li> --}}
+                {{--                        <li><a href="ui-typography.html">Typography</a></li> --}}
+                {{--                        <li><a href="ui-video.html">Video</a></li> --}}
+                {{--                        <li><a href="ui-general.html">General</a></li> --}}
+                {{--                        <li><a href="ui-colors.html">Colors</a></li> --}}
+                {{--                        <li><a href="ui-rating.html">Rating</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
+
+
+
+
+
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="waves-effect"> --}}
+                {{--                        <i class="dripicons-to-do"></i> --}}
+                {{--                        <span class="badge rounded-pill bg-danger float-end">6</span> --}}
+                {{--                        <span>Forms</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="form-elements.html">Form Elements</a></li> --}}
+                {{--                        <li><a href="form-validation.html">Form Validation</a></li> --}}
+                {{--                        <li><a href="form-advanced.html">Form Advanced</a></li> --}}
+                {{--                        <li><a href="form-editors.html">Form Editors</a></li> --}}
+                {{--                        <li><a href="form-uploads.html">Form Upload</a></li> --}}
+                {{--                        <li><a href="form-xeditable.html">Form Xeditable</a></li> --}}
+                {{--                        <li><a href="form-wizard.html">Form Wizard</a></li> --}}
+                {{--                        <li><a href="form-mask.html">Form Mask</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
+
+                {{-- <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-graph-pie"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="charts-apex.html">Apex charts</a></li>
+                        <li><a href="charts-chartist.html">Chartist</a></li>
+                        <li><a href="charts-chartjs.html">Chartjs Chart</a></li>
+                        <li><a href="charts-flot.html">Flot Chart</a></li>
+                        <li><a href="charts-knob.html">Knob Chart</a></li>
+                        <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
+                    </ul>
+                </li> --}}
+
+
+                <li class="menu-title">Settings</li>
+                {{-- Profile pane --}}
+                <li>
+                    <a href="{{ route('profile') }}" class=" waves-effect">
+                        <i class="dripicons-article"></i>
+                        <span>Profile Page</span>
+                    </a>
+                    {{-- <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/admin/promotion">All Promotions</a></li>
+                        <li><a href="{{ route('collections.add') }}">Add Collection</a></li>
+
+                    </ul> --}}
                 </li>
 
 
 
+                {{-- logout Pane --}}
+                <li>
+
+                    <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
+                        @csrf
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <i class="dripicons-power"></i>
+                            <span>Logout</span>
+                        </a>
+                    </form>
+                    {{-- <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="email-inbox.html">Inbox</a></li>
+                        <li><a href="email-read.html">Email Read</a></li>
+                        <li><a href="email-compose.html">Email Compose</a></li>
+                    </ul> --}}
+                </li>
 
 
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
+                {{--                        <i class="dripicons-toggles"></i> --}}
+                {{--                        <span>Tables</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="tables-basic.html">Basic Tables</a></li> --}}
+                {{--                        <li><a href="tables-datatable.html">Data Tables</a></li> --}}
+                {{--                        <li><a href="tables-responsive.html">Responsive Table</a></li> --}}
+                {{--                        <li><a href="tables-editable.html">Editable Table</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
 
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
+                {{--                        <i class="dripicons-basket"></i> --}}
+                {{--                        <span>Icons</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="icons-materialdesign.html">Material Design</a></li> --}}
+                {{--                        <li><a href="icons-dripicons.html">Dripicons</a></li> --}}
+                {{--                        <li><a href="icons-fontawesome.html">Font awesome</a></li> --}}
+                {{--                        <li><a href="icons-themify.html">Themify Icons</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
+
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
+                {{--                        <i class="dripicons-map"></i> --}}
+                {{--                        <span>Maps</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="false"> --}}
+                {{--                        <li><a href="maps-google.html">Google Maps</a></li> --}}
+                {{--                        <li><a href="maps-vector.html">Vector Maps</a></li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
+
+                {{--                <li class="menu-title">Ut</li> --}}
+
+
+                {{--                <li> --}}
+                {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect"> --}}
+                {{--                        <i class="dripicons-device-desktop"></i> --}}
+                {{--                        <span>Layouts</span> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="sub-menu" aria-expanded="true"> --}}
+                {{--                        <li> --}}
+                {{--                            <a href="javascript: void(0);" class="has-arrow">Vertical</a> --}}
+                {{--                            <ul class="sub-menu" aria-expanded="true"> --}}
+                {{--                                <li><a href="layouts-dark-sidebar.html">Dark Sidebar</a></li> --}}
+                {{--                                <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li> --}}
+                {{--                                <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li> --}}
+                {{--                                <li><a href="layouts-boxed.html">Boxed Layout</a></li> --}}
+                {{--                                <li><a href="layouts-preloader.html">Preloader</a></li> --}}
+                {{--                            </ul> --}}
+                {{--                        </li> --}}
+
+                {{--                        <li> --}}
+                {{--                            <a href="javascript: void(0);" class="has-arrow">Horizontal</a> --}}
+                {{--                            <ul class="sub-menu" aria-expanded="true"> --}}
+                {{--                                <li><a href="layouts-horizontal.html">Horizontal</a></li> --}}
+                {{--                                <li><a href="layouts-hori-topbar-light.html">Topbar light</a></li> --}}
+                {{--                                <li><a href="layouts-hori-boxed-width.html">Boxed width</a></li> --}}
+                {{--                                <li><a href="layouts-hori-preloader.html">Preloader</a></li> --}}
+                {{--                                <li><a href="layouts-hori-colored-header.html">Colored Header</a></li> --}}
+                {{--                            </ul> --}}
+                {{--                        </li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
 
 
 

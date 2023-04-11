@@ -93,7 +93,7 @@
                                         <p class="card-title-desc">You can add products variation here</p>
                                         <div class="row">
 
-                                            <div class="col-6 mb-3">
+                                            <div class="col-12 mb-3">
                                                 <label for="example-text-input" class="col-sm-12 col-form-label">Product
                                                     Variation Name</label>
                                                 <div class="col-sm-12">
@@ -113,6 +113,18 @@
                                                         placeholder="Enter description" id="example-text-input"
                                                         name="attribute_description">
                                                     @error('attribute_description')
+                                                        <div class="text-danger"></div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <label for="example-text-input"
+                                                    class="col-sm-12 col-form-label">Brand Icon</label>
+                                                <div class="col-sm-12">
+                                                    <input class="form-control" type="file"
+                                                        placeholder="" id="example-text-input"
+                                                        name="attribute_icon">
+                                                    @error('attribute_icon')
                                                         <div class="text-danger"></div>
                                                     @enderror
                                                 </div>

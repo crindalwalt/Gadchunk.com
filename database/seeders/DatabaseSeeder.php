@@ -13,19 +13,25 @@ class DatabaseSeeder extends Seeder
 {
 //    Seeding the application data
     public function run()
-    {
+    { 
     //    Product::factory(10)->create();
         // \App\Models\User::factory(10)->create();
          \App\Models\User::factory()->create([
-             'name' => 'Shahzad Farooq',
-             'email' => 'shezi@mail.com',
+             'name' => 'User',
+             'email' => 'shahzad@mail.com',
              'phone' => '03041232233',
-             'userType' => 1,
+             'userType' => 0,
          ]);
-         $this->call([
-            OrderSeeder::class,
-            OrderDetailSeeder::class,
-         ]);
+         \App\Models\User::factory()->create([
+            'name' => 'Shahzad Farooq',
+            'email' => 'shezi@mail.com',
+            'phone' => '03041232233',
+            'userType' => 1,
+        ]);
+        //  $this->call([
+        //     OrderSeeder::class,
+        //     OrderDetailSeeder::class,
+        //  ]);
 
 
     }

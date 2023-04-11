@@ -35,8 +35,8 @@
                                         <img src="{{ asset('assets/images/zeelma-logo.png') }}" height="52" alt="logo">
                                     </a>
 
-                                    <h5 class="text-primary mb-2 mt-4">Welcome to Zeelma !</h5>
-                                    <p class="text-muted">Get your free Zeelma account now.</p>
+                                    <h5 class="text-primary mb-2 mt-4">Welcome to E-Commerce Site !</h5>
+                                    <p class="text-muted">Get your free account now.</p>
                                 </div>
 
 
