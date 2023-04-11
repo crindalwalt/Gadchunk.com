@@ -61,7 +61,7 @@
                                                         <div class="form-group row my-3">
                                                             <label for="inputname" class="col-sm-3 col-form-label text-dark">UserName</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" readonly class="form-control" id="inputname" name="name"
+                                                                <input type="text"  class="form-control" id="inputname" name="name"
                                                                     value="{{ $user->name }}">
                                                             </div>
                                                         </div>
@@ -69,7 +69,7 @@
                                                         <div class="form-group row my-3">
                                                             <label for="staticEmail" class="col-sm-3 col-form-label text-dark">Email</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" readonly class="form-control" id="staticEmail" name="email"
+                                                                <input type="text" class="form-control" id="staticEmail" name="email"
                                                                     value="{{ $user->email }}">
                                                             </div>
                                                         </div>

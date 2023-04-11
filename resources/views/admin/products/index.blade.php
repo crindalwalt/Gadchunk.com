@@ -166,11 +166,11 @@
                                                                 <a href="{{ route('inventory.manage', $product->id) }}"
                                                                     class="btn btn-outline-primary btn-sm">Manage
                                                                     Inventory</a>
-{{-- 
+{{--
                                                                 <a href="{{ route('products.edit', $product->id) }}"
                                                                     class="btn btn-outline-success btn-sm">Edit</a> --}}
 
-                                                                <form action="{{ route('products.destroy', $product->id) }}"
+                                                                <form action="{{ route('products.destroy',$product->id) }}"
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     <input type="hidden" value="{{ $product->id }}"

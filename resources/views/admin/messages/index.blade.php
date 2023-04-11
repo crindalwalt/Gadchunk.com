@@ -43,39 +43,83 @@
                                 <div class="card-body">
 
                                     <div class="container shadow rounded bg-white mt-5 mb-5">
-                                    
-                                                <h4 class="header-title mb-4">All Messages From Site Users</h4>
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped">
-                                                        <thead class="thead-dark">
-                                                            <tr>
-                                                                <th scope="col">No.</th>
-                                                                <th scope="col">User Register</th>
-                                                                <th scope="col">Name</th>
-                                                                <th scope="col">Email</th>
-                                                                <th scope="col">Subject</th>
-                                                                <th scope="col">Message</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($messages as $message)
-                                                                <tr>
-                                                                    <th scope="row">{{ $loop->iteration }}</th>
-                                                                    <td>{{ $message->user->name }}</td>
-                                                                    <td>{{ $message->name }}</td>
-                                                                    <td>{{ $message->email }}</td>
-                                                                    <td>{{ $message->subject }}</td>
-                                                                    <td>{{ $message->message }}</td>
-                                                                   
-                                                               
-                                                            @endforeach
-                                                        </tbody>
-            
-                                                    </table>
-            
-                                                </div>
-                                                <!-- end table-responsive -->
-                                        
+
+                                        <h4 class="header-title mb-4">All Messages From Site Users</h4>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">No.</th>
+                                                        <th scope="col">User Register</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Subject</th>
+                                                        <th scope="col">Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($messages as $message)
+                                                        <tr>
+                                                            <th scope="row">{{ $loop->iteration }}</th>
+                                                            <td>{{ $message->user->name }}</td>
+                                                            <td>{{ $message->name }}</td>
+                                                            <td>{{ $message->email }}</td>
+                                                            <td>{{ $message->subject }}</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-outline-success"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal1{{ $message->id }}">
+                                                                    Show Message
+                                                                </button>
+
+                                                                <!-- Modal -->
+                                                                <div class="modal fade"
+                                                                    id="exampleModal1{{ $message->id }}" tabindex="-1"
+                                                                    aria-labelledby="exampleModalLabel"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <form action="" method="post">
+                                                                            @csrf
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title"
+                                                                                        id="exampleModalCenterTitle">
+                                                                                        {{ $message->user->name }}
+                                                                                        <span>Message</span>
+                                                                                    </h5>
+                                                                                    <button type="button"
+                                                                                        class="close"
+                                                                                        data-bs-dismiss="modal"
+                                                                                        aria-label="Close">
+                                                                                        <span
+                                                                                            aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+
+                                                                                        {{ $message->message }}
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-secondary"
+                                                                                        data-bs-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+
+                                                            </td>
+                                                    @endforeach
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                        <!-- end table-responsive -->
+
                                     </div>
                                 </div>
 

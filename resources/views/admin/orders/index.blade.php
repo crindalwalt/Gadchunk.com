@@ -228,23 +228,43 @@
                                                          <td>{{ $order->checkout_email }}</td>
                                                          <td>{{ $order->total_amount }}</td>
                                                          <td>{{ $order->payment_method }}</td>
-                                                         <td>{{ $order->status }}</td>
-                                                        
+                                                         <td>
+                                                            @if ($order->status == 'pending')
+                                                                <span
+                                                                    class="badge  bg-danger">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'delivered')
+                                                                <span
+                                                                    class="badge bg-primary">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'approved')
+                                                                <span
+                                                                    class="badge bg-success">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'dispatched')
+                                                                <span
+                                                                    class="badge bg-secondary">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'cancelled')
+                                                                <span
+                                                                    class="badge bg-dark">{{ $order->status }}</span>
+                                                            @endif
+                                                        </td>
+
                                                          <td>
 
                                                              <!-- Button trigger modal -->
                                                              <button type="button" class="btn btn-primary"
                                                                  data-bs-toggle="modal"
-                                                                 data-bs-target="#exampleModal">
-                                                                 Update Status
+                                                                 data-bs-target="#exampleModal{{ $order->id }}">
+                                                                 Update Status{{ $order->id }}
                                                              </button>
 
                                                              <!-- Modal -->
-                                                             <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                             <div class="modal fade"
+                                                                 id="exampleModal{{ $order->id }}" tabindex="-1"
                                                                  aria-labelledby="exampleModalLabel"
                                                                  aria-hidden="true">
                                                                  <div class="modal-dialog">
-                                                                     <form action="{{ route('orders.update',$order->id) }}" method="post">
+                                                                     <form
+                                                                         action="{{ route('orders.update', $order->id) }}"
+                                                                         method="post">
                                                                          @csrf
                                                                          <div class="modal-content">
                                                                              <div class="modal-header">
@@ -258,11 +278,14 @@
                                                                                          aria-hidden="true">&times;</span>
                                                                                  </button>
                                                                              </div>
-                                                                             <input type="text" hidden name="status" value="{{ $order->status}}">
+                                                                             <input type="text" hidden
+                                                                                 name="status"
+                                                                                 value="{{ $order->status }}">
                                                                              <div class="modal-body">
                                                                                  <div class="form-check">
                                                                                      <input class="form-check-input"
-                                                                                         type="radio" name="status" value="pending"
+                                                                                         type="radio" name="status"
+                                                                                         value="pending"
                                                                                          id="flexRadioDefault1">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault1">
@@ -272,7 +295,8 @@
 
                                                                                  <div class="form-check">
                                                                                      <input class="form-check-input"
-                                                                                         type="radio" name="status" value="approved"
+                                                                                         type="radio" name="status"
+                                                                                         value="approved"
                                                                                          id="flexRadioDefault2">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault2">
@@ -282,7 +306,8 @@
 
                                                                                  <div class="form-check">
                                                                                      <input class="form-check-input"
-                                                                                         type="radio" name="status" value="dispatched"
+                                                                                         type="radio" name="status"
+                                                                                         value="dispatched"
                                                                                          id="flexRadioDefault3">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault3">
@@ -292,7 +317,8 @@
 
                                                                                  <div class="form-check">
                                                                                      <input class="form-check-input"
-                                                                                         type="radio" name="status" value="delivered"
+                                                                                         type="radio" name="status"
+                                                                                         value="delivered"
                                                                                          id="flexRadioDefault4">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault4">
@@ -301,7 +327,8 @@
                                                                                  </div>
                                                                                  <div class="form-check">
                                                                                      <input class="form-check-input"
-                                                                                         type="radio" name="status" value="cancelled"
+                                                                                         type="radio" name="status"
+                                                                                         value="cancelled"
                                                                                          id="flexRadioDefault5">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault5">

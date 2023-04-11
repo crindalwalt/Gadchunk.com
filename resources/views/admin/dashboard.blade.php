@@ -341,7 +341,7 @@
                                                         <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
                                                     </span>
                                                 </div>
-                                                <h5 class="font-size-22">{{ count($order) }}</h5>
+                                                <h5 class="font-size-22">{{ count($orders) }}</h5>
 
                                                 {{-- <p class="text-muted">70% Target</p>
 
@@ -987,86 +987,157 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title mb-4">All Orders</h4>
+                                    <h4 class="header-title mb-4">Orders of the Month</h4>
                                     <div class="table-responsive">
-                                        <table class="table table-centered table-nowrap mb-0">
-                                            <thead class="thead-light">
+                                        <table class="table table-striped">
+                                            <thead class="thead-dark">
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Product</th>
-
-                                                    <th>Customer</th>
-                                                    <th>Price</th>
-                                                    <th>Invoice</th>
-                                                    <th>Status</th>
+                                                    <th scope="col">Order #</th>
+                                                    <th scope="col">Full Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Total Amount</th>
+                                                    <th scope="col">Payment Method</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>#2356</td>
-                                                    <td><img src="assets/images/product/img-7.png" width="42"
-                                                            class="me-3" alt="">Green Chair</td>
-                                                    <td>Kenneth Gittens</td>
-                                                    <td>$200.00</td>
-                                                    <td>42</td>
-                                                    <td><span
-                                                            class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($orders as $order)
+                                                    <tr>
+                                                        <th scope="row"> {{ $order->order_number }}</th>
+                                                        <td>{{ $order->user->name }} </td>
+                                                        <td>{{ $order->checkout_email }}</td>
+                                                        <td>{{ $order->total_amount }}</td>
+                                                        <td>{{ $order->payment_method }}</td>
+                                                        <td>
+                                                            @if ($order->status == 'pending')
+                                                                <span
+                                                                    class="badge  bg-danger">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'delivered')
+                                                                <span
+                                                                    class="badge bg-primary">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'approved')
+                                                                <span
+                                                                    class="badge bg-success">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'dispatched')
+                                                                <span
+                                                                    class="badge bg-secondary">{{ $order->status }}</span>
+                                                            @elseif ($order->status == 'cancelled')
+                                                                <span
+                                                                    class="badge bg-dark">{{ $order->status }}</span>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal{{ $order->id }}">
+                                                                Update Status
+                                                            </button>
 
-                                                <tr>
-                                                    <td>#2564</td>
-                                                    <td><img src="assets/images/product/img-8.png" width="42"
-                                                            class="me-3" alt="">Office Chair</td>
-                                                    <td>Alfred Gordon</td>
-                                                    <td>$242.00</td>
-                                                    <td>54</td>
-                                                    <td><span
-                                                            class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                    </td>
-                                                </tr>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal{{ $order->id }}" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <form
+                                                                        action="{{ route('orders.update', $order->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalCenterTitle">
+                                                                                    {{ $order->order_number }}</h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <span
+                                                                                        aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <input type="text" hidden
+                                                                                name="status"
+                                                                                value="{{ $order->status }}">
+                                                                            <div class="modal-body">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="status"
+                                                                                        value="pending"
+                                                                                        @if ($order->status == 'pending') checked @endif
+                                                                                        id="flexRadioDefault1">
+                                                                                    <label class="form-check-label"
+                                                                                        for="flexRadioDefault1">
+                                                                                        Pending
+                                                                                    </label>
+                                                                                </div>
 
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="status"
+                                                                                        value="approved"
+                                                                                        @if ($order->status == 'approved') checked @endif
+                                                                                        id="flexRadioDefault2">
+                                                                                    <label class="form-check-label"
+                                                                                        for="flexRadioDefault2">
+                                                                                        Approved
+                                                                                    </label>
+                                                                                </div>
 
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="status"
+                                                                                        value="dispatched"
+                                                                                        @if ($order->status == 'dispatched') checked @endif
+                                                                                        id="flexRadioDefault3">
+                                                                                    <label class="form-check-label"
+                                                                                        for="flexRadioDefault3">
+                                                                                        Dispatched
+                                                                                    </label>
+                                                                                </div>
 
-                                                <tr>
-                                                    <td>#2125</td>
-                                                    <td><img src="assets/images/product/img-10.png" width="42"
-                                                            class="me-3" alt="">Gray Chair</td>
-                                                    <td>Keena Reyes</td>
-                                                    <td>$320.00</td>
-                                                    <td>65</td>
-                                                    <td><span
-                                                            class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                    </td>
-                                                </tr>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="status"
+                                                                                        value="delivered"
+                                                                                        @if ($order->status == 'delivered') checked @endif
+                                                                                        id="flexRadioDefault4">
+                                                                                    <label class="form-check-label"
+                                                                                        for="flexRadioDefault4">
+                                                                                        Delivered
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="status"
+                                                                                        value="cancelled"
+                                                                                        @if ($order->status == 'cancelled') checked @endif
+                                                                                        id="flexRadioDefault5">
+                                                                                    <label class="form-check-label"
+                                                                                        for="flexRadioDefault5">
+                                                                                        Cancelled
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">Save
+                                                                                    changes</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
 
-                                                <tr>
-                                                    <td>#8587</td>
-                                                    <td><img src="assets/images/product/img-11.png" width="42"
-                                                            class="me-3" alt="">Steel Chair</td>
-                                                    <td>Timothy Zuniga</td>
-                                                    <td>$342.00</td>
-                                                    <td>52</td>
-                                                    <td><span
-                                                            class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>#2354</td>
-                                                    <td><img src="assets/images/product/img-12.png" width="42"
-                                                            class="me-3" alt="">Home Chair</td>
-                                                    <td>Joann Wiliams</td>
-                                                    <td>$320.00</td>
-                                                    <td>25</td>
-                                                    <td><span
-                                                            class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                    </td>
-                                                </tr>
-
-
+                                                        </td>
+                                                @endforeach
                                             </tbody>
+
                                         </table>
+
                                     </div>
                                     <!-- end table-responsive -->
                                 </div>

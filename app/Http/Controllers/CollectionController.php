@@ -15,9 +15,11 @@ class CollectionController extends Controller
         return view('admin.collection.index', $data);
     }
     public function show (Collection $collection){
-        return view('admin.collection.show',[
-            'collection' => $collection,
-        ]);
+        $data['collection'] = Collection::find($collection->id)->get();
+
+
+        @dd( $data['collection']);
+        return view('admin.collection.show',$data);
     }
 
     public function store (Request $request)

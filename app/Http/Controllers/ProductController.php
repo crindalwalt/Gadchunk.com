@@ -86,11 +86,12 @@ class ProductController extends Controller
 
 
 
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
+        $product = Product::find($request->id);
         $product->delete();
         alert('Success', 'Product Deleted Successfully', 'success');
-        return redirect()->route('products.all');
+        return redirect()->back();
     }
 
     public function edit(Product $product)

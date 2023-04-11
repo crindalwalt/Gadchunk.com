@@ -6,19 +6,19 @@
             <div class="navbar-brand-box">
                 <a href="/admin" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="32">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="32">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="60">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="60">
                         </span>
                 </a>
 
                 <a href="/admin" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="22">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="22">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/zeelma-logo.png') }}" alt="" height="20">
+                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="20">
                         </span>
                 </a>
             </div>
@@ -171,7 +171,7 @@
                     </form>
                 </div>
             </div>
-{{-- 
+{{--
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                     <i class="mdi mdi-cog-outline font-size-20"></i>

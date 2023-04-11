@@ -24,7 +24,7 @@ class UserController extends Controller
         $data['product'] = Product::all();
         $data['product_inventory'] = ProductInventory::all();
         $data['brand'] = Brand::all();
-        $data['order'] = Order::all();
+        $data['orders'] = Order::all();
         $data['user'] = User::all();
         return view('admin.dashboard', $data);
     }
@@ -43,23 +43,28 @@ class UserController extends Controller
         $data['categories'] = Category::all();
         $data['wishlists'] = Wishlist::all();
         // @dd($data);
-        return view('template.profile', $data);
+        return view('admin.User_profile.index', $data);
     }
 
     public function update(Request $request, User $id)
     {
+        // @dd($request);
         $request->validate([
-            'old_password' => 'required',
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required',
             'new_password' => 'required',
+            'old_password' => 'required',
         ]);
+        // @dd($request);
         $exist_user =  User::find($id)->first();
-        if (Hash::check($request->old_password, $exist_user->password)) {
+        if (Hash::check($request->old_password, $exist_user->password)){
             $id->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'old_password' => $request->old_password,
-                'new_password' => $request->new_password,
+                'new_password' => Hash::make($request->new_password)
             ]);
 
             alert("Success", 'Profile has been updated successfully', 'success');
@@ -69,7 +74,13 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
-
+    public function destroy(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->delete();
+        alert('Success', 'Product Deleted Successfully', 'success');
+        return redirect()->back();
+    }
     public function track_order()
     {
         $data['user'] = Auth::user();

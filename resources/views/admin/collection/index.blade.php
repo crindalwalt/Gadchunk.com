@@ -173,8 +173,79 @@
                                                             <td><img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
                                                                     width="70" height="50"></td>
                                                             <td class="">
-                                                                <a href="/admin/collection/{{ $collection->id }}"
-                                                                    class="btn btn-outline-success btn-sm">Show</a>
+                                                                  <!-- Button trigger modal -->
+                                                            <button type="button"
+                                                            class="btn btn-sm btn-outline-success"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal1{{  $collection->id }}">
+                                                            show
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade"
+                                                            id="exampleModal1{{ $collection->id }}" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <form action="" method="post">
+                                                                    @csrf
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalCenterTitle">
+                                                                                {{  $collection->name }}
+                                                                                <span>Detail</span>
+                                                                            </h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <span
+                                                                                    aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44"> Name : </label>
+                                                                                    {{$collection->name}}
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44"> Product Collection : </label>
+
+                                                                                    @foreach ($collection->products as $product)
+                                                                                      <li>{{ $product->name }}</li>
+                                                                                    @endforeach
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44"> Title : </label>
+                                                                                    {{$collection->title}}
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44">Discount Price : </label>
+                                                                                    {{$collection->discount_percentage}}
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44">Banner Image : </label>
+                                                                                    <img src="{{ asset("storage/collections/$collection->banner_image")}}"
+                                                                                    alt="this image" class="img-fluid mx-auto d-block">                                                        </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label font-size-44">Description : </label>
+                                                                                    {{$collection->description}}
+                                                                                </div>
+
+
+
+                                                                        </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
 
                                                                     <form action="{{route('collections.destroy' , $collection->id)}}" method="POST" class="d-inline">
                                                                         @csrf

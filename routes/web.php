@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::get('users/', [UserController::class, 'index']);
     Route::get('/profile', [UserController::class, 'profile'])->name('admin.profile');
     Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('admin.profile.update');
+    Route::post('/profile/{id}/delete', [UserController::class, 'destroy'])->name('admin.profile.destroy');
 
     // Product Inventory Management
 
@@ -107,12 +108,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::post('/prod_type/add', [ProductTypeController::class, 'store'])->name('prod_type.store');
 
     //! PRODUCT
-    Route::get('/products', [ProductController::class, 'index'])->name('products.all');
+    Route::get('/product', [ProductController::class, 'index'])->name('products.all');
 
     Route::get('/product/add', [ProductController::class, 'add'])->name('products.add');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::post('/product/{product}/update', [ProductController::class, 'update'])->name('products.update');
-    Route::post('/product/{product}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/product/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::post('/product/{id}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/product/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::post('/product/add', [ProductController::class, 'store'])->name('products.store');
     Route::get('/users', [ProductController::class, 'users'])->name('users.all');
@@ -121,7 +122,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::get("/inventory/{product}/manage", [ProductInventoryController::class, 'index'])->name("inventory.manage");
     Route::get("/inventory/manage", [ProductInventoryController::class, 'IndexPage'])->name("inventory.index");
     Route::post("/inventory/store", [ProductInventoryController::class, 'store'])->name("inventory.store");
-    Route::post("/inventory/{id}/delete", [ProductInventoryController::class, 'destroy'])->name("inventory.destroy");
+    Route::post("/inventory/{id}/delete", [ProductInventoryController::class, 'destroy'])->name("inventory_products.destroy");
 
     // Products Attributes CRUD
     Route::get("/attributes/variation", [ProductAttributeController::class, 'index'])->name("product.variation");
