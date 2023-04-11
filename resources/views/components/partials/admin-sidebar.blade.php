@@ -147,7 +147,7 @@
                 </li>
                 {{-- Order pane --}}
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect has-arrow">
+                    <a href="javascript: void(0);" class="waves-effect has-arrow ">
                         <i class="dripicons-to-do"></i>
                         {{-- <span class="badge rounded-pill bg-danger float-end"></span> --}}
                         <span>Orders</span>
