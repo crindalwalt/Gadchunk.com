@@ -28,6 +28,6 @@ class ProductAttributeValue extends Model
     }
     public function order_variation()
     {
-        return $this->belongsTo(OrderVariation::class,'variation_id');
+        return $this->belongsTo(OrderVariation::class , 'variation_id' , 'id');
     }
 }

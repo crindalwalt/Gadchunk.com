@@ -117,6 +117,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
 
     //! PRODUCT INVENTORY
     Route::get("/inventory/{product}/manage", [ProductInventoryController::class, 'index'])->name("inventory.manage");
+    Route::get("/inventory/{product}/edit", [ProductInventoryController::class, 'edit'])->name("inventory.edit");
+    Route::post('/inventory/{product}/update', [ProductInventoryController::class, 'update'])->name('inventory.update');
+
     Route::get("/inventory/manage", [ProductInventoryController::class, 'IndexPage'])->name("inventory.index");
     Route::post("/inventory/store", [ProductInventoryController::class, 'store'])->name("inventory.store");
     Route::post("/inventory/{id}/delete", [ProductInventoryController::class, 'destroy'])->name("inventory_products.destroy");

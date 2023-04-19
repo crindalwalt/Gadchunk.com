@@ -32,6 +32,19 @@ class ProductInventoryController extends Controller
         return view('admin.inventories.index', $data);
     }
 
+    public function edit(Product $product)
+    {
+        // @dd($product->name);
+        $data['inventories'] = ProductInventory::all();
+        $data['products'] = Product::all();
+        $data['weights'] = Weight::all();
+        $data['brands'] = Brand::all();
+        $data['types'] = ProductType::all();
+        $data['attributes'] = ProductAttribute::get();
+        $data['product'] = $product;
+        return view('admin.inventories.edit',$data);
+    }
+
 
     public function store(Request $request)
     {
@@ -40,7 +53,7 @@ class ProductInventoryController extends Controller
         $request->validate([
             'product_id' => 'required',
             'retail_price' => 'required',
-            // 'discount_price' => 'required',
+            'discount_price' => 'required',
             'stock' => 'required',
             'product_image' => 'required',
         ]);
@@ -96,6 +109,56 @@ class ProductInventoryController extends Controller
         }
     }
 
+
+    public function update(Request $request){
+        //    @dd($request->all());
+           $request->validate([
+            'product_id' => 'required',
+            'retail_price' => 'required',
+            'discount_price' => 'required',
+            'stock' => 'required',
+            'product_image' => 'required',
+        ]);
+
+        $exist_inventory = ProductInventory::find($request->product_id);
+        $exist_inventory->product_id = $request->product_id;
+        $exist_inventory->retail_price = $request->retail_price;
+        $exist_inventory->discount_price= $request->discount_price;
+        $exist_inventory->stock = $request->stock;
+        $exist_inventory->in_stock = $request->in_stock == "on" ? "yes" : "no";
+        $exist_inventory->update();
+
+        // $inventory = ProductInventory::create([
+        //     'product_id' => $request->input("product_id"),
+        //     'retail_price' => $request->input("retail_price"),
+        //     'discount_price' => $request->input("discount_price"),
+        //     'stock' => $request->input("stock"),
+        //     'in_stock' => $request->input("in_stock") == "on" ? "yes" : "no",
+        // ]);
+
+        $exist_inventory->inven_prod_attributes()->sync($request->attribute);
+        // storing image
+        if ($request->hasFile('product_image')) {
+            foreach ($request->file('product_image') as $file) {
+                $filename = 'product-inven-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/inventory_images', $filename);
+                $inventoryImages =  $exist_inventory->inven_prod_images()->update([
+                    'inventory_id' =>  $exist_inventory->id,
+                    'product_image' => $filename,
+                    'product_id' =>  $request->product_id,
+                ]);
+            }
+        } else {
+            alert("Error", 'product image could not found', 'warning');
+            return redirect()->back();
+        }
+        if ( $exist_inventory) {
+            alert("Success", 'Inventory has been Updated successfully', 'success');
+            return redirect()->back();
+        } else {
+            alert("Error", 'Product not be saved', 'error');
+        }
+    }
     public function destroy(Request $request)
     {
         $inventory_product = ProductInventory::find($request->id);

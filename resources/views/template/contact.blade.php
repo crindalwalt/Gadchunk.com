@@ -7,7 +7,7 @@
 		================================================== -->
 		<main>
 
-
+           
 			<!-- sidebar mobile menu & sidebar cart - start
 			================================================== -->
 			{{-- <div class="sidebar-menu-wrapper">
@@ -281,7 +281,7 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="contact.html">Conatct</a></li>    
+							<li><a href="contact.html">Conatct</a></li>
 						</ul>
 					</div>
 
@@ -406,7 +406,7 @@
 								</form>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</section>

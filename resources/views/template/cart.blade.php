@@ -30,24 +30,25 @@
 
         <!-- cart_section - start
    ================================================== -->
-        <section class="cart_section sec_ptb_140 clearfix">
-            <div class="container-fluid">
+        @if ($products->count() > 0)
+            <section class="cart_section sec_ptb_140 clearfix">
+                <div class="container-fluid">
 
-                <div class="cart_table mb_50">
-                    <table class="table">
-                        <thead class="text-uppercase">
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Discount %</th>
-                                <th>Quantity</th>
-                                <th>Total Price</th>
-                                <th>Variation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @dd($products) --}}
-                            @if ($products->count() > 0)
+                    <div class="cart_table mb_50">
+                        <table class="table">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Discount %</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    <th>Variation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @dd($products) --}}
+
                                 @foreach ($products as $item)
                                     {{-- @dd($item->inven_prod_images) --}}
                                     <tr id="productremove{{ $item->id }}">
@@ -99,53 +100,46 @@
 
                                         <td class="d-flex">
                                             <!-- Button trigger modal -->
-                                            <button type="button"
-                                                class="btn btn-sm btn-outline-success"
+                                            <button type="button" class="btn btn-sm btn-outline-success"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal1{{ $item->id }}">
                                                 Apply
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade"
-                                                id="exampleModal1{{ $item->id }}" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="exampleModal1{{ $item->id }}"
+                                                tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <form action="{{ route('cart.variation', $item->id) }}" method="post">
+                                                    <form action="{{ route('cart.variation', $item->id) }}"
+                                                        method="post">
                                                         @csrf
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="exampleModalCenterTitle">
+                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
                                                                     {{ $item->name }}
                                                                     <span>Variation Available</span>
                                                                 </h5>
                                                                 <button type="button" class="close"
-                                                                    data-bs-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span
-                                                                        aria-hidden="true">&times;</span>
+                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 @foreach ($item->category->attributes as $attributes)
-
                                                                     <div class=" mb-3 d-flex flex-column">
-                                                                        <label
-                                                                        class ="control-label" name = "attribute">{{ $attributes->attribute_name }}</label>
+                                                                        <label class="control-label"
+                                                                            name="attribute">{{ $attributes->attribute_name }}</label>
                                                                         <select name="attribute_value[]"
                                                                             id="attributes_{{ $attributes->id }}"
                                                                             class="form-select form-select-sm select2"
                                                                             aria-label=".form-select-sm example"
                                                                             multiple>
-                                                                            <option
-                                                                                value="{{ null }}">
+                                                                            <option value="{{ null }}">
                                                                                 Select an
                                                                                 option
                                                                             </option>
                                                                             @foreach ($attributes->prod_attribute_value as $value)
-                                                                                <option
-                                                                                    value="{{ $value->id }}"
+                                                                                <option value="{{ $value->id }}"
                                                                                     id="options_{{ $value->id }}"
                                                                                     class="d-flex justify-content-between ">
                                                                                     {{ $value->attribute_value }}
@@ -160,12 +154,11 @@
                                                                 @endforeach
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button"
-                                                                    class="btn btn-secondary"
+                                                                <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Apply Variation
-                                                                    </button>
+                                                                <button type="submit" class="btn btn-primary">Apply
+                                                                    Variation
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -175,35 +168,32 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><h4>Variation Available: </h4></td>
+                                        <td>
+                                            <h4>Variation Available: </h4>
+                                        </td>
                                         <td class="d-flex">
                                             @foreach ($cart_attributes as $values)
-
-                                            @if ($values['product_id'] == $item->id)
-                                            <span class="badge bg-primary mx-3 text-white">{{ $values->attribute_values[0]->attribute_value }}</span>
-
-                                            @endif
+                                                @if ($values['product_id'] == $item->id)
+                                                    <span
+                                                        class="badge bg-primary mx-3 text-white">{{ $values->attribute_values[0]->attribute_value }}</span>
+                                                @endif
                                             @endforeach
                                         </td>
                                     </tr>
                                 @endforeach
-                            @else
-                                <div class="text-center">
-                                    <h3 class="text-danger">Cart is empty</h3>
-                                </div>
-                            @endif
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                    <div class="cart_update_btn">
-                        <a href="{{ route('shop') }}"><button type="button"
-                                class="custom_btn bg_secondary text-uppercase">Back to Shop</button>
-                        </a>
+
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                {{-- <div class="coupon_wrap mb_50">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                        <div class="cart_update_btn">
+                            <a href="{{ route('shop') }}"><button type="button"
+                                    class="custom_btn bg_secondary text-uppercase">Back to Shop</button>
+                            </a>
+                        </div>
+                    </div>
+                    {{-- <div class="coupon_wrap mb_50">
                     <div class="row justify-content-lg-between">
                         <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
                             <div class="coupon_form">
@@ -224,23 +214,28 @@
                     </div>
                 </div> --}}
 
-                <div class="row justify-content-lg-end">
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
-                            <h3 class="table_title text-center" data-bg-color="#ededed">Cart Total</h3>
-                            <ul class="ul_li_block clearfix">
-                                <li><span>Subtotal</span> <span class="sub_total">Rs.{{ $sub_total }} </span></li>
-                                <li><span>Discount</span> <span class="discount"> {{ $discount }}</span></li>
-                                <li><span>Total</span> <span class="total_price">Rs. {{ $total }}</span></li>
-                            </ul>
-                            <a href="{{ route('checkout') }}" class="custom_btn bg_success"><button
-                                    class="text-white">Proceed to Checkout</button></a>
+                    <div class="row justify-content-lg-end">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
+                                <h3 class="table_title text-center" data-bg-color="#ededed">Cart Total</h3>
+                                <ul class="ul_li_block clearfix">
+                                    <li><span>Subtotal</span> <span class="sub_total">Rs.{{ $sub_total }} </span>
+                                    </li>
+                                    <li><span>Discount</span> <span class="discount"> {{ $discount }}</span></li>
+                                    <li><span>Total</span> <span class="total_price">Rs. {{ $total }}</span>
+                                    </li>
+                                </ul>
+                                <a href="{{ route('checkout') }}" class="custom_btn bg_success"><button
+                                        class="text-white">Proceed to Checkout</button></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </section>
+                </div>
+            </section>
+        @else
+        <div class="shadow-sm p-3 mb-5 bg-white rounded text-danger text-center m-4 display-3 fw-bold">Cart Is Empty</div>
+        @endif
         <!-- cart_section - end
    ================================================== -->
 

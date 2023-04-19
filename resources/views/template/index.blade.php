@@ -311,8 +311,7 @@
 
         <!-- slider_section - start
    ================================================== -->
-        <section class="slider_section supermarket_slider sec_ptb_50 clearfix"
-            style="background-color: #d7d5d5; ">
+        <section class="slider_section supermarket_slider sec_ptb_50 clearfix" style="background-color: #d7d5d5; ">
             <div class="container maxw_1460">
                 <div class="row justify-content-lg-between">
                     {{-- <div class="col-lg-3">
@@ -417,7 +416,7 @@
                     <div class="col-lg-9">
                         <div class="main_slider clearfix " data-slick='{"arrows": false}'>
                             @foreach ($collections as $collection)
-                            {{-- @dd( $collection->products[0]) --}}
+                                {{-- @dd( $collection->products[0]) --}}
                                 <div class="item clearfix" data-bg-color="#e3e3d4">
                                     <div class="slider_image order-last" data-animation="fadeInUp" data-delay=".2s">
                                         <img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
@@ -426,7 +425,8 @@
                                     <div class="slider_content">
                                         <h4 data-animation="fadeInUp" data-delay=".4s">{{ $collection->name }}</h4>
                                         <h3 data-animation="fadeInUp" data-delay=".6s">{{ $collection->title }}</h3>
-                                        <h3 data-animation="fadeInUp" data-delay=".6s">{{  $collection->products[0]->name }}</h3>
+                                        <h3 data-animation="fadeInUp" data-delay=".6s">
+                                            {{ $collection->products[0]->name }}</h3>
                                         <div class="item_price" data-animation="fadeInUp" data-delay=".8s">
                                             {{ $collection->discount_percentage }}
                                         </div>
@@ -495,21 +495,23 @@
                     </div>
 
                     <div class="col-lg-3">
-                        @foreach ($collections as $collection)
-                            <div class="sm_offer_item offer_fullimage text-white mb_30">
-                                <img src="assets/images/offer/supermarket/img_01.jpg" alt="image_not_found">
-                                <div class="item_content">
-                                    <h3 class="item_title text-white">
-                                        {{ $collection->title }}
-                                    </h3>
-                                    <span class="item_price">Price: {{ $collection->discount_percentage }}</span>
-                                    <a class="text_btn" href="{{ route('shop') }}">
-                                        <span>Pre - Order Now</span>
-                                        <i class="fal fa-long-arrow-right"></i>
-                                    </a>
+                        @if ($collections)
+                            @foreach ($collections as $collection)
+                                <div class="sm_offer_item offer_fullimage text-white mb_30">
+                                    <img src="assets/images/offer/supermarket/img_01.jpg" alt="image_not_found">
+                                    <div class="item_content">
+                                        <h3 class="item_title text-white">
+                                            {{ $collection->title }}
+                                        </h3>
+                                        <span class="item_price">Price: {{ $collection->discount_percentage }}</span>
+                                        <a class="text_btn" href="{{ route('shop') }}">
+                                            <span>Pre - Order Now</span>
+                                            <i class="fal fa-long-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                         {{-- <div class="sm_offer_item offer_fullimage text-white mb_30">
                             <img src="assets/images/offer/supermarket/img_02.jpg" alt="image_not_found">
                             <div class="item_content">
@@ -814,7 +816,9 @@
                             </div>
                             <ul class="ul_li_block nav" role="tablist">
                                 @foreach ($categories as $cat)
-                                    <li><a value="{{ $cat->id }}">{{ $cat->name }} <span class="badge badge-success" style="float: right">{{$cat->product->count()}}</a></span></li>
+                                    <li><a value="{{ $cat->id }}">{{ $cat->name }} <span
+                                                class="badge badge-success"
+                                                style="float: right">{{ $cat->product->count() }}</a></span></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -838,15 +842,17 @@
                                 <ul class="supermarket_product_columns has_4columns ul_li clearfix">
                                     @foreach ($products as $item)
                                         <li>
-                                            {{-- <a href="{{ route('product_detail', $item->id) }}"> --}}
+                                            @if ($item->prod_inventory)
                                                 <div class="supermarket_product_item">
                                                     <ul class="product_label ul_li_block clearfix">
                                                         @if ($item->prod_inventory->discount_price)
-                                                            <li data-bg-color="#cc1414">{{ $item->prod_inventory->discount_price }}
+                                                            <li data-bg-color="#cc1414">
+                                                                {{ $item->prod_inventory->discount_price }}
                                                             </li>
                                                         @endif
                                                     </ul>
-                                                    <a class="item_image" href="{{ route('product_detail', $item->id) }}">
+                                                    <a class="item_image"
+                                                        href="{{ route('product_detail', $item->id) }}">
                                                         <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
                                                             alt="image_not_found">
                                                     </a>
@@ -857,7 +863,8 @@
                                                             {{ $item->name }}
                                                         </h3>
                                                         <div class="item_price">
-                                                            <strong>Rs. {{ $item->prod_inventory->retail_price }}</strong>
+                                                            <strong>Rs.
+                                                                {{ $item->prod_inventory->retail_price }}</strong>
                                                             {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
                                                             <div class="d-flex justify-content-end">
 
@@ -872,7 +879,19 @@
 
                                                     </div>
                                                 </div>
-                                            {{-- </a> --}}
+
+                                                @else
+                                                <div class="item_content">
+                                                    <span
+                                                        class="item_type text-uppercase">{{ $item->name }}</span>
+
+                                                    <div>
+                                                        <strong>Unavailable due to price not set yet</strong>
+                              
+                                                    </div>
+
+                                                </div>
+                                            @endif
                                         </li>
                                     @endforeach
 

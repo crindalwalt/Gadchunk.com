@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('order_variations', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('order_id');
+            $table->bigInteger('order_detail_id');
             $table->string('order_number');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('variation_id');

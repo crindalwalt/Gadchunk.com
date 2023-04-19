@@ -9,7 +9,7 @@ class OrderVariation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'order_id',
+        'order_detail_id',
         'order_number',
         'product_id',
         'variation_id',
@@ -21,9 +21,9 @@ class OrderVariation extends Model
         return $this->belongsTo(Order::class);
     }
     function variations(){
-        return $this->hasMany(ProductAttributeValue::class,'id');
+        return $this->hasMany(ProductAttributeValue::class,'id','variation_id');
     }
     function order_details(){
-        return $this->belongsTo(OrderDetail::class, 'product_id','variation_id');
+        return $this->belongsTo(OrderDetail::class);
     }
 }

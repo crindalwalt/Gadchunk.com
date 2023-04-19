@@ -95,7 +95,6 @@
 						</div>
 					</div> --}}
 
-
                 <div class="billing_form mb_50">
                     <h3 class="form_title mb_30">Billing details</h3>
                     <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
@@ -202,7 +201,6 @@
                                                                         <input type="hidden"
                                                                             value="{{ $values->attribute_value }}"
                                                                             name="attribute_value[]">
-
                                                                     @endif
                                                                 @endforeach
                                                             </div>
@@ -280,27 +278,29 @@
                                                     maxlength="11">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed check_payment_method"
-                                                    data-value="easypaisa" value="easypaisa" type="button"
-                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                    data-value="Cash-on-delivery" value="Cash-on-delivery"
+                                                    type="button" data-toggle="collapse" data-target="#collapseTwo"
                                                     aria-expanded="false" aria-controls="collapseTwo">
-                                                    EasyPaisa
+                                                    Cash On Delivery
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                <input class="form-control border border-danger" name="easypaisa"
+                                                <p>Payment receive on product Delivered</p>
+
+                                                {{-- <input class="form-control border border-danger" name="easypaisa"
                                                     type="text" placeholder="Enter Easypaisa number...."
-                                                    maxlength="11">
+                                                    maxlength="11"> --}}
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     <div class="card">
                                         <div class="card-header" id="headingThree">
                                             <h5 class="mb-0">

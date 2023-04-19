@@ -23,7 +23,7 @@ class OrderDetail extends Model
     }
 
     function order_variation(){
-        return $this->hasMany(OrderVariation::class , 'variation_id' , 'product_id');
+        return $this->hasMany(OrderVariation::class);
     }
 
 

@@ -58,15 +58,21 @@ class PaymentController extends Controller
         $dat = Session::get('order_details');
         $amount = $request->total_amount;
         $orderId = "Ord" . rand(0, 10) . time();
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        Charge::create([
-            "amount" => $amount,
-            "currency" => "usd",
-            "source" => $request->stripeToken,
-            "description" => "Purchase Product"
-        ]);
+        if ($request->payment_method == 'stripe') {
+            Stripe::setApiKey(env('STRIPE_SECRET'));
+            Charge::create([
+                "amount" => $amount,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Purchase Product"
+            ]);
 
-        return $this->success($orderId);
+            return $this->success($orderId);
+        } else {
+            return $this->success($orderId);
+        }
+
+
     }
 
     // function to send email
@@ -114,7 +120,7 @@ class PaymentController extends Controller
                 foreach ($attributes as $key) {
                     foreach ($key->attribute_values as $attribute) {
                         $OrderAttribute = OrderVariation::create([
-                            'order_id' =>  $OrderSave->id,
+                            'order_detail_id' =>  $OrderDetail->id,
                             'order_number' =>  $inv_num,
                             'product_id' =>  $product->product_id,
                             'variation_id' =>  $attribute->id,
@@ -139,11 +145,11 @@ class PaymentController extends Controller
 
     public function OrderDestroy(Order $id){
 
-        $order_detail = OrderDetail::where('order_id',$id->id)->get();
+        $order_detail = OrderDetail::where('order_number',$id->order_number)->get();
         foreach ( $order_detail as $detail) {
             $detail->delete();
         }
-        $order_variation = OrderVariation::where('order_id',$id->id)->get();
+        $order_variation = OrderVariation::where('order_number',$id->order_number)->get();
         foreach ($order_variation  as $variation) {
             $variation->delete();
         }

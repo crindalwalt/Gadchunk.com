@@ -74,7 +74,7 @@ class ProductController extends Controller
         // validation to check if saved or not
         if ($productToSave) {
             alert("Success", 'Product ' . $request->product_name . ' has been added successfully', 'success');
-            return redirect()->back();
+            return redirect()->route('inventory.manage',$productToSave->id);
         } else {
             alert("Error", 'product could not saved', 'error');
             return redirect()->back();
