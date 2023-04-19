@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('checkout_phone');
             $table->text('checkout_note')->nullable();
             $table->string('total_amount');
-            $table->integer('quantity');
             $table->string('order_number');
             $table->string('payment_method');
             $table->enum('status', ['pending', 'approved','dispatched', 'cancelled','delivered'])->default('pending');

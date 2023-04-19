@@ -39,4 +39,17 @@ class Product extends Model
         return $this->hasMany(InventoryProductAttribute::class);
     }
 
+    public function cart_attribute_values()
+    {
+        return $this->belongsToMany(ProductAttributeValue::class);
+    }
+    public function order_detail()
+    {
+        return $this->belongsTo(OrderDetail::class,'product_id','id');
+    }
+    public function order_variation()
+    {
+        return $this->belongsTo(OrderVariation::class);
+    }
+
 }

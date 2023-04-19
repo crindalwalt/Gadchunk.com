@@ -21,6 +21,10 @@ class Order extends Model
 
     public function items()
     {
-        return $this->hasMany(OrderDetail::class ,'order_id','order_number');
+        return $this->hasMany(OrderDetail::class);
+    }
+    public function attributes()
+    {
+        return $this->hasMany(OrderVariation::class);
     }
 }

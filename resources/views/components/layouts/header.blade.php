@@ -31,7 +31,7 @@
                            </li>
 
                             @if (Auth::check())
-                                <li> <a href="{{ route('profile') }}"><i
+                                <li> <a href="{{ route('user.profile') }}"><i
                                             class="fal fa-user"></i><strong>{{ Auth::user()->name }}</strong></a></li>
                             @else
                                 <li><a href="{{ route('login') }}"> Login</a></li>
@@ -110,7 +110,7 @@
 
                                        @endif
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                            <a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a>
                                             {{-- <a class="dropdown-item" href="#">Setting</a> --}}
                                             <hr class="m-0">
                                             <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0') }}"

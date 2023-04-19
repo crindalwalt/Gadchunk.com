@@ -418,24 +418,15 @@
                                             data-bg-color="#f7f7f7">
                                             {{ $product->category->name }}
                                             {{-- @dd($product->reviews[0]->star_rating) --}}
-
                                         </span>
                                     </div>
                                 </div>
 
-                                {{-- <div class="col-lg-7">
-                                    <div class="rating_review_wrap d-flex align-items-center clearfix">
-                                        <ul class="rating_star ul_li">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <span>4 Review(s)</span>
-                                        <button type="button" class="add_review_btn">Add Your Review</button>
-                                    </div>
-                                </div> --}}
+                                <div class="col-lg-7">
+                                    <a class="custom_btn btn_sm bg_electronic_blue add-wishlist"
+                                    data-route="{{ route('add.wishlist', $product->id) }}">Add To
+                                    Wishlist</a>
+                                </div>
                             </div>
                             <p class="mb-0">
                                 {{ $product->description }}
@@ -444,56 +435,25 @@
                             @foreach ($product->category->attributes as $attributes)
                                 {{-- @dd($attributes) --}}
                                 <div class=" d-flex item_size_list mb_30 clearfix">
-                                    <h4 class="list_title mb_15 text-uppercase">{{ $attributes->attribute_name }}</h4>
+                                    <h4 class="list_title mb_15 text-uppercase attribute">{{ $attributes->attribute_name }}</h4>
                                     @foreach ($attributes->prod_attribute_value as $value)
-                                        <ul class="ul_li clearfix">
-                                            <li> {{ $value->attribute_value }}</li>
-                                        </ul>
+                                    <div class="form-check">
+                                        <input class="attribute_value"
+                                            type="radio" name="{{ $attributes->id }}"
+                                            id="{{ $value->id }}">
+
+                                        <label class="fs-5"
+                                            for="{{ $value->id }}">
+                                            {{ $value->attribute_value }}
+                                        </label>
+                                    </div>
                                     @endforeach
                                     {{-- <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
                                     Guide</a></li> --}}
                                 </div>
                             @endforeach
-                            {{-- <div class="item_color_list mb_30 clearfix">
-                                <h4 class="list_title mb_15 text-uppercase">Color</h4>
-                                <ul class="ul_li clearfix">
-                                    <li>
-                                        <button type="button"><span><small data-bg-color="#cc7b4a"></small></span>
-                                            Brown</button>
-                                    </li>
-                                    <li>
-                                        <button type="button"><span><small data-bg-color="#b6b8ba"></small></span>
-                                            Grey</button>
-                                    </li>
-                                    <li>
-                                        <button type="button"><span><small data-bg-color="#dd3333"></small></span>
-                                            Red</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item_size_list mb_30 clearfix">
-                                <h4 class="list_title mb_15 text-uppercase">Size</h4>
-                                <ul class="ul_li clearfix">
-                                    <li><button type="button">XL</button></li>
-                                    <li><button type="button">L</button></li>
-                                    <li><button type="button">M</button></li>
-                                    <li><button type="button">SM</button></li>
-                                    <li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Size
-                                            Guide</a></li>
-                                </ul>
-                            </div> --}}
 
                             <ul class="btns_group_1 ul_li mb_30 clearfix">
-                                {{-- <li>
-                                    <div class="quantity_input">
-                                        <span class="input_number_decrement">–</span>
-                                        <input class="input_number quantity"
-                                            data-route="{{ route('cart.quantity', $product->id) }}"
-                                            value="{{ $product->squantity ? $product->squantity : '0' }}" min="1"
-                                            step="1" id="quantity{{ $product->id }}" data-decimals="0" required>
-                                        <span class="input_number_increment">+</span>
-                                    </div>
-                                </li> --}}
                                 <li>
 
                                     <a class="custom_btn btn_sm bg_electronic_blue add-wishlist"
@@ -502,14 +462,12 @@
 
                                 </li>
                                 <li>
-                                    {{-- <a class="custom_btn bg_black text-uppercase" href="#!"><i
-                                            class="fal fa-shopping-bag mr-2"></i> Add To Cart</a> --}}
+
                                     <a class="custom_btn btn_sm bg_electronic_blue add-cart"
-                                        data-route="{{ route('add-cart', $product->id) }}">Add To
+                                        data-route="{{ route('add-cart', $product->id ) }}">Add To
                                         Cart</a>
                                 </li>
                             </ul>
-
                             {{-- <ul class="btns_group_2 ul_li clearfix">
                                 <li>
                                     <a href="#!">     <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"

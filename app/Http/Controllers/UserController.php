@@ -28,14 +28,14 @@ class UserController extends Controller
         $data['user'] = User::all();
         return view('admin.dashboard', $data);
     }
-    public function account()
-    {
-        $user = Auth::user();
-        //        dd($user);
-        return view('template.my-account', [
-            'user' => $user
-        ]);
-    }
+    // public function account()
+    // {
+    //     $user = Auth::user();
+    //     //        dd($user);
+    //     return view('template.my-account', [
+    //         'user' => $user
+    //     ]);
+    // }
 
     public function profile()
     {
@@ -44,6 +44,14 @@ class UserController extends Controller
         $data['wishlists'] = Wishlist::all();
         // @dd($data);
         return view('admin.User_profile.index', $data);
+    }
+    public function user_profile()
+    {
+        $data['user'] = Auth::user();
+        $data['categories'] = Category::all();
+        $data['wishlists'] = Wishlist::all();
+        // @dd($data);
+        return view('template.profile', $data);
     }
 
     public function update(Request $request, User $id)

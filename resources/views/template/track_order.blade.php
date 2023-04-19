@@ -29,6 +29,7 @@
                         </thead>
                         <tbody>
                             @foreach ($orders as $item)
+                            {{-- @dd($orders) --}}
                             <tr>
                                 <th scope="row"> {{ $item->order_number }}</th>
                                 <td>{{ $item->user->name }} </td>
@@ -48,27 +49,10 @@
                                     @elseif($item->status == 'cancelled')
                                         Cancelled
                                     @endif
-                                    {{-- <select id="{{ $orders->id }}" onchange="changeStatus({{ $orders->id }})"
-                                            name="status" class="form-select">
-                                            <option value="pending"
-                                                @if ($orders->status == 'pending') selected="selected" @endif>
-                                                Pending</option>
-                                            <option value="approved"
-                                                @if ($orders->status == 'approved') selected="selected" @endif>
-                                                Approved</option>
-                                            <option value="cancelled"
-                                                @if ($orders->status == 'cancelled') selected="selected" @endif>
-                                                Cancelled</option>
-                                            <option value="dispatched"
-                                                @if ($orders->status == 'dispatched') selected="selected" @endif>
-                                                Dispatched</option>
-                                            <option value="delivered"
-                                                @if ($orders->status == 'delivered') selected="selected" @endif>
-                                                Delivered</option>
-                                        </select> --}}
+
                                 </td>
                                 <td>
-                                    
+
                                      <!-- Button trigger modal -->
                                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                      data-bs-target="#exampleModal{{ $item->id }}">
@@ -89,8 +73,34 @@
                                                  </button>
                                              </div>
                                              <div class="modal-body">
+                                                <table class="table">
+                                                    <thead class="table-dark">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Product</th>
+                                                            <th scope="col">Quantity</th>
+                                                            <th scope="col">Variation</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($item->items as $products)
+                                                        {{-- @dd($products) --}}
+                                                       <tr>
+                                                           <th scope="row">{{ $loop->iteration }}</th>
+                                                           <td>{{ $products->product[0]->name}}</td>
+                                                           <td>{{ $products->quantity }}</td>
+                                                           <td>
+                                                            @foreach ($products->order_variation as $attr)
+                                                            <span>{{ $attr->variation_id }}</span>
+                                                            @endforeach
+                                                           </td>
+                                                       </tr>
 
-                                                 <div class="table-responsive">
+                                                       @endforeach
+
+                                                    </tbody>
+                                                </table>
+                                                 {{-- <div class="table-responsive">
                                                      <table class="table">
 
                                                          <thead>
@@ -109,7 +119,6 @@
                                                              </tr>
                                                          </thead>
                                                          <tbody>
-                                                            {{-- @dd($item->items[0]) --}}
                                                                  <tr>
                                                                      <th scope="row">1
                                                                      </th>
@@ -125,10 +134,10 @@
                                                                              alt="" height="100px"
                                                                              width="100px">
                                                                      </td>
-                                                                 </tr>                                                    
+                                                                 </tr>
                                                          </tbody>
                                                      </table>
-                                                 </div>
+                                                 </div> --}}
                                              </div>
                                              <div class="modal-footer">
                                                  <button type="button" class="btn btn-secondary"
@@ -139,12 +148,15 @@
                                      </div>
                                  </div>
                                  @if ($item->status == 'pending')
-                                 <button class="btn btn-danger">Cancel Order</button>
+                                 <form class="d-inline" action="{{ route('order.destroy',$item->id ) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Cancel Order</button>
+                                </form>
                                  @endif
                                 </td>
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
 
                     </table>
