@@ -7,9 +7,7 @@
 		================================================== -->
 		<main>
 
-<<<<<<< HEAD
-=======
-           
+
 			<!-- sidebar mobile menu & sidebar cart - start
 			================================================== -->
 			{{-- <div class="sidebar-menu-wrapper">
@@ -310,7 +308,6 @@
 			</div> --}}
 			<!-- sidebar mobile menu & sidebar cart - end
 			================================================== -->
->>>>>>> ee30094da953af5dcade87307f34dfc518f14d51
 
 
 			<!-- breadcrumb_section - start
