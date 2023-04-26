@@ -32,7 +32,7 @@
 
                                 <div class="text-center">
                                     <a href="/">
-                                        <img src="{{ asset('assets/images/zeelma-logo.png') }}" height="52" alt="logo">
+                                        <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" height="52" alt="logo">
                                     </a>
 
                                     <h5 class="text-primary mb-2 mt-4">Welcome to E-Commerce Site !</h5>

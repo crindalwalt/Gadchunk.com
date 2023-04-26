@@ -13,7 +13,7 @@ class WishlistController extends Controller
     // wishlist page
     public function index()
     {
-        $data['wishlists'] = Wishlist::with('product')->get();
+        $data['wishlists'] = Wishlist::where('user_id' , Auth::user()->id)->with('product')->get();
         $data['categories'] = Category::all();
 
         return view('template.wishlist',$data );

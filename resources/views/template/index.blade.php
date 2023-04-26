@@ -843,42 +843,44 @@
                                     @foreach ($products as $item)
                                         <li>
                                             @if ($item->prod_inventory)
-                                                <div class="supermarket_product_item">
-                                                    <ul class="product_label ul_li_block clearfix">
-                                                        @if ($item->prod_inventory->discount_price)
-                                                            <li data-bg-color="#cc1414">
-                                                                {{ $item->prod_inventory->discount_price }}
-                                                            </li>
-                                                        @endif
-                                                    </ul>
-                                                    <a class="item_image"
-                                                        href="{{ route('product_detail', $item->id) }}">
-                                                        <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
-                                                            alt="image_not_found">
-                                                    </a>
-                                                    <div class="item_content">
-                                                        <span
-                                                            class="item_type text-uppercase">{{ $item->name }}</span>
-                                                        <h3 class="item_title">
-                                                            {{ $item->name }}
-                                                        </h3>
-                                                        <div class="item_price">
-                                                            <strong>Rs.
-                                                                {{ $item->prod_inventory->retail_price }}</strong>
-                                                            {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
-                                                            <div class="d-flex justify-content-end">
+                                            @if ($item->prod_inventory->in_stock == "yes" )
+                                            <div class="supermarket_product_item">
+                                                <ul class="product_label ul_li_block clearfix">
+                                                    @if ($item->prod_inventory->discount_price)
+                                                        <li data-bg-color="#cc1414">
+                                                            {{ $item->prod_inventory->discount_price }}
+                                                        </li>
+                                                    @endif
+                                                </ul>
+                                                <a class="item_image"
+                                                    href="{{ route('product_detail', $item->id) }}">
+                                                    <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
+                                                        alt="image_not_found">
+                                                </a>
+                                                <div class="item_content">
+                                                    <span
+                                                        class="item_type text-uppercase">{{ $item->name }}</span>
+                                                    <h3 class="item_title">
+                                                        {{ $item->name }}
+                                                    </h3>
+                                                    <div class="item_price">
+                                                        <strong>Rs.
+                                                            {{ $item->prod_inventory->retail_price }}</strong>
+                                                        {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
+                                                        <div class="d-flex justify-content-end">
 
-                                                                <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
-                                                                    data-route="{{ route('add-cart', $item->id) }}"></i>
-                                                                <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
-                                                                    data-route="{{ route('add.wishlist', $item->id) }}"></i>
+                                                            <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
+                                                                data-route="{{ route('add-cart', $item->id) }}"></i>
+                                                            <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                                                data-route="{{ route('add.wishlist', $item->id) }}"></i>
 
 
-                                                            </div>
                                                         </div>
-
                                                     </div>
+
                                                 </div>
+                                            </div>
+                                            @endif
 
                                                 @else
                                                 <div class="item_content">
@@ -887,7 +889,7 @@
 
                                                     <div>
                                                         <strong>Unavailable due to price not set yet</strong>
-                              
+
                                                     </div>
 
                                                 </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use App\Models\Category;
+use App\Models\Wishlist;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,6 +29,10 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(InventoryImages::class);
+    }
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class,'id' , 'product_id');
     }
 
     public function reviews(){

@@ -421,12 +421,6 @@
                                         </span>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-7">
-                                    <a class="custom_btn btn_sm bg_electronic_blue add-wishlist"
-                                    data-route="{{ route('add.wishlist', $product->id) }}">Add To
-                                    Wishlist</a>
-                                </div>
                             </div>
                             <p class="mb-0">
                                 {{ $product->description }}
@@ -438,9 +432,9 @@
                                     <h4 class="list_title mb_15 text-uppercase attribute">{{ $attributes->attribute_name }}</h4>
                                     @foreach ($attributes->prod_attribute_value as $value)
                                     <div class="form-check">
-                                        <input class="attribute_value"
+                                        {{-- <input class="attribute_value"
                                             type="radio" name="{{ $attributes->id }}"
-                                            id="{{ $value->id }}">
+                                            id="{{ $value->id }}"> --}}
 
                                         <label class="fs-5"
                                             for="{{ $value->id }}">

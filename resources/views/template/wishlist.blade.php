@@ -34,13 +34,13 @@
                         <tbody>
                             <div id="wishlist">
                                 @foreach ($wishlists as $wishlist)
-                                    {{-- @dd($wishlist->product->products->featured_image); --}}
+                                {{-- @dd($wishlist->product); --}}
                                     <tr id="remove{{ $wishlist->id }}">
                                         <td class="product-col">
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="{{ asset('storage/product_images/' . $wishlist->product->featured_image) }}"
+                                                        <img src="{{ asset('storage/product_images/'.$wishlist->product->featured_image) }}"
                                                             height="80px" width="80px" alt="Product image">
                                                     </a>
                                                 </figure>

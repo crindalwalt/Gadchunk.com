@@ -39,6 +39,7 @@
 
                     <div class="row">
                         <div class="col-12">
+                            @if (!$messages->isEmpty())
                             <div class="card">
                                 <div class="card-body">
 
@@ -124,6 +125,14 @@
                                 </div>
 
                             </div>
+                            @else
+                            <div class="card  bg-white shadow p-5">
+                                <div class="text-center">
+                                    <h1>Not Messages Yet!</h1>
+                                </div>
+                            </div>
+                            @endif
+
 
                         </div> <!-- end col -->
                     </div>

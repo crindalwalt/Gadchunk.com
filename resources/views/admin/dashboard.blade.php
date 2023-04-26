@@ -985,6 +985,7 @@
                         </div> --}}
 
                         <div class="col-xl-12">
+                            @if (!$orders->isEmpty())
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title mb-4">Orders of the Month</h4>
@@ -1214,7 +1215,15 @@
                                     </div>
                                     <!-- end table-responsive -->
                                 </div>
+                            </div
+                            @else
+                            <div class="card  bg-white shadow p-5">
+                                <div class="text-center">
+                                    <h1>Not Orders Yet!</h1>
+                                </div>
                             </div>
+                            @endif
+                            >
                         </div>
 
 

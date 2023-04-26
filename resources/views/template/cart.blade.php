@@ -103,7 +103,7 @@
                                             <button type="button" class="btn btn-sm btn-outline-success"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal1{{ $item->id }}">
-                                                Apply
+                                                Product Type
                                             </button>
 
                                             <!-- Modal -->
@@ -157,7 +157,7 @@
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                                 <button type="submit" class="btn btn-primary">Apply
-                                                                    Variation
+                                                                    Type
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -169,7 +169,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <h4>Variation Available: </h4>
+                                            <h4>Selected Type: </h4>
                                         </td>
                                         <td class="d-flex">
                                             @foreach ($cart_attributes as $values)

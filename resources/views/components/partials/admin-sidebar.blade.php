@@ -104,7 +104,7 @@
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
                     </ul>
-                </li> 
+                </li>
 
 
 
@@ -225,18 +225,16 @@
                 {{-- logout Pane --}}
                 <li>
 
-                    <form action="{{ route('logout', Auth::check() ? Auth::user()->id : '0' ) }}" method="post">
+                    <form method="POST" action="{{ route('logout') }}" class="d-inline">
                         @csrf
-                        <a href="javascript: void(0);" class="waves-effect">
-                            <i class="dripicons-power"></i>
-                            <span>Logout</span>
+                         <a class="dropdown-item text-danger d-flex" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                <i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i>
+                                    Logout
                         </a>
                     </form>
-                    {{-- <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Email Read</a></li>
-                        <li><a href="email-compose.html">Email Compose</a></li>
-                    </ul> --}}
+
+                    
                 </li>
 
 
