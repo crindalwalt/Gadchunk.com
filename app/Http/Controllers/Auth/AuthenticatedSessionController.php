@@ -31,6 +31,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
         if(Auth::user()->userType == 1){
             return redirect()->intended(RouteServiceProvider::HOME);
         }else{
@@ -49,7 +50,7 @@ class AuthenticatedSessionController extends Controller
     {
         Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
+        $request->session()->invalidate(); 
 
         $request->session()->regenerateToken();
 

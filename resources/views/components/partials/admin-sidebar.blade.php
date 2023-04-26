@@ -104,7 +104,7 @@
                         {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
 
                     </ul>
-                </li> --}}
+                </li> 
 
 
 

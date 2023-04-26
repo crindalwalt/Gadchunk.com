@@ -177,10 +177,7 @@ Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('searc
 Route::middleware('auth', 'verified')->group(function () {
 
     // site page
-   Route::get('/shop', [NavigatorController::class, 'shop'])->name('shop');
-   Route::get('/product/{id}', [NavigatorController::class, 'single_item'])->name('product_detail');
-   Route::get('/about', [NavigatorController::class, 'about'])->name('about');
-   Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
+  
    Route::post('/contact/message', [NavigatorController::class, 'message'])->name('contact.message');
    Route::get('/contact/message/show', [NavigatorController::class, 'MessageShow'])->name('contact.message.show');
 
