@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartAttribute;
+use App\Models\CartVariation;
 use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Product;
@@ -10,6 +12,7 @@ use App\Models\ProductInventory;
 use App\Models\Wishlist;
 use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -21,14 +24,48 @@ class CartController extends Controller
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
         $data['categories'] = Category::all();
-        $data['wishlists']=Wishlist::all();
-        $data['collections']= Collection::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['collections'] = Collection::all();
+        $data['cart_attributes'] = CartAttribute::all();
 
         return view('template.cart', $data);
     }
 
+    // Session check
+    public function SessionCheck()
+    {
+        $result = Session::get("cart");
+        dd($result);
+    }
+    // variation change
+    public function variation(Request $request, Product $id)
+    {
+        // @dd($request->attribute_value);
+        $oldCart = Session::has("cart") ? Session::get("cart") : [];
+        $attribute_value = [];
+        foreach ($oldCart as $item) {
+            if ($item['product_id'] == $id->id) {   
+                $quantity_value = $item['quantity'];
+                $cart = CartVariation::create([
+                    'user_id' => Auth::user()->id,
+                    'product_id' => $id->id,
+                    'quantity' =>  $quantity_value,
+                 ]);
+                foreach ($request->attribute_value as $value) {
+                    $cart = CartAttribute::create([
+                        'product_id' => $id->id,
+                        'attribute_value' =>  $value,
+                     ]);
+                    // $attribute_value[] = $value;
+                }
+            }
+        }
+
+        // dd( $attribute_value );
+        return redirect()->back();
+    }
     // add products in cart
-    public function add($id, $quantity = 1,)
+    public function add($id, $quantity = 1)
     {
         // Initialize and check the session exist or not
         $oldCart = Session::has("cart") ? Session::get("cart") : [];
@@ -64,6 +101,8 @@ class CartController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : [];
         unset($oldCart[$product]);
         Session::put('cart', $oldCart);
+        CartVariation::where('product_id',$id)->delete();
+        CartAttribute::where('product_id',$id)->delete();
         return response()->json(['success' => 'Product remove from cart', 'count' => sizeof($oldCart)]);
     }
 
@@ -101,13 +140,14 @@ class CartController extends Controller
         $data['total'] = $this->Total();
         $data['sub_total'] = $this->Sub_Total();
         $data['discount'] = $this->Discount();
-        $data['wishlists']=Wishlist::all();
-        $data['collections']= Collection::all();
+        $data['wishlists'] = Wishlist::all();
+        $data['collections'] = Collection::all();
+        $data['cart_attributes'] = CartAttribute::all();
 
         return view('template.checkout', $data);
     }
 
-      // function total price in cart
+    // function total price in cart
     //   public function itemTotal($id,$quantity)
     //   {
     //     $products = ProductInventory::where('id', $id)->get();
@@ -132,13 +172,13 @@ class CartController extends Controller
         $sum = 0;
         foreach ($products as $pro) {
             // $sum += $pro->squantity * $pro->retail_price;
-            $trim_value = trim($pro->prod_inventory->discount_price ,'%');
-            if ($trim_value == '0'|| $trim_value == NULL ) {
-                $sum+= $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
+            $trim_value = trim($pro->prod_inventory->discount_price, '%');
+            if ($trim_value == '0' || $trim_value == NULL) {
+                $sum += $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
             } else {
-                $discount_formula = ($trim_value/100)* $pro->prod_inventory->retail_price;
+                $discount_formula = ($trim_value / 100) * $pro->prod_inventory->retail_price;
                 $simple_value = $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
-                $discount_value=$pro->prod_inventory->squantity * $discount_formula;
+                $discount_value = $pro->prod_inventory->squantity * $discount_formula;
                 $sum += $simple_value - $discount_value;
                 // $sum += $pro->squantity * $discount_formula;
             }
@@ -146,17 +186,17 @@ class CartController extends Controller
         return $sum;
     }
     // function single item price in cart
-    public function SingleTotal($id,$quantity)
+    public function SingleTotal($id, $quantity)
     {
         $product = Product::with('prod_inventory')->find($id);
-        $trim_value = trim($product->prod_inventory->discount_price ,'%');
-        if ($trim_value == '0%'|| $trim_value == '0'|| $trim_value == NULL ) {
-            $single_item_total= $quantity * $product->prod_inventory->retail_price;
+        $trim_value = trim($product->prod_inventory->discount_price, '%');
+        if ($trim_value == '0%' || $trim_value == '0' || $trim_value == NULL) {
+            $single_item_total = $quantity * $product->prod_inventory->retail_price;
         } else {
-            $discount_formula = ($trim_value/100)* $product->prod_inventory->retail_price;
+            $discount_formula = ($trim_value / 100) * $product->prod_inventory->retail_price;
             $simple_value = $quantity * $product->prod_inventory->retail_price;
-            $discount_value= $quantity * $discount_formula;
-            $single_item_total= $simple_value - $discount_value;
+            $discount_value = $quantity * $discount_formula;
+            $single_item_total = $simple_value - $discount_value;
         }
 
         return $single_item_total;
@@ -196,18 +236,31 @@ class CartController extends Controller
         }
         Session::put('cart', $newCart);
     }
+    // fucntion to change quantity in session
+    public function ChangeVariation($id, $quantity)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : [];
+        $newCart = [];
+        foreach ($oldCart as $value) {
+            if ($value['product_id'] == $id) {
+                $value['quantity'] = $quantity;
+            }
+            $newCart[] = $value;
+        }
+        Session::put('cart', $newCart);
+    }
 
     // Function to change quantity
 
     public function ChangeQty($id, $quantity)
     {
         $products = $this->changeQuantity($id, $quantity);
-        $single_total = $this->SingleTotal($id,$quantity);
+        $single_total = $this->SingleTotal($id, $quantity);
         $sub_total = $this->Sub_Total();
         $discount = $this->Discount();
         $total_price = $this->Total();
         return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 1000 items"])
-            : response()->json([ 'id'=>$id, 'totalPrice' => $total_price,'single_total' => $single_total, 'products' => $products ,'sub_total' => $sub_total , 'discount' => $discount]);
+            : response()->json(['id' => $id, 'totalPrice' => $total_price, 'single_total' => $single_total, 'products' => $products, 'sub_total' => $sub_total, 'discount' => $discount]);
     }
 
 

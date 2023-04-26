@@ -26,11 +26,8 @@ use App\Http\Controllers\ProductInventoryController;
 use App\Http\Controllers\ProductAttributeValueController;
 
 use App\Http\Controllers\User\WishlistController;
-
-
-
-
-
+use App\Mail\OrderMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
 
     // Users CRUD
     Route::get('users/', [UserController::class, 'index']);
-    Route::get('/profile', [UserController::class, 'profile'])->name('admin.profile');
+    Route::get('/main_profile', [UserController::class, 'profile'])->name('admin.profile');
     Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('admin.profile.update');
     Route::post('/profile/{id}/delete', [UserController::class, 'destroy'])->name('admin.profile.destroy');
 
@@ -120,6 +117,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
 
     //! PRODUCT INVENTORY
     Route::get("/inventory/{product}/manage", [ProductInventoryController::class, 'index'])->name("inventory.manage");
+    Route::get("/inventory/{product}/edit", [ProductInventoryController::class, 'edit'])->name("inventory.edit");
+    Route::post('/inventory/{product}/update', [ProductInventoryController::class, 'update'])->name('inventory.update');
+
     Route::get("/inventory/manage", [ProductInventoryController::class, 'IndexPage'])->name("inventory.index");
     Route::post("/inventory/store", [ProductInventoryController::class, 'store'])->name("inventory.store");
     Route::post("/inventory/{id}/delete", [ProductInventoryController::class, 'destroy'])->name("inventory_products.destroy");
@@ -188,11 +188,13 @@ Route::middleware('auth', 'verified')->group(function () {
 
     //Add Cart Controller
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('add-cart/{id}/{quantity?}', [CartController::class, 'add'])->name('add-cart');
+    Route::get('add-cart/{id}/{quantity?}/{attribute?}/{attribute_value?}', [CartController::class, 'add'])->name('add-cart');
     Route::get('cart_remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
     Route::get('change/{id}/{quantity?}', [CartController::class, 'ChangeQty'])->name('cart.quantity');
+    Route::post('variation-change/{id}', [CartController::class, 'variation'])->name('cart.variation');
     //order routes
     Route::post('/order', [PaymentController::class, 'saveorder'])->name('stripe.post');
+    Route::post('/order/{id}/delete', [PaymentController::class, 'OrderDestroy'])->name('order.destroy');
     Route::post('/review', [OrderController::class, 'review'])->name('review.add');
 
 
@@ -200,12 +202,12 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
     // Profile routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
+    Route::get('/profile_edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile_update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile_destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    // Profile routes
-   Route::get('/profile', [UserController::class, 'profile'])->name('profile');
    Route::get('/track_order', [UserController::class, 'track_order'])->name('order_list');
 
    Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
@@ -213,16 +215,31 @@ Route::middleware('auth', 'verified')->group(function () {
 });
 
 
-
-Route::get('/404', [NavigatorController::class, 'error'])->name('error');
-
-// Route::get('/test/{id}/{quantity}', [CartController::class, 'SingleTotal']);
-
-
 Route::get('/thank', function () {
     return view('template.thankyou');
 });
+Route::get('/404', [NavigatorController::class, 'error'])->name('error');
 
+
+//-=============================  Testing Routes  =======================
+Route::get('/test', [CartController::class, 'SessionCheck']);
+Route::get('/testing', [PaymentController::class, 'check']);
+
+
+
+// Route::get('send-mail', [PaymentController::class, 'sendmail']);
+// Route::get('send-mail', function () {
+
+//     $details = [
+//         'title' => 'Mail from GadChunk.com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
+//     // @dd(new OrderMail($details));
+
+//     Mail::to('test@gmail.com')->send(new OrderMail($details));
+
+//     dd("Email is Sent.");
+// });
 
 
 require __DIR__ . '/auth.php';

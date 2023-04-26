@@ -169,7 +169,7 @@
                                                             <th scope="row">{{ $loop->iteration }}</th>
                                                             <td>{{ $collection->name }}</td>
                                                             <td>{{ $collection->title }}</td>
-                                                            <td>Rs. I{{ $collection->discount_percentage }}</td>
+                                                            <td>Rs. {{ $collection->discount_percentage }}</td>
                                                             <td><img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
                                                                     width="70" height="50"></td>
                                                             <td class="">

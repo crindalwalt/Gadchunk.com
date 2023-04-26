@@ -1,7 +1,7 @@
 <x-main-layout>
     {{-- Selective header  --}}
 
-    <x-layouts.header :wishlists=$wishlists  />
+    <x-layouts.header :wishlists=$wishlists />
 
     <!-- main body - start
   ================================================== -->
@@ -95,12 +95,10 @@
 						</div>
 					</div> --}}
 
-
                 <div class="billing_form mb_50">
                     <h3 class="form_title mb_30">Billing details</h3>
-                    <form role="form" action="{{ route('stripe.post') }}" method="post"
-                        class="require-validation" data-cc-on-file="false"
-                        data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                    <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
+                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                         @csrf
                         <div class="form_wrap">
 
@@ -108,14 +106,14 @@
                                 <div class="col-lg-12">
                                     <div class="form_item">
                                         <span class="input_title">Name<sup>*</sup></span>
-                                        <input type="text" name="user_id" value="{{Auth::user()->name}}">
+                                        <input type="text" name="user_id" value="{{ Auth::user()->name }}">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form_item">
                                 <span class="input_title">Email Address<sup>*</sup></span>
-                                <input type="email" name="checkout_email" value="{{Auth::user()->email}}">
+                                <input type="email" name="checkout_email" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="form_item">
                                 <span class="input_title">Town/City<sup>*</sup></span>
@@ -128,7 +126,8 @@
 
                             <div class="form_item">
                                 <span class="input_title">Address<sup>*</sup></span>
-                                <input type="text" name="checkout_address" placeholder="House number and street name">
+                                <input type="text" name="checkout_address"
+                                    placeholder="House number and street name">
                             </div>
 
                             <div class="form_item">
@@ -138,7 +137,7 @@
 
                             <div class="form_item">
                                 <span class="input_title">Phone<sup>*</sup></span>
-                                <input type="tel" name="checkout_phone" value="{{Auth::user()->phone}}">
+                                <input type="tel" name="checkout_phone" value="{{ Auth::user()->phone }}">
                             </div>
 
 
@@ -155,19 +154,18 @@
                             <div class="form_wrap">
 
                                 @if ($products->count() > 0)
-                                <div class="checkout_table">
-                                    <table class="table text-center mb_50">
-                                        <thead class="text-uppercase text-uppercase">
-                                            <tr>
-                                                <th>Product Name</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-
+                                    <div class="checkout_table">
+                                        <table class="table text-center mb_50">
+                                            <thead class="text-uppercase text-uppercase">
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Variation</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                                 @foreach ($products as $item)
                                                     <tr>
                                                         <td>
@@ -183,58 +181,76 @@
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <input type="hidden" value="{{ $item->id }}" name="product_id">
+                                                        <input type="hidden" value="{{ $item->id }}"
+                                                            name="product_id[]">
 
                                                         <td>
-                                                            <span class="price_text">{{ $item->prod_inventory->discount_price }}</span>
+                                                            <span
+                                                                class="price_text">{{ $item->prod_inventory->discount_price }}</span>
                                                         </td>
                                                         <td>
-                                                            <span class="quantity_text">{{ $item->prod_inventory->squantity }}</span>
-                                                            <input type="hidden" value="{{$item->prod_inventory->squantity }}" name="quantity">
-
+                                                            <span
+                                                                class="quantity_text">{{ $item->prod_inventory->squantity }}</span>
                                                         </td>
-                                                        <td><span class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price }}</span>
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @foreach ($cart_attributes as $values)
+                                                                    @if ($values['product_id'] == $item->id)
+                                                                        <span
+                                                                            class="badge bg-primary mx-3 text-white">{{ $values->attribute_values[0]->attribute_value }}</span>
+                                                                        <input type="hidden"
+                                                                            value="{{ $values->attribute_value }}"
+                                                                            name="attribute_value[]">
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                        </td>
+                                                        <td><span
+                                                                class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price * $item->prod_inventory->squantity }}</span>
                                                         </td>
                                                     </tr>
                                                 @endforeach
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span class="subtotal_text">Subtotal</span>
+                                                    </td>
+                                                    <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span class="subtotal_text">Discount</span>
+                                                    </td>
+                                                    <td><span class="discount">{{ $discount }}</span></td>
+                                                </tr>
+                                                <tr class="bg-secondary">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="text-left">
+                                                        <span class="subtotal_text">TOTAL</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="total_price">Rs.{{ $total }}</span>
+                                                    </td>
+                                                    <input type="hidden" value="{{ $total }}"
+                                                        name="total_amount">
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <span class="subtotal_text">Subtotal</span>
-                                                </td>
-                                                <td><span class="total_price">Rs.{{ $sub_total }}</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <span class="subtotal_text">Discount</span>
-                                                </td>
-                                                <td><span class="discount">{{ $discount }}</span></td>
-                                            </tr>
-                                            <tr class="bg-secondary">
-                                                <td></td>
-                                                <td></td>
-                                                <td class="text-left">
-                                                    <span class="subtotal_text">TOTAL</span>
-                                                </td>
-                                                <td>
-                                                    <span class="total_price">Rs.{{ $total }}</span>
-                                                </td>
-                                                <input type="hidden" value="{{ $total }}" name="total_amount">
 
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 @else
-                                <div class="text-center">
-                                    <h3 class="text-danger">Cart have no item</h3>
-                                </div>
-                            @endif
+                                    <div class="text-center">
+                                        <h3 class="text-danger">Cart have no item</h3>
+                                    </div>
+                                @endif
 
                                 <input type="hidden" value="{{ $total }}" name="total_amount">
 
@@ -242,7 +258,7 @@
 
                                     <h3 class="text-primary">Payment Method</h3>
                                     <input type="hidden" name="payment_method" id="payment_method">
-                                    <div class="card">
+                                    {{-- <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link check_payment_method" type="button"
@@ -262,24 +278,26 @@
                                                     maxlength="11">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed check_payment_method"
-                                                    data-value="easypaisa" value="easypaisa" type="button"
-                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                    data-value="Cash-on-delivery" value="Cash-on-delivery"
+                                                    type="button" data-toggle="collapse" data-target="#collapseTwo"
                                                     aria-expanded="false" aria-controls="collapseTwo">
-                                                    EasyPaisa
+                                                    Cash On Delivery
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                <input class="form-control border border-danger" name="easypaisa"
+                                                <p>Payment receive on product Delivered</p>
+
+                                                {{-- <input class="form-control border border-danger" name="easypaisa"
                                                     type="text" placeholder="Enter Easypaisa number...."
-                                                    maxlength="11">
+                                                    maxlength="11"> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -300,8 +318,7 @@
                                                 <div class='form-row row'>
                                                     <div class='col-xs-12 form-group card required'>
                                                         <label class='control-label'>Card Number</label> <input
-                                                            class='form-control card-number'
-                                                            type='text'>
+                                                            class='form-control card-number' type='text'>
                                                     </div>
                                                 </div>
                                                 <div class='form-row row'>

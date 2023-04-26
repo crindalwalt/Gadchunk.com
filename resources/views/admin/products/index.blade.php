@@ -137,6 +137,8 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Browse all Products</h4>
                                     <p class="card-title-desc">All of the below products are Dynamic</p>
+                                    <div class="shadow p-3 mb-5 bg-body rounded text-danger text-center fw-bolder">Note : After Adding Products must manage Inventory to set Price</div>
+
                                     <div class="table-responsive">
 
                                         <table class="table mb-0">

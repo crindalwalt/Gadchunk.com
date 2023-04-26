@@ -29,68 +29,80 @@
                         </thead>
                         <tbody>
                             @foreach ($orders as $item)
-                            <tr>
-                                <th scope="row"> {{ $item->order_number }}</th>
-                                <td>{{ $item->user->name }} </td>
-                                <td>{{ $item->user->email }}</td>
-                                <td>{{ $item->total_amount }}</td>
-                                <td>{{ $item->payment_method }}</td>
-                                <td>
+                                {{-- @dd($orders) --}}
+                                <tr>
+                                    <th scope="row"> {{ $item->order_number }}</th>
+                                    <td>{{ $item->user->name }} </td>
+                                    <td>{{ $item->user->email }}</td>
+                                    <td>{{ $item->total_amount }}</td>
+                                    <td>{{ $item->payment_method }}</td>
+                                    <td>
 
-                                    @if ($item->status == 'pending')
-                                        Pending
-                                    @elseif($item->status == 'approved')
-                                        Approved
-                                    @elseif($item->status == 'delivered')
-                                        Delivered
-                                    @elseif($item->status == 'dispatched')
-                                        Dispatched
-                                    @elseif($item->status == 'cancelled')
-                                        Cancelled
-                                    @endif
-                                    {{-- <select id="{{ $orders->id }}" onchange="changeStatus({{ $orders->id }})"
-                                            name="status" class="form-select">
-                                            <option value="pending"
-                                                @if ($orders->status == 'pending') selected="selected" @endif>
-                                                Pending</option>
-                                            <option value="approved"
-                                                @if ($orders->status == 'approved') selected="selected" @endif>
-                                                Approved</option>
-                                            <option value="cancelled"
-                                                @if ($orders->status == 'cancelled') selected="selected" @endif>
-                                                Cancelled</option>
-                                            <option value="dispatched"
-                                                @if ($orders->status == 'dispatched') selected="selected" @endif>
-                                                Dispatched</option>
-                                            <option value="delivered"
-                                                @if ($orders->status == 'delivered') selected="selected" @endif>
-                                                Delivered</option>
-                                        </select> --}}
-                                </td>
-                                <td>
-                                    
-                                     <!-- Button trigger modal -->
-                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                     data-bs-target="#exampleModal{{ $item->id }}">
-                                     Details
-                                 </button>
+                                        @if ($item->status == 'pending')
+                                            Pending
+                                        @elseif($item->status == 'approved')
+                                            Approved
+                                        @elseif($item->status == 'delivered')
+                                            Delivered
+                                        @elseif($item->status == 'dispatched')
+                                            Dispatched
+                                        @elseif($item->status == 'cancelled')
+                                            Cancelled
+                                        @endif
 
-                                 <!-- Modal -->
-                                 <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                     <div class="modal-dialog">
-                                         <div class="modal-content">
-                                             <div class="modal-header">
-                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                     {{ $item->order_number }}</h5>
-                                                 <button type="button" class="close" data-bs-dismiss="modal"
-                                                     aria-label="Close">
-                                                     <span aria-hidden="true">&times;</span>
-                                                 </button>
-                                             </div>
-                                             <div class="modal-body">
+                                    </td>
+                                    <td>
 
-                                                 <div class="table-responsive">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal{{ $item->id }}">
+                                            Details
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            {{ $item->order_number }}</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table class="table">
+                                                            <thead class="table-dark">
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Product</th>
+                                                                    <th scope="col">Quantity</th>
+                                                                    <th scope="col">Variation</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($item->items as $products)
+                                                                    {{-- @dd($products->order_variation) --}}
+                                                                    <tr>
+                                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                                        <td>{{ $products->product[0]->name }}</td>
+                                                                        <td>{{ $products->quantity }}</td>
+                                                                        <td>
+                                                                            {{-- @dd($attr) --}}
+                                                                            {{-- @dd($products->order_variation) --}}
+
+                                                                            @foreach ($products->order_variation as $attr)
+                                                                                <span>{{ $attr->variations[0]->attribute_value }} , </span>
+                                                                            @endforeach
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                            </tbody>
+                                                        </table>
+                                                        {{-- <div class="table-responsive">
                                                      <table class="table">
 
                                                          <thead>
@@ -109,7 +121,6 @@
                                                              </tr>
                                                          </thead>
                                                          <tbody>
-                                                            {{-- @dd($item->items[0]) --}}
                                                                  <tr>
                                                                      <th scope="row">1
                                                                      </th>
@@ -125,26 +136,30 @@
                                                                              alt="" height="100px"
                                                                              width="100px">
                                                                      </td>
-                                                                 </tr>                                                    
+                                                                 </tr>
                                                          </tbody>
                                                      </table>
-                                                 </div>
-                                             </div>
-                                             <div class="modal-footer">
-                                                 <button type="button" class="btn btn-secondary"
-                                                     data-bs-dismiss="modal">Close</button>
-                                                 {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 @if ($item->status == 'pending')
-                                 <button class="btn btn-danger">Cancel Order</button>
-                                 @endif
-                                </td>
-                            </tr>
+                                                 </div> --}}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if ($item->status == 'pending')
+                                            <form class="d-inline" action="{{ route('order.destroy', $item->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Cancel Order</button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
-                            
+
                         </tbody>
 
                     </table>
@@ -252,8 +267,8 @@
                 @else
                     <div class="card  bg-white shadow p-5">
                         <div class="mb-4 text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75"
-                                height="75" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
+                                fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path
                                     d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />

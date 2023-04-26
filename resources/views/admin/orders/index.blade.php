@@ -222,6 +222,8 @@
                                              </thead>
                                              <tbody>
                                                  @foreach ($orders as $order)
+                                                     {{-- @dd($orders) --}}
+                                                     {{-- @dd($order->items[0]->order_variation[0]->variations[0]->attribute_value) --}}
                                                      <tr>
                                                          <th scope="row"> {{ $order->order_number }}</th>
                                                          <td>{{ $order->user->name }} </td>
@@ -229,23 +231,23 @@
                                                          <td>{{ $order->total_amount }}</td>
                                                          <td>{{ $order->payment_method }}</td>
                                                          <td>
-                                                            @if ($order->status == 'pending')
-                                                                <span
-                                                                    class="badge  bg-danger">{{ $order->status }}</span>
-                                                            @elseif ($order->status == 'delivered')
-                                                                <span
-                                                                    class="badge bg-primary">{{ $order->status }}</span>
-                                                            @elseif ($order->status == 'approved')
-                                                                <span
-                                                                    class="badge bg-success">{{ $order->status }}</span>
-                                                            @elseif ($order->status == 'dispatched')
-                                                                <span
-                                                                    class="badge bg-secondary">{{ $order->status }}</span>
-                                                            @elseif ($order->status == 'cancelled')
-                                                                <span
-                                                                    class="badge bg-dark">{{ $order->status }}</span>
-                                                            @endif
-                                                        </td>
+                                                             @if ($order->status == 'pending')
+                                                                 <span
+                                                                     class="badge  bg-danger">{{ $order->status }}</span>
+                                                             @elseif ($order->status == 'delivered')
+                                                                 <span
+                                                                     class="badge bg-primary">{{ $order->status }}</span>
+                                                             @elseif ($order->status == 'approved')
+                                                                 <span
+                                                                     class="badge bg-success">{{ $order->status }}</span>
+                                                             @elseif ($order->status == 'dispatched')
+                                                                 <span
+                                                                     class="badge bg-secondary">{{ $order->status }}</span>
+                                                             @elseif ($order->status == 'cancelled')
+                                                                 <span
+                                                                     class="badge bg-dark">{{ $order->status }}</span>
+                                                             @endif
+                                                         </td>
 
                                                          <td>
 
@@ -253,12 +255,80 @@
                                                              <button type="button" class="btn btn-primary"
                                                                  data-bs-toggle="modal"
                                                                  data-bs-target="#exampleModal{{ $order->id }}">
-                                                                 Update Status{{ $order->id }}
+                                                                 View
                                                              </button>
 
                                                              <!-- Modal -->
                                                              <div class="modal fade"
                                                                  id="exampleModal{{ $order->id }}" tabindex="-1"
+                                                                 aria-labelledby="exampleModalLabel"
+                                                                 aria-hidden="true">
+                                                                 <div class="modal-dialog">
+
+                                                                     <div class="modal-content">
+                                                                         <div class="modal-header">
+                                                                             <h5 class="modal-title"
+                                                                                 id="exampleModalCenterTitle">
+                                                                                 {{ $order->order_number }}</h5>
+                                                                             <button type="button" class="close"
+                                                                                 data-bs-dismiss="modal"
+                                                                                 aria-label="Close">
+                                                                                 <span
+                                                                                     aria-hidden="true">&times;</span>
+                                                                             </button>
+                                                                         </div>
+
+                                                                         <div class="modal-body">
+                                                                             <table class="table">
+                                                                                 <thead class="table-dark">
+                                                                                     <tr>
+                                                                                         <th scope="col">#</th>
+                                                                                         <th scope="col">Product
+                                                                                         </th>
+                                                                                         <th scope="col">Quantity
+                                                                                         </th>
+                                                                                         <th scope="col">Variation
+                                                                                         </th>
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                 <tbody>
+                                                                                    @foreach ($order->items as $products)
+                                                                                    <tr>
+                                                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                                                        <td>{{ $products->product[0]->name }}</td>
+                                                                                        <td>{{ $products->quantity }}</td>
+                                                                                        <td>
+                                                                                            {{-- @dd($attr) --}}
+                                                                                            {{-- @dd($products->order_variation) --}}
+
+                                                                                            @foreach ($products->order_variation as $attr)
+                                                                                                <span>{{ $attr->variations[0]->attribute_value }} , </span>
+                                                                                            @endforeach
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                @endforeach
+
+                                                                                 </tbody>
+                                                                             </table>
+                                                                         </div>
+                                                                         <div class="modal-footer">
+                                                                             <button type="button"
+                                                                                 class="btn btn-secondary"
+                                                                                 data-bs-dismiss="modal">Close</button>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                             <!-- Button trigger modal -->
+                                                             <button type="button" class="btn btn-primary"
+                                                                 data-bs-toggle="modal"
+                                                                 data-bs-target="#exampleModal2{{ $order->id }}">
+                                                                 Update Status
+                                                             </button>
+
+                                                             <!-- Modal -->
+                                                             <div class="modal fade"
+                                                                 id="exampleModal2{{ $order->id }}" tabindex="-1"
                                                                  aria-labelledby="exampleModalLabel"
                                                                  aria-hidden="true">
                                                                  <div class="modal-dialog">
@@ -286,6 +356,7 @@
                                                                                      <input class="form-check-input"
                                                                                          type="radio" name="status"
                                                                                          value="pending"
+                                                                                         @if ($order->status == 'pending') checked @endif
                                                                                          id="flexRadioDefault1">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault1">
@@ -297,6 +368,7 @@
                                                                                      <input class="form-check-input"
                                                                                          type="radio" name="status"
                                                                                          value="approved"
+                                                                                         @if ($order->status == 'approved') checked @endif
                                                                                          id="flexRadioDefault2">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault2">
@@ -308,6 +380,7 @@
                                                                                      <input class="form-check-input"
                                                                                          type="radio" name="status"
                                                                                          value="dispatched"
+                                                                                         @if ($order->status == 'dispatched') checked @endif
                                                                                          id="flexRadioDefault3">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault3">
@@ -319,6 +392,7 @@
                                                                                      <input class="form-check-input"
                                                                                          type="radio" name="status"
                                                                                          value="delivered"
+                                                                                         @if ($order->status == 'delivered') checked @endif
                                                                                          id="flexRadioDefault4">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault4">
@@ -329,6 +403,7 @@
                                                                                      <input class="form-check-input"
                                                                                          type="radio" name="status"
                                                                                          value="cancelled"
+                                                                                         @if ($order->status == 'cancelled') checked @endif
                                                                                          id="flexRadioDefault5">
                                                                                      <label class="form-check-label"
                                                                                          for="flexRadioDefault5">
@@ -348,7 +423,6 @@
                                                                      </form>
                                                                  </div>
                                                              </div>
-
                                                          </td>
                                                  @endforeach
                                              </tbody>

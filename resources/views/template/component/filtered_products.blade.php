@@ -1,4 +1,6 @@
 @foreach ($inventory_products as $item)
+@if ($item->prod_inventory)
+
 <a href="{{ route('product_detail', $item->id) }}"
     style="text-decoration: none">
 
@@ -44,6 +46,20 @@
 
 
         </div>
+
     </li>
 </a>
+        @else
+        <div class="item_content">
+            <span
+                class="item_type text-uppercase">{{ $item->name }}</span>
+
+            <div>
+                <strong>Unavailable due to price not set yet</strong>
+
+            </div>
+
+        </div>
+        @endif
+
 @endforeach

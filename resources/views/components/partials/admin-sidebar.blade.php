@@ -209,7 +209,7 @@
                 <li class="menu-title">Settings</li>
                 {{-- Profile pane --}}
                 <li>
-                    <a href="{{ route('profile') }}" class=" waves-effect">
+                    <a href="{{ route('admin.profile') }}" class=" waves-effect">
                         <i class="dripicons-article"></i>
                         <span>Profile Page</span>
                     </a>

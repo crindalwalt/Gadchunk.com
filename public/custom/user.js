@@ -119,10 +119,6 @@ $(document).on('click', '.wishremove', function () {
 
 $(document).on('change', '.quantity', function () {
     var quantity = $(this).val();
-    // setTimeout(function () {
-    //     window.location.reload(true);
-    // }, 1000);
-    console.log(quantity);
     var url = $(this).data('route') + "/" + quantity;
     $.get(url, function (res) {
         $('.total_price').html(res.totalPrice);
@@ -131,7 +127,6 @@ $(document).on('change', '.quantity', function () {
         $('.discount').html(res.discount);
     })
 })
-
 // product filters
 
 var arr = [];
