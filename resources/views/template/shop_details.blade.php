@@ -362,11 +362,14 @@
                         <div class="shop_details_image">
                             <div class="tab-content zoom-gallery">
                                 <div id="tab_1" class="tab-pane active">
+                                    {{-- @foreach ($product->images as $image) --}}
+
                                     <a class="popup_image zoom-image" data-image="assets/images/details/shop/img_01.jpg"
                                         href="assets/images/details/shop/img_01.jpg">
                                         <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
                                             alt="image_not_found">
                                     </a>
+                                    {{-- @endforeach --}}
 
                                 </div>
 
@@ -380,7 +383,7 @@
                                 @foreach ($product->images as $image)
                                     <li>
                                         <a class="active" data-toggle="tab" href="#tab_1">
-                                            <img src=" {{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                            <img src=" {{ asset('storage/inventory_images/'. $image->product_image) }}"
                                                 alt="image_not_found">
                                         </a>
                                     </li>
