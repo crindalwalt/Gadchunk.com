@@ -864,9 +864,17 @@
                                                         {{ $item->name }}
                                                     </h3>
                                                     <div class="item_price">
-                                                        <strong>Rs.
-                                                            {{ $item->prod_inventory->retail_price }}</strong>
-                                                        {{-- <del>Rs. {{ $item->retail_price }}</del> --}}
+                                                        @if ($item->prod_inventory->discount_price)
+                                                        @php
+                                                            $trim_value = trim($item->prod_inventory->discount_price, '%');
+                                                            $discount_value = ($trim_value / 100) * $item->prod_inventory->retail_price;
+                                                            $value = $item->prod_inventory->retail_price - $discount_value;
+                                                        @endphp
+                                                        <span class="item_price">Rs.{{ $value }}</span>
+                                                    @endif
+                                                        {{-- <strong>Rs.
+                                                            {{ $item->prod_inventory->retail_price }}</strong> --}}
+                                                        <del>Rs. {{  $item->prod_inventory->retail_price }}</del>
                                                         <div class="d-flex justify-content-end">
 
                                                             <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
