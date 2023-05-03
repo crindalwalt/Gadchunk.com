@@ -426,14 +426,14 @@
                                         <h4 data-animation="fadeInUp" data-delay=".4s">{{ $collection->name }}</h4>
                                         <h3 data-animation="fadeInUp" data-delay=".6s">{{ $collection->title }}</h3>
                                         <h3 data-animation="fadeInUp" data-delay=".6s">
-                                            {{ $collection->products[0]->name }}</h3>
-                                        <div class="item_price" data-animation="fadeInUp" data-delay=".8s">
-                                            {{ $collection->discount_percentage }}
-                                        </div>
-                                        <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
-                                            <a href="{{ route('shop') }}"
-                                                class="custom_btn btn_round bg_supermarket_red">Shop Now</a>
-                                        </div>
+                                            {{-- {{ $collection->products[0]->name }}</h3> --}}
+                                            <div class="item_price" data-animation="fadeInUp" data-delay=".8s">
+                                                {{ $collection->discount_percentage }}
+                                            </div>
+                                            <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
+                                                <a href="{{ route('shop') }}"
+                                                    class="custom_btn btn_round bg_supermarket_red">Shop Now</a>
+                                            </div>
                                     </div>
                                 </div>
                             @endforeach
@@ -840,70 +840,91 @@
                         <div class="tab-content">
                             <div id="best_deals_tab" class="tab-pane active">
                                 <ul class="supermarket_product_columns has_4columns ul_li clearfix">
-                                    @foreach ($products as $item)
-                                        <li>
-                                            @if ($item->prod_inventory)
-                                            @if ($item->prod_inventory->in_stock == "yes" )
-                                            <div class="supermarket_product_item">
-                                                <ul class="product_label ul_li_block clearfix">
-                                                    @if ($item->prod_inventory->discount_price)
-                                                        <li data-bg-color="#cc1414">
-                                                            {{ $item->prod_inventory->discount_price }}
-                                                        </li>
-                                                    @endif
-                                                </ul>
-                                                <a class="item_image"
-                                                    href="{{ route('product_detail', $item->id) }}">
-                                                    <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
-                                                        alt="image_not_found">
-                                                </a>
-                                                <div class="item_content">
-                                                    <span
-                                                        class="item_type text-uppercase">{{ $item->name }}</span>
-                                                    <h3 class="item_title">
-                                                        {{ $item->name }}
-                                                    </h3>
-                                                    <div class="item_price">
-                                                        @if ($item->prod_inventory->discount_price)
-                                                        @php
-                                                            $trim_value = trim($item->prod_inventory->discount_price, '%');
-                                                            $discount_value = ($trim_value / 100) * $item->prod_inventory->retail_price;
-                                                            $value = $item->prod_inventory->retail_price - $discount_value;
-                                                        @endphp
-                                                        <span class="item_price">Rs.{{ $value }}</span>
-                                                    @endif
-                                                        {{-- <strong>Rs.
-                                                            {{ $item->prod_inventory->retail_price }}</strong> --}}
-                                                        <del>Rs. {{  $item->prod_inventory->retail_price }}</del>
-                                                        <div class="d-flex justify-content-end">
+                                    @if ($products)
+                                        @foreach ($products as $item)
+                                            <li>
+                                                @if ($item->is_active == 1)
+                                                    @if ($item->prod_inventory->in_stock == 'yes')
+                                                        <div class="supermarket_product_item">
+                                                            <ul class="product_label ul_li_block clearfix">
+                                                                @if ($item->prod_inventory->discount_price)
+                                                                    <li data-bg-color="#cc1414">
+                                                                        {{ $item->prod_inventory->discount_price }}
+                                                                    </li>
+                                                                @endif
+                                                            </ul>
+                                                            <a class="item_image"
+                                                                href="{{ route('product_detail', $item->id) }}">
+                                                                <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
+                                                                    alt="image_not_found">
+                                                            </a>
+                                                            <div class="item_content">
+                                                                <span
+                                                                    class="item_type text-uppercase">{{ $item->name }}</span>
+                                                                <h3 class="item_title">
+                                                                    {{ $item->name }}
+                                                                </h3>
+                                                                <div class="item_price">
+                                                                    @if ($item->prod_inventory->discount_price)
+                                                                        @php
+                                                                            $trim_value = trim($item->prod_inventory->discount_price, '%');
+                                                                            $discount_value = ($trim_value / 100) * $item->prod_inventory->retail_price;
+                                                                            $value = $item->prod_inventory->retail_price - $discount_value;
+                                                                        @endphp
+                                                                        <span
+                                                                            class="item_price">Rs.{{ $value }}</span>
+                                                                    @endif
+                                                                    {{-- <strong>Rs.
+                                                        {{ $item->prod_inventory->retail_price }}</strong> --}}
+                                                                    <del>Rs.
+                                                                        {{ $item->prod_inventory->retail_price }}</del>
+                                                                    <div class="d-flex justify-content-end">
 
-                                                            <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
-                                                                data-route="{{ route('add-cart', $item->id) }}"></i>
-                                                            <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
-                                                                data-route="{{ route('add.wishlist', $item->id) }}"></i>
+                                                                        <i class="fal fa-shopping-cart bg_supermarket_red text-white p-2 mr-2 rounded  add-cart"
+                                                                            data-route="{{ route('add-cart', $item->id) }}"></i>
+                                                                        <i class="fal fa-heart bg_supermarket_red text-white p-2 rounded add-wishlist"
+                                                                            data-route="{{ route('add.wishlist', $item->id) }}"></i>
 
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <div class="item_content">
+                                                            <span
+                                                                class="item_type text-uppercase">{{ $item->name }}</span>
+
+                                                            <div>
+                                                                <strong>Have No Item</strong>
+
+                                                            </div>
 
                                                         </div>
-                                                    </div>
+                                                    @endif
+                                                {{-- @else
+                                                    <div class="item_content">
+                                                        <span
+                                                            class="item_type text-uppercase">{{ $item->name }}</span>
 
-                                                </div>
+                                                        <div>
+                                                            <strong>Unavailable due to price not set yet</strong>
+
+                                                        </div>
+
+                                                    </div> --}}
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                        @else
+                                        <div class="item_content">
+                                            <div>
+                                                <strong>Have No Item</strong>
                                             </div>
-                                            @endif
+                                        </div>
+                                    @endif
 
-                                                @else
-                                                <div class="item_content">
-                                                    <span
-                                                        class="item_type text-uppercase">{{ $item->name }}</span>
-
-                                                    <div>
-                                                        <strong>Unavailable due to price not set yet</strong>
-
-                                                    </div>
-
-                                                </div>
-                                            @endif
-                                        </li>
-                                    @endforeach
 
                                 </ul>
                             </div>
