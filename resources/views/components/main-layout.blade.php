@@ -7,40 +7,35 @@
 
 </head>
 
-<body class="home_supermarket">
-    {{-- <div class="main-wrapper main-wrapper-3"> --}}
+<body>
+
 
 
     {{ $slot }}
 
 
 
-    <x-layouts.footer />
+      <!-- JS here -->
+      <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
+      <script src="{{ asset('assets/js/vendor/waypoints.js') }}"></script>
+      <script src="{{ asset('assets/js/bootstrap-bundle.js') }}"></script>
+      <script src="{{ asset('assets/js/meanmenu.js') }}"></script>
+      <script src="{{ asset('assets/js/swiper-bundle.js') }}"></script>
+      <script src="{{ asset('assets/js/slick.js') }}"></script>
+      <script src="{{ asset('assets/js/range-slider.js') }}"></script>
+      <script src="{{ asset('assets/js/magnific-popup.js') }}"></script>
+      <script src="{{ asset('assets/js/nice-select.js') }}"></script>
+      <script src="{{ asset('assets/js/purecounter.js') }}"></script>
+      <script src="{{ asset('assets/js/countdown.js') }}"></script>
+      <script src="{{ asset('assets/js/wow.js') }}"></script>
+      <script src="{{ asset('assets/js/isotope-pkgd.js') }}"></script>
+      <script src="{{ asset('assets/js/imagesloaded-pkgd.js') }}"></script>
+      <script src="{{ asset('assets/js/ajax-form.js') }}"></script>
+      <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- fraimwork - jquery include -->
-    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    {{-- <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sw/eetalert2.all.min.js "></script> --}}
-
-    <!-- animation - jquery include -->
-    <script src="{{ asset('assets/js/parallaxie.js') }}"></script>
-    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-
-    <!-- carousel - jquery include -->
-    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
-
-    <!-- filtering & masonry layout - jquery include -->
-    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/js/masonry.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/js/countdown.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('assets/js/gmaps.min.js') }}"></script>
-    <script src="{{ asset('assets/js/mCustomScrollbar.js') }}"></script>
-    <script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
 
     <!-- custom - jquery include -->
     <script src="{{ asset('assets/js/nice-select.min.js') }}"></script>

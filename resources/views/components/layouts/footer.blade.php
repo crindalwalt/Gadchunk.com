@@ -1,169 +1,121 @@
-	<!-- footer_section - start
-		================================================== -->
-		<footer class="footer_section supermarket_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 bg_white clearfix" data-bg-color="#191e22">
-				<div class="container">
-					<div class="row justify-content-lg-between">
-
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title">Buyer Central</h3>
-								<ul class="ul_li_block clearfix">
-									<li><a href="{{ route('register') }}">Sign in</a></li>
-									<li><a href="#!">Buyer Protection</a></li>
-									<li><a href="#!">Payment Options</a></li>
-									<li><a href="#!">Shipping Policy</a></li>
-									<li><a href="#!">Return Policy</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget bestrated_products">
-								<h3 class="footer_widget_title">Best Rated Products</h3>
-
-								<div class="supermarket_product_small">
-									<span class="item_type">Speakers</span>
-									<h3 class="item_title">
-										<a href="#!">Red Wireless Headphone Solo 2 HD</a>
-									</h3>
-									<span class="item_price">£2,300</span>
-									<ul class="rating_star ul_li clearfix">
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fal fa-star"></i></li>
-									</ul>
-								</div>
-
-								<div class="supermarket_product_small">
-									<span class="item_type">Speakers</span>
-									<h3 class="item_title">
-										<a href="#!">Red Wireless Headphone Solo 2 HD</a>
-									</h3>
-									<span class="item_price">£2,300</span>
-									<ul class="rating_star ul_li clearfix">
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fas fa-star"></i></li>
-										<li><i class="fal fa-star"></i></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title">Information</h3>
-								<ul class="ul_li_block clearfix">
-									<li><a href="{{ route('about') }}">About Us</a></li>
-									<li><a href="#!">Band of Trust</a></li>
-									<li><a href="#!">Market History</a></li>
-									<li><a href="#!">News</a></li>
-									<li><a href="{{ route('contact') }}">Contact us</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget supermarket_footer_contact">
-								<h3 class="footer_widget_title">Contact info</h3>
-								<ul class="ul_li_block clearfix">
-									<li>
-										<div class="item_icon">
-											<i class="fas fa-map-marker-alt"></i>
-										</div>
-										<div class="item_content">
-											<p class="mb-0">
-												shop #123,Lahore,Pakistan
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="item_icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item_content">
-											<p class="mb-0">0092 - 123 455 789</p>
-											<p class="mb-0">+123 958 789</p>
-										</div>
-									</li>
-									<li>
-										<div class="item_icon">
-											<i class="fas fa-envelope"></i>
-										</div>
-										<div class="item_content">
-											<p class="mb-0">Email: support@mail.com</p>
-											<p class="mb-0">9AM-5PM, Mon - Sat, GMT+3</p>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- <div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
-				<div class="container">
-					<div class="row align-items-center justify-content-center">
-						<div class="col-lg-5 col-md-7 col-sm-9 col-xs-12">
-							<div class="form_item mb-0">
-								<form action="#">
-									<input type="email" name="email" placeholder="Enter Your Email Address">
-									<button type="submit" class="submit_btn">Sign Up</button>
-								</form>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-7 col-sm-9 col-xs-12">
-							<div class="footer_electronic_hotline mb_30">
-								<i class="fal fa-headset"></i>
-								<h4 class="text-white">GOT QUESTION? CALL US 24/7!</h4>
-								<span>801 017 197</span>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
-							<ul class="circle_social_links ul_li_right clearfix">
-								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
-								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div> --}}
-
-			<div class="footer_bottom text-white clearfix" data-bg-color="#282824 ">
-				<div class="container">
-					<div class="row justify-content-lg-between align-items-center">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<p class="copyright_text mb-0">© <a href="#!" class="author_link text-white">Company</a> - All rights Reserved</p>
-						</div>
-
-						{{-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="payment_methods float-lg-right float-md-right">
-								<img src="assets/images/payment_methods_01.png" alt="image_not_found">
-							</div>
-						</div> --}}
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<ul class="circle_social_links ul_li_right clearfix payment_methods float-lg-right float-md-right">
-								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-								<li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
-								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- footer_section - end
-		================================================== -->
+  <!-- footer area start -->
+  <footer>
+    <div class="tp-footer-area" data-bg-color="footer-bg-grey">
+       <div class="tp-footer-top pt-95 pb-40">
+          <div class="container">
+             <div class="row">
+                <div class="col-xl-4 col-lg-3 col-md-4 col-sm-6">
+                   <div class="tp-footer-widget footer-col-1 mb-50">
+                      <div class="tp-footer-widget-content">
+                         <div class="tp-footer-logo">
+                            <a href="index.html">
+                               <img src="assets/img/logo/logo.svg" alt="logo">
+                            </a>
+                         </div>
+                         <p class="tp-footer-desc">We are a team of designers and developers that create high quality WordPress</p>
+                         <div class="tp-footer-social">
+                            <a href="index.html#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="index.html#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="index.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="index.html#"><i class="fa-brands fa-vimeo-v"></i></a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                   <div class="tp-footer-widget footer-col-2 mb-50">
+                      <h4 class="tp-footer-widget-title">My Account</h4>
+                      <div class="tp-footer-widget-content">
+                         <ul>
+                            <li><a href="index.html#">Track Orders</a></li>
+                            <li><a href="index.html#">Shipping</a></li>
+                            <li><a href="index.html#">Wishlist</a></li>
+                            <li><a href="index.html#">My Account</a></li>
+                            <li><a href="index.html#">Order History</a></li>
+                            <li><a href="index.html#">Returns</a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                   <div class="tp-footer-widget footer-col-3 mb-50">
+                      <h4 class="tp-footer-widget-title">Infomation</h4>
+                      <div class="tp-footer-widget-content">
+                         <ul>
+                            <li><a href="index.html#">Our Story</a></li>
+                            <li><a href="index.html#">Careers</a></li>
+                            <li><a href="index.html#">Privacy Policy</a></li>
+                            <li><a href="index.html#">Terms & Conditions</a></li>
+                            <li><a href="index.html#">Latest News</a></li>
+                            <li><a href="index.html#">Contact Us</a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                   <div class="tp-footer-widget footer-col-4 mb-50">
+                      <h4 class="tp-footer-widget-title">Talk To Us</h4>
+                      <div class="tp-footer-widget-content">
+                         <div class="tp-footer-talk mb-20">
+                            <span>Got Questions? Call us</span>
+                            <h4><a href="tel:670-413-90-762">+670 413 90 762</a></h4>
+                         </div>
+                         <div class="tp-footer-contact">
+                            <div class="tp-footer-contact-item d-flex align-items-start">
+                               <div class="tp-footer-contact-icon">
+                                  <span>
+                                     <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 5C1 2.2 2.6 1 5 1H13C15.4 1 17 2.2 17 5V10.6C17 13.4 15.4 14.6 13 14.6H5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M13 5.40039L10.496 7.40039C9.672 8.05639 8.32 8.05639 7.496 7.40039L5 5.40039" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 11.4004H5.8" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 8.19922H3.4" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                     </svg>
+                                  </span>
+                               </div>
+                               <div class="tp-footer-contact-content">
+                                  <p><a href="mailto:shofy@support.com">shofy@support.com</a></p>
+                               </div>
+                            </div>
+                            <div class="tp-footer-contact-item d-flex align-items-start">
+                               <div class="tp-footer-contact-icon">
+                                  <span>
+                                     <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.50001 10.9417C9.99877 10.9417 11.2138 9.72668 11.2138 8.22791C11.2138 6.72915 9.99877 5.51416 8.50001 5.51416C7.00124 5.51416 5.78625 6.72915 5.78625 8.22791C5.78625 9.72668 7.00124 10.9417 8.50001 10.9417Z" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M1.21115 6.64496C2.92464 -0.887449 14.0841 -0.878751 15.7889 6.65366C16.7891 11.0722 14.0406 14.8123 11.6313 17.126C9.88298 18.8134 7.11704 18.8134 5.36006 17.126C2.95943 14.8123 0.210885 11.0635 1.21115 6.64496Z" stroke="currentColor" stroke-width="1.5"/>
+                                     </svg>
+                                  </span>
+                               </div>
+                               <div class="tp-footer-contact-content">
+                                  <p><a href="https://www.google.com/maps/place/Sleepy+Hollow+Rd,+Gouverneur,+NY+13642,+USA/@44.3304966,-75.4552367,17z/data=!3m1!4b1!4m6!3m5!1s0x4cccddac8972c5eb:0x56286024afff537a!8m2!3d44.3304928!4d-75.453048!16s%2Fg%2F1tdsjdj4" target="_blank">79 Sleepy Hollow St. <br> Jamaica, New York 1432</a></p>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="tp-footer-bottom">
+          <div class="container">
+             <div class="tp-footer-bottom-wrapper">
+                <div class="row align-items-center">
+                   <div class="col-md-6">
+                      <div class="tp-footer-copyright">
+                         <p>© 2023 All Rights Reserved  |  HTML Template by <a href="index.html">Themepure</a>.</p>
+                      </div>
+                   </div>
+                   <div class="col-md-6">
+                      <div class="tp-footer-payment text-md-end">
+                         <p>
+                            <img src="assets/img/footer/footer-pay.png" alt="">
+                         </p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+ <!-- footer area end -->

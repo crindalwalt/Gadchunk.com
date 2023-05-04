@@ -1,3 +1,3 @@
-<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-primary w-100 waves-effect waves-light']) }}>
+<button {{ $attributes->merge(['type' => 'submit', 'class' => 'tp-login-btn w-100']) }}>
     {{ $slot }}
 </button>

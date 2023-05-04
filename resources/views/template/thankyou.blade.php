@@ -1,50 +1,34 @@
 <x-main-layout>
-    {{-- Selective header  --}}
-    {{-- @dd($products->all()); --}}
-    <x-layouts.header />
+    <x-layouts.header  :wishlists=$wishlists  />
 
 
-			<!-- main body - start
-		================================================== -->
-		<main>
+    <main>
+        <!-- error area start -->
+        <section class="tp-error-area pt-110 pb-110">
+           <div class="container">
+              <div class="row justify-content-center">
+                 <div class="col-xl-6 col-lg-8 col-md-10">
+                    <div class="tp-error-content text-center">
+                       <div class="tp-error-thumb">
+                          <img src="assets/img/error/error.png" alt="">
+                       </div>
 
+                       <h3 class="tp-error-title">Oops! Page not found</h3>
+                       <p>Whoops, this is embarassing. Looks like the page you were looking for wasn't found.</p>
 
-
-			<!-- error_section - start
-			================================================== -->
-			<section class="error_section sec_ptb_140 clearfix">
-                    <div class="vh-100 d-flex justify-content-center align-items-center">
-                        <div class="col-md-4">
-                            <div class="border border-3 border-success"></div>
-                            <div class="card  bg-white shadow p-5">
-                                <div class="mb-4 text-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
-                                        fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                        <path
-                                            d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                    </svg>
-                                </div>
-                                <div class="text-center">
-                                    <h1>Thank You !</h1>
-                                    <p>Order Succesfully Placed.</p>
-                                 <a href="{{ route('order_list') }}">
-                                    <button class="btn btn-outline-success">Check Order Details</button>
-                                 </a>
-                                </div>
-                            </div>
-                        </div>
+                       <a href="index.html" class="tp-error-btn">Back to Home</a>
                     </div>
-			</section>
-			<!-- error_section - end
-			================================================== -->
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- error area end -->
+
+     </main>
 
 
-		</main>
-		<!-- main body - end
-		================================================== -->
 
-
+     <x-layouts.footer />
 
 </x-main-layout>
 

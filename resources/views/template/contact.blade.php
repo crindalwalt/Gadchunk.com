@@ -3,425 +3,165 @@
     <x-layouts.header :wishlists=$wishlists  />
 
 
-		<!-- main body - start
-		================================================== -->
-		<main>
+    <main>
+
+        <!-- breadcrumb area start -->
+        <section class="breadcrumb__area include-bg text-center pt-95 pb-50">
+           <div class="container">
+              <div class="row">
+                 <div class="col-xxl-12">
+                    <div class="breadcrumb__content p-relative z-index-1">
+                       <h3 class="breadcrumb__title">Keep In Touch with Us</h3>
+                       <div class="breadcrumb__list">
+                          <span><a href="contact.html#">Home</a></span>
+                          <span>Contact</span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- breadcrumb area end -->
 
 
-			<!-- sidebar mobile menu & sidebar cart - start
-			================================================== -->
-			{{-- <div class="sidebar-menu-wrapper">
-				<div class="cart_sidebar">
-					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
+        <!-- contact area start -->
+        <section class="tp-contact-area pb-100">
+           <div class="container">
+              <div class="tp-contact-inner">
+                 <div class="row">
+                    <div class="col-xl-9 col-lg-8">
+                       <div class="tp-contact-wrapper">
+                          <h3 class="tp-contact-title">Sent A Message</h3>
 
-					<ul class="cart_items_list ul_li_block mb_30 clearfix">
-						<li>
-							<div class="item_image">
-								<img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-					</ul>
+                          <div class="tp-contact-form">
+                             <form id="contact-form" action="https://weblearnbd.net/tphtml/shofy-prv/shofy/assets/mail.php" method="POST">
+                                <div class="tp-contact-input-wrapper">
+                                   <div class="tp-contact-input-box">
+                                      <div class="tp-contact-input">
+                                         <input name="name" id="name" type="text" placeholder="Shahnewaz Sakil">
+                                      </div>
+                                      <div class="tp-contact-input-title">
+                                         <label for="name">Your Name</label>
+                                      </div>
+                                   </div>
+                                   <div class="tp-contact-input-box">
+                                      <div class="tp-contact-input">
+                                         <input name="email" id="email" type="email" placeholder="shofy@mail.com">
+                                      </div>
+                                      <div class="tp-contact-input-title">
+                                         <label for="email">Your Email</label>
+                                      </div>
+                                   </div>
+                                   <div class="tp-contact-input-box">
+                                      <div class="tp-contact-input">
+                                         <input name="subject" id="subject" type="text" placeholder="Write your subject">
+                                      </div>
+                                      <div class="tp-contact-input-title">
+                                         <label for="subject">Subject</label>
+                                      </div>
+                                   </div>
+                                   <div class="tp-contact-input-box">
+                                      <div class="tp-contact-input">
+                                        <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+                                      </div>
+                                      <div class="tp-contact-input-title">
+                                         <label for="message">Your Message</label>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="tp-contact-suggetions mb-20">
+                                   <div class="tp-contact-remeber">
+                                      <input id="remeber" type="checkbox">
+                                      <label for="remeber">Save my name, email, and website in this browser for the next time I comment.</label>
+                                   </div>
+                                </div>
+                                <div class="tp-contact-btn">
+                                   <button type="submit">Send Message</button>
+                                </div>
+                             </form>
+                             <p class="ajax-response"></p>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4">
+                       <div class="tp-contact-info-wrapper">
+                          <div class="tp-contact-info-item">
+                             <div class="tp-contact-info-icon">
+                                <span>
+                                   <img src="assets/img/contact/contact-icon-1.png" alt="">
+                                </span>
+                             </div>
+                             <div class="tp-contact-info-content">
+                                <p data-info="mail"><a href="mailto:contact@shofy.com">contact@shofy.com</a></p>
+                                <p data-info="phone"><a href="tel:670-413-90-762">+670 413 90 762</a></p>
+                             </div>
+                          </div>
+                          <div class="tp-contact-info-item">
+                             <div class="tp-contact-info-icon">
+                                <span>
+                                   <img src="assets/img/contact/contact-icon-2.png" alt="">
+                                </span>
+                             </div>
+                             <div class="tp-contact-info-content">
+                                <p>
+                                   <a href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.6976637,-74.1197638,11z/data=!3m1!4b1!4m6!3m5!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!8m2!3d40.7127753!4d-74.0059728!16zL20vMDJfMjg2" target="_blank">
+                                      84 sleepy hollow st. <br> jamaica, New York 1432
+                                   </a>
+                                </p>
+                             </div>
+                          </div>
+                          <div class="tp-contact-info-item">
+                             <div class="tp-contact-info-icon">
+                                <span>
+                                   <img src="assets/img/contact/contact-icon-3.png" alt="">
+                                </span>
+                             </div>
+                             <div class="tp-contact-info-content">
+                                <div class="tp-contact-social-wrapper mt-5">
+                                   <h4 class="tp-contact-social-title">Find on social media</h4>
 
-					<ul class="total_price ul_li_block mb_30 clearfix">
-						<li>
-							<span>Subtotal:</span>
-							<span>$90</span>
-						</li>
-						<li>
-							<span>Vat 5%:</span>
-							<span>$4.5</span>
-						</li>
-						<li>
-							<span>Discount 20%:</span>
-							<span>- $18.9</span>
-						</li>
-						<li>
-							<span>Total:</span>
-							<span>$75.6</span>
-						</li>
-					</ul>
+                                   <div class="tp-contact-social-icon">
+                                      <a href="contact.html#"><i class="fa-brands fa-facebook-f"></i></a>
+                                      <a href="contact.html#"><i class="fa-brands fa-twitter"></i></a>
+                                      <a href="contact.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- contact area end -->
 
-					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">View Cart</a></li>
-						<li><a href="shop_checkout.html">Checkout</a></li>
-					</ul>
-				</div>
+        <!-- map area start -->
+        <section class="tp-map-area pb-120">
+           <div class="container">
+              <div class="row">
+                 <div class="col-xl-12">
+                    <div class="tp-map-wrapper">
+                       <div class="tp-map-hotspot">
+                          <span class="tp-hotspot tp-pulse-border">
+                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="#821F40"/>
+                             </svg>
+                          </span>
+                       </div>
+                       <div class="tp-map-iframe">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830894612!2d-74.11976383964465!3d40.69766374865766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1678114595329!5m2!1sen!2sbd"></iframe>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- map area end -->
 
-				<div class="sidebar_mobile_menu">
-					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
-
-					<div class="msb_widget brand_logo text-center">
-						<a href="index.html">
-							<img src="assets/images/logo/logo_25_1x.png" srcset="assets/images/logo/logo_25_2x.png 2x" alt="logo_not_found">
-						</a>
-					</div>
-
-					<div class="msb_widget mobile_menu_list clearfix">
-						<h3 class="title_text mb_15 text-uppercase"><i class="far fa-bars mr-2"></i> Menu List</h3>
-						<ul class="ul_li_block clearfix">
-							<li class="active dropdown">
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-								<ul class="ul_li_block dropdown-menu">
-									<li><a href="home_carparts.html">Carparts</a></li>
-									<li><a href="home_classic_ecommerce.html">Classic Ecommerce</a></li>
-									<li><a href="home_creative_onelook.html">Creative Onelook</a></li>
-									<li><a href="home_electronic.html">Electronic</a></li>
-									<li><a href="home_fashion.html">Fashion</a></li>
-									<li><a href="home_fashion_minimal.html">Fashion Minimal</a></li>
-									<li><a href="home_furniture.html">Furniture</a></li>
-									<li><a href="home_gadget.html">Gadget</a></li>
-									<li><a href="home_lookbook_creative.html">Lookbook Creative</a></li>
-									<li><a href="home_lookbook_slide.html">Lookbook Slide</a></li>
-									<li><a href="home_medical.html">Medical</a></li>
-									<li><a href="home_modern.html">Modern</a></li>
-									<li><a href="home_modern_minimal.html">Modern Minimal</a></li>
-									<li><a href="home_motorcycle.html">Motorcycle</a></li>
-									<li><a href="home_parallax_shop.html">Parallax Shop</a></li>
-									<li><a href="home_simple_shop.html">Simple Shop</a></li>
-									<li><a href="home_single_story_black.html">Single Story Black</a></li>
-									<li><a href="home_single_story_white.html">Single Story White</a></li>
-									<li><a href="home_sports.html">Sports</a></li>
-									<li><a href="home_supermarket.html">Supermarket</a></li>
-									<li><a href="home_watch.html">Watch</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown ul_li_block">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carparts</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="carparts_shop.html">Shop Page</a></li>
-											<li><a href="carparts_shop_grid.html">Shop Grid</a></li>
-											<li><a href="carparts_shop_list.html">Shop List</a></li>
-											<li><a href="carparts_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Classic Ecommerce</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="classic_ecommerce_shop.html">Shop Page</a></li>
-											<li><a href="classic_ecommerce_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Electronic</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="electronic_shop.html">Shop Page</a></li>
-											<li><a href="electronic_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fashion</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="fashion_shop.html">Shop Page</a></li>
-											<li><a href="fashion_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fashion Minimal</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="fashion_minimal_shop.html">Shop Page</a></li>
-											<li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fashion Minimal</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="fashion_minimal_shop.html">Shop Page</a></li>
-											<li><a href="fashion_minimal_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Furniture</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="furniture_shop.html">Shop Page</a></li>
-											<li><a href="furniture_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gadget</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="gadget_shop.html">Shop Page</a></li>
-											<li><a href="gadget_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Medical</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="medical_shop.html">Shop Page</a></li>
-											<li><a href="medical_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modern Minimal</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="modern_minimal_shop.html">Shop Page</a></li>
-											<li><a href="modern_minimal_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modern</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="modern_shop.html">Shop Page</a></li>
-											<li><a href="modern_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Motorcycle</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="motorcycle_shop_grid.html">Shop Grid</a></li>
-											<li><a href="motorcycle_shop_list.html">Shop List</a></li>
-											<li><a href="motorcycle_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Simple Shop</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="simple_shop.html">Shop Page</a></li>
-											<li><a href="simple_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="sports_shop.html">Shop Page</a></li>
-											<li><a href="sports_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lookbook</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="lookbook_creative_shop.html">Shop Page</a></li>
-											<li><a href="lookbook_creative_shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop Other Pages</a>
-										<ul class="dropdown-menu ul_li_block">
-											<li><a href="#!"><del>Shop Page</del></a></li>
-											<li><a href="shop_details.html">Shop Details</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop Inner Pages</a>
-										<ul class="dropdown-menu">
-											<li><a href="shop_cart.html">Shopping Cart</a></li>
-											<li><a href="shop_checkout.html">Checkout Step 1</a></li>
-											<li><a href="shop_checkout_step2.html">Checkout Step 2</a></li>
-											<li><a href="shop_checkout_step3.html">Checkout Step 3</a></li>
-										</ul>
-									</li>
-									<li><a href="404.html">404 Page</a></li>
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blogs</a>
-										<ul class="dropdown-menu">
-											<li><a href="blog.html">Blog Page</a></li>
-											<li><a href="blog_details.html">Blog Details</a></li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compare</a>
-										<ul class="dropdown-menu">
-											<li><a href="compare_1.html">Compare V.1</a></li>
-											<li><a href="compare_2.html">Compare V.2</a></li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
-										<ul class="dropdown-menu">
-											<li><a href="login.html">Login</a></li>
-											<li><a href="signup.html">Sign Up</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="contact.html">Conatct</a></li>
-						</ul>
-					</div>
-
-					<div class="user_info">
-						<h3 class="title_text mb_30 text-uppercase"><i class="fas fa-user mr-2"></i> User Info</h3>
-						<div class="profile_info clearfix">
-							<div class="user_thumbnail">
-								<img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
-							</div>
-							<div class="user_content">
-								<h4 class="user_name">Jone Doe</h4>
-								<span class="user_title">Seller</span>
-							</div>
-						</div>
-						<ul class="settings_options ul_li_block clearfix">
-							<li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
-							<li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
-							<li><a href="#!"><i class="fal fa-sign-out-alt"></i> Logout</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="overlay"></div>
-			</div> --}}
-			<!-- sidebar mobile menu & sidebar cart - end
-			================================================== -->
-
-
-			<!-- breadcrumb_section - start
-			================================================== -->
-			<section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix" data-background="{{ asset('images/contact.jpg') }}">
-				<div class="overlay" data-bg-color="#1d1d1d"></div>
-				<div class="container">
-					<h1 class="page_title text-white">Contact Us</h1>
-					<ul class="breadcrumb_nav ul_li_center clearfix">
-						<li><a href="#!">Home</a></li>
-						<li>Contact Us</li>
-					</ul>
-				</div>
-			</section>
-			<!-- breadcrumb_section - end
-			================================================== -->
-
-
-			<!-- map_section - start
-			================================================== -->
-			{{-- <div class="map_section clearfix">
-				<div id="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="12" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia." data-mlat="40.701083" data-mlon="-74.1522848">
-				</div>
-			</div> --}}
-			<!-- map_section - end
-			================================================== -->
-
-
-			<!-- main_contact_section - start
-			================================================== -->
-			<section class="main_contact_section sec_ptb_100 clearfix">
-				<div class="container">
-					<div class="row justify-content-lg-between">
-
-						<div class="col-lg-5">
-							<div class="main_contact_content">
-								<h3 class="title_text mb_15">Get In Touch</h3>
-								<p class="mb_50">
-									If you are interested in working with us, please get in touch.
-								</p>
-								<ul class="main_contact_info ul_li_block clearfix">
-									<li>
-										<span class="icon">
-											<i class="fal fa-map-marked-alt"></i>
-										</span>
-										<p class="mb-0">
-											shop # 7 Avenue mall, Lahore, Pakistan
-										</p>
-									</li>
-									<li>
-										<span class="icon">
-											<i class="fal fa-phone-volume"></i>
-										</span>
-										<p class="mb-0">8 800 567.890.11 - Central Office</p>
-									</li>
-									<li>
-										<span class="icon">
-											<i class="fal fa-paper-plane"></i>
-										</span>
-										<p class="mb-0">support@gmail.com</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-lg-7">
-							<div class="main_contact_form">
-								<h3 class="title_text mb_30">Contact Us</h3>
-								<form action="{{ route('contact.message') }}" method="post">
-                                    @csrf
-                                    @if(Auth::check())<input type="text" hidden name="user_id" value="{{ Auth::user()->id }}" >@else
-                                        <h2>Please <a href="/login">login</a> to contact the admin</h2>
-                                    @endif
-									<div class="row">
-										<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-											<div class="form_item">
-												<input type="text" name="name" placeholder="Your Name">
-											</div>
-										</div>
-
-										<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-											<div class="form_item">
-												<input type="email" name="email" placeholder="Your Email">
-											</div>
-										</div>
-
-										<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-											<div class="form_item">
-												<input type="text" name="subject" placeholder="Subject">
-											</div>
-										</div>
-									</div>
-
-									<div class="form_item">
-										<textarea name="message" placeholder="Your Message"></textarea>
-									</div>
-									<button type="submit" class="custom_btn bg_default_red text-uppercase">Send</button>
-								</form>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</section>
-			<!-- main_contact_section - end
-			================================================== -->
-
-
-		</main>
-		<!-- main body - end
-		================================================== -->
+     </main>
 
 
 
-
-
+     <x-layouts.footer />
 </x-main-layout>

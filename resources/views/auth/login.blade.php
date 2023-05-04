@@ -1,98 +1,104 @@
-
-    <!doctype html>
-<html lang="en">
-<x-partials.login-head-links />
+<x-main-layout>
 
 
-<body class="authentication-bg bg-primary">
-<div class="home-center">
-    <div class="home-desc-center">
+    <main>
 
-        <div class="container">
+        <!-- breadcrumb area start -->
+        <section class="breadcrumb__area include-bg text-center pt-95 pb-50">
+           <div class="container">
+              <div class="row">
+                 <div class="col-xxl-12">
+                    <div class="breadcrumb__content p-relative z-index-1">
+                       <h3 class="breadcrumb__title">My account</h3>
+                       <div class="breadcrumb__list">
+                          <span><a href="login.html#">Home</a></span>
+                          <span>My account</span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- breadcrumb area end -->
 
-            <div class="home-btn"><a href="/" class="text-white router-link-active"><i
-                        class="fas fa-home h2"></i></a></div>
+        <!-- login area start -->
+        <section class="tp-login-area pb-140 p-relative z-index-1 fix">
+           <div class="tp-login-shape">
+              <img class="tp-login-shape-1" src="{{ asset('assets/img/login/login-shape-1.png') }}" alt="">
+              <img class="tp-login-shape-2" src="{{ asset('assets/img/login/login-shape-2.png') }}" alt="">
+              <img class="tp-login-shape-3" src="{{ asset('assets/img/login/login-shape-3.png') }}" alt="">
+              <img class="tp-login-shape-4" src="{{ asset('assets/img/login/login-shape-4.png') }}" alt="">
+           </div>
+           <div class="container">
+              <div class="row justify-content-center">
+                 <div class="col-xl-6 col-lg-8">
+                    <div class="tp-login-wrapper">
+                       <div class="tp-login-top text-center mb-30">
+                          <h3 class="tp-login-title">Login to GadChunk.</h3>
+                          <p>Don’t have an account? <span><a href="/register">Create a free account</a></span></p>
+                       </div>
+                       <div class="tp-login-option">
+                          <div class="tp-login-social mb-10 d-flex flex-wrap align-items-center justify-content-center">
 
-
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="px-2 py-3">
-
-
-                                <div class="text-center">
-                                    <a href="/">
-                                        <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" height="60" alt="logo">
-                                    </a>
-
-                                    <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
-                                    <p class="text-muted">Sign in to continue to Gadchunk.</p>
+                             <div class="tp-login-option-item">
+                                <a href="/login">
+                                   <img class="apple" src="{{ asset('assets/img/login/Gadchunk-logo.png') }}" width="100%" alt="">
+                                </a>
+                             </div>
+                          </div>
+                          {{-- <div class="tp-login-mail text-center mb-40">
+                             <p>or Sign in with <a href="login.html#">Email</a></p>
+                          </div> --}}
+                            <!-- Session Status -->
+                            <x-auth-session-status class="mb-4" :status="session('status')" />
+                            <form class="form-horizontal mt-4 pt-2" action="{{ route('login') }}" method="POST">
+                                @csrf
+                                <div class="my-3">
+                                    <x-login-input-label :value="__('Email')" :for="__('email')"/>
+                                    <x-login-input-tag id="email" type="email" name="email" :value="old('email')" required autofocus placeholder="Enter Email Address" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 </div>
 
-                                <!-- Session Status -->
-                                <x-auth-session-status class="mb-4" :status="session('status')" />
-                                <form class="form-horizontal mt-4 pt-2" action="{{ route('login') }}" method="POST">
-                                    @csrf
-                                    <div class="my-3">
-                                        <x-login-input-label :value="__('Email')" :for="__('email')"/>
-                                        <x-login-input-tag id="email" type="email" name="email" :value="old('email')" required autofocus placeholder="Enter Email Address" />
-                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <div class="my-3">
+                                    <x-login-input-label :value="__('Password')" :for="__('password')"/>
+                                    <x-login-input-tag id="password" type="password" name="password" :value="old('password')" required autofocus placeholder="Enter Password" />
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check ">
+                                        <input type="checkbox" class="form-check-input tp-login-forgot"
+                                               id="remember_me" name="remember">
+                                        <label class="form-label "
+                                               for="remember_me">{{ __('Remember me') }}</label>
                                     </div>
 
-                                    <div class="my-3">
-                                        <x-login-input-label :value="__('Password')" :for="__('password')"/>
-                                        <x-login-input-tag id="password" type="password" name="password" :value="old('password')" required autofocus placeholder="Enter Password" />
-                                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                                    </div>
+                                </div>
 
-                                    <div class="mb-3">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input"
-                                                   id="remember_me" name="remember">
-                                            <label class="form-label"
-                                                   for="remember_me">{{ __('Remember me') }}</label>
-                                        </div>
+                                <div>
 
-                                    </div>
+                                    <x-primary-button class="ml-3">
+                                        {{ __('Log in') }}
+                                    </x-primary-button>
+                                </div>
 
-                                    <div>
-
-                                        <x-primary-button class="ml-3">
-                                            {{ __('Log in') }}
-                                        </x-primary-button>
-                                    </div>
-
-                                    <div class="mt-4 text-center">
-                                        @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock me-1"></i> {{ __('Forgot your password?') }}</a>
-                                        @endif
-                                    </div>
+                                <div class="mt-4 text-center">
+                                    @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}" class="text-muted tp-login-forgot"><i class="mdi mdi-lock me-1"></i> {{ __('Forgot your password?') }}</a>
+                                    @endif
+                                </div>
 
 
-                                </form>
-
-
-                            </div>
-                        </div>
+                            </form>
+                       </div>
                     </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- login area end -->
 
-                    <div class="mt-5 text-center text-white">
-                        <p>Don't have an account ?<a href="/register" class="fw-bold text-white"> Register</a> </p>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
+     </main>
 
 
-    </div>
-    <!-- End Log In page -->
-</div>
-
-
-
-</body>
-
-</html>
+</x-main-layout>
