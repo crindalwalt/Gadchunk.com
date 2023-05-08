@@ -131,7 +131,33 @@
   -o-transition: all 0.3s 0s ease-out;
   transition: all 0.3s 0s ease-out;
 }
+/* rating */
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .rating-css input {
+    display: none;
+  }
+  .rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+    color: #b4afaf;
+  }
+  .rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+  }
 
+/* End of Star Rating */
 .mean-container .mean-nav ul li > a.mean-expand i, .main-menu > nav > ul > li > .tp-submenu, .tp-accordion .accordion-button .tp-accordion-plus, .tp-accordion .accordion-button .tp-accordion-plus::after, .tp-accordion .accordion-button .tp-accordion-plus::before, .back-to-top-wrapper, a,
 button,
 p,
@@ -6265,10 +6291,10 @@ body .ui-tooltip {
   margin-bottom: 0;
   line-height: 1;
 }
-.tp-header-main {
+/* .tp-header-main {
   padding-top: 27px;
   padding-bottom: 27px;
-}
+} */
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
   .tp-header-main {
     padding-top: 15px;
@@ -15876,9 +15902,9 @@ div.tp-author-info-avater img {
 .tp-product-list-item .tp-product-list-content .tp-product-price-wrapper-2 {
   margin-bottom: 12px;
 }
-.tp-product-list-thumb {
+/* .tp-product-list-thumb {
   flex: 0 0 auto;
-}
+} */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .tp-product-list-thumb {
     width: 300px;

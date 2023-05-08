@@ -15,24 +15,10 @@ $(".add-cart").click(function () {
         if (response.success) {
             alertify.set('notifier', 'position', 'top-right');
             alertify.notify('Product added in cart!', 'success', 4, function () { console.log('dismissed'); });
-            // Swal.fire({
-            //     icon: "success",
-            //     title: "Success!",
-            //     text: "Product added in cart!",
-            //     type: "success",
-            //     timer: 2000,
-            // });
-
         } else {
             alertify.set('notifier', 'position', 'top-right');
             alertify.notify('Product Already Added', 'warning', 4, function () { console.log('dismissed'); });
-            // Swal.fire({
-            //     icon: "error",
-            //     title: "Error",
-            //     text: "Product Already Added",
-            //     type: "error",
-            //     timer: 2000,
-            // });
+
         }
     })
 
@@ -46,9 +32,8 @@ $(document).on('click', '#remove-product', function () {
     //  alert('enter');
     $("#" + $(this).data('productremove')).remove();
     setTimeout(function () {
-
         window.location.reload(true);
-    }, 1000);
+    }, 100);
     $.get($(this).data('route'), function (res) {
         if (response.success) {
             alertify.set('notifier', 'position', 'top-right');
@@ -119,12 +104,14 @@ $(document).on('click', '.wishremove', function () {
 
 $(document).on('change', '.quantity', function () {
     var quantity = $(this).val();
+    console.log(quantity);
+    // var quantity = parseInt(quantity_string);
     var url = $(this).data('route') + "/" + quantity;
     $.get(url, function (res) {
-        $('.total_price').html(res.totalPrice);
-        $('.single_total' + res.id).html(res.single_total);
-        $('.sub_total').html(res.sub_total);
-        $('.discount').html(res.discount);
+        total_price =  $('.total_price').html(res.totalPrice);
+        single_total =  $('.single_total' + res.id).html(res.single_total);
+        sub_total =  $('.sub_total').html(res.sub_total);
+        discount =  $('.discount').html(res.discount);
     })
 })
 // product filters

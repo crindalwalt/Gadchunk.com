@@ -1,5 +1,5 @@
 <x-main-layout>
-    <x-layouts.header :wishlists=$wishlists />
+    <x-layouts.header :wishlists="$wishlists" :categories="$categories" :cartitems="$cart_items" />
 
     <main>
         <!-- about area start -->

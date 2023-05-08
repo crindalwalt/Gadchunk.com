@@ -154,6 +154,16 @@
                                         <label class="form-check-label" for="flexSwitchCheckChecked">In
                                             Stock</label>
                                     </div>
+                                    <div class="  form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="on_sale"
+                                            id="flexSwitchCheckChecked1" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked1">On Sale</label>
+                                    </div>
+                                    <div class="  form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="is_featured"
+                                            id="flexSwitchCheckChecked2" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked2">Featured</label>
+                                    </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="#">

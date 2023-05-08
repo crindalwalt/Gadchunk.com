@@ -1,5 +1,5 @@
 <x-main-layout>
-    <x-layouts.header  :wishlists=$wishlists  />
+    <x-layouts.header :wishlists="$wishlists" :categories="$categories" :cartitems="$cart_items" />
 
 
     <main>
@@ -13,11 +13,12 @@
                           <img src="assets/img/error/error.png" alt="">
                        </div>
 
-                       <h3 class="tp-error-title">Oops! Page not found</h3>
-                       <p>Whoops, this is embarassing. Looks like the page you were looking for wasn't found.</p>
+                       <h3 class="tp-error-title">Thank You !</h3>
+                       <p>Order Succesfully Placed.</p>
 
-                       <a href="index.html" class="tp-error-btn">Back to Home</a>
-                    </div>
+                       <a href="{{ route('order_list') }}">
+                        <button class="btn btn-outline-success">Check Order Details</button>
+                     </a>                    </div>
                  </div>
               </div>
            </div>

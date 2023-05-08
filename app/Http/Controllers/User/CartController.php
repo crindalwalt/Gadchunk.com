@@ -44,18 +44,18 @@ class CartController extends Controller
         $oldCart = Session::has("cart") ? Session::get("cart") : [];
         $attribute_value = [];
         foreach ($oldCart as $item) {
-            if ($item['product_id'] == $id->id) {   
+            if ($item['product_id'] == $id->id) {
                 $quantity_value = $item['quantity'];
                 $cart = CartVariation::create([
                     'user_id' => Auth::user()->id,
                     'product_id' => $id->id,
                     'quantity' =>  $quantity_value,
-                 ]);
+                ]);
                 foreach ($request->attribute_value as $value) {
                     $cart = CartAttribute::create([
                         'product_id' => $id->id,
                         'attribute_value' =>  $value,
-                     ]);
+                    ]);
                     // $attribute_value[] = $value;
                 }
             }
@@ -67,22 +67,22 @@ class CartController extends Controller
     // add products in cart
     public function add($id, $quantity = 1)
     {
-        // Initialize and check the session exist or not
-        $oldCart = Session::has("cart") ? Session::get("cart") : [];
-        // loop the cart array
-        foreach ($oldCart as $item) {
-            // if id which we get is equal to product id then show error
-            if ($item['product_id'] == $id) {
-                return response()->json(['error' => 'Already Added to cart', 'count' => sizeof($oldCart)]);
+            // Initialize and check the session exist or not
+            $oldCart = Session::has("cart") ? Session::get("cart") : [];
+            // loop the cart array
+            foreach ($oldCart as $item) {
+                // if id which we get is equal to product id then show error
+                if ($item['product_id'] == $id) {
+                    return response()->json(['error' => 'Already Added to cart', 'count' => sizeof($oldCart)]);
+                }
             }
-        }
 
-        // store the product id and quantity in session
-        $item['product_id'] = $id;
-        $item['quantity'] = $quantity;
-        $oldCart[] = $item;
-        Session::put('cart', $oldCart);
-        return response()->json(['success' => 'Added to cart', 'count' => sizeof($oldCart)]);
+            // store the product id and quantity in session
+            $item['product_id'] = $id;
+            $item['quantity'] = $quantity;
+            $oldCart[] = $item;
+            Session::put('cart', $oldCart);
+            return response()->json(['success' => 'Added to cart', 'count' => sizeof($oldCart)]);
     }
 
     //function for get ids of all products
@@ -101,8 +101,8 @@ class CartController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : [];
         unset($oldCart[$product]);
         Session::put('cart', $oldCart);
-        CartVariation::where('product_id',$id)->delete();
-        CartAttribute::where('product_id',$id)->delete();
+        CartVariation::where('product_id', $id)->delete();
+        CartAttribute::where('product_id', $id)->delete();
         return response()->json(['success' => 'Product remove from cart', 'count' => sizeof($oldCart)]);
     }
 
@@ -143,6 +143,8 @@ class CartController extends Controller
         $data['wishlists'] = Wishlist::all();
         $data['collections'] = Collection::all();
         $data['cart_attributes'] = CartAttribute::all();
+        $data['categories'] = Category::all();
+        $data['cart_items'] = $this->getProducts();
 
         return view('template.checkout', $data);
     }
@@ -259,7 +261,7 @@ class CartController extends Controller
         $sub_total = $this->Sub_Total();
         $discount = $this->Discount();
         $total_price = $this->Total();
-        return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 1000 items"])
+        return ($quantity > 1000) ? response()->json(['error' => "Maximum order can be placed upto 100 items"])
             : response()->json(['id' => $id, 'totalPrice' => $total_price, 'single_total' => $single_total, 'products' => $products, 'sub_total' => $sub_total, 'discount' => $discount]);
     }
 

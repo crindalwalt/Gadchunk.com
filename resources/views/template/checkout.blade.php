@@ -1,5 +1,5 @@
 <x-main-layout>
-    <x-layouts.header :wishlists=$wishlists />
+    <x-layouts.header :wishlists="$wishlists" :categories="$categories" :cartitems="$cart_items" />
 
     <main>
 
@@ -25,7 +25,7 @@
         <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">
            <div class="container">
               <div class="row">
-                 <div class="col-xl-7 col-lg-7">
+                 {{-- <div class="col-xl-7 col-lg-7">
                     <div class="tp-checkout-verify">
                        <div class="tp-checkout-verify-item">
                           <p class="tp-checkout-verify-reveal">Returning customer? <button type="button" class="tp-checkout-login-form-reveal-btn">Click here to login</button></p>
@@ -69,7 +69,7 @@
                           </div>
                        </div>
                     </div>
-                 </div>
+                 </div> --}}
                  <div class="col-lg-7">
                     <div class="tp-checkout-bill-area">
                        <h3 class="tp-checkout-bill-title">Billing Details</h3>

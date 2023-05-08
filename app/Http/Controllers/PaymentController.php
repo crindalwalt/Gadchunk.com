@@ -15,7 +15,7 @@ use Session;
 use Stripe\Charge;
 use Stripe\Stripe;
 
-class PaymentController extends Controller
+class          PaymentController extends Controller
 {
     /**
 

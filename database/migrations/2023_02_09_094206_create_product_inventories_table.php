@@ -22,6 +22,8 @@ return new class extends Migration
            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
            $table->string('in_stock')->default("off");
             $table->string('is_active')->default("off");
+            $table->string('on_sale')->default("off");
+            $table->string('is_featured')->default("off");
             $table->timestamps();
         });
     }

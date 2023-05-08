@@ -115,6 +115,8 @@ class OrderController extends Controller
         ]);
         // @dd($request->all());
         $product_check = Product::where('id', $request->product_id)->first();
+                // @dd($product_check);
+
         if ( $product_check) {
             $exist_review = Reviews::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first();
             if ($exist_review) {

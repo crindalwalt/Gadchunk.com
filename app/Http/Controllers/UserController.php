@@ -13,6 +13,7 @@ use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -50,6 +51,8 @@ class UserController extends Controller
         $data['user'] = Auth::user();
         $data['categories'] = Category::all();
         $data['wishlists'] = Wishlist::all();
+        $data['orders'] = Order::where('user_id' ,Auth::user()->id)->get();
+
         // @dd($data);
         return view('template.profile', $data);
     }
@@ -89,12 +92,40 @@ class UserController extends Controller
         alert('Success', 'Product Deleted Successfully', 'success');
         return redirect()->back();
     }
+       // fetch ids of the products
+       public static function getProductIds()
+       {
+           $cart = Session::has('cart') ? Session::get('cart') : [];
+           $ids = [];
+           foreach ($cart as $key => $value) {
+               $ids[] = $value['product_id'];
+           }
+           return $ids;
+       }
+ 
+       // fucnciton to get products depending on the ids
+ 
+       public function getProducts()
+       {
+           $products = Product::whereIn('id', $this->getProductIds())->get();
+           foreach ($products as $pro) {
+               foreach (Session::get('cart') as $cart) {
+                   if ($pro->id == $cart['product_id']) {
+                       $pro->prod_inventory->squantity = $cart['quantity'];
+                   }
+               }
+           }
+           return $products;
+       }
+ 
     public function track_order()
     {
         $data['user'] = Auth::user();
         $data['orders'] = Order::where('user_id', Auth::user()->id)->get();
         $data['categories'] = Category::all();
         $data['wishlists'] = Wishlist::all();
+        $data['cart_items'] = $this->getProducts();
+
         // @dd($data);
         return view('template.track_order', $data);
     }
