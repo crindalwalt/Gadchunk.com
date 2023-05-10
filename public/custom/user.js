@@ -104,8 +104,6 @@ $(document).on('click', '.wishremove', function () {
 
 $(document).on('change', '.quantity', function () {
     var quantity = $(this).val();
-    console.log(quantity);
-    // var quantity = parseInt(quantity_string);
     var url = $(this).data('route') + "/" + quantity;
     $.get(url, function (res) {
         total_price =  $('.total_price').html(res.totalPrice);

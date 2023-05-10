@@ -19677,9 +19677,9 @@ product all slider
   align-items: center;
   flex-wrap: wrap;
 }
-.tp-checkout-payment-item input {
+/* .tp-checkout-payment-item input {
   display: none;
-}
+} */
 .tp-checkout-payment-item input:checked ~ label::after {
   border-color: var(--tp-theme-primary);
 }
@@ -19687,17 +19687,17 @@ product all slider
   opacity: 1;
   visibility: visible;
 }
-.tp-checkout-payment-item label {
+/* .tp-checkout-payment-item label {
   font-size: 14px;
   position: relative;
   padding-left: 27px;
   font-weight: 500;
   color: var(--tp-common-black);
-}
+} */
 .tp-checkout-payment-item label:hover {
   cursor: pointer;
 }
-.tp-checkout-payment-item label::after {
+/* .tp-checkout-payment-item label::after {
   position: absolute;
   content: "";
   left: 0;
@@ -19711,7 +19711,7 @@ product all slider
   -ms-transition: all 0.2s 0s ease-out;
   -o-transition: all 0.2s 0s ease-out;
   transition: all 0.2s 0s ease-out;
-}
+} */
 .tp-checkout-payment-item label::before {
   position: absolute;
   content: "";
@@ -19755,11 +19755,10 @@ product all slider
   padding-top: 10px;
   display: none;
 }
-.tp-checkout-payment-desc::after {
+/* .tp-checkout-payment-desc::after {
   position: absolute;
   content: "";
   left: 57px;
-  top: 0;
   width: 16px;
   height: 16px;
   background-color: #F6F7F9;
@@ -19768,7 +19767,7 @@ product all slider
   -ms-transform: translateY(3px) rotate(45deg);
   -o-transform: translateY(3px) rotate(45deg);
   transform: translateY(3px) rotate(45deg);
-}
+} */
 .tp-checkout-payment-desc p {
   background-color: #F6F7F9;
   padding: 19px 30px;

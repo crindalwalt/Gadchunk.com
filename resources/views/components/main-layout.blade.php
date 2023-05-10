@@ -32,6 +32,7 @@
       <script src="{{ asset('assets/js/imagesloaded-pkgd.js') }}"></script>
       <script src="{{ asset('assets/js/ajax-form.js') }}"></script>
       <script src="{{ asset('assets/js/main.js') }}"></script>
+      <script src="{{ asset('custom/user.js') }}"></script>
 
     <!-- fraimwork - jquery include -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -42,7 +43,6 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('demo_assets/js/custom.js') }}"></script>
 
-    <script src="{{ asset('custom/user.js') }}"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
         $(function() {
@@ -54,7 +54,6 @@
 
             // ====================== Cash On Delivery  ==============================
             $(document).on("click", '.check_payment_method', function() {
-
                 val = $(this).data('value');
 
                 // ============ IF Stripe ===================

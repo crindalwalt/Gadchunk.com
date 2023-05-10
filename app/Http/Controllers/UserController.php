@@ -46,12 +46,14 @@ class UserController extends Controller
         // @dd($data);
         return view('admin.User_profile.index', $data);
     }
+    
     public function user_profile()
     {
         $data['user'] = Auth::user();
         $data['categories'] = Category::all();
         $data['wishlists'] = Wishlist::all();
         $data['orders'] = Order::where('user_id' ,Auth::user()->id)->get();
+        $data['cart_items'] = $this->getProducts();
 
         // @dd($data);
         return view('template.profile', $data);
@@ -102,9 +104,9 @@ class UserController extends Controller
            }
            return $ids;
        }
- 
+
        // fucnciton to get products depending on the ids
- 
+
        public function getProducts()
        {
            $products = Product::whereIn('id', $this->getProductIds())->get();
@@ -117,7 +119,7 @@ class UserController extends Controller
            }
            return $products;
        }
- 
+
     public function track_order()
     {
         $data['user'] = Auth::user();

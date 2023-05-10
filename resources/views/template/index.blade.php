@@ -717,10 +717,10 @@
                                                                     <div class="tp-product-content">
                                                                         <div class="tp-product-category">
                                                                             <a
-                                                                                href="shop.html">{{ $product->category->name }}</a>
+                                                                                href="{{ route('shop') }}">{{ $product->category->name }}</a>
                                                                         </div>
                                                                         <h3 class="tp-product-title">
-                                                                            <a href="product-details.html">
+                                                                            <a href="{{ route('product_detail', $product->id) }}">
                                                                                 {{ $product->name }}
                                                                             </a>
                                                                         </h3>

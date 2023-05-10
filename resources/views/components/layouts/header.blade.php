@@ -222,12 +222,12 @@
                         <div class="cartmini__widget" id="productremove{{ $item->id }}">
                             <div class="cartmini__widget-item">
                                 <div class="cartmini__thumb">
-                                    <a href="product-details.html">
+                                    <a href="{{ route('product_detail',$item->id) }}">
                                         <img src="assets/img/product/product-1.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="cartmini__content">
-                                    <h5 class="cartmini__title"><a href="product-details.html">{{ $item->name }}</a>
+                                    <h5 class="cartmini__title"><a href="{{ route('product_detail',$item->id) }}">{{ $item->name }}</a>
                                     </h5>
                                     <div class="cartmini__price-wrapper">
                                         <span class="cartmini__price">

@@ -42,6 +42,12 @@
                                             <th class="tp-cart-header-quantity">Quantity</th>
                                             <th>Total Price</th>
                                             <th>Variation</th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -123,35 +129,45 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
+
+                                                                        @if (empty($item->category->attributes))
                                                                         @foreach ($item->category->attributes as $attributes)
-                                                                            <div class=" mb-3 d-flex flex-column">
-                                                                                <label class="control-label"
-                                                                                    name="attribute">{{ $attributes->attribute_name }}</label>
-                                                                                <select name="attribute_value[]"
-                                                                                    id="attributes_{{ $attributes->id }}"
-                                                                                    class="form-select form-select-sm select2"
-                                                                                    aria-label=".form-select-sm example"
-                                                                                    multiple>
+                                                                        <div class=" mb-3 d-flex flex-column">
+                                                                            <label class="control-label"
+                                                                                name="attribute">{{ $attributes->attribute_name }}</label>
+                                                                            <select name="attribute_value[]"
+                                                                                id="attributes_{{ $attributes->id }}"
+                                                                                class="form-select form-select-sm select2"
+                                                                                aria-label=".form-select-sm example"
+                                                                                multiple>
+                                                                                <option
+                                                                                    value="{{ null }}">
+                                                                                    Select an
+                                                                                    option
+                                                                                </option>
+                                                                                @foreach ($attributes->prod_attribute_value as $value)
                                                                                     <option
-                                                                                        value="{{ null }}">
-                                                                                        Select an
-                                                                                        option
+                                                                                        value="{{ $value->id }}"
+                                                                                        id="options_{{ $value->id }}"
+                                                                                        class="d-flex justify-content-between ">
+                                                                                        {{ $value->attribute_value }}
+                                                                                        <small
+                                                                                            class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
                                                                                     </option>
-                                                                                    @foreach ($attributes->prod_attribute_value as $value)
-                                                                                        <option
-                                                                                            value="{{ $value->id }}"
-                                                                                            id="options_{{ $value->id }}"
-                                                                                            class="d-flex justify-content-between ">
-                                                                                            {{ $value->attribute_value }}
-                                                                                            <small
-                                                                                                class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
-                                                                                        </option>
-                                                                                    @endforeach
-                                                                                </select>
+                                                                                @endforeach
+                                                                            </select>
 
 
+                                                                        </div>
+                                                                    @endforeach
+                                                                        @else
+                                                                        <div class="card  bg-white shadow p-5">
+                                                                            <div class="text-center">
+                                                                                <h1>Product Attributes Unavailable!</h1>
                                                                             </div>
-                                                                        @endforeach
+                                                                        </div>
+                                                                        @endif
+
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button"
@@ -183,6 +199,20 @@
                                                 </td>
 
                                             </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>Type: </h4>
+                                                </td>
+                                                <td >
+                                                    @foreach ($cart_attributes as $values)
+                                                        @if ($values['product_id'] == $item->id)
+                                                            <span
+                                                                class="badge bg-primary mx-3 text-white">{{ $values->attribute_values[0]->attribute_value }}</span>
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                            </tr>
+
                                         @endforeach
 
                                     </tbody>
@@ -215,17 +245,17 @@
                             <div class="tp-cart-checkout-wrapper">
                                 <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
                                     <span class="tp-cart-checkout-top-title">Subtotal</span>
-                                    <span class="tp-cart-checkout-top-price">Rs.{{ $sub_total }}</span>
+                                    <span class="tp-cart-checkout-top-price sub_total">Rs.{{ $sub_total }}</span>
                                 </div>
                                 <div class="tp-cart-checkout-shipping">
                                     <h4 class="tp-cart-checkout-shipping-title">Discount Price</h4>
                                     <div class="tp-cart-checkout-shipping-option-wrapper">
-                                            <label for="flat_rate">Flat discount: <span>{{ $discount }}</span></label>
+                                            <label for="flat_rate">Flat discount: <span class="discount">{{ $discount }}</span></label>
                                     </div>
                                 </div>
                                 <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
                                     <span>Total</span>
-                                    <span>Rs. {{ $total }}</span>
+                                    <span class="total_price">Rs. {{ $total }}</span>
                                 </div>
                                 <div class="tp-cart-checkout-proceed">
                                     <a href="{{ route('checkout') }}" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>

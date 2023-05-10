@@ -177,7 +177,7 @@ Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('searc
 Route::middleware('auth', 'verified')->group(function () {
 
     // site page
-  
+
    Route::post('/contact/message', [NavigatorController::class, 'message'])->name('contact.message');
    Route::get('/contact/message/show', [NavigatorController::class, 'MessageShow'])->name('contact.message.show');
 

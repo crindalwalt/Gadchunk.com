@@ -5,27 +5,27 @@
 
         <!-- breadcrumb area start -->
         <section class="breadcrumb__area include-bg pt-95 pb-50" data-bg-color="#EFF1F5">
-           <div class="container">
-              <div class="row">
-                 <div class="col-xxl-12">
-                    <div class="breadcrumb__content p-relative z-index-1">
-                       <h3 class="breadcrumb__title">Checkout</h3>
-                       <div class="breadcrumb__list">
-                          <span><a href="checkout.html#">Home</a></span>
-                          <span>Checkout</span>
-                       </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-12">
+                        <div class="breadcrumb__content p-relative z-index-1">
+                            <h3 class="breadcrumb__title">Checkout</h3>
+                            <div class="breadcrumb__list">
+                                <span><a href="checkout.html#">Home</a></span>
+                                <span>Checkout</span>
+                            </div>
+                        </div>
                     </div>
-                 </div>
-              </div>
-           </div>
+                </div>
+            </div>
         </section>
         <!-- breadcrumb area end -->
 
         <!-- checkout area start -->
         <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">
-           <div class="container">
-              <div class="row">
-                 {{-- <div class="col-xl-7 col-lg-7">
+            <div class="container">
+                <div class="row">
+                    {{-- <div class="col-xl-7 col-lg-7">
                     <div class="tp-checkout-verify">
                        <div class="tp-checkout-verify-item">
                           <p class="tp-checkout-verify-reveal">Returning customer? <button type="button" class="tp-checkout-login-form-reveal-btn">Click here to login</button></p>
@@ -70,218 +70,225 @@
                        </div>
                     </div>
                  </div> --}}
-                 <div class="col-lg-7">
-                    <div class="tp-checkout-bill-area">
-                       <h3 class="tp-checkout-bill-title">Billing Details</h3>
-
-                       <div class="tp-checkout-bill-form">
-                          <form action="checkout.html#">
-                             <div class="tp-checkout-bill-inner">
-                                <div class="row">
-                                   <div class="col-md-6">
-                                      <div class="tp-checkout-input">
-                                         <label>First Name <span>*</span></label>
-                                         <input type="text" placeholder="First Name">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-6">
-                                      <div class="tp-checkout-input">
-                                         <label>Last Name <span>*</span></label>
-                                         <input type="text" placeholder="Last Name">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Company name (optional)</label>
-                                         <input type="text" placeholder="Example LTD.">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Country / Region </label>
-                                         <input type="text" placeholder="United States (US)">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Street address</label>
-                                         <input type="text" placeholder="House number and street name">
-                                      </div>
-
-                                      <div class="tp-checkout-input">
-                                         <input type="text" placeholder="Apartment, suite, unit, etc. (optional)">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Town / City</label>
-                                         <input type="text" placeholder="">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-6">
-                                      <div class="tp-checkout-input">
-                                         <label>State / County</label>
-                                         <select>
-                                            <option>New York US</option>
-                                            <option>Berlin Germany</option>
-                                            <option>Paris France</option>
-                                            <option>Tokiyo Japan</option>
-                                         </select>
-                                      </div>
-                                   </div>
-                                   <div class="col-md-6">
-                                      <div class="tp-checkout-input">
-                                         <label>Postcode ZIP</label>
-                                         <input type="text" placeholder="">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Phone <span>*</span></label>
-                                         <input type="text" placeholder="">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Email address <span>*</span></label>
-                                         <input type="email" placeholder="">
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-option-wrapper">
-                                         <div class="tp-checkout-option">
-                                            <input id="create_free_account" type="checkbox">
-                                            <label for="create_free_account">Create an account?</label>
-                                         </div>
-                                         <div class="tp-checkout-option">
-                                            <input id="ship_to_diff_address" type="checkbox">
-                                            <label for="ship_to_diff_address">Ship to a different address?</label>
-                                         </div>
-                                      </div>
-                                   </div>
-                                   <div class="col-md-12">
-                                      <div class="tp-checkout-input">
-                                         <label>Order notes (optional)</label>
-                                         <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                      </div>
-                                   </div>
+                    <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
+                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                        @csrf
+                        <div class="col-lg-12">
+                            <div class="tp-checkout-bill-area">
+                                <h3 class="tp-checkout-bill-title">Billing Details</h3>
+                                <div class="tp-checkout-bill-form">
+                                    <div class="tp-checkout-bill-inner">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="tp-checkout-input">
+                                                    <label>First Name <span>*</span></label>
+                                                    <input type="text"name="user_id"
+                                                        value="{{ Auth::user()->name }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Email Address<span>*</span></label>
+                                                <input type="text" name="checkout_email"
+                                                    value="{{ Auth::user()->email }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>Town / City</label>
+                                                    <input type="text" name="checkout_city">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>Country / Region </label>
+                                                    <input type="text" name="checkout_country">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>Address</label>
+                                                    <input type="text" name="checkout_address"
+                                                        placeholder="Address here...">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>PostCode/Zip</label>
+                                                    <input type="text" name="checkout_postcode"
+                                                        placeholder="Postal Code...">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>Mobile Number</label>
+                                                    <input type="text" name="checkout_phone"
+                                                        value="{{ Auth::user()->phone }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="tp-checkout-input">
+                                                    <label>Order notes </label>
+                                                    <textarea name="checkout_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                          </form>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-5">
-                    <!-- checkout place order -->
-                    <div class="tp-checkout-place white-bg">
-                       <h3 class="tp-checkout-place-title">Your Order</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- checkout place order -->
+                            <div class="tp-checkout-place white-bg">
+                                <h3 class="tp-checkout-place-title">Your Order</h3>
 
-                       <div class="tp-order-info-list">
-                          <ul>
+                                @if ($products->count() > 0)
+                                    <div class="tp-order-info-list">
+                                        <ul>
 
-                             <!-- header -->
-                             <li class="tp-order-info-list-header">
-                                <h4>Product</h4>
-                                <h4>Total</h4>
-                             </li>
+                                            <!-- header -->
+                                            <li class="tp-order-info-list-header">
+                                                <h4>Product</h4>
+                                                <h4>Total</h4>
+                                            </li>
 
-                             <!-- item list -->
-                             <li class="tp-order-info-list-desc">
-                                <p>Xiaomi Redmi Note 9 Global V. <span> x 2</span></p>
-                                <span>$274:00</span>
-                             </li>
-                             <li class="tp-order-info-list-desc">
-                                <p>Office Chair Multifun <span> x 1</span></p>
-                                <span>$74:00</span>
-                             </li>
-                             <li class="tp-order-info-list-desc">
-                                <p>Apple Watch Series 6 Stainless  <span> x 3</span></p>
-                                <span>$362:00</span>
-                             </li>
-                             <li class="tp-order-info-list-desc">
-                                <p>Body Works Mens Collection <span> x 1</span></p>
-                                <span>$145:00</span>
-                             </li>
+                                            @foreach ($products as $item)
+                                                <!-- item list -->
+                                                <input type="hidden" value="{{ $item->id }}"
+                                            name="product_id[]">
+                                                <li class="tp-order-info-list-desc">
+                                                    <p>{{ $item->name }} <span> x  {{ $item->prod_inventory->squantity }}</span></p>
+                                                    <span class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price * $item->prod_inventory->squantity }}</span>
+                                                </li>
+                                            @endforeach
 
-                             <!-- subtotal -->
-                             <li class="tp-order-info-list-subtotal">
-                                <span>Subtotal</span>
-                                <span>$507.00</span>
-                             </li>
+                                            <!-- subtotal -->
+                                            <li class="tp-order-info-list-subtotal">
+                                                <span>Subtotal</span>
+                                                <span>{{ $sub_total }}</span>
+                                            </li>
 
-                             <!-- shipping -->
-                             <li class="tp-order-info-list-shipping">
-                                <span>Shipping</span>
-                                <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
-                                   <span>
-                                      <input id="flat_rate" type="radio" name="shipping">
-                                      <label for="flat_rate">Flat rate: <span>$20.00</span></label>
-                                   </span>
-                                   <span>
-                                      <input id="local_pickup" type="radio" name="shipping">
-                                      <label for="local_pickup">Local pickup: <span>$25.00</span></label>
-                                   </span>
-                                   <span>
-                                      <input id="free_shipping" type="radio" name="shipping">
-                                      <label for="free_shipping">Free shipping</label>
-                                   </span>
+                                            <!-- shipping -->
+                                            {{-- <li class="tp-order-info-list-shipping">
+                                            <span>Shipping</span>
+                                            <div
+                                                class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
+                                                <span>
+                                                    <input id="flat_rate" type="radio" name="shipping">
+                                                    <label for="flat_rate">Flat rate: <span>$20.00</span></label>
+                                                </span>
+                                                <span>
+                                                    <input id="local_pickup" type="radio" name="shipping">
+                                                    <label for="local_pickup">Local pickup: <span>$25.00</span></label>
+                                                </span>
+                                                <span>
+                                                    <input id="free_shipping" type="radio" name="shipping">
+                                                    <label for="free_shipping">Free shipping</label>
+                                                </span>
+                                            </div>
+                                        </li> --}}
+
+                                            <!-- discount -->
+                                            <li class="tp-order-info-list-total">
+                                                <span>Discount</span>
+                                                <span class="discount">{{ $discount }}</span>
+                                            </li>
+                                            <!-- total -->
+                                            <li class="tp-order-info-list-total">
+                                                <span>Total</span>
+                                                <span class="total_price">{{ $total }}</span>
+                                            </li>
+                                            <input type="hidden" value="{{ $total }}"
+                                            name="total_amount">
+
+                                        </ul>
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <h3 class="text-danger">Cart have no item</h3>
+                                    </div>
+                                @endif
+
+                                <div class="tp-checkout-payment">
+                                    <h3 class="text-primary my-3">Payment Method</h3>
+
+                                    <input type="hidden" name="payment_method" id="payment_method">
+
+                                    <div class="tp-checkout-payment-item">
+                                        <input type="radio" class="check_payment_method" data-value="stripe" value="stripe" id="back_transfer" name="payment_method">
+                                        <label for="back_transfer" data-bs-toggle="direct-bank-transfer">Stripe (Bank Transfer)</label>
+                                        <div class="tp-checkout-payment-desc direct-bank-transfer">
+                                            <div class='form-row row'>
+                                                <div class='col-xs-12 form-group  required'>
+                                                    <label class='control-label'>Card Number</label> <input
+                                                        class='form-control card-number' type='text'>
+                                                </div>
+                                            </div>
+                                            <div class='form-row row'>
+                                                <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                                    <label class='control-label'>CVC</label> <input
+                                                        autocomplete='off' class='form-control card-cvc'
+                                                        placeholder='ex. 311' size='4' type='text'>
+                                                </div>
+                                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                    <label class='control-label'>Expiration Month</label> <input
+                                                        class='form-control card-expiry-month' placeholder='MM'
+                                                        size='2' type='text'>
+                                                </div>
+                                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                    <label class='control-label'>Expiration Year</label> <input
+                                                        class='form-control card-expiry-year' placeholder='YYYY'
+                                                        size='4' type='text'>
+                                                </div>
+                                            </div>
+
+
+                                            <div class='form-row row mt-2'>
+
+                                                <div class='col-md-12 error form-group hide'>
+
+                                                    <div class='alert-danger alert'>Put Valid details</div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tp-checkout-payment-item">
+                                        <input type="radio" class="check_payment_method" data-value="Cash-on-delivery" value="Cash-on-delivery" id="cod" name="payment_method">
+                                        <label for="cod">Cash on Delivery</label>
+                                        <div class="tp-checkout-payment-desc cash-on-delivery">
+                                            <p>Amount Received after delivery.</p>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="tp-checkout-payment-item paypal-payment">
+                                        <input type="radio" id="paypal" name="payment">
+                                        <label for="paypal">PayPal <img src="assets/img/icon/payment-option.png"
+                                                alt=""> <a href="checkout.html#">What is PayPal?</a></label>
+                                    </div> --}}
                                 </div>
-                             </li>
+                                {{-- <div class="tp-checkout-agree">
+                                    <div class="tp-checkout-option">
+                                        <input id="read_all" type="checkbox">
+                                        <label for="read_all">I have read and agree to the website.</label>
+                                    </div>
+                                </div> --}}
+                                <div class="tp-checkout-btn-wrapper">
+                                    {{-- <a href="checkout.html#" class="tp-checkout-btn w-100">Place Order</a> --}}
+                                    <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
 
-                             <!-- total -->
-                             <li class="tp-order-info-list-total">
-                                <span>Total</span>
-                                <span>$1,476.00</span>
-                             </li>
-                          </ul>
-                       </div>
-                       <div class="tp-checkout-payment">
-                          <div class="tp-checkout-payment-item">
-                             <input type="radio" id="back_transfer" name="payment">
-                             <label for="back_transfer" data-bs-toggle="direct-bank-transfer">Direct Bank Transfer</label>
-                             <div class="tp-checkout-payment-desc direct-bank-transfer">
-                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                             </div>
-                          </div>
-                          <div class="tp-checkout-payment-item">
-                             <input type="radio" id="cheque_payment" name="payment">
-                             <label for="cheque_payment">Cheque Payment</label>
-                             <div class="tp-checkout-payment-desc cheque-payment">
-                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                             </div>
-                          </div>
-                          <div class="tp-checkout-payment-item">
-                             <input type="radio" id="cod" name="payment">
-                             <label for="cod">Cash on Delivery</label>
-                             <div class="tp-checkout-payment-desc cash-on-delivery">
-                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                             </div>
-                          </div>
-                          <div class="tp-checkout-payment-item paypal-payment">
-                             <input type="radio" id="paypal" name="payment">
-                             <label for="paypal">PayPal <img src="assets/img/icon/payment-option.png" alt=""> <a href="checkout.html#">What is PayPal?</a></label>
-                          </div>
-                       </div>
-                       <div class="tp-checkout-agree">
-                          <div class="tp-checkout-option">
-                             <input id="read_all" type="checkbox">
-                             <label for="read_all">I have read and agree to the website.</label>
-                          </div>
-                       </div>
-                       <div class="tp-checkout-btn-wrapper">
-                          <a href="checkout.html#" class="tp-checkout-btn w-100">Place Order</a>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
         <!-- checkout area end -->
 
 
-     </main>
+    </main>
 
 
 
-     <x-layouts.footer />
+    <x-layouts.footer />
 </x-main-layout>
