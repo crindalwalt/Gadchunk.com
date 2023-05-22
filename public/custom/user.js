@@ -137,12 +137,10 @@ $(document).on("click", '.filter', function () {
             "result": arr,
         },
         success: function (data) {
-            $("#result").html(data);
-            console.log(data);
-
+            $(".result").html(data);
         },
         error: function (data) {
-            console.log(data);
+            // console.log(data);
             // alert('error');
             // Swal.fire({
             //     icon: "error",

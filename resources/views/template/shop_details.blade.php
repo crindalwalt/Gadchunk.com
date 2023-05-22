@@ -78,45 +78,46 @@
                                     </div>
                                     <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
                                         @if (count($product->reviews) > 0)
-                                        @foreach ($product->reviews as $review)
+                                            @foreach ($product->reviews as $review)
+                                                <div
+                                                    class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
+                                                    <div class="tp-product-details-rating">
+                                                        @if ($review->stars_rating == 0)
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                        @elseif ($review->stars_rating == 2)
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                        @elseif ($review->stars_rating == 3)
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                        @elseif ($review->stars_rating == 4)
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                        @elseif ($review->stars_rating == 5)
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                            <span><i class="fa-solid fa-star"></i></span>
+                                                        @endif
+
+                                                    </div>
+                                                    <div class="tp-product-details-reviews">
+                                                        <span>({{ $review->stars_rating }})</span>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
                                             <div
                                                 class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
-                                                <div class="tp-product-details-rating">
-                                                    @if ($review->stars_rating == 0)
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                    @elseif ($review->stars_rating == 2)
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                    @elseif ($review->stars_rating == 3)
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                    @elseif ($review->stars_rating == 4)
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                    @elseif ($review->stars_rating == 5)
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                    @endif
-        
-                                                </div>
                                                 <div class="tp-product-details-reviews">
-                                                    <span>({{ $review->stars_rating }})</span>
+                                                    <span>(No Rating Yet)</span>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    @else
-                                        <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
-                                            <div class="tp-product-details-reviews">
-                                                <span>(No Rating Yet)</span>
-                                            </div>
-                                        </div>
-                                    @endif
+                                        @endif
                                     </div>
                                 </div>
                                 <p>{!! $product->description !!}</p>
@@ -139,21 +140,22 @@
                                 </div>
 
                                 @if ($product->category->attributes)
-                                <!-- variations -->
-                                <div class="tp-product-details-variation">
-                                    <!-- single item -->
-                                    <div class="tp-product-details-variation-item">
-    
-                                        @foreach ($product->category->attributes as $attributes)
-                                        <h4 class="tp-product-details-variation-title">{{ $attributes->attribute_name }}</h4>
-                                        @foreach ($attributes->prod_attribute_value as $value)
-                                                <span class="badges">{{ $value->attribute_value }}</span>
-                                        @endforeach
-                                        @endforeach
-    
+                                    <!-- variations -->
+                                    <div class="tp-product-details-variation">
+                                        <!-- single item -->
+                                        <div class="tp-product-details-variation-item">
+
+                                            @foreach ($product->category->attributes as $attributes)
+                                                <h4 class="tp-product-details-variation-title">
+                                                    {{ $attributes->attribute_name }}</h4>
+                                                @foreach ($attributes->prod_attribute_value as $value)
+                                                    <span class="badges">{{ $value->attribute_value }}</span>
+                                                @endforeach
+                                            @endforeach
+
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
 
                                 <!-- actions -->
                                 <div class="tp-product-details-action-wrapper">
@@ -182,13 +184,15 @@
                                             </div>
                                         </div> --}}
                                         @if ($product->prod_inventory->in_stock == 'yes')
-                                        <div class="tp-product-details-add-to-cart mb-15 w-100">
-                                            <button class="tp-product-details-add-to-cart-btn w-100 add-cart"   data-route="{{ route('add-cart', $product->id ) }}">Add To
-                                                Cart</button>
-                                        </div>
-                                    @else
-                                    <button type="button" class="btn btn-primary mb-2 w-100" disabled data-bs-toggle="button" autocomplete="off">Add to Cart</button>
-                                    @endif
+                                            <div class="tp-product-details-add-to-cart mb-15 w-100">
+                                                <button class="tp-product-details-add-to-cart-btn w-100 add-cart"
+                                                    data-route="{{ route('add-cart', $product->id) }}">Add To
+                                                    Cart</button>
+                                            </div>
+                                        @else
+                                            <button type="button" class="btn btn-primary mb-2 w-100" disabled
+                                                data-bs-toggle="button" autocomplete="off">Add to Cart</button>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="tp-product-details-action-sm">
@@ -212,7 +216,8 @@
                                         </svg>
                                         Compare
                                     </button> --}}
-                                    <button type="button" class="tp-product-details-action-sm-btn add-wishlist" data-route="{{ route('add.wishlist', $product->id) }}">
+                                    <button type="button" class="tp-product-details-action-sm-btn add-wishlist"
+                                        data-route="{{ route('add.wishlist', $product->id) }}">
                                         <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -293,7 +298,8 @@
                                             information</button> --}}
                                         <button class="nav-link " id="nav-review-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-review" type="button" role="tab"
-                                            aria-controls="nav-review" aria-selected="false">Reviews ({{ count($product->reviews)}})</button>
+                                            aria-controls="nav-review" aria-selected="false">Reviews
+                                            ({{ count($product->reviews) }})</button>
 
                                         <span id="productTabMarker" class="tp-product-details-tab-line"></span>
                                     </div>
@@ -309,7 +315,8 @@
                                                             <div class="col-lg-6">
                                                                 <div class="tp-product-details-desc-content pt-25">
                                                                     <span>{{ $product->category->name }}</span>
-                                                                    <h3 class="tp-product-details-desc-title">{{ $product->name }}</h3>
+                                                                    <h3 class="tp-product-details-desc-title">
+                                                                        {{ $product->name }}</h3>
                                                                     <p>{!! $product->description !!}</p>
                                                                 </div>
                                                                 {{-- <div class="tp-product-details-desc-content">
@@ -325,8 +332,8 @@
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="tp-product-details-desc-thumb">
-                                                                    <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}" width="70%"
-                                                                        alt="">
+                                                                    <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                                                        width="70%" alt="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -461,20 +468,20 @@
                                                                 class="tp-product-details-review-summery d-flex align-items-center">
                                                                 <div class="tp-product-details-review-summery-value">
                                                                     @if ($product->reviews)
-                                                                    @php
-                                                                    $total= 0;
-                                                                @endphp
-                                                                @foreach ($product->reviews as $review)
-                                                                @php
-                                                                    $total += $review->stars_rating;
-                                                                @endphp
-                                                                @endforeach
-                                                                @php
-                                                                    $all = $total/count($product->reviews); 
-                                                                @endphp
-                                                                <span>{{ $all }}</span>
+                                                                        @php
+                                                                            $total = 0;
+                                                                        @endphp
+                                                                        @foreach ($product->reviews as $review)
+                                                                            @php
+                                                                                $total += $review->stars_rating;
+                                                                            @endphp
+                                                                        @endforeach
+                                                                        @php
+                                                                            $all = $total / count($product->reviews);
+                                                                        @endphp
+                                                                        <span>{{ $all }}</span>
                                                                     @else
-                                                                    <span>No Rating yet</span>
+                                                                        <span>No Rating yet</span>
 
                                                                     @endif
                                                                 </div>
@@ -501,7 +508,7 @@
                                                                     <span><i class="fa-solid fa-star"></i></span>
                                                                     <span><i class="fa-solid fa-star"></i></span>
                                                                     @endif --}}
-                                                                
+
                                                                     <span><i class="fa-solid fa-star"></i></span>
                                                                     <span><i class="fa-solid fa-star"></i></span>
                                                                     <span><i class="fa-solid fa-star"></i></span>
@@ -593,63 +600,89 @@
                                                         <div class="tp-product-details-review-list pr-110">
                                                             <h3 class="tp-product-details-review-title">Rating & Review
                                                             </h3>
-                                                           @if (count($product->reviews)>0)
-                                                               @foreach ($product->reviews as $review)
-                                                               <div class="tp-product-details-review-avater d-flex align-items-start">
-                                                                <div class="tp-product-details-review-avater-thumb">
-                                                                    <a href="product-details.html#">
-                                                                        <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
-                                                                            alt="">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="tp-product-details-review-avater-content">
+                                                            @if (count($product->reviews) > 0)
+                                                                @foreach ($product->reviews as $review)
                                                                     <div
-                                                                        class="tp-product-details-review-avater-rating d-flex align-items-center">
-                                                                        @if ($review->stars_rating == 1)
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        @elseif($review->stars_rating == 2)
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        @elseif($review->stars_rating == 3)
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        @elseif($review->stars_rating == 4)
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        @elseif($review->stars_rating == 5)
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        <span><i class="fa-solid fa-star"></i></span>
-                                                                        @endif
-                                                                    </div>
-                                                                    <h3 class="tp-product-details-review-avater-title">
-                                                                        @if ($review->user->name == Auth::user()->name)
-                                                                            You
-                                                                        @else
-                                                                        {{ $review->user->name }}    
-                                                                        @endif
-                                                                        </h3>
-                                                                    <span
-                                                                        class="tp-product-details-review-avater-meta">{{ $review->created_at->format('d/m/Y') }} </span>
+                                                                        class="tp-product-details-review-avater d-flex align-items-start">
+                                                                        <div
+                                                                            class="tp-product-details-review-avater-thumb">
+                                                                            <a href="product-details.html#">
+                                                                                <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
+                                                                                    alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div
+                                                                            class="tp-product-details-review-avater-content">
+                                                                            <div
+                                                                                class="tp-product-details-review-avater-rating d-flex align-items-center">
+                                                                                @if ($review->stars_rating == 1)
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                @elseif($review->stars_rating == 2)
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                @elseif($review->stars_rating == 3)
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                @elseif($review->stars_rating == 4)
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                @elseif($review->stars_rating == 5)
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                    <span><i
+                                                                                            class="fa-solid fa-star"></i></span>
+                                                                                @endif
+                                                                            </div>
+                                                                            <h3
+                                                                                class="tp-product-details-review-avater-title">
+                                                                                @if (Auth::check())
+                                                                                    @if ($review->user->name == Auth::user()->name)
+                                                                                        You
+                                                                                    @else
+                                                                                        {{ $review->user->name }}
+                                                                                    @endif
+                                                                                    @else
+                                                                                    {{ $review->user->name }}
 
-                                                                    <div
-                                                                        class="tp-product-details-review-avater-comment">
-                                                                        <p>{{ $review->description }}</p>
+                                                                                @endif
+
+                                                                            </h3>
+                                                                            <span
+                                                                                class="tp-product-details-review-avater-meta">{{ $review->created_at->format('d/m/Y') }}
+                                                                            </span>
+
+                                                                            <div
+                                                                                class="tp-product-details-review-avater-comment">
+                                                                                <p>{{ $review->description }}</p>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                @endforeach
+                                                            @else
+                                                                <div class="shadow p-3 m-5 bg-white rounded">
+                                                                    <h3 class="text-center mb-3">No Rating Yet</h3>
                                                                 </div>
-                                                            </div>
-                                                               @endforeach
-                                                           @else
-                                                           <div class="shadow p-3 m-5 bg-white rounded">
-                                                            <h3 class="text-center mb-3">No Rating Yet</h3>
-                                                           </div>
-                                                           @endif
-                                                          
+                                                            @endif
+
                                                             {{-- <div
                                                                 class="tp-product-details-review-avater d-flex align-items-start">
                                                                 <div class="tp-product-details-review-avater-thumb">
@@ -686,78 +719,98 @@
                                                 </div> <!-- end col -->
                                                 <div class="col-lg-6">
                                                     @if (Auth::check())
-                                                    <div class="tp-product-details-review-form">
-                                                        <h3 class="tp-product-details-review-form-title mb-3">Review this
-                                                            product</h3>
-                                                        <form action="{{ route('review.add') }}" method="post">
-                                                            @csrf
-                                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                                            <div class="rating-css">
-                                                                <div class="star-icon">
-                                                                    <input type="radio" value="1" name="star_rating" checked id="rating1">
-                                                                    <label for="rating1" class="fa fa-star"></label>
-                                                                    <input type="radio" value="2" name="star_rating" id="rating2">
-                                                                    <label for="rating2" class="fa fa-star"></label>
-                                                                    <input type="radio" value="3" name="star_rating" id="rating3">
-                                                                    <label for="rating3" class="fa fa-star"></label>
-                                                                    <input type="radio" value="4" name="star_rating" id="rating4">
-                                                                    <label for="rating4" class="fa fa-star"></label>
-                                                                    <input type="radio" value="5" name="star_rating" id="rating5">
-                                                                    <label for="rating5" class="fa fa-star"></label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tp-product-details-review-input-wrapper">
-                                                                <div class="tp-product-details-review-input-box">
-                                                                    <div class="tp-product-details-review-input">
-                                                                        <textarea id="msg" name="description" placeholder="Write your review here..."></textarea>
-                                                                    </div>
-                                                                    <div class="tp-product-details-review-input-title">
-                                                                        <label for="msg">Your Review</label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tp-product-details-review-input-box">
-                                                                    <div class="tp-product-details-review-input">
-                                                                        <input name="subject" id="subject"
-                                                                            type="text">
-                                                                    </div>
-                                                                    <div class="tp-product-details-review-input-title">
-                                                                        <label for="Subject">Subject</label>
+                                                        <div class="tp-product-details-review-form">
+                                                            <h3 class="tp-product-details-review-form-title mb-3">
+                                                                Review this
+                                                                product</h3>
+                                                            <form action="{{ route('review.add') }}" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="product_id"
+                                                                    value="{{ $product->id }}">
+                                                                <input type="hidden" name="user_id"
+                                                                    value="{{ Auth::user()->id }}">
+                                                                <div class="rating-css">
+                                                                    <div class="star-icon">
+                                                                        <input type="radio" value="1"
+                                                                            name="star_rating" checked id="rating1">
+                                                                        <label for="rating1"
+                                                                            class="fa fa-star"></label>
+                                                                        <input type="radio" value="2"
+                                                                            name="star_rating" id="rating2">
+                                                                        <label for="rating2"
+                                                                            class="fa fa-star"></label>
+                                                                        <input type="radio" value="3"
+                                                                            name="star_rating" id="rating3">
+                                                                        <label for="rating3"
+                                                                            class="fa fa-star"></label>
+                                                                        <input type="radio" value="4"
+                                                                            name="star_rating" id="rating4">
+                                                                        <label for="rating4"
+                                                                            class="fa fa-star"></label>
+                                                                        <input type="radio" value="5"
+                                                                            name="star_rating" id="rating5">
+                                                                        <label for="rating5"
+                                                                            class="fa fa-star"></label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="tp-product-details-review-input-box">
-                                                                    <div class="tp-product-details-review-input">
-                                                                        <input name="name" id="name"
-                                                                            type="text"
-                                                                            value="{{ Auth::user()->name }}">
+                                                                <div class="tp-product-details-review-input-wrapper">
+                                                                    <div class="tp-product-details-review-input-box">
+                                                                        <div class="tp-product-details-review-input">
+                                                                            <textarea id="msg" name="description" placeholder="Write your review here..."></textarea>
+                                                                        </div>
+                                                                        <div
+                                                                            class="tp-product-details-review-input-title">
+                                                                            <label for="msg">Your Review</label>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="tp-product-details-review-input-title">
-                                                                        <label for="name">Your Name</label>
+                                                                    <div class="tp-product-details-review-input-box">
+                                                                        <div class="tp-product-details-review-input">
+                                                                            <input name="subject" id="subject"
+                                                                                type="text">
+                                                                        </div>
+                                                                        <div
+                                                                            class="tp-product-details-review-input-title">
+                                                                            <label for="Subject">Subject</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tp-product-details-review-input-box">
+                                                                        <div class="tp-product-details-review-input">
+                                                                            <input name="name" id="name"
+                                                                                type="text"
+                                                                                value="{{ Auth::user()->name }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="tp-product-details-review-input-title">
+                                                                            <label for="name">Your Name</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tp-product-details-review-input-box">
+                                                                        <div class="tp-product-details-review-input">
+                                                                            <input name="email" id="email"
+                                                                                type="email"
+                                                                                value="{{ Auth::user()->email }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="tp-product-details-review-input-title">
+                                                                            <label for="email">Your Email</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="tp-product-details-review-input-box">
-                                                                    <div class="tp-product-details-review-input">
-                                                                        <input name="email" id="email"
-                                                                            type="email"
-                                                                            value="{{ Auth::user()->email }}">
-                                                                    </div>
-                                                                    <div class="tp-product-details-review-input-title">
-                                                                        <label for="email">Your Email</label>
-                                                                    </div>
+                                                                <div class="tp-product-details-review-btn-wrapper">
+                                                                    <button
+                                                                        class="tp-product-details-review-btn">Submit</button>
                                                                 </div>
-                                                            </div>
-                                                            <div class="tp-product-details-review-btn-wrapper">
-                                                                <button
-                                                                    class="tp-product-details-review-btn">Submit</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                            </form>
+                                                        </div>
                                                     @else
-                                                    <div class="shadow p-3 m-5 bg-white rounded">
-                                                        <h3 class="text-center mb-3">Please <a href="{{ route('login') }}"><span class="text-primary">LOGIN</span></a> to rate this product</h3>
-                                                       </div>
+                                                        <div class="shadow p-3 m-5 bg-white rounded">
+                                                            <h3 class="text-center mb-3">Please <a
+                                                                    href="{{ route('login') }}"><span
+                                                                        class="text-primary">LOGIN</span></a> to rate
+                                                                this product</h3>
+                                                        </div>
                                                     @endif
-                                                
+
                                                 </div>
                                             </div>
                                         </div>
@@ -772,7 +825,7 @@
         <!-- product details area end -->
 
         <!-- related product area start -->
-        <section class="tp-related-product pt-95 pb-120">
+        {{-- <section class="tp-related-product pt-95 pb-120">
             <div class="container">
                 <div class="row">
                     <div class="tp-section-title-wrapper-6 text-center mb-40">
@@ -1152,7 +1205,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- related product area end -->
 
         <div class="modal fade tp-product-modal" id="producQuickViewModal" tabindex="-1"

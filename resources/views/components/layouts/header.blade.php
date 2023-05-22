@@ -525,7 +525,7 @@
                                             @if ($categories)
                                                 @foreach ($categories as $category)
                                                     <li>
-                                                        <a href="shop.html">
+                                                        <a href="{{ route('shop') }}">
                                                             <span>
                                                                 <svg width="18" height="18"
                                                                     viewBox="0 0 18 18" fill="none"

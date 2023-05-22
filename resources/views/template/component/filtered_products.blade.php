@@ -260,6 +260,19 @@
                 <img src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
                     alt="image not found">
             </a>
+              <!-- product badge -->
+              @if ($item->prod_inventory->discount_price)
+              <div class="tp-product-badge">
+                  @if ($item->prod_inventory->is_featured == 'yes')
+                      <span
+                          class="product-hot">Featured</span>
+                  @else
+                  <span
+                      class="product-hot">{{ $item->prod_inventory->discount_price }}</span>
+                  @endif
+
+              </div>
+          @endif
             <!-- product action -->
             <div class="tp-product-action-2 tp-product-action-blackStyle">
                 <div class="tp-product-action-item-2 d-flex flex-column">

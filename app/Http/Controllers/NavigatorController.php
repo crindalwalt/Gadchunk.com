@@ -151,8 +151,8 @@ class NavigatorController extends Controller
 
        if (isset($request->result)) {
           $value = $request->result;
-             $inventory_products  = Product::where('category_id', $value)->get();
-          return view('template.component.filtered_products')->with('inventory_products', $inventory_products);
+             $data['inventory_products']  = Product::where('category_id', $value)->get();
+          return view('template.component.filtered_products')->with($data);
         }else{
             $inventory_products = Product::get();
             return view('template.component.filtered_products')->with('inventory_products', $inventory_products);

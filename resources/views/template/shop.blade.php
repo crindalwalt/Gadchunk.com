@@ -51,12 +51,16 @@
                                      <div class="tp-shop-widget-checkbox">
                                          <ul class="filter-items filter-checkbox">
                                              <li class="filter-item checkbox">
-                                                 <input id="on_sale" type="checkbox">
+                                                 <input id="on_sale" value="on_sale" data-type="on_sale" class="filter_status" type="checkbox">
                                                  <label for="on_sale">On sale</label>
                                              </li>
                                              <li class="filter-item checkbox">
-                                                 <input id="in_stock" type="checkbox">
-                                                 <label for="in_stock">In Stock</label>
+                                                 <input id="featured" value="featured" data-type="featured" class="filter_status" type="checkbox">
+                                                 <label for="featured">Featured</label>
+                                             </li>
+                                             <li class="filter-item checkbox">
+                                                 <input id="discount" value="discount" data-type="discount" class="filter_status" type="checkbox">
+                                                 <label for="discount">Discount</label>
                                              </li>
                                          </ul><!-- .filter-items -->
                                      </div>
@@ -71,7 +75,7 @@
                                          <ul>
                                              @foreach ($categories as $category)
                                                  <li class="filter-item checkbox">
-                                                     <input id="category{{ $category->id }}" type="checkbox">
+                                                     <input id="category{{ $category->id }}"  value="{{ $category->id }}" data-type="{{ $category->id }}" class="filter" type="checkbox">
                                                      <label for="category{{ $category->id }}">{{ $category->name }} <span>{{ count($category->product) }}</span></label>
                                                  </li>
                                              @endforeach
@@ -573,7 +577,7 @@
                                  <div class="tab-content" id="productTabContent">
                                      <div class="tab-pane fade show active" id="grid-tab-pane" role="tabpanel"
                                          aria-labelledby="grid-tab" tabindex="0">
-                                         <div class="row infinite-container">
+                                         <div class="row infinite-container result">
                                             @include('template.component.filtered_products')
 
                                              {{-- <div class="col-xl-4 col-md-6 col-sm-6 infinite-item">
@@ -2200,7 +2204,7 @@
                                      <div class="tab-pane fade" id="list-tab-pane" role="tabpanel"
                                          aria-labelledby="list-tab" tabindex="0">
                                          <div class="tp-shop-list-wrapper tp-shop-item-primary mb-70">
-                                             <div class="row">
+                                             <div class="row result">
                                                 @include('template.component.filtered_products_list')
 
                                              </div>
