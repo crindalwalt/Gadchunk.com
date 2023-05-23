@@ -15,18 +15,26 @@ class DatabaseSeeder extends Seeder
 {
 //    Seeding the application data
     public function run()
-    { 
+    {
          User::factory()->create([
              'name' => 'User',
              'email' => 'shahzad@mail.com',
              'phone' => '03041232233',
-             'userType' => 0,
+             'street' => 'abc street number',
+             'city' => 'Bahawalpur',
+             'province' => 'Punjab',
+             'zip_code' => '61300',
+             'country' => 'Pakistan',
          ]);
          User::factory()->create([
             'name' => 'Shahzad Farooq',
             'email' => 'shezi@mail.com',
             'phone' => '03041232233',
-            'userType' => 1,
+            'street' => 'abc street number',
+            'city' => 'Bahawalpur',
+            'province' => 'Punjab',
+            'zip_code' => '61300',
+            'country' => 'Pakistan',
         ]);
          $this->call([
             // OrderSeeder::class,

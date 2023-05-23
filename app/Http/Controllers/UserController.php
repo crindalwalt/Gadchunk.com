@@ -46,7 +46,7 @@ class UserController extends Controller
         // @dd($data);
         return view('admin.User_profile.index', $data);
     }
-    
+
     public function user_profile()
     {
         $data['user'] = Auth::user();
@@ -59,9 +59,9 @@ class UserController extends Controller
         return view('template.profile', $data);
     }
 
-    public function update(Request $request, User $id)
+    public function update_password(Request $request, User $id)
     {
-        // @dd($request);
+        // @dd($request->all());
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
@@ -80,13 +80,48 @@ class UserController extends Controller
                 'new_password' => Hash::make($request->new_password)
             ]);
 
-            alert("Success", 'Profile has been updated successfully', 'success');
+            alert("Success", 'Password updated successfully', 'success');
             return redirect()->back();
         } else {
             alert("Error", 'Old Password not match', 'error');
             return redirect()->back();
         }
     }
+    public function update_profile(Request $request, User $id)
+    {
+        // @dd($request->all());
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required',
+        ]);
+            $id->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'zip_code' => $request->zip_code,
+                'street' => $request->street,
+                'city' => $request->city,
+                'province' => $request->province,
+                'country' => $request->country,
+
+            ]);
+
+            alert("Success", 'Profile has been updated successfully', 'success');
+            return redirect()->back();
+
+    }
+
+    // update profile avatar
+    public function update_profile_avatar(Request $request){
+        $request->validate([
+            'image' => 'required|image',
+        ]);
+
+        @dd($request->all());
+
+    }
+
     public function destroy(Request $request)
     {
         $user = User::find($request->id);
@@ -130,5 +165,13 @@ class UserController extends Controller
 
         // @dd($data);
         return view('template.track_order', $data);
+    }
+    public function logout()
+    {
+        Session::flush();
+
+        Auth::logout();
+
+        return redirect('/');
     }
 }

@@ -71,6 +71,18 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="row mb-3">
+                                            <label for="icon"
+                                                class="col-sm-12 col-form-label">Category Icon</label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" type="file"
+                                                      id="icon"
+                                                    name="category_icon">
+                                                @error('category_icon')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="control-label">Associated Variation</label>
@@ -108,7 +120,7 @@
                                     </p>
                                     <div class="table-responsive">
 
-                                        <table class="table mb-0">
+                                        <table class="table mb-0" id="myTable">
                                             @if ($categories->isNotEmpty())
                                                 <thead>
                                                     <tr>

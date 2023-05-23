@@ -17,7 +17,7 @@ class authCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){ 
+        if(Auth::check()){
             if (Auth::user()->userType == 0){
                 return $next($request);
             }else{

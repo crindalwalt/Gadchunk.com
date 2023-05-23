@@ -47,7 +47,7 @@
 
                                         <h4 class="header-title mb-4">All Messages From Site Users</h4>
                                         <div class="table-responsive">
-                                            <table class="table table-striped">
+                                            <table class="table table-striped" id="myTable">
                                                 <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">No.</th>

@@ -4,7 +4,7 @@
 
 
     <meta charset="utf-8" />
-    <title>Dashboard | Zeelma E-commerce</title>
+    <title>Dashboard | GadChunk E-commerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Best online Store" name="description" />
     <meta content="Shahzad Farooq" name="author" />
@@ -35,7 +35,7 @@
     <link href="{{ asset('admin-assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('admin-assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -87,6 +87,7 @@
     {{--    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>--}}
     {{--    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>--}}
     {{--    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.js"></script>--}}
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
     <!-- twitter-bootstrap-wizard js -->
     <script src="{{ asset('admin-assets/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
@@ -105,6 +106,9 @@
     {{-- custom js --}}
     <script src="{{ asset('admin-assets/js/custom/user.js') }}"></script>
     <script src="{{ asset('admin-assets/js/custom/custom.js') }}"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
 </body>
 
 </html>

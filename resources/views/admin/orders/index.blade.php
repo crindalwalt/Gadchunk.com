@@ -57,7 +57,7 @@
                                              </li>
                                          </ul>
                                          <div class="table-responsive">
-                                             <table class="table table-centered datatable dt-responsive nowrap "
+                                             <table class="table mb-0" id="myTable">
                                                  style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                  <thead class="thead-light">
                                                      <tr>

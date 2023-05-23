@@ -44,7 +44,7 @@
                           </div>
                        </div> --}}
                              <!-- status -->
-                             <div class="tp-shop-widget mb-50">
+                             {{-- <div class="tp-shop-widget mb-50">
                                  <h3 class="tp-shop-widget-title">Product Status</h3>
 
                                  <div class="tp-shop-widget-content">
@@ -65,7 +65,7 @@
                                          </ul><!-- .filter-items -->
                                      </div>
                                  </div>
-                             </div>
+                             </div> --}}
                              <!-- categories -->
                              <div class="tp-shop-widget mb-50">
                                  <h3 class="tp-shop-widget-title">Categories</h3>

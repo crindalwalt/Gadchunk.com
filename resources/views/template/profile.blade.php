@@ -61,37 +61,37 @@
                                                             class="profile__main-inner d-flex flex-wrap align-items-center">
                                                             <div class="profile__main-thumb">
                                                                 <img src="assets/img/users/user-10.jpg" alt="">
-                                                                <div class="profile__main-thumb-edit">
-                                                                    <input id="profile-thumb-input"
-                                                                        class="profile-img-popup" type="file">
-                                                                    <label for="profile-thumb-input"><i
-                                                                            class="fa-light fa-camera"></i></label>
-                                                                </div>
+                                                                <form action="{{ route('user.avatar', Auth::user()->id) }}" id="avatar" method="post">
+                                                                    @csrf
+                                                                    <div class="profile__main-thumb-edit">
+                                                                        <input id="profile-thumb-input"
+                                                                            class="profile-img-popup" type="file">
+                                                                        <label for="profile-thumb-input"><i
+                                                                                class="fa-light fa-camera"></i></label>
+                                                                    </div>
+                                                                </form>
+
                                                             </div>
                                                             <div class="profile__main-content">
                                                                 <h4 class="profile__main-title">Welcome Mr.
                                                                     {{ $user->name }}!</h4>
-                                                                <p>You have <span>08</span> notifications</p>
+                                                                <p>You have <span>{{ count($user->orders) }}</span>
+                                                                    orders</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="profile__main-logout text-sm-end">
                                                             <span>
-                                                                <form
-                                                                    action="{{ route('logout', Auth::check() ? Auth::user()->id : '0') }}"
-                                                                    method="post">
-                                                                    @csrf
-                                                                    <button type="button"
-                                                                        class="tp-logout-btn">Logout</button>
-                                                                </form>
+                                                                <a href="{{ route('logout') }}"><button
+                                                                        class="btn btn-primary">Logout</button> </a>
                                                             </span>
                                                             {{-- <a href="login.html" class="tp-logout-btn">Logout</a> --}}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="profile__main-info">
+                                            {{-- <div class="profile__main-info">
                                                 <div class="row gx-3">
                                                     <div class="col-md-3 col-sm-6">
                                                         <div class="profile__main-info-item">
@@ -194,7 +194,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-information" role="tabpanel"
@@ -202,13 +202,14 @@
                                         <div class="profile__info">
                                             <h3 class="profile__info-title">Personal Details</h3>
                                             <div class="profile__info-content">
-                                                <form action="profile.html#">
+                                                <form action="{{ route('user.update', Auth::user()->id) }}">
                                                     <div class="row">
                                                         <div class="col-xxl-6 col-md-6">
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
                                                                     <input type="text"
-                                                                        placeholder="Enter your username"
+                                                                        placeholder="Enter your name..."
+                                                                        name="name"
                                                                         value="{{ Auth::user()->name }}">
                                                                     <span>
                                                                         <svg width="17" height="19"
@@ -236,7 +237,7 @@
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
                                                                     <input type="email"
-                                                                        placeholder="Enter your email"
+                                                                        placeholder="Enter your email" name="email"
                                                                         value="{{ Auth::user()->email }}">
                                                                     <span>
                                                                         <svg width="18" height="16"
@@ -266,7 +267,7 @@
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
                                                                     <input type="text"
-                                                                        placeholder="Enter your number"
+                                                                        placeholder="Enter your number" name="phone"
                                                                         value="{{ Auth::user()->phone }}">
                                                                     <span>
                                                                         <svg width="15" height="18"
@@ -295,18 +296,145 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="col-xxl-6 col-md-6">
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
-                                                                    <select>
-                                                                        <option>Male</option>
-                                                                        <option>Female</option>
-                                                                        <option>Others</option>
-                                                                    </select>
+                                                                    <input type="text"
+                                                                        placeholder="Enter your zip code..."
+                                                                        name="zip_code"
+                                                                        value="{{ Auth::user()->zip_code }}">
+                                                                    <span>
+                                                                        {{-- <svg width="16" height="18"
+                                                                                viewBox="0 0 16 18" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M7.99377 10.1461C9.39262 10.1461 10.5266 9.0283 10.5266 7.64946C10.5266 6.27061 9.39262 5.15283 7.99377 5.15283C6.59493 5.15283 5.46094 6.27061 5.46094 7.64946C5.46094 9.0283 6.59493 10.1461 7.99377 10.1461Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                                <path
+                                                                                    d="M1.19707 6.1933C2.79633 -0.736432 13.2118 -0.72843 14.803 6.2013C15.7365 10.2663 13.1712 13.7072 10.9225 15.8357C9.29079 17.3881 6.70924 17.3881 5.06939 15.8357C2.8288 13.7072 0.263493 10.2583 1.19707 6.1933Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                            </svg> --}}
+                                                                        <svg width="16" height="18"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 320 512">
+                                                                            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                            <path
+                                                                                d="M16 144a144 144 0 1 1 288 0A144 144 0 1 1 16 144zM160 80c8.8 0 16-7.2 16-16s-7.2-16-16-16c-53 0-96 43-96 96c0 8.8 7.2 16 16 16s16-7.2 16-16c0-35.3 28.7-64 64-64zM128 480V317.1c10.4 1.9 21.1 2.9 32 2.9s21.6-1 32-2.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32z" />
+                                                                        </svg>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xxl-12">
+
+                                                        <div class="col-xxl-6 col-md-6">
+                                                            <div class="profile__input-box">
+                                                                <div class="profile__input">
+                                                                    <input type="text"
+                                                                        placeholder="Enter your street number..."
+                                                                        name="street"
+                                                                        value="{{ Auth::user()->street }}">
+                                                                    <span>
+                                                                        <svg width="16"
+                                                                            height="18"xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path
+                                                                                d="M367.9 329.76c-4.62 5.3-9.78 10.1-15.9 13.65v22.94c66.52 9.34 112 28.05 112 49.65 0 30.93-93.12 56-208 56S48 446.93 48 416c0-21.6 45.48-40.3 112-49.65v-22.94c-6.12-3.55-11.28-8.35-15.9-13.65C58.87 345.34 0 378.05 0 416c0 53.02 114.62 96 256 96s256-42.98 256-96c0-37.95-58.87-70.66-144.1-86.24zM256 128c35.35 0 64-28.65 64-64S291.35 0 256 0s-64 28.65-64 64 28.65 64 64 64zm-64 192v96c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-96c17.67 0 32-14.33 32-32v-96c0-26.51-21.49-48-48-48h-11.8c-11.07 5.03-23.26 8-36.2 8s-25.13-2.97-36.2-8H208c-26.51 0-48 21.49-48 48v96c0 17.67 14.33 32 32 32z" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xxl-6 col-md-6">
+                                                            <div class="profile__input-box">
+                                                                <div class="profile__input">
+                                                                    <input type="text"
+                                                                        placeholder="Enter your city..."
+                                                                        name="city"
+                                                                        value="{{ Auth::user()->city }}">
+                                                                    <span>
+                                                                        {{-- <svg width="16" height="18"
+                                                                                viewBox="0 0 16 18" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M7.99377 10.1461C9.39262 10.1461 10.5266 9.0283 10.5266 7.64946C10.5266 6.27061 9.39262 5.15283 7.99377 5.15283C6.59493 5.15283 5.46094 6.27061 5.46094 7.64946C5.46094 9.0283 6.59493 10.1461 7.99377 10.1461Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                                <path
+                                                                                    d="M1.19707 6.1933C2.79633 -0.736432 13.2118 -0.72843 14.803 6.2013C15.7365 10.2663 13.1712 13.7072 10.9225 15.8357C9.29079 17.3881 6.70924 17.3881 5.06939 15.8357C2.8288 13.7072 0.263493 10.2583 1.19707 6.1933Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                            </svg> --}}
+                                                                        <svg width="16" height="18"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 576 512">
+                                                                            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                            <path
+                                                                                d="M384 476.1L192 421.2V35.9L384 90.8V476.1zm32-1.2V88.4L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3V394.6c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2V423.6L32.9 474.5C17.1 480.8 0 469.2 0 452.2V117.4c0-9.8 6-18.6 15.1-22.3z" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xxl-6 col-md-6">
+                                                            <div class="profile__input-box">
+                                                                <div class="profile__input">
+                                                                    <input type="text"
+                                                                        placeholder="Enter your province"
+                                                                        name="province"
+                                                                        value="{{ Auth::user()->province }}">
+                                                                    <span>
+                                                                        <svg width="16" height="18"
+                                                                            viewBox="0 0 16 18" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M7.99377 10.1461C9.39262 10.1461 10.5266 9.0283 10.5266 7.64946C10.5266 6.27061 9.39262 5.15283 7.99377 5.15283C6.59493 5.15283 5.46094 6.27061 5.46094 7.64946C5.46094 9.0283 6.59493 10.1461 7.99377 10.1461Z"
+                                                                                stroke="currentColor"
+                                                                                stroke-width="1.5" />
+                                                                            <path
+                                                                                d="M1.19707 6.1933C2.79633 -0.736432 13.2118 -0.72843 14.803 6.2013C15.7365 10.2663 13.1712 13.7072 10.9225 15.8357C9.29079 17.3881 6.70924 17.3881 5.06939 15.8357C2.8288 13.7072 0.263493 10.2583 1.19707 6.1933Z"
+                                                                                stroke="currentColor"
+                                                                                stroke-width="1.5" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xxl-6 col-md-6">
+                                                            <div class="profile__input-box">
+                                                                <div class="profile__input">
+                                                                    <input type="text"
+                                                                        placeholder="Enter your country"
+                                                                        name="country"
+                                                                        value="{{ Auth::user()->country }}">
+                                                                    <span>
+                                                                        {{-- <svg width="16" height="18"
+                                                                                viewBox="0 0 16 18" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M7.99377 10.1461C9.39262 10.1461 10.5266 9.0283 10.5266 7.64946C10.5266 6.27061 9.39262 5.15283 7.99377 5.15283C6.59493 5.15283 5.46094 6.27061 5.46094 7.64946C5.46094 9.0283 6.59493 10.1461 7.99377 10.1461Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                                <path
+                                                                                    d="M1.19707 6.1933C2.79633 -0.736432 13.2118 -0.72843 14.803 6.2013C15.7365 10.2663 13.1712 13.7072 10.9225 15.8357C9.29079 17.3881 6.70924 17.3881 5.06939 15.8357C2.8288 13.7072 0.263493 10.2583 1.19707 6.1933Z"
+                                                                                    stroke="currentColor"
+                                                                                    stroke-width="1.5" />
+                                                                            </svg> --}}
+                                                                        <svg width="16" height="18"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                            <path
+                                                                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- <div class="col-xxl-12">
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
                                                                     <input type="text"
@@ -328,15 +456,27 @@
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
-                                                        <div class="col-xxl-12">
+                                                        {{-- <div class="col-xxl-6 col-md-6">
+                                                            <div class="profile__input-box">
+                                                                <div class="profile__input">
+                                                                    <select>
+                                                                        <option>Male</option>
+                                                                        <option>Female</option>
+                                                                        <option>Others</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div> --}}
+
+                                                        {{-- <div class="col-xxl-12">
                                                             <div class="profile__input-box">
                                                                 <div class="profile__input">
                                                                     <textarea placeholder="Enter your bio">Hi there, this is my bio...</textarea>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="col-xxl-12">
                                                             <div class="profile__btn">
                                                                 <button type="submit" class="tp-btn">Update
@@ -351,12 +491,45 @@
                                     <div class="tab-pane fade" id="nav-password" role="tabpanel"
                                         aria-labelledby="nav-password-tab">
                                         <div class="profile__password">
-                                            <form action="profile.html#">
+                                            <form action="{{ route('user.update.password', Auth::user()->id) }}">
                                                 <div class="row">
                                                     <div class="col-xxl-12">
                                                         <div class="tp-profile-input-box">
                                                             <div class="tp-contact-input">
-                                                                <input name="old_pass" id="old_pass"
+                                                                <input name="name" id="name" type="text"
+                                                                    readonly value="{{ Auth::user()->name }}">
+                                                            </div>
+                                                            <div class="tp-profile-input-title">
+                                                                <label for="name">Name</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xxl-12">
+                                                        <div class="tp-profile-input-box">
+                                                            <div class="tp-contact-input">
+                                                                <input name="email" id="email" type="email"
+                                                                    readonly value="{{ Auth::user()->email }}">
+                                                            </div>
+                                                            <div class="tp-profile-input-title">
+                                                                <label for="email">Email</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xxl-12">
+                                                        <div class="tp-profile-input-box">
+                                                            <div class="tp-contact-input">
+                                                                <input name="phone" id="phone" type="tel"
+                                                                    readonly value="{{ Auth::user()->phone }}">
+                                                            </div>
+                                                            <div class="tp-profile-input-title">
+                                                                <label for="phone">Mobile Number</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xxl-12">
+                                                        <div class="tp-profile-input-box">
+                                                            <div class="tp-contact-input">
+                                                                <input name="old_password" id="old_pass"
                                                                     type="password">
                                                             </div>
                                                             <div class="tp-profile-input-title">
@@ -367,7 +540,7 @@
                                                     <div class="col-xxl-6 col-md-6">
                                                         <div class="tp-profile-input-box">
                                                             <div class="tp-profile-input">
-                                                                <input name="new_pass" id="new_pass"
+                                                                <input name="new_password" id="new_password"
                                                                     type="password">
                                                             </div>
                                                             <div class="tp-profile-input-title">
@@ -399,7 +572,7 @@
                                         aria-labelledby="nav-address-tab">
                                         <div class="profile__address">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="profile__address-item d-sm-flex align-items-start">
                                                         <div class="profile__address-icon">
                                                             <span>
@@ -423,18 +596,19 @@
                                                             </span>
                                                         </div>
                                                         <div class="profile__address-content">
-                                                            <h3 class="profile__address-title">Billing Address</h3>
-                                                            <p><span>Street:</span>3576 Glen Street</p>
-                                                            <p><span>City:</span>Summer Shade</p>
-                                                            <p><span>State/province/area:</span>Kentucky</p>
-                                                            <p><span>Phone number:</span>270-428-8378</p>
-                                                            <p><span>Zip code:</span>42166</p>
-                                                            <p><span>Country calling code:</span> +1</p>
-                                                            <p><span>Country:</span>United States</p>
+                                                            <h3 class="profile__address-title">User Address Information
+                                                            </h3>
+                                                            <p><span>Street:</span>{{ $user->street }}</p>
+                                                            <p><span>City:</span>{{ $user->city }}</p>
+                                                            <p><span>State/province/area:</span>{{ $user->province }}
+                                                            </p>
+                                                            <p><span>Phone number:</span>{{ $user->phone }}</p>
+                                                            <p><span>Zip code:</span>{{ $user->zip_code }}</p>
+                                                            <p><span>Country:</span>{{ $user->country }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                {{-- <div class="col-md-6">
                                                     <div class="profile__address-item d-sm-flex align-items-start">
                                                         <div class="profile__address-icon">
                                                             <span>
@@ -467,24 +641,24 @@
                                                             <p><span>Country:</span>United States</p>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-order" role="tabpanel"
                                         aria-labelledby="nav-order-tab">
                                         <div class="profile__ticket table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Order Id</th>
-                                                        <th scope="col">Product Title</th>
-                                                        <th scope="col">Status</th>
-                                                        <th scope="col">View</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @if ($orders)
+                                            @if (empty($orders))
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Order Id</th>
+                                                            <th scope="col">Product Title</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col">View</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
                                                         @foreach ($orders as $order)
                                                             <tr>
                                                                 <th scope="row"> #{{ $order->order_number }}</th>
@@ -494,21 +668,26 @@
                                                                         <span>{{ $products->product[0]->name }}</span>
                                                                     @endforeach
                                                                 </td>
-                                                                <td data-info="status pending">{{ $order->status }}</td>
-                                                                @if ($order->status == "pending")
-                                                                <td><span
-                                                                    class="badges bg-danger p-2 text-white border rounded">Order Pending</span>
-                                                                @else
-                                                                <td><a href="#"
-                                                                    class="tp-logout-btn">Invoice</a>
+                                                                <td data-info="status pending">{{ $order->status }}
+                                                                </td>
+                                                                @if ($order->status == 'pending')
+                                                                    <td><span
+                                                                            class="badges bg-danger p-2 text-white border rounded">Order
+                                                                            Pending</span>
+                                                                    @else
+                                                                    <td><a href="#"
+                                                                            class="tp-logout-btn">Invoice</a>
                                                                 @endif
-                                                               </td>
+                                                                </td>
                                                             </tr>
                                                         @endforeach
-                                                    @else
-                                                    @endif
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            @else
+                                                <div class="shadow-sm p-3 mb-5 bg-body rounded"><strong>No Order
+                                                        Yet!</strong></div>
+                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-notification" role="tabpanel"

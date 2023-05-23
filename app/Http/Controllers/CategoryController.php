@@ -21,24 +21,32 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request->input('attributes'));
+        // dd($request->all());
         $request->validate([
             'category_name' => 'required|string',
+            'category_icon' => 'required|image',
         ]);
         $cat_attributes = $request->input('attributes');
+         // storing image
+         $file = $request->file('category_icon');
+         if ($request->hasFile('category_icon')) {
+                $filename = 'cat-icon' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/categories_icons', $filename);
+        } else {
+            alert("Error", 'icon could not found', 'warning');
+            return redirect()->back();
+        }
+
         $category = new Category();
         $category->name = $request->category_name;
         $category->slug = "/" . trim(strtolower($request->category_name));
+        $category->icon = $filename;
         $category->save();
         $category->is_active = 0;
-        // foreach ($request->attributes as $attr){
 
-        //     $category->attributes()->create([
-        //         'attribute_name' => $attr,
-        //         'category_id' => $category->id,
-        //     ]);
-        // }
-        $category->attributes()->attach($cat_attributes);
+        if ( $cat_attributes) {
+            $category->attributes()->attach($cat_attributes);
+        }
         alert("Success", 'Category has been added successfully', 'success');
         return redirect()->back();
     }
@@ -61,7 +69,7 @@ class CategoryController extends Controller
         ]);
         $cat_attributes = $request->input('attributes');
         $id->attributes()->sync($cat_attributes);
-        
+
         alert("Success", 'Category has been updated successfully', 'success');
         return redirect(route('category.index'));
     }
@@ -78,7 +86,7 @@ class CategoryController extends Controller
         $id = $request->post('id');
         $values = DB::table('attributes_category')->where('category_id',$id)->get();
         $loop_div = 1;
-        $html = ' 
+        $html = '
        <div class="div">
        <h4>Add Variation</h4>
        <p>You can add variation detail here</p>
@@ -96,7 +104,7 @@ class CategoryController extends Controller
         // foreach ($value->prod_attribute_value as $item){
                             $html.=   '<option value=" "
                                    class="d-flex justify-content-between">
-                                   
+
                                    <small
                                        class="badge badge-pill badge-dark rounded-pill">&nbsp;&nbsp;</small>
                                </option>';
@@ -109,7 +117,7 @@ class CategoryController extends Controller
                    </div>
                </div>
            </div>
-       
+
        <div class="col">
            <button class="btn btn-md  btn-success m-4" style="float: right" type="button"
                title="Add another varaition" onclick="add_more('.$loop_div.')">
@@ -122,7 +130,7 @@ class CategoryController extends Controller
        </div>
    </div>';
     };
-        
+
         echo $html;
    }
 }

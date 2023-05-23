@@ -21,7 +21,9 @@ class ProductInventorySeeder extends Seeder
             'stock' => '100',
             'product_id' => '1',
             'in_stock' => 'yes',
-            'is_active' => 'on'
+            'is_active' => 'on',
+            'on_sale' => 'yes',
+            'is_featured' => 'no'
         ]);
         ProductInventory::create([
             'retail_price' => '200',
@@ -29,7 +31,9 @@ class ProductInventorySeeder extends Seeder
             'stock' => '100',
             'product_id' => '2',
             'in_stock' => 'yes',
-            'is_active' => 'on'
+            'is_active' => 'on',
+            'on_sale' => 'no',
+            'is_featured' => 'yes'
         ]);
         ProductInventory::create([
             'retail_price' => '400',
@@ -37,7 +41,9 @@ class ProductInventorySeeder extends Seeder
             'stock' => '100',
             'product_id' => '3',
             'in_stock' => 'yes',
-            'is_active' => 'on'
+            'is_active' => 'on',
+            'on_sale' => 'yes',
+            'is_featured' => 'no'
         ]);
         ProductInventory::create([
             'retail_price' => '600',
@@ -45,7 +51,9 @@ class ProductInventorySeeder extends Seeder
             'stock' => '100',
             'product_id' => '4',
             'in_stock' => 'yes',
-            'is_active' => 'on'
+            'is_active' => 'on',
+            'on_sale' => 'no',
+            'is_featured' => 'yes'
         ]);
         ProductInventory::create([
             'retail_price' => '800',
@@ -53,7 +61,9 @@ class ProductInventorySeeder extends Seeder
             'stock' => '100',
             'product_id' => '5',
             'in_stock' => 'yes',
-            'is_active' => 'on'
+            'is_active' => 'on',
+            'on_sale' => 'yes',
+            'is_featured' => 'no'
         ]);
     }
 }

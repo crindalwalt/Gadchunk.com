@@ -77,9 +77,13 @@
                                                         </div>
                                                     </td> --}}
 
-                
+
                                                     <!-- action -->
                                                     <td class="tp-cart-action">
+                                                        <a href="{{ route('product_detail', $wishlist->product->id) }}">
+                                                            <button
+                                                            class="tp-btn tp-btn-2 tp-btn-blue mx-4">Detail</button>
+                                                           </a>
                                                             <button type="submit"
                                                                 class="tp-btn tp-btn-2 tp-btn-blue add-cart mx-4"
                                                                 data-route="{{ route('add-cart', $wishlist->product->id) }}">Add

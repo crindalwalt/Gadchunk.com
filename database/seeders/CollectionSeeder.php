@@ -20,7 +20,7 @@ class CollectionSeeder extends Seeder
             'slug' => ' first',
             'title' => 'title 1',
             'discount_percentage' => '20',
-            'banner_image' => 'image',
+            'banner_image' => 'collection-product-1681237737174.png',
             'description' => 'lorem ipsum'
         ]);
         Collection::create([
@@ -28,7 +28,7 @@ class CollectionSeeder extends Seeder
             'slug' => ' second',
             'title' => 'title 2',
             'discount_percentage' => '20',
-            'banner_image' => 'image',
+            'banner_image' => 'collection-product-1681237737174.png',
             'description' => 'lorem ipsum'
         ]);
         Collection::create([
@@ -36,7 +36,7 @@ class CollectionSeeder extends Seeder
             'slug' => ' three',
             'title' => 'title 3',
             'discount_percentage' => '20',
-            'banner_image' => 'image',
+            'banner_image' => 'collection-product-1681237737174.png',
             'description' => 'lorem ipsum'
         ]);
         Collection::create([
@@ -44,7 +44,7 @@ class CollectionSeeder extends Seeder
             'slug' => ' four',
             'title' => 'title 4',
             'discount_percentage' => '20',
-            'banner_image' => 'image',
+            'banner_image' => 'collection-product-1681237737174.png',
             'description' => 'lorem ipsum'
         ]);
         Collection::create([
@@ -52,7 +52,7 @@ class CollectionSeeder extends Seeder
             'slug' => ' five',
             'title' => 'title 5',
             'discount_percentage' => '20',
-            'banner_image' => 'image',
+            'banner_image' => 'collection-product-1681237737174.png',
             'description' => 'lorem ipsum'
         ]);
     }

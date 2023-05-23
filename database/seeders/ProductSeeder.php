@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
             'slug' => '/first',
             'brand_id' => '1',
             'category_id' => '1',
-            'featured_image' => 'image',
+            'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum first description',
             'is_active' => 1
         ]);
@@ -29,7 +29,7 @@ class ProductSeeder extends Seeder
             'slug' => '/Second',
             'brand_id' => '2',
             'category_id' => '2',
-            'featured_image' => 'image',
+            'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Second description',
             'is_active' => 1
         ]);
@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
             'slug' => '/Third',
             'brand_id' => '3',
             'category_id' => '3',
-            'featured_image' => 'image',
+            'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Third description',
             'is_active' => 1
         ]);
@@ -47,7 +47,7 @@ class ProductSeeder extends Seeder
             'slug' => '/Fourth',
             'brand_id' => '4',
             'category_id' => '4',
-            'featured_image' => 'image',
+            'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Fourth description',
             'is_active' => 1
         ]);
@@ -56,7 +56,7 @@ class ProductSeeder extends Seeder
             'slug' => '/Fifth',
             'brand_id' => '5',
             'category_id' => '5',
-            'featured_image' => 'image',
+            'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Fifth description',
             'is_active' => 1
         ]);

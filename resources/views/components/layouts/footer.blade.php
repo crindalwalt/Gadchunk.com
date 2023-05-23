@@ -14,10 +14,10 @@
                          </div>
                          <p class="tp-footer-desc">We are a team of designers and developers that create high quality WordPress</p>
                          <div class="tp-footer-social">
-                            <a href="index.html#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="index.html#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="index.html#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="index.html#"><i class="fa-brands fa-vimeo-v"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
                          </div>
                       </div>
                    </div>

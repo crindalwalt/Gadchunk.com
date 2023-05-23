@@ -76,11 +76,13 @@
 
                                             <div class="col-6 mb-3">
                                                 <label for="example-text-input" class=" col-form-label">Discount
-                                                    Price</label>
+                                                    Percentage</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text"
-                                                        placeholder="Enter discount price" id="example-text-input"
+                                                        placeholder="Enter discount perccentage" id="example-text-input"
                                                         name="discount_price">
+                                                        <div class="text-danger">Note * Enter value in % without sign</div>
+
                                                     @error('discount_price')
                                                         <div class="text-danger"></div>
                                                     @enderror
@@ -149,7 +151,7 @@
                                         DateBase</p>
                                     <div class="table-responsive">
 
-                                        <table class="table mb-0">
+                                        <table class="table mb-0 " id="myTable">
                                             @if ($collections->isNotEmpty())
                                                 <thead>
                                                     <tr>
@@ -169,7 +171,7 @@
                                                             <th scope="row">{{ $loop->iteration }}</th>
                                                             <td>{{ $collection->name }}</td>
                                                             <td>{{ $collection->title }}</td>
-                                                            <td>Rs. {{ $collection->discount_percentage }}</td>
+                                                            <td>{{ $collection->discount_percentage }}%</td>
                                                             <td><img src="{{ asset('storage/collections/' . $collection->banner_image) }}"
                                                                     width="70" height="50"></td>
                                                             <td class="">

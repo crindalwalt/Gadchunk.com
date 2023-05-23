@@ -87,7 +87,7 @@
                                     <p class="card-title-desc">All of the below brand are fetched from the DateBase</p>
                                     <div class="table-responsive">
 
-                                        <table class="table mb-0">
+                                        <table class="table mb-0" id="myTable">
                                             @if ($brands->isNotEmpty())
                                                 <thead>
                                                     <tr>

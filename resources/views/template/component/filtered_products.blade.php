@@ -1,4 +1,4 @@
-@if ($inventory_products)
+@if (!$inventory_products->isEmpty())
 @foreach ($inventory_products as $item)
 @if ($item->prod_inventory)
 <div class="modal fade tp-product-modal" id="producQuickViewModal{{ $item->id }}" tabindex="-1"
@@ -406,12 +406,8 @@
         </div>
     </div>
 </div>
-@else
-<p>have no item</p>
-
 @endif
 @endforeach
-
 @else
-<p>have no item</p>
+<div class="shadow-none p-3 mb-5 bg-light rounded">Have No Item</div>
 @endif

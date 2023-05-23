@@ -20,7 +20,13 @@ return new class extends Migration
             $table->text('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('userType')->default(1);
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->integer('userType')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
