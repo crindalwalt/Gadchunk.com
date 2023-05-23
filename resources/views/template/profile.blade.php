@@ -56,39 +56,60 @@
                                         <div class="profile__main">
                                             <div class="profile__main-top pb-80">
                                                 <div class="row align-items-center">
-                                                    <div class="col-md-6">
-                                                        <div
-                                                            class="profile__main-inner d-flex flex-wrap align-items-center">
-                                                            <div class="profile__main-thumb">
-                                                                <img src="assets/img/users/user-10.jpg" alt="">
-                                                                <form action="{{ route('user.avatar', Auth::user()->id) }}" id="avatar" method="post">
-                                                                    @csrf
+                                                    <form action="{{ route('user.avatar', Auth::user()->id) }}"
+                                                         method="post" enctype="multipart/form-data" >
+                                                        @csrf
+                                                        <div class="col-md-6">
+                                                            <div
+                                                                class="profile__main-inner d-flex flex-wrap align-items-center">
+                                                                <div class="profile__main-thumb">
+                                                                    <img id="preview-image"
+                                                                        src="{{ $user->profile_image ? asset('storage/avatar_images/' . $user->profile_image) : 'assets/img/users/user-10.jpg' }}"
+                                                                        alt="Avatar">
+
                                                                     <div class="profile__main-thumb-edit">
-                                                                        <input id="profile-thumb-input"
-                                                                            class="profile-img-popup" type="file">
+                                                                        <input type="hidden" name="name" value="{{ $user->name }}">
+                                                                        <input type="hidden" name="email" value="{{ $user->email}}">
+                                                                        <input type="hidden" name="phone" value="{{ $user->phone}}">
+                                                                        <input type="hidden" name="password" value="{{ $user->password}}">
+                                                                        <input type="hidden" name="street" value="{{ $user->street}}">
+                                                                        <input type="hidden" name="city" value="{{ $user->city}}">
+                                                                        <input type="hidden" name="province" value="{{ $user->province}}">
+                                                                        <input type="hidden" name="zip_code" value="{{ $user->zip_code}}">
+                                                                        <input type="hidden" name="country" value="{{ $user->country}}">
+                                                                        <input id="profile-thumb-input" name="avatar"
+                                                                            class="profile-img-popup"
+                                                                            type="file"
+                                                                            onchange="document.getElementById('preview-image').src = window.URL.createObjectURL(this.files[0])" />
                                                                         <label for="profile-thumb-input"><i
                                                                                 class="fa-light fa-camera"></i></label>
                                                                     </div>
-                                                                </form>
 
-                                                            </div>
-                                                            <div class="profile__main-content">
-                                                                <h4 class="profile__main-title">Welcome Mr.
-                                                                    {{ $user->name }}!</h4>
-                                                                <p>You have <span>{{ count($user->orders) }}</span>
-                                                                    orders</p>
+                                                                </div>
+                                                                <div class="profile__main-content">
+                                                                    <h4 class="profile__main-title">Welcome Mr.
+                                                                        {{ $user->name }}!</h4>
+                                                                    <p>You have <span>{{ count($user->orders) }}</span>
+                                                                        orders</p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="profile__main-logout text-sm-end">
-                                                            <span>
-                                                                <a href="{{ route('logout') }}"><button
-                                                                        class="btn btn-primary">Logout</button> </a>
-                                                            </span>
-                                                            {{-- <a href="login.html" class="tp-logout-btn">Logout</a> --}}
+                                                        <div class="col-md-6">
+                                                            <div class="profile__main-logout text-sm-end">
+                                                                <span>
+                                                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+                                                                </span>
+                                                                <span>
+                                                                    <a href="{{ route('logout') }}"><button
+                                                                            class="btn btn-primary">Logout</button>
+                                                                    </a>
+                                                                </span>
+                                                                {{-- <a href="login.html" class="tp-logout-btn">Logout</a> --}}
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                             {{-- <div class="profile__main-info">

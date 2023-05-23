@@ -107,27 +107,50 @@ class UserController extends Controller
 
             ]);
 
-            alert("Success", 'Profile has been updated successfully', 'success');
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Profile has been updated successfully');
+
 
     }
 
     // update profile avatar
-    public function update_profile_avatar(Request $request){
+    public function update_profile_avatar(User $user , Request $request){
+        // @dd($request->all());
         $request->validate([
-            'image' => 'required|image',
+            'avatar' => 'required|image',
         ]);
+        // storing image
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+                $filename = 'avatar-' . time() . rand(99, 199) . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/avatar_images', $filename);
+        } else {
+            return redirect()->back()->with('error', 'File Not Image');
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = $request->password;
+        $user->street = $request->street;
+        $user->city = $request->city;
+        $user->province = $request->province;
+        $user->zip_code = $request->zip_code;
+        $user->country = $request->country;
+        $user->profile_image = $filename;
+        $save = $user->update();
+        if ($save) {
+            return redirect()->back()->with('success', 'Profile image updated successfully');
+        }else {
+            return redirect()->back()->with('error', 'Profile Image Not Updated');
 
-        @dd($request->all());
-
+        }
     }
 
     public function destroy(Request $request)
     {
         $user = User::find($request->id);
         $user->delete();
-        alert('Success', 'Product Deleted Successfully', 'success');
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Product deleted successfully');
+
     }
        // fetch ids of the products
        public static function getProductIds()

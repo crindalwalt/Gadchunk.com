@@ -64,10 +64,18 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>
+                                                                @if ($user->profile_image)
+                                                                <img src="{{ asset('storage/avatar_images/'. $user->profile_image) }}"
+                                                                alt="avatar"
+                                                                class="rounded-circle img-fluid"
+                                                                style="width: 35px;">
+                                                                @else
                                                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                                                  alt="avatar"
                                                                  class="rounded-circle img-fluid"
                                                                  style="width: 35px;">
+
+                                                                @endif
                                                                 {{ $user->name }}
                                                             </td>
                                                             <td>{{ $user->email }}</td>

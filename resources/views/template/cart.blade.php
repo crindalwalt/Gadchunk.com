@@ -47,8 +47,6 @@
                                             </th>
                                         </tr>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

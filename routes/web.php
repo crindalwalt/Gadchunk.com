@@ -206,7 +206,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
     Route::get('/profile/{id}/password', [UserController::class, 'update_password'])->name('user.update.password');
     Route::get('/profile/{id}', [UserController::class, 'update_profile'])->name('user.update');
-    Route::post('/profile/{id}/avatar', [UserController::class, 'update_profile_avatar'])->name('user.avatar');
+    Route::post('/profile/{user}/avatar', [UserController::class, 'update_profile_avatar'])->name('user.avatar');
     Route::get('/profile_edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile_update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile_destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');

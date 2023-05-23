@@ -198,7 +198,7 @@
     <!-- search area end -->
 
     <!-- cart mini area start -->
-    <div class="cartmini__area tp-all-font-roboto">
+    {{-- <div class="cartmini__area tp-all-font-roboto">
         <div class="cartmini__wrapper d-flex justify-content-between flex-column">
             <div class="cartmini__top-wrapper">
                 <div class="cartmini__top p-relative">
@@ -210,24 +210,25 @@
                                 class="fal fa-times"></i></button>
                     </div>
                 </div>
-                {{-- <div class="cartmini__shipping">
+                <div class="cartmini__shipping">
                     <p> Free Shipping for all orders over <span>$50</span></p>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                             data-width="70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                </div> --}}
-                @if(!$cartitems->isEmpty())
+                </div>
+                @if (!$cartitems->isEmpty())
                     @foreach ($cartitems as $item)
                         <div class="cartmini__widget" id="productremove{{ $item->id }}">
                             <div class="cartmini__widget-item">
                                 <div class="cartmini__thumb">
-                                    <a href="{{ route('product_detail',$item->id) }}">
+                                    <a href="{{ route('product_detail', $item->id) }}">
                                         <img src="assets/img/product/product-1.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="cartmini__content">
-                                    <h5 class="cartmini__title"><a href="{{ route('product_detail',$item->id) }}">{{ $item->name }}</a>
+                                    <h5 class="cartmini__title"><a
+                                            href="{{ route('product_detail', $item->id) }}">{{ $item->name }}</a>
                                     </h5>
                                     <div class="cartmini__price-wrapper">
                                         <span class="cartmini__price">
@@ -237,16 +238,17 @@
                                     </div>
                                 </div>
                                 <a href="javascript:void(0)"data-route="{{ route('cart.remove', $item->id) }}"
-                                    data-remove="productremove{{ $item->id }}" id="remove-product" class="cartmini__del"><i class="fa-regular fa-xmark"></i></a>
+                                    data-remove="productremove{{ $item->id }}" id="remove-product"
+                                    class="cartmini__del"><i class="fa-regular fa-xmark"></i></a>
                             </div>
                         </div>
                         <!-- for wp -->
                     @endforeach
                     <div class="cartmini__checkout">
-                        {{-- <div class="cartmini__checkout-title mb-30">
+                        <div class="cartmini__checkout-title mb-30">
                             <h4>Subtotal:</h4>
                             <span>$113.00</span>
-                        </div> --}}
+                        </div>
                         <div class="cartmini__checkout-btn">
                             <a href="{{ route('cart') }}" class="tp-btn mb-10 w-100"> view cart</a>
                         </div>
@@ -263,7 +265,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
     <!-- cart mini area end -->
 
     <!-- header area start -->
@@ -305,7 +307,8 @@
                                         </span>
                                         @if (Auth::check())
                                             <span>
-                                                <a href="{{ route('logout') }}"><span class="dropdown-item btn btn-primary">Logout</span> </a>
+                                                <a href="{{ route('logout') }}"><span
+                                                        class="dropdown-item btn btn-primary">Logout</span> </a>
                                             </span>
                                             {{-- <span> <a href="{{ route('user.profile') }}"><i
                                                         class="fal fa-user"></i><strong>{{ Auth::user()->name }}</strong></a></span> --}}
@@ -369,28 +372,29 @@
                         </div>
                         <div class="col-xl-6 col-lg-7 d-none d-lg-block">
                             <div class="tp-header-search pl-70">
-                                    <div class="tp-header-search-wrapper d-flex align-items-center">
-                                        <form action="{{ route('search') }}" method="POST">
-                                            @csrf
-                                            <div class="tp-header-search-box w-100">
-                                                <input type="text" name="search" placeholder="search here by name...">
-                                            </div>
-                                            <div class="tp-header-search-btn">
-                                                <button type="submit">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path d="M19 19L14.65 14.65" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                <div class="tp-header-search-wrapper d-flex align-items-center">
+                                    <form action="{{ route('search') }}" method="POST">
+                                        @csrf
+                                        <div class="tp-header-search-box w-100">
+                                            <input type="text" name="search"
+                                                placeholder="search here by name...">
+                                        </div>
+                                        <div class="tp-header-search-btn">
+                                            <button type="submit">
+                                                <svg width="20" height="20" viewBox="0 0 20 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path d="M19 19L14.65 14.65" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-3 col-md-8 col-6">
@@ -399,6 +403,12 @@
                                     <a href="{{ route('user.profile') }}" class="d-flex align-items-center">
                                         <div class="tp-header-login-icon">
                                             <span>
+                                                @if (Auth::user()->profile_image)
+                                                <img src="{{ asset('storage/avatar_images/'. Auth::user()->profile_image) }}"
+                                                alt="avatar"
+                                                class="rounded-circle img-fluid"
+                                                style="width: 35px;">
+                                                @else
                                                 <svg width="20" height="40" viewBox="0 0 17 21"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="8.57894" cy="5.77803" r="4.77803"
@@ -409,6 +419,7 @@
                                                         stroke="currentColor" stroke-width="1.5"
                                                         stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
+                                                @endif
                                             </span>
                                         </div>
                                         <div class="tp-header-login-content d-none d-xl-block">
@@ -449,7 +460,8 @@
                                         </a>
                                     </div>
                                     <div class="tp-header-action-item">
-                                        <button type="button" class="tp-header-action-btn cartmini-open-btn">
+                                        {{-- <button type="button" class="tp-header-action-btn cartmini-open-btn"> --}}
+                                        <a href="{{ route('cart') }}" class="tp-header-action-btn">
                                             <svg width="21" height="22" viewBox="0 0 21 22" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -474,7 +486,8 @@
                                                     0
                                                 @endif
                                             </span>
-                                        </button>
+                                        </a>
+                                        {{-- </button> --}}
                                     </div>
                                     <div class="tp-header-action-item d-lg-none">
                                         <button type="button" class="tp-header-action-btn tp-offcanvas-open-btn">
@@ -524,12 +537,15 @@
                                                             <span>
                                                                 <svg width="18" height="18">
                                                                     <defs>
-                                                                       <clipPath id="myCircle">
-                                                                          <circle cx="250" cy="100" r="100" fill="#FFFFFF" />
-                                                                       </clipPath>
+                                                                        <clipPath id="myCircle">
+                                                                            <circle cx="250" cy="100"
+                                                                                r="100" fill="#FFFFFF" />
+                                                                        </clipPath>
                                                                     </defs>
-                                                                    <image width="500" height="350" xlink:href="{{ asset('storage/categories_icons/' . $category->icon) }}" clip-path="url(#myCircle)" />
-                                                                 </svg>
+                                                                    <image width="500" height="350"
+                                                                        xlink:href="{{ asset('storage/categories_icons/' . $category->icon) }}"
+                                                                        clip-path="url(#myCircle)" />
+                                                                </svg>
                                                                 {{-- <svg width="18" height="18"
                                                                     viewBox="0 0 18 18" fill="none"
                                                                     xmlns="http://www.w3.org/2000/svg">
@@ -582,7 +598,10 @@
                                     <div class="tp-header-contact-icon">
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" height="30"
-                                             viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                                                viewBox="0 0 448 512">
+                                                <path
+                                                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                            </svg>
                                         </span>
                                     </div>
                                     <div class="tp-header-contact-content">

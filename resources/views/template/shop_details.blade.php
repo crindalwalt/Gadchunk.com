@@ -289,9 +289,9 @@
                                 <nav>
                                     <div class="nav nav-tabs justify-content-center p-relative tp-product-tab"
                                         id="navPresentationTab" role="tablist">
-                                        <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab"
+                                        {{-- <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-description" type="button" role="tab"
-                                            aria-controls="nav-description" aria-selected="false">Description</button>
+                                            aria-controls="nav-description" aria-selected="false">Description</button> --}}
                                         {{-- <button class="nav-link active" id="nav-addInfo-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-addInfo" type="button" role="tab"
                                             aria-controls="nav-addInfo" aria-selected="false">Additional
@@ -305,7 +305,7 @@
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="navPresentationTabContent">
-                                    <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                                    {{-- <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
                                         aria-labelledby="nav-description-tab" tabindex="0">
                                         <div class="tp-product-details-desc-wrapper pt-80">
                                             <div class="row justify-content-center">
@@ -319,7 +319,7 @@
                                                                         {{ $product->name }}</h3>
                                                                     <p>{!! $product->description !!}</p>
                                                                 </div>
-                                                                {{-- <div class="tp-product-details-desc-content">
+                                                                <div class="tp-product-details-desc-content">
                                                                     <h3 class="tp-product-details-desc-title">Draw
                                                                         inspiration with S Pen</h3>
                                                                     <p>S Pen is a bundle of writing instruments in one.
@@ -328,7 +328,7 @@
                                                                         your go-to for everything from drawing to
                                                                         editing documents. And S Pen won't get misplaced
                                                                         thanks.</p>
-                                                                </div> --}}
+                                                                </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="tp-product-details-desc-thumb">
@@ -338,7 +338,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="tp-product-details-desc-item  pb-75">
+                                                    <div class="tp-product-details-desc-item  pb-75">
                                                         <div class="row">
 
                                                             <div class="col-lg-7">
@@ -377,11 +377,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="tab-pane fade show active" id="nav-addInfo" role="tabpanel"
                                         aria-labelledby="nav-addInfo-tab" tabindex="0">
 
@@ -453,7 +453,7 @@
                                             </div>
                                         </div>
                                     </div> --}}
-                                    <div class="tab-pane fade" id="nav-review" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="nav-review" role="tabpanel"
                                         aria-labelledby="nav-review-tab" tabindex="0">
                                         <div class="tp-product-details-review-wrapper pt-60">
                                             <div class="row">
@@ -660,9 +660,8 @@
                                                                                     @else
                                                                                         {{ $review->user->name }}
                                                                                     @endif
-                                                                                    @else
+                                                                                @else
                                                                                     {{ $review->user->name }}
-
                                                                                 @endif
 
                                                                             </h3>

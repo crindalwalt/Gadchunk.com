@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    @include('template.flash-message')
 
 
 
@@ -15,24 +16,24 @@
 
 
 
-      <!-- JS here -->
-      <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
-      <script src="{{ asset('assets/js/vendor/waypoints.js') }}"></script>
-      <script src="{{ asset('assets/js/bootstrap-bundle.js') }}"></script>
-      <script src="{{ asset('assets/js/meanmenu.js') }}"></script>
-      <script src="{{ asset('assets/js/swiper-bundle.js') }}"></script>
-      <script src="{{ asset('assets/js/slick.js') }}"></script>
-      <script src="{{ asset('assets/js/range-slider.js') }}"></script>
-      <script src="{{ asset('assets/js/magnific-popup.js') }}"></script>
-      <script src="{{ asset('assets/js/nice-select.js') }}"></script>
-      <script src="{{ asset('assets/js/purecounter.js') }}"></script>
-      <script src="{{ asset('assets/js/countdown.js') }}"></script>
-      <script src="{{ asset('assets/js/wow.js') }}"></script>
-      <script src="{{ asset('assets/js/isotope-pkgd.js') }}"></script>
-      <script src="{{ asset('assets/js/imagesloaded-pkgd.js') }}"></script>
-      <script src="{{ asset('assets/js/ajax-form.js') }}"></script>
-      <script src="{{ asset('assets/js/main.js') }}"></script>
-      <script src="{{ asset('custom/user.js') }}"></script>
+    <!-- JS here -->
+    <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/waypoints.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/meanmenu.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/slick.js') }}"></script>
+    <script src="{{ asset('assets/js/range-slider.js') }}"></script>
+    <script src="{{ asset('assets/js/magnific-popup.js') }}"></script>
+    <script src="{{ asset('assets/js/nice-select.js') }}"></script>
+    <script src="{{ asset('assets/js/purecounter.js') }}"></script>
+    <script src="{{ asset('assets/js/countdown.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope-pkgd.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded-pkgd.js') }}"></script>
+    <script src="{{ asset('assets/js/ajax-form.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('custom/user.js') }}"></script>
 
     <!-- fraimwork - jquery include -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -44,7 +45,7 @@
     <script src="{{ asset('demo_assets/js/custom.js') }}"></script>
 
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-   
+
     <script type="text/javascript">
         $(function() {
             /*------------------------------------------
