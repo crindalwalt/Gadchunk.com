@@ -162,7 +162,7 @@
                     <div class="tp-mobile-item text-center">
                         <button class="tp-mobile-item-btn tp-offcanvas-open-btn">
                             {{-- <i class="flaticon-menu-1"></i> --}}
-                            <i class="fa-solid fa-bars"></i>
+                            <i class="fa-solid fa-bars"></i> 
                             <span>Menu</span>
                         </button>
                     </div>
