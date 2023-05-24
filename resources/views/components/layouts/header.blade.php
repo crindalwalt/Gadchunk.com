@@ -124,8 +124,9 @@
             <div class="row row-cols-5">
                 <div class="col">
                     <div class="tp-mobile-item text-center">
-                        <a href="shop.html" class="tp-mobile-item-btn">
-                            <i class="flaticon-store"></i>
+                        <a href="{{ route('shop') }}" class="tp-mobile-item-btn">
+                            {{-- <i class="flaticon-store"></i> --}}
+                            <i class="fa-solid fa-store"></i>
                             <span>Store</span>
                         </a>
                     </div>
@@ -133,23 +134,26 @@
                 <div class="col">
                     <div class="tp-mobile-item text-center">
                         <button class="tp-mobile-item-btn tp-search-open-btn">
-                            <i class="flaticon-search-1"></i>
+                            {{-- <i class="flaticon-search-1"></i> --}}
+                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
                             <span>Search</span>
                         </button>
                     </div>
                 </div>
                 <div class="col">
                     <div class="tp-mobile-item text-center">
-                        <a href="wishlist.html" class="tp-mobile-item-btn">
-                            <i class="flaticon-love"></i>
+                        <a href="{{ route('wishlist') }}" class="tp-mobile-item-btn">
+                            {{-- <i class="flaticon-love"></i> --}}
+                            <i class="fa-solid fa-heart"></i>
                             <span>Wishlist</span>
                         </a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="tp-mobile-item text-center">
-                        <a href="profile.html" class="tp-mobile-item-btn">
-                            <i class="flaticon-user"></i>
+                        <a href="{{ route('user.profile') }}" class="tp-mobile-item-btn">
+                            {{-- <i class="flaticon-user"></i> --}}
+                            <i class="fa-solid fa-user"></i>
                             <span>Account</span>
                         </a>
                     </div>
@@ -157,7 +161,8 @@
                 <div class="col">
                     <div class="tp-mobile-item text-center">
                         <button class="tp-mobile-item-btn tp-offcanvas-open-btn">
-                            <i class="flaticon-menu-1"></i>
+                            {{-- <i class="flaticon-menu-1"></i> --}}
+                            <i class="fa-solid fa-bars"></i>
                             <span>Menu</span>
                         </button>
                     </div>
