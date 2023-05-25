@@ -1,6 +1,6 @@
 <div>
     <!-- pre loader area start -->
-    {{-- <div id="loading">
+    <div id="loading">
     <div id="loading-center">
        <div id="loading-center-absolute">
           <!-- loading content here -->
@@ -12,14 +12,17 @@
                       <circle stroke="red" cx="190" cy="190" r="180" stroke-width="6" stroke-linecap="round"></circle>
                   </svg>
                 </div>
-                <img src="assets/img/logo/preloader/preloader-icon.svg" alt="">
-             </div>
-             <h3 class="tp-preloader-title">Shofy</h3>
-             <p class="tp-preloader-subtitle">Loading</p>
+                <a href="/">
+                    <img class="my-4" src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" width="95%"
+                        alt="logo">
+                </a>
+            </div>
+             <h6 class="tp-preloader-title">GADCHUNK</h6>
+             <p class="tp-preloader-subtitle">Loading...</p>
           </div>
        </div>
     </div>
- </div> --}}
+ </div>
     <!-- pre loader area end -->
 
     <!-- back to top start -->
@@ -50,8 +53,9 @@
             <div class="offcanvas__content">
                 <div class="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo logo">
-                        <a href="index.html">
-                            <img src="assets/img/logo/logo.svg" alt="logo">
+                        <a href="/">
+                            <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" width="40%" height="40%"
+                                alt="logo">
                         </a>
                     </div>
                 </div>
@@ -79,7 +83,7 @@
                     </div>
                 </div>
                 <div class="offcanvas__btn">
-                    <a href="contact.html" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
+                    <a href="{{ route('contact') }}" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
                 </div>
             </div>
             <div class="offcanvas__bottom">
@@ -162,7 +166,7 @@
                     <div class="tp-mobile-item text-center">
                         <button class="tp-mobile-item-btn tp-offcanvas-open-btn">
                             {{-- <i class="flaticon-menu-1"></i> --}}
-                            <i class="fa-solid fa-bars"></i> 
+                            <i class="fa-solid fa-bars"></i>
                             <span>Menu</span>
                         </button>
                     </div>
@@ -181,19 +185,21 @@
                         <div class="tp-search-close text-center mb-20">
                             <button class="tp-search-close-btn tp-search-close-btn"></button>
                         </div>
-                        <form action="index.html#">
+
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
                             <div class="tp-search-input mb-10">
-                                <input type="text" placeholder="Search for product...">
+                                <input type="text" name="search" placeholder="search here by name...">
                                 <button type="submit"><i class="flaticon-search-1"></i></button>
                             </div>
-                            <div class="tp-search-category">
+                            {{-- <div class="tp-search-category">
                                 <span>Search by : </span>
                                 <a href="index.html#">Men, </a>
                                 <a href="index.html#">Women, </a>
                                 <a href="index.html#">Children, </a>
                                 <a href="index.html#">Shirt, </a>
                                 <a href="index.html#">Demin</a>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
@@ -409,34 +415,33 @@
                                         <div class="tp-header-login-icon">
                                             <span>
                                                 @if (Auth::check())
-                                                @if (Auth::user()->profile_image)
-                                                <img src="{{ asset('storage/avatar_images/'. Auth::user()->profile_image) }}"
-                                                alt="avatar"
-                                                class="rounded-circle img-fluid"
-                                                style="width: 35px;">
+                                                    @if (Auth::user()->profile_image)
+                                                        <img src="{{ asset('storage/avatar_images/' . Auth::user()->profile_image) }}"
+                                                            alt="avatar" class="rounded-circle img-fluid"
+                                                            style="width: 35px;">
+                                                    @else
+                                                        <svg width="20" height="40" viewBox="0 0 17 21"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="8.57894" cy="5.77803" r="4.77803"
+                                                                stroke="currentColor" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
+                                                                stroke="currentColor" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    @endif
                                                 @else
-                                                <svg width="20" height="40" viewBox="0 0 17 21"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="8.57894" cy="5.77803" r="4.77803"
-                                                        stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
-                                                        stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                                @endif
-                                                @else
-                                                <svg width="20" height="40" viewBox="0 0 17 21"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="8.57894" cy="5.77803" r="4.77803"
-                                                        stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
-                                                        stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                                    <svg width="20" height="40" viewBox="0 0 17 21"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="8.57894" cy="5.77803" r="4.77803"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
                                                 @endif
                                             </span>
                                         </div>

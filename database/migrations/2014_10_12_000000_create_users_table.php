@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
             $table->string('profile_image')->nullable();
-            $table->integer('userType')->default(0);
+            $table->integer('userType')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

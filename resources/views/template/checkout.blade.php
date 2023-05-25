@@ -91,26 +91,27 @@
                                                 <input type="text" name="checkout_email"
                                                     value="{{ Auth::user()->email }}">
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Town / City</label>
-                                                    <input type="text" name="checkout_city">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Country / Region </label>
-                                                    <input type="text" name="checkout_country">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="tp-checkout-input">
                                                     <label>Address</label>
                                                     <input type="text" name="checkout_address"
                                                         placeholder="Address here...">
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <div class="tp-checkout-input">
+                                                    <label>Town / City</label>
+                                                    <input type="text" name="checkout_city" placeholder="Enter City...">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="tp-checkout-input">
+                                                    <label>Country / Region </label>
+                                                    <input type="text" name="checkout_country" placeholder="Enter Country...">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
                                                 <div class="tp-checkout-input">
                                                     <label>PostCode/Zip</label>
                                                     <input type="text" name="checkout_postcode"

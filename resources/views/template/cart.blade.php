@@ -53,12 +53,12 @@
                                         @foreach ($products as $item)
                                             <tr id="productremove{{ $item->id }}">
                                                 <!-- img -->
-                                                <td class="tp-cart-img"><a href="product-details.html"> <img
+                                                <td class="tp-cart-img"><a href="{{ route('product_detail',$item->id) }}"> <img
                                                             src="{{ asset('storage/inventory_images/' . $item->images[0]->product_image) }}"
                                                             alt=""></a></td>
                                                 <!-- title -->
                                                 <td class="tp-cart-title"><a
-                                                        href="product-details.html">{{ $item->name }}</a></td>
+                                                        href="{{ route('product_detail',$item->id) }}">{{ $item->name }}</a></td>
                                                 <!-- price -->
                                                 <td class="tp-cart-price"><span>Rs.
                                                         {{ $item->prod_inventory->retail_price }}</span></td>

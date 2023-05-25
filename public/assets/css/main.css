@@ -2254,14 +2254,14 @@ div.demo img {
   text-align: center;
 }
 .tp-preloader-title {
-  font-size: 100px;
+  font-size: 70px;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 0px;
 }
 @media (max-width: 575px) {
   .tp-preloader-title {
-    font-size: 70px;
+    font-size: 50px;
   }
 }
 .tp-preloader-subtitle {

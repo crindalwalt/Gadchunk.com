@@ -166,6 +166,7 @@ Route::get('/about', [NavigatorController::class, 'about'])->name('about');
 Route::get('/contact', [NavigatorController::class, 'contact'])->name('contact');
 Route::post('/search',[NavigatorController::class , 'searchQuery'])->name('search');
 
+Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
 
 
 
@@ -215,7 +216,7 @@ Route::middleware('auth', 'verified')->group(function () {
    // Profile routes
    Route::get('/track_order', [UserController::class, 'track_order'])->name('order_list');
 
-   Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
+//    Route::get('/filter',[NavigatorController::class , 'filter'])->name('filter');
 
 });
 

@@ -100,16 +100,16 @@
                                                                     <button type="submit" class="btn btn-primary">Save Changes</button>
 
                                                                 </span>
-                                                                <span>
-                                                                    <a href="{{ route('logout') }}"><button
-                                                                            class="btn btn-primary">Logout</button>
-                                                                    </a>
-                                                                </span>
+
                                                                 {{-- <a href="login.html" class="tp-logout-btn">Logout</a> --}}
                                                             </div>
                                                         </div>
                                                     </form>
-
+                                                    <span>
+                                                        <a href="{{ route('logout') }}"><button
+                                                                class="btn btn-primary">Logout</button>
+                                                        </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                             {{-- <div class="profile__main-info">

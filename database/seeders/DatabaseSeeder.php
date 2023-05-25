@@ -17,6 +17,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          User::factory()->create([
+             'name' => 'First',
+             'email' => 'user@mail.com',
+             'phone' => '03041232233',
+             'street' => 'abc street number',
+             'city' => 'Bahawalpur',
+             'province' => 'Punjab',
+             'zip_code' => '61300',
+             'country' => 'Pakistan',
+             'userType' => 1
+         ]);
+         User::factory()->create([
              'name' => 'User',
              'email' => 'shahzad@mail.com',
              'phone' => '03041232233',
@@ -25,6 +36,7 @@ class DatabaseSeeder extends Seeder
              'province' => 'Punjab',
              'zip_code' => '61300',
              'country' => 'Pakistan',
+             'userType' => 1
          ]);
          User::factory()->create([
             'name' => 'Shahzad Farooq',
@@ -35,6 +47,7 @@ class DatabaseSeeder extends Seeder
             'province' => 'Punjab',
             'zip_code' => '61300',
             'country' => 'Pakistan',
+            'userType' => 0
         ]);
          $this->call([
             // OrderSeeder::class,
