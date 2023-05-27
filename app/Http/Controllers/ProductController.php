@@ -68,6 +68,7 @@ class ProductController extends Controller
             'brand_id' => $request->input("product_brand"),
             'category_id' => $request->input("category_id"),
             'description' => $request->input("product_description"),
+            'is_active' => $request->input("is_active") == "on" ? "yes" : "no",
             'featured_image' => $filename,
         ]);
 

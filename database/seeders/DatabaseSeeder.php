@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
 //    Seeding the application data
     public function run()
     {
+         
          User::factory()->create([
-             'name' => 'First',
+             'name' => 'User Khan',
              'email' => 'user@mail.com',
              'phone' => '03041232233',
              'street' => 'abc street number',
@@ -28,19 +29,8 @@ class DatabaseSeeder extends Seeder
              'userType' => 1
          ]);
          User::factory()->create([
-             'name' => 'User',
-             'email' => 'shahzad@mail.com',
-             'phone' => '03041232233',
-             'street' => 'abc street number',
-             'city' => 'Bahawalpur',
-             'province' => 'Punjab',
-             'zip_code' => '61300',
-             'country' => 'Pakistan',
-             'userType' => 1
-         ]);
-         User::factory()->create([
             'name' => 'Shahzad Farooq',
-            'email' => 'shezi@mail.com',
+            'email' => 'admin1@mail.com',
             'phone' => '03041232233',
             'street' => 'abc street number',
             'city' => 'Bahawalpur',
@@ -49,18 +39,18 @@ class DatabaseSeeder extends Seeder
             'country' => 'Pakistan',
             'userType' => 0
         ]);
-         $this->call([
-            // OrderSeeder::class,
-            // OrderDetailSeeder::class,
-            BrandSeeder::class,
-            CategorySeeder::class,
-            ProductSeeder::class,
-            ProductInventorySeeder::class,
-            InventoryImagesSeeder::class,
-            ReviewsSeeder::class,
-            CollectionSeeder::class
+        //  $this->call([
+        //     // OrderSeeder::class,
+        //     // OrderDetailSeeder::class,
+        //     BrandSeeder::class,
+        //     CategorySeeder::class,
+        //     ProductSeeder::class,
+        //     ProductInventorySeeder::class,
+        //     InventoryImagesSeeder::class,
+        //     ReviewsSeeder::class,
+        //     CollectionSeeder::class
 
-         ]);
+        //  ]);
 
 
     }

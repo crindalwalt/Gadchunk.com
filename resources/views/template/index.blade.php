@@ -414,8 +414,8 @@
                                         aria-labelledby="new-tab" tabindex="0">
                                         <div class="row">
                                             @foreach ($products as $product)
-                                                @if ($product->is_active == 1)
-                                                    @if ($product->prod_inventory->in_stock == 'yes')
+                                                @if ($product->is_active == "yes")
+                                                    @if ($product->prod_inventory->in_stock == "yes")
                                                         <div class="modal fade tp-product-modal"
                                                             id="producQuickViewModal{{ $product->id }}"
                                                             tabindex="-1" aria-labelledby="producQuickViewModal"
@@ -772,7 +772,7 @@
                                                                     @if ($product->prod_inventory->discount_price)
                                                                         <div class="tp-product-badge">
                                                                             <span
-                                                                                class="product-hot">{{ $product->prod_inventory->discount_price }}</span>
+                                                                                class="product-hot">{{ $product->prod_inventory->discount_price }}%</span>
                                                                         </div>
                                                                     @endif
 
@@ -1039,7 +1039,7 @@
                                         aria-labelledby="featured-tab" tabindex="0">
                                         <div class="row">
                                             @foreach ($products as $product)
-                                                @if ($product->is_active == 1)
+                                                @if ($product->is_active == "yes")
                                                     @if ($product->prod_inventory->in_stock == 'yes')
                                                         @if ($product->prod_inventory->is_featured == 'yes')
                                                             <div class="modal fade tp-product-modal"
@@ -1395,7 +1395,7 @@
                                                                                         class="product-hot">Featured</span>
                                                                                 @endif
                                                                                 <span
-                                                                                    class="product-hot">{{ $product->prod_inventory->discount_price }}</span>
+                                                                                    class="product-hot">{{ $product->prod_inventory->discount_price }}%</span>
                                                                             </div>
                                                                         @endif
 
@@ -1698,7 +1698,7 @@
                                     <ul>
                                         @if ($products)
                                             @foreach ($products as $product)
-                                                @if ($product->is_active == 1)
+                                                @if ($product->is_active == "yes")
                                                     @if ($product->prod_inventory->on_sale == 'yes')
                                                         <li><a href="{{ route('shop') }}">{{ $product->name }}</a>
                                                         </li>
@@ -1755,7 +1755,7 @@
                             @if ($products)
                                 <div class="row">
                                     @foreach ($products as $product)
-                                        @if ($product->is_active == 1)
+                                        @if ($product->is_active == "yes")
                                             @if ($product->prod_inventory->in_stock == 'yes')
                                                 @if ($product->prod_inventory->on_sale == 'yes')
                                                     <div class="modal fade tp-product-modal"
@@ -1870,9 +1870,7 @@
                                                                                             @endif
 
                                                                                         </div>
-                                                                                        {{-- <div class="tp-product-details-reviews">
-                                                                                <span>({{ $review->stars_rating }})</span>
-                                                                            </div> --}}
+
                                                                                     </div>
                                                                                 @endforeach
                                                                             @else
@@ -2100,7 +2098,7 @@
                                                                             <span class="product-hot">Sale</span>
                                                                         @endif
                                                                         <span
-                                                                            class="product-hot">{{ $product->prod_inventory->discount_price }}</span>
+                                                                            class="product-hot">{{ $product->prod_inventory->discount_price }}%</span>
                                                                     </div>
                                                                 @endif
 
@@ -2333,15 +2331,9 @@
                                                         </div>
                                                     </div>
                                                 @endif
-                                            @else
-                                                <div class="text-center">
-                                                    <h3 class="text-danger">Have no Item</h3>
-                                                </div>
+
                                             @endif
-                                        @else
-                                            <div class="text-center">
-                                                <h3 class="text-danger">Have no Item</h3>
-                                            </div>
+
                                         @endif
                                     @endforeach
                                 </div>

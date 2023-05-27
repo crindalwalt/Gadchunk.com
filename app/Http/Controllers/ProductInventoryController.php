@@ -68,6 +68,7 @@ class ProductInventoryController extends Controller
             'discount_price' => $request->input("discount_price"),
             'stock' => $request->input("stock"),
             'in_stock' => $request->input("in_stock") == "on" ? "yes" : "no",
+            'is_active' => $request->input("is_active") == 1 ? "yes" : "no",
             'on_sale' => $request->input("on_sale") == "on" ? "yes" : "no",
             'is_featured' => $request->input("is_featured") == "on" ? "yes" : "no",
         ]);

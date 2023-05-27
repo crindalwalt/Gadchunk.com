@@ -104,7 +104,7 @@
                                                 <div class="col-6 mb-3">
                                                     <label for="example-text-input"
                                                         class="col-sm-6 col-form-label">Discount
-                                                        Price</label>
+                                                        Percentage</label>
                                                     <div class="col-sm-12">
                                                         <input class="form-control" type="text"
                                                             placeholder="Enter store price(if any)"
