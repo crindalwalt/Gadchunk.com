@@ -54,7 +54,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     // Users CRUD
     Route::get('users/', [UserController::class, 'index']);
     Route::get('/main_profile', [UserController::class, 'profile'])->name('admin.profile');
-    Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('admin.profile.update');
+    Route::post('/profile/{id}/update', [UserController::class, 'update_password'])->name('admin.profile.update');
     Route::post('/profile/{id}/delete', [UserController::class, 'destroy'])->name('admin.profile.destroy');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 

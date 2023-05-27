@@ -15,7 +15,7 @@
             <div class="page-title-box">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="page-title">
                                 <h4>Dashboard</h4>
                                 <ol class="breadcrumb m-0">
@@ -25,11 +25,11 @@
                                 </ol>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <div class="float-end d-none d-sm-block">
                                 <a href="" class="btn btn-success">Add Widget</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -983,141 +983,91 @@
                                 </div>
                             </div>
                         </div> --}}
-
+                        <div class="col-xl-12">
+                            <div class="card  bg-white shadow p-5">
+                                <div class="">
+                                    <h4 class="fw-bolder">Instructions to Use Admin Panel</h4>
+                                    <div >
+                                        <span class="fs-5 fw-bolder" >1 - </span>
+                                        <span class="fs-5">First must have to Add <b>Brand</b> .</span>
+                                    </div>
+                                    <div >
+                                        <span class="fs-5 fw-bolder" >2 - </span>
+                                        <span class="fs-5">Second to Add <b>Attributes</b> by which these attributes use later in category section.</span>
+                                    </div>
+                                    <div >
+                                        <span class="fs-5 fw-bolder" >3 - </span>
+                                        <span class="fs-5">Third Add <b>Category</b> and its related attributes.</span>
+                                    </div>
+                                    <div >
+                                        <span class="fs-5 fw-bolder" >4 - </span>
+                                        <span class="fs-5">Fourth Add <b>Products</b>.</span>
+                                    </div>
+                                    <div >
+                                        <span class="fs-5 fw-bolder" >5 - </span>
+                                        <span class="fs-5">Fifth manage <b>Inventory</b> of the products. </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xl-12">
                             @if (!$orders->isEmpty())
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title mb-4">Orders of the Month</h4>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col">Order #</th>
-                                                    <th scope="col">Full Name</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Total Amount</th>
-                                                    <th scope="col">Payment Method</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($orders as $item)
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-4">Orders of the Month</h4>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead class="thead-dark">
                                                     <tr>
-                                                        <th scope="row"> {{ $item->order_number }}</th>
-                                                        <td>{{ $item->user->name }} </td>
-                                                        <td>{{ $item->checkout_email }}</td>
-                                                        <td>{{ $item->total_amount }}</td>
-                                                        <td>{{ $item->payment_method }}</td>
-                                                        <td>
-                                                            @if ($item->status == 'pending')
-                                                                <span
-                                                                    class="badge  bg-danger">{{ $item->status }}</span>
-                                                            @elseif ($item->status == 'delivered')
-                                                                <span
-                                                                    class="badge bg-primary">{{ $item->status }}</span>
-                                                            @elseif ($item->status == 'approved')
-                                                                <span
-                                                                    class="badge bg-success">{{ $item->status }}</span>
-                                                            @elseif ($item->status == 'dispatched')
-                                                                <span
-                                                                    class="badge bg-secondary">{{ $item->status }}</span>
-                                                            @elseif ($item->status == 'cancelled')
-                                                                <span
-                                                                    class="badge bg-dark">{{ $item->status }}</span>
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModal{{ $item->id }}">
-                                                                Details
-                                                            </button>
+                                                        <th scope="col">Order #</th>
+                                                        <th scope="col">Full Name</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Total Amount</th>
+                                                        <th scope="col">Payment Method</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($orders as $item)
+                                                        <tr>
+                                                            <th scope="row"> {{ $item->order_number }}</th>
+                                                            <td>{{ $item->user->name }} </td>
+                                                            <td>{{ $item->checkout_email }}</td>
+                                                            <td>{{ $item->total_amount }}</td>
+                                                            <td>{{ $item->payment_method }}</td>
+                                                            <td>
+                                                                @if ($item->status == 'pending')
+                                                                    <span
+                                                                        class="badge  bg-danger">{{ $item->status }}</span>
+                                                                @elseif ($item->status == 'delivered')
+                                                                    <span
+                                                                        class="badge bg-primary">{{ $item->status }}</span>
+                                                                @elseif ($item->status == 'approved')
+                                                                    <span
+                                                                        class="badge bg-success">{{ $item->status }}</span>
+                                                                @elseif ($item->status == 'dispatched')
+                                                                    <span
+                                                                        class="badge bg-secondary">{{ $item->status }}</span>
+                                                                @elseif ($item->status == 'cancelled')
+                                                                    <span
+                                                                        class="badge bg-dark">{{ $item->status }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal{{ $item->id }}">
+                                                                    Details
+                                                                </button>
 
-                                                            <!-- Modal -->
-                                                            <div class="modal fade"
-                                                                id="exampleModal{{ $item->id }}" tabindex="-1"
-                                                                aria-labelledby="exampleModalLabel"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalCenterTitle">
-                                                                                {{ $item->order_number }}</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <table class="table">
-                                                                                <thead class="table-dark">
-                                                                                    <tr>
-                                                                                        <th scope="col">#</th>
-                                                                                        <th scope="col">Product</th>
-                                                                                        <th scope="col">Quantity
-                                                                                        </th>
-                                                                                        <th scope="col">Variation
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    @foreach ($item->items as $products)
-                                                                                        {{-- @dd($products->order_variation) --}}
-                                                                                        <tr>
-                                                                                            <th scope="row">
-                                                                                                {{ $loop->iteration }}
-                                                                                            </th>
-                                                                                            <td>{{ $products->product[0]->name }}
-                                                                                            </td>
-                                                                                            <td>{{ $products->quantity }}
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                {{-- @dd($attr) --}}
-                                                                                                {{-- @dd($products->order_variation) --}}
-
-                                                                                                @foreach ($products->order_variation as $attr)
-                                                                                                    <span>{{ $attr->variations[0]->attribute_value }}
-                                                                                                        , </span>
-                                                                                                @endforeach
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    @endforeach
-
-                                                                                </tbody>
-                                                                            </table>
-
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Close</button>
-                                                                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModal1{{ $item->id }}">
-                                                                Update Status
-                                                            </button>
-
-                                                            <!-- Modal -->
-                                                            <div class="modal fade"
-                                                                id="exampleModal1{{ $item->id }}" tabindex="-1"
-                                                                aria-labelledby="exampleModalLabel"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <form
-                                                                        action="{{ route('orders.update', $item->id) }}"
-                                                                        method="post">
-                                                                        @csrf
+                                                                <!-- Modal -->
+                                                                <div class="modal fade"
+                                                                    id="exampleModal{{ $item->id }}"
+                                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title"
@@ -1130,102 +1080,182 @@
                                                                                         aria-hidden="true">&times;</span>
                                                                                 </button>
                                                                             </div>
-                                                                            <input type="text" hidden
-                                                                                name="status"
-                                                                                value="{{ $item->status }}">
                                                                             <div class="modal-body">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input"
-                                                                                        type="radio" name="status"
-                                                                                        value="pending"
-                                                                                        @if ($item->status == 'pending') checked @endif
-                                                                                        id="flexRadioDefault1">
-                                                                                    <label class="form-check-label"
-                                                                                        for="flexRadioDefault1">
-                                                                                        Pending
-                                                                                    </label>
-                                                                                </div>
+                                                                                <table class="table">
+                                                                                    <thead class="table-dark">
+                                                                                        <tr>
+                                                                                            <th scope="col">#</th>
+                                                                                            <th scope="col">Product
+                                                                                            </th>
+                                                                                            <th scope="col">Quantity
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Variation
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        @foreach ($item->items as $products)
+                                                                                            {{-- @dd($products->order_variation) --}}
+                                                                                            <tr>
+                                                                                                <th scope="row">
+                                                                                                    {{ $loop->iteration }}
+                                                                                                </th>
+                                                                                                <td>{{ $products->product[0]->name }}
+                                                                                                </td>
+                                                                                                <td>{{ $products->quantity }}
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    {{-- @dd($attr) --}}
+                                                                                                    {{-- @dd($products->order_variation) --}}
 
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input"
-                                                                                        type="radio" name="status"
-                                                                                        value="approved"
-                                                                                        @if ($item->status == 'approved') checked @endif
-                                                                                        id="flexRadioDefault2">
-                                                                                    <label class="form-check-label"
-                                                                                        for="flexRadioDefault2">
-                                                                                        Approved
-                                                                                    </label>
-                                                                                </div>
+                                                                                                    @foreach ($products->order_variation as $attr)
+                                                                                                        <span>{{ $attr->variations[0]->attribute_value }}
+                                                                                                            , </span>
+                                                                                                    @endforeach
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        @endforeach
 
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input"
-                                                                                        type="radio" name="status"
-                                                                                        value="dispatched"
-                                                                                        @if ($item->status == 'dispatched') checked @endif
-                                                                                        id="flexRadioDefault3">
-                                                                                    <label class="form-check-label"
-                                                                                        for="flexRadioDefault3">
-                                                                                        Dispatched
-                                                                                    </label>
-                                                                                </div>
+                                                                                    </tbody>
+                                                                                </table>
 
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input"
-                                                                                        type="radio" name="status"
-                                                                                        value="delivered"
-                                                                                        @if ($item->status == 'delivered') checked @endif
-                                                                                        id="flexRadioDefault4">
-                                                                                    <label class="form-check-label"
-                                                                                        for="flexRadioDefault4">
-                                                                                        Delivered
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input"
-                                                                                        type="radio" name="status"
-                                                                                        value="cancelled"
-                                                                                        @if ($item->status == 'cancelled') checked @endif
-                                                                                        id="flexRadioDefault5">
-                                                                                    <label class="form-check-label"
-                                                                                        for="flexRadioDefault5">
-                                                                                        Cancelled
-                                                                                    </label>
-                                                                                </div>
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 <button type="button"
                                                                                     class="btn btn-secondary"
                                                                                     data-bs-dismiss="modal">Close</button>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Save
-                                                                                    changes</button>
+                                                                                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                                                                             </div>
                                                                         </div>
-                                                                    </form>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal1{{ $item->id }}">
+                                                                    Update Status
+                                                                </button>
 
-                                                        </td>
-                                                @endforeach
-                                            </tbody>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade"
+                                                                    id="exampleModal1{{ $item->id }}"
+                                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <form
+                                                                            action="{{ route('orders.update', $item->id) }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title"
+                                                                                        id="exampleModalCenterTitle">
+                                                                                        {{ $item->order_number }}</h5>
+                                                                                    <button type="button"
+                                                                                        class="close"
+                                                                                        data-bs-dismiss="modal"
+                                                                                        aria-label="Close">
+                                                                                        <span
+                                                                                            aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <input type="text" hidden
+                                                                                    name="status"
+                                                                                    value="{{ $item->status }}">
+                                                                                <div class="modal-body">
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="status"
+                                                                                            value="pending"
+                                                                                            @if ($item->status == 'pending') checked @endif
+                                                                                            id="flexRadioDefault1">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexRadioDefault1">
+                                                                                            Pending
+                                                                                        </label>
+                                                                                    </div>
 
-                                        </table>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="status"
+                                                                                            value="approved"
+                                                                                            @if ($item->status == 'approved') checked @endif
+                                                                                            id="flexRadioDefault2">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexRadioDefault2">
+                                                                                            Approved
+                                                                                        </label>
+                                                                                    </div>
 
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="status"
+                                                                                            value="dispatched"
+                                                                                            @if ($item->status == 'dispatched') checked @endif
+                                                                                            id="flexRadioDefault3">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexRadioDefault3">
+                                                                                            Dispatched
+                                                                                        </label>
+                                                                                    </div>
+
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="status"
+                                                                                            value="delivered"
+                                                                                            @if ($item->status == 'delivered') checked @endif
+                                                                                            id="flexRadioDefault4">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexRadioDefault4">
+                                                                                            Delivered
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="status"
+                                                                                            value="cancelled"
+                                                                                            @if ($item->status == 'cancelled') checked @endif
+                                                                                            id="flexRadioDefault5">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexRadioDefault5">
+                                                                                            Cancelled
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-secondary"
+                                                                                        data-bs-dismiss="modal">Close</button>
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-primary">Save
+                                                                                        changes</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+
+                                                            </td>
+                                                    @endforeach
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                        <!-- end table-responsive -->
                                     </div>
-                                    <!-- end table-responsive -->
-                                </div>
-                            </div
-                            @else
-                            <div class="card  bg-white shadow p-5">
+                            </div @else <div class="card  bg-white shadow p-5">
                                 <div class="text-center">
                                     <h1>Not Orders Yet!</h1>
                                 </div>
-                            </div>
-                            @endif
-                            >
                         </div>
-
+                        @endif
 
                     </div>
 
@@ -1233,11 +1263,15 @@
                 </div>
 
 
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
 
-        <x-partials.admin-footer />
+            </div>
+
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    <x-partials.admin-footer />
     </div>
     <!-- end main content-->
 

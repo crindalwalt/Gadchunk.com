@@ -47,7 +47,7 @@
                                             <div class="col-md-3 border-right">
                                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
                                                         class="rounded-circle mt-5" width="150px"
-                                                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                                                        src="{{ Auth::user()->profile_image ? asset('storage/avatar_images/' . Auth::user()->profile_image)  : asset('assets/img/users/user-10.jpg') }}"><span
                                                         class="font-weight-bold">{{ $user->name }}</span><span
                                                         class="text-black-50">{{ $user->email }}</span><span> </span></div>
                                             </div>
@@ -63,6 +63,9 @@
                                                             <div class="col-sm-9">
                                                                 <input type="text"  class="form-control" id="inputname" name="name"
                                                                     value="{{ $user->name }}">
+                                                                    @error('name')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
 
@@ -71,6 +74,9 @@
                                                             <div class="col-sm-9">
                                                                 <input type="text" class="form-control" id="staticEmail" name="email"
                                                                     value="{{ $user->email }}">
+                                                                    @error('email')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="form-group row my-3">
@@ -78,6 +84,9 @@
                                                             <div class="col-sm-9">
                                                                 <input type="text" class="form-control" id="inputphone" name="phone"
                                                                     value="{{ $user->phone }}">
+                                                                    @error('phone')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="form-group row my-3">
@@ -86,6 +95,9 @@
                                                             <div class="col-sm-9">
                                                                 <input type="password" class="form-control" id="inputPassword" name="old_password"
                                                                     placeholder="Old Password">
+                                                                    @error('old_password')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="form-group row my-3">
@@ -94,7 +106,11 @@
                                                             <div class="col-sm-9">
                                                                 <input type="password" class="form-control" id="inputsecondPassword" name="new_password"
                                                                     placeholder="New Password">
+                                                                    @error('new_password')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
+
                                                         </div>
                                                         <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
                                                                 type="submit">Update Profile</button></div>

@@ -57,7 +57,7 @@
                                                         placeholder="Enter collection name" id="example-text-input"
                                                         name="name">
                                                     @error('name')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -69,7 +69,7 @@
                                                         placeholder="Enter collection title" id="example-text-input"
                                                         name="title">
                                                     @error('title')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -84,7 +84,7 @@
                                                         <div class="text-danger">Note * Enter value in % without sign</div>
 
                                                     @error('discount_price')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -96,7 +96,7 @@
                                                         placeholder="Enter collection description"
                                                         id="example-text-input" name="description">
                                                     @error('description')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                                     <input class="form-control" type="file" id="example-email-input"
                                                         name="banner_image">
                                                     @error('banner_image')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>

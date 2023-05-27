@@ -147,21 +147,30 @@
                                             </div>
                                         </div>
                                 </div>
-                                <div class="container">
+                                <div class="m-3">
                                     <div class="  form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" name="in_stock"
                                             id="flexSwitchCheckChecked" checked>
+                                            @error('in_stock')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         <label class="form-check-label" for="flexSwitchCheckChecked">In
                                             Stock</label>
                                     </div>
                                     <div class="  form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" name="on_sale"
                                             id="flexSwitchCheckChecked1" checked>
+                                            @error('on_sale')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         <label class="form-check-label" for="flexSwitchCheckChecked1">On Sale</label>
                                     </div>
                                     <div class="  form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" name="is_featured"
                                             id="flexSwitchCheckChecked2" checked>
+                                            @error('is_featured')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         <label class="form-check-label" for="flexSwitchCheckChecked2">Featured</label>
                                     </div>
                                 </div>
@@ -229,8 +238,6 @@
                                                                 aria-labelledby="exampleModalLabel"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog">
-                                                                    <form action="" method="post">
-                                                                        @csrf
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title"
@@ -276,12 +283,9 @@
                                                                                 <button type="button"
                                                                                     class="btn btn-secondary"
                                                                                     data-bs-dismiss="modal">Close</button>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Save
-                                                                                    changes</button>
+
                                                                             </div>
                                                                         </div>
-                                                                    </form>
                                                                 </div>
                                                             </div>
                                                             <!-- Button trigger modal -->

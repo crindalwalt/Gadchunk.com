@@ -40,9 +40,12 @@
                                     <div class="tp-contact-input-box">
                                        <div class="tp-contact-input">
                                           <input name="name" id="name" type="text" value="{{ Auth::user()->name }}">
-                                          <input type="text" hidden name="user_id" value="{{ Auth::user()->id }}" > 
+                                          <input type="text" hidden name="user_id" value="{{ Auth::user()->id }}" >
 
                                        </div>
+                                       @error('name')
+                                                        <div class="text-danger">* Name is required</div>
+                                                    @enderror
                                        <div class="tp-contact-input-title">
                                           <label for="name">Your Name</label>
                                        </div>
@@ -51,6 +54,9 @@
                                        <div class="tp-contact-input">
                                           <input name="email" id="email" type="email" value="{{ Auth::user()->email }}">
                                        </div>
+                                       @error('email')
+                                       <div class="text-danger">* Email is required</div>
+                                       @enderror
                                        <div class="tp-contact-input-title">
                                           <label for="email">Your Email</label>
                                        </div>
@@ -59,6 +65,9 @@
                                        <div class="tp-contact-input">
                                           <input name="subject" id="subject" type="text" placeholder="Write your subject">
                                        </div>
+                                       @error('subject')
+                                       <div class="text-danger">* Subject is required</div>
+                                       @enderror
                                        <div class="tp-contact-input-title">
                                           <label for="subject">Subject</label>
                                        </div>
@@ -67,6 +76,9 @@
                                        <div class="tp-contact-input">
                                          <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
                                        </div>
+                                       @error('message')
+                                       <div class="text-danger">* Message is required</div>
+                                       @enderror
                                        <div class="tp-contact-input-title">
                                           <label for="message">Your Message</label>
                                        </div>
@@ -78,7 +90,7 @@
                                 @else
                                 <h2>Please <a href="/login"><span class="text-primary">login</span></a> to contact the admin</h2>
                                 @endif
-                           
+
                              </form>
                              {{-- <p class="ajax-response"></p> --}}
                           </div>

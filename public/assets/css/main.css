@@ -6140,12 +6140,12 @@ body .ui-tooltip {
   color: var(--tp-common-white);
   padding-right: 20px;
 }
-.tp-header-top-menu-item > span::after {
+/* .tp-header-top-menu-item > span::after {
   position: absolute;
   content: "\f107";
   font-family: var(--tp-ff-fontawesome);
   margin-left: 7px;
-}
+} */
 .tp-header-top-menu-item > span:hover {
   cursor: pointer;
 }

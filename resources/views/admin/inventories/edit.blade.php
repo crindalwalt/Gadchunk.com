@@ -150,8 +150,27 @@
                                     <div class="  form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" name="in_stock"
                                             id="flexSwitchCheckChecked" checked>
+                                            @error('in_stock')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         <label class="form-check-label" for="flexSwitchCheckChecked">In
                                             Stock</label>
+                                    </div>
+                                    <div class="  form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="on_sale"
+                                            id="flexSwitchCheckChecked1" checked>
+                                            @error('on_sale')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                        <label class="form-check-label" for="flexSwitchCheckChecked1">On Sale</label>
+                                    </div>
+                                    <div class="  form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="is_featured"
+                                            id="flexSwitchCheckChecked2" checked>
+                                            @error('is_featured')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                        <label class="form-check-label" for="flexSwitchCheckChecked2">Featured</label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

@@ -6,7 +6,7 @@
         <div class="user-sidebar text-center">
             <div class="dropdown">
                 <div class="user-img">
-                    <img src="{{ asset('admin-assets/images/Shahzad.jpg') }}" alt="" class="rounded-circle">
+                    <img src="{{ Auth::user()->profile_image ? asset('storage/avatar_images/' . Auth::user()->profile_image ) : asset('assets/img/users/user-10.jpg' )}}" alt="Avatar" class="rounded-circle">
                     <span class="avatar-online bg-success"></span>
                 </div>
                 <div class="user-info">
@@ -25,9 +25,9 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="/admin" class="waves-effect">
-                        <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end">3</span>
-                        <span>Dashboard</span>
+                    <a href="/admin" class="waves-effect" >
+                        {{-- <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end">3</span> --}}
+                        <h5 >Dashboard</h5>
                     </a>
                 </li>
                 {{-- Collection pane --}}
@@ -234,7 +234,7 @@
                         </a>
                     </form>
 
-                    
+
                 </li>
 
 

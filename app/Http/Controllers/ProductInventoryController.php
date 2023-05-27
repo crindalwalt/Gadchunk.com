@@ -55,9 +55,6 @@ class ProductInventoryController extends Controller
             'retail_price' => 'required',
             'discount_price' => 'required',
             'stock' => 'required',
-            'in_stock' => 'required',
-            'on_sale' => 'required',
-            'is_featured' => 'required',
             'product_image' => 'required',
         ]);
 
@@ -68,7 +65,7 @@ class ProductInventoryController extends Controller
             'discount_price' => $request->input("discount_price"),
             'stock' => $request->input("stock"),
             'in_stock' => $request->input("in_stock") == "on" ? "yes" : "no",
-            'is_active' => $request->input("is_active") == 1 ? "yes" : "no",
+            'is_active' => $request->input("is_active") == "on" ? "yes" : "no",
             'on_sale' => $request->input("on_sale") == "on" ? "yes" : "no",
             'is_featured' => $request->input("is_featured") == "on" ? "yes" : "no",
         ]);

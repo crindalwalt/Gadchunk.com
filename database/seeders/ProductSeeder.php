@@ -22,7 +22,6 @@ class ProductSeeder extends Seeder
             'category_id' => '1',
             'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum first description',
-            'is_active' => 1
         ]);
         Product::create([
             'name' => 'Second Product',
@@ -31,7 +30,6 @@ class ProductSeeder extends Seeder
             'category_id' => '2',
             'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Second description',
-            'is_active' => 1
         ]);
         Product::create([
             'name' => 'Third Product',
@@ -40,7 +38,6 @@ class ProductSeeder extends Seeder
             'category_id' => '3',
             'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Third description',
-            'is_active' => 1
         ]);
         Product::create([
             'name' => 'Fourth Product',
@@ -49,7 +46,6 @@ class ProductSeeder extends Seeder
             'category_id' => '4',
             'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Fourth description',
-            'is_active' => 1
         ]);
         Product::create([
             'name' => 'Fifth Product',
@@ -58,7 +54,6 @@ class ProductSeeder extends Seeder
             'category_id' => '5',
             'featured_image' => 'product-1683120450193.jpg',
             'description' => 'lorem ipsum Fifth description',
-            'is_active' => 1
         ]);
     }
 }

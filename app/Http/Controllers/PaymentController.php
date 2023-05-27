@@ -53,6 +53,20 @@ class          PaymentController extends Controller
     public function saveorder(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'user_id' => 'required',
+            'checkout_email' => 'required|email',
+            'checkout_city' => 'required|string',
+            'checkout_country' => 'required|string',
+            'checkout_address' => 'required',
+            'checkout_postcode' => 'required',
+            'checkout_phone' => 'required',
+            'checkout_note' => 'required',
+            'product_id' => 'required',
+            'quantity' => 'required',
+            'total_amount' => 'required',
+            'payment_method' => 'required'
+        ]);
         $input = $request->all();
         $result = Session::put('order_details', $input);
         $dat = Session::get('order_details');

@@ -6,19 +6,19 @@
             <div class="navbar-brand-box">
                 <a href="/admin" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="32">
+                            <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" alt="" height="32">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="60">
+                            <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" alt="" height="60">
                         </span>
                 </a>
 
                 <a href="/admin" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="22">
+                            <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" alt="" height="22">
                         </span>
                     <span class="logo-lg">
-                            <img src="{{ asset('assets/images/logo/Gadchunk.png') }}" alt="" height="20">
+                            <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" alt="" height="20">
                         </span>
                 </a>
             </div>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="d-flex">
-         
+
 
 
 
@@ -145,7 +145,9 @@
             <div class=admin-"dropdown d-inline-block ">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ asset('admin-assets/images/Shahzad.jpg') }}"
+
+                    <img class="rounded-circle header-profile-user" src="{{ Auth::user()->profile_image ? asset('storage/avatar_images/' . Auth::user()->profile_image ) : asset('assets/img/users/user-10.jpg') }}"
+
                          alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>

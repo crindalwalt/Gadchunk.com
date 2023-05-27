@@ -24,6 +24,9 @@
         <!-- checkout area start -->
         <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">
             <div class="container">
+                <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
+                data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                @csrf
                 <div class="row">
                     {{-- <div class="col-xl-7 col-lg-7">
                     <div class="tp-checkout-verify">
@@ -70,10 +73,8 @@
                        </div>
                     </div>
                  </div> --}}
-                    <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
-                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
-                        @csrf
-                        <div class="col-lg-12">
+
+                        <div class="col-lg-8">
                             <div class="tp-checkout-bill-area">
                                 <h3 class="tp-checkout-bill-title">Billing Details</h3>
                                 <div class="tp-checkout-bill-form">
@@ -84,30 +85,45 @@
                                                     <label>First Name <span>*</span></label>
                                                     <input type="text"name="user_id"
                                                         value="{{ Auth::user()->name }}">
+                                                        @error('user_id')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Email Address<span>*</span></label>
                                                 <input type="text" name="checkout_email"
                                                     value="{{ Auth::user()->email }}">
+                                                    @error('checkout_email')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
                                                     <label>Address</label>
                                                     <input type="text" name="checkout_address"
                                                         placeholder="Address here...">
+                                                        @error('checkout_address')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
                                                     <label>Town / City</label>
                                                     <input type="text" name="checkout_city" placeholder="Enter City...">
+                                                    @error('checkout_city')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
                                                     <label>Country / Region </label>
                                                     <input type="text" name="checkout_country" placeholder="Enter Country...">
+                                                    @error('checkout_country')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
 
@@ -116,6 +132,9 @@
                                                     <label>PostCode/Zip</label>
                                                     <input type="text" name="checkout_postcode"
                                                         placeholder="Postal Code...">
+                                                        @error('checkout_postcode')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -123,12 +142,18 @@
                                                     <label>Mobile Number</label>
                                                     <input type="text" name="checkout_phone"
                                                         value="{{ Auth::user()->phone }}">
+                                                        @error('checkout_phone')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="tp-checkout-input">
                                                     <label>Order notes </label>
                                                     <textarea name="checkout_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                    @error('checkout_note')
+                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
+                                                                @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-4">
                             <!-- checkout place order -->
                             <div class="tp-checkout-place white-bg">
                                 <h3 class="tp-checkout-place-title">Your Order</h3>
@@ -160,6 +185,9 @@
                                                     <span class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price * $item->prod_inventory->squantity }}</span>
                                                 </li>
                                             @endforeach
+                                            @error('product_id')
+                                                                    <div class="text-danger fw-semibold">Product not yet selected...</div>
+                                                                @enderror
 
                                             <!-- subtotal -->
                                             <li class="tp-order-info-list-subtotal">
@@ -199,6 +227,9 @@
                                             </li>
                                             <input type="hidden" value="{{ $total }}"
                                             name="total_amount">
+                                            @error('total_amount')
+                                                <div class="text-danger fw-semibold">Total Amount missing...</div>
+                                            @enderror
 
                                         </ul>
                                     </div>
@@ -212,7 +243,9 @@
                                     <h3 class="text-primary my-3">Payment Method</h3>
 
                                     <input type="hidden" name="payment_method" id="payment_method">
-
+                                    @error('payment_method')
+                                    <div class="text-danger fw-semibold">Select Payment Method.</div>
+                                @enderror
                                     <div class="tp-checkout-payment-item">
                                         <input type="radio" class="check_payment_method" data-value="stripe" value="stripe" id="back_transfer" name="payment_method">
                                         <label for="back_transfer" data-bs-toggle="direct-bank-transfer">Stripe (Bank Transfer)</label>
@@ -280,8 +313,8 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </section>
         <!-- checkout area end -->

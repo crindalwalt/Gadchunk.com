@@ -101,7 +101,7 @@
                                                         placeholder="Enter product variation i.e color,size etc "
                                                         id="example-text-input" name="attribute_name">
                                                     @error('attribute_name')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger">{{$message  }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -113,19 +113,19 @@
                                                         placeholder="Enter description" id="example-text-input"
                                                         name="attribute_description">
                                                     @error('attribute_description')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{$message  }}</div>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label for="example-text-input"
-                                                    class="col-sm-12 col-form-label">Brand Icon</label>
+                                                    class="col-sm-12 col-form-label">Attribute Icon</label>
                                                 <div class="col-sm-12">
                                                     <input class="form-control" type="file"
                                                         placeholder="" id="example-text-input"
                                                         name="attribute_icon">
                                                     @error('attribute_icon')
-                                                        <div class="text-danger"></div>
+                                                    <div class="text-danger">{{$message  }}</div>
                                                     @enderror
                                                 </div>
                                             </div>

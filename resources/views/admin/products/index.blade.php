@@ -41,7 +41,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('products.store') }}" enctype="multipart/form-data" 
+                                    <form action="{{ route('products.store') }}" enctype="multipart/form-data"
                                         method="POST">
                                         @csrf
 
@@ -57,7 +57,7 @@
                                                         placeholder="Enter product name" id="example-text-input"
                                                         name="product_name">
                                                     @error('product_name')
-                                                        <div class="text-danger"{{ $message }}></div>
+                                                        <div class="text-danger  fw-semibold"{{ $message }}></div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -104,7 +104,7 @@
                                                     <input class="form-control" type="file"
                                                         id="example-text-input-file" name="product_image[]">
                                                     @error('product_image')
-                                                        <div class="text-danger"></div>
+                                                        <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
                                             </div>

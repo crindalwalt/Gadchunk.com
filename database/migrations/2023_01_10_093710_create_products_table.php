@@ -25,7 +25,7 @@ return new class extends Migration
             // $table->bigInteger('category_id')->unsigned();
             // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->longText('description');
-            $table->string('is_active')->default('off');
+            $table->string('is_active')->default('yes');
             $table->timestamps();
         });
     }

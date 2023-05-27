@@ -565,10 +565,12 @@
                                                                                 r="100" fill="#FFFFFF" />
                                                                         </clipPath>
                                                                     </defs>
-                                                                    <image width="500" height="350"
+                                                                 <image width="18px" height="18px" class="rounded"  src="{{ asset('storage/categories_icons/' . $category->icon) }}" alt="image not found">
+
+                                                                    {{-- <image width="500" height="350"
                                                                         xlink:href="{{ asset('storage/categories_icons/' . $category->icon) }}"
-                                                                        clip-path="url(#myCircle)" />
-                                                                </svg>
+                                                                        clip-path="url(#myCircle)" /> --}}
+                                                        </svg>
                                                                 {{-- <svg width="18" height="18"
                                                                     viewBox="0 0 18 18" fill="none"
                                                                     xmlns="http://www.w3.org/2000/svg">
@@ -596,7 +598,7 @@
                                                     </li>
                                                 @endforeach
                                             @else
-                                                <span>Empty Categories</span>
+                                                <span>Categories Unavailable</span>
                                             @endif
 
 
@@ -631,7 +633,7 @@
                                         {{-- <i class="fa fa-whatsapp" aria-hidden="true"></i>
 
                                         <h5>Hotline:</h5> --}}
-                                        <p><a href="tel:402-763-282-46">+(92) 3000000000000</a></p>
+                                        <p><a href="https://wa.me/0000000000">+(92) 3000000000000</a></p>
                                     </div>
                                 </div>
                             </div>

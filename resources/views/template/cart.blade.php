@@ -127,8 +127,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
-
-                                                                        @if (empty($item->category->attributes))
+                                                                        @if (!empty($item->category->attributes))
                                                                         @foreach ($item->category->attributes as $attributes)
                                                                         <div class=" mb-3 d-flex flex-column">
                                                                             <label class="control-label"

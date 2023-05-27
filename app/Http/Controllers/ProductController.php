@@ -68,16 +68,13 @@ class ProductController extends Controller
             'brand_id' => $request->input("product_brand"),
             'category_id' => $request->input("category_id"),
             'description' => $request->input("product_description"),
-            'is_active' => $request->input("is_active") == "on" ? "yes" : "no",
             'featured_image' => $filename,
         ]);
 
         // validation to check if saved or not
         if ($productToSave) {
-            alert("Success", 'Product ' . $request->product_name . ' has been added successfully', 'success');
             return redirect()->route('inventory.manage',$productToSave->id);
         } else {
-            alert("Error", 'product could not saved', 'error');
             return redirect()->back();
         }
     } // store method end
