@@ -519,10 +519,19 @@
                                                                                 $total += $review->stars_rating;
                                                                             @endphp
                                                                         @endforeach
-                                                                        @php
-                                                                            $all = $total / count($product->reviews);
-                                                                        @endphp
-                                                                        <span>{{ $all }}</span>
+
+                                                                        @if ($total>0)
+                                                                            @php
+                                                                                $all = $total / count($product->reviews);
+                                                                            @endphp
+                                                                          <span>{{ $all }}</span>
+
+                                                                        @else
+                                                                         <span>{{ $total }}</span>
+
+                                                                        @endif
+
+                                                                        
                                                                     @else
                                                                         <span>No Rating yet</span>
 

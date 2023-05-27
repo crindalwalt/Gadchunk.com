@@ -14,9 +14,7 @@ $(".add-cart").click(function () {
         $("#cart-count").html(response.count);
         if (response.success) {
             alertify.set('notifier', 'position', 'top-right');
-            alertify.notify('Product added in cart!', 'success', 4, function () { setTimeout(function () {
-                window.location.reload(true);
-            }, 100); });
+            alertify.notify('Product added in cart!', 'success', 4, function () { console.log('add-cart')});
         } else {
             alertify.set('notifier', 'position', 'top-right');
             alertify.notify('Product Already Added', 'warning', 4, function () { console.log('dismissed'); });
