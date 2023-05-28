@@ -40,9 +40,9 @@
                                     <div class="nav nav-tabs flex-sm-column " id="productDetailsNavThumb"
                                         role="tablist">
                                         @foreach ($product->images as $image)
-                                            <button class="nav-link active" id="nav-1-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-1" type="button" role="tab"
-                                                aria-controls="nav-1" aria-selected="true">
+                                            <button class="nav-link " id="nav-{{ $image->id }}-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-{{ $image->id }}" type="button" role="tab"
+                                                aria-controls="nav-{{ $image->id }}" aria-selected="true">
                                                 <img src="{{ asset('storage/inventory_images/' . $image->product_image) }}"
                                                     alt="">
                                             </button>
@@ -50,13 +50,22 @@
                                     </div>
                                 </nav>
                                 <div class="tab-content m-img" id="productDetailsNavContent">
-                                    <div class="tab-pane fade show active" id="nav-1" role="tabpanel"
-                                        aria-labelledby="nav-1-tab" tabindex="0">
+                                    {{-- <div class="tab-pane fade show active" id="nav-{{ $product->images[0]->id }}" role="tabpanel"
+                                        aria-labelledby="nav-{{ $product->images[0]->id }}-tab" tabindex="0">
                                         <div class="tp-product-details-nav-main-thumb">
                                             <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
-                                                alt="">
+                                                alt="Produuct Image">
+                                        </div>
+                                    </div> --}}
+                                    @foreach ($product->images as $image)
+                                    <div class="tab-pane fade" id="nav-{{ $image->id }}" role="tabpanel"
+                                        aria-labelledby="nav-{{ $image->id }}-tab" tabindex="0">
+                                        <div class="tp-product-details-nav-main-thumb">
+                                            <img src="{{ asset('storage/inventory_images/' . $image->product_image) }}"
+                                                alt="product image">
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div> <!-- col end -->
@@ -268,9 +277,9 @@
                                         </a>
                                     @endif
 
-                                        <button type="button" class="tp-product-details-action-sm-btn">
+                                    <button type="button" class="tp-product-details-action-sm-btn">
 
-                                            {{-- <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                        {{-- <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M8.575 12.6927C8.775 12.6927 8.94375 12.6249 9.08125 12.4895C9.21875 12.354 9.2875 12.1878 9.2875 11.9907C9.2875 11.7937 9.21875 11.6275 9.08125 11.492C8.94375 11.3565 8.775 11.2888 8.575 11.2888C8.375 11.2888 8.20625 11.3565 8.06875 11.492C7.93125 11.6275 7.8625 11.7937 7.8625 11.9907C7.8625 12.1878 7.93125 12.354 8.06875 12.4895C8.20625 12.6249 8.375 12.6927 8.575 12.6927ZM8.55625 5.0638C8.98125 5.0638 9.325 5.17771 9.5875 5.40553C9.85 5.63335 9.98125 5.92582 9.98125 6.28294C9.98125 6.52924 9.90625 6.77245 9.75625 7.01258C9.60625 7.25272 9.3625 7.5144 9.025 7.79763C8.7 8.08087 8.44063 8.3795 8.24688 8.69352C8.05313 9.00754 7.95625 9.29385 7.95625 9.55246C7.95625 9.68792 8.00938 9.79567 8.11563 9.87572C8.22188 9.95576 8.34375 9.99578 8.48125 9.99578C8.63125 9.99578 8.75625 9.94653 8.85625 9.84801C8.95625 9.74949 9.01875 9.62635 9.04375 9.47857C9.08125 9.23228 9.16562 9.0137 9.29688 8.82282C9.42813 8.63195 9.63125 8.42568 9.90625 8.20402C10.2812 7.89615 10.5531 7.58829 10.7219 7.28042C10.8906 6.97256 10.975 6.62775 10.975 6.246C10.975 5.59333 10.7594 5.06996 10.3281 4.67589C9.89688 4.28183 9.325 4.0848 8.6125 4.0848C8.1375 4.0848 7.7 4.17716 7.3 4.36187C6.9 4.54659 6.56875 4.81751 6.30625 5.17463C6.20625 5.31009 6.16563 5.44863 6.18438 5.59025C6.20313 5.73187 6.2625 5.83962 6.3625 5.91351C6.5 6.01202 6.64688 6.04281 6.80313 6.00587C6.95937 5.96892 7.0875 5.88272 7.1875 5.74726C7.35 5.5256 7.54688 5.35627 7.77813 5.23929C8.00938 5.1223 8.26875 5.0638 8.55625 5.0638ZM8.5 15.7775C7.45 15.7775 6.46875 15.5897 5.55625 15.2141C4.64375 14.8385 3.85 14.3182 3.175 13.6532C2.5 12.9882 1.96875 12.2062 1.58125 11.3073C1.19375 10.4083 1 9.43547 1 8.38873C1 7.35431 1.19375 6.38762 1.58125 5.48866C1.96875 4.58969 2.5 3.80772 3.175 3.14273C3.85 2.47775 4.64375 1.95438 5.55625 1.57263C6.46875 1.19088 7.45 1 8.5 1C9.5375 1 10.5125 1.19088 11.425 1.57263C12.3375 1.95438 13.1313 2.47775 13.8063 3.14273C14.4813 3.80772 15.0156 4.58969 15.4094 5.48866C15.8031 6.38762 16 7.35431 16 8.38873C16 9.43547 15.8031 10.4083 15.4094 11.3073C15.0156 12.2062 14.4813 12.9882 13.8063 13.6532C13.1313 14.3182 12.3375 14.8385 11.425 15.2141C10.5125 15.5897 9.5375 15.7775 8.5 15.7775ZM8.5 14.6692C10.2625 14.6692 11.7656 14.0534 13.0094 12.822C14.2531 11.5905 14.875 10.1128 14.875 8.38873C14.875 6.6647 14.2531 5.18695 13.0094 3.95549C11.7656 2.72404 10.2625 2.10831 8.5 2.10831C6.7125 2.10831 5.20312 2.72404 3.97188 3.95549C2.74063 5.18695 2.125 6.6647 2.125 8.38873C2.125 10.1128 2.74063 11.5905 3.97188 12.822C5.20312 14.0534 6.7125 14.6692 8.5 14.6692Z"
@@ -310,14 +319,14 @@
                                     {{-- <p>Guaranteed safe <br> & secure checkout</p>
                                     <img src="{{ asset('assets/img/product/icons/payment-option.png') }}" alt=""> --}}
                                     <a aria-label="Chat on WhatsApp" href="https://wa.me/0000000000"> <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="30"
-                                            viewBox="0 0 448 512">
-                                            <path
-                                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                                        </svg>
-                                    </span>
-                                <a />
-                                <p>Any Query contact on Whatsapp...</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="30"
+                                                viewBox="0 0 448 512">
+                                                <path
+                                                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                            </svg>
+                                        </span>
+                                        <a />
+                                        <p>Any Query contact on Whatsapp...</p>
                                 </div>
                             </div>
                         </div>
@@ -520,18 +529,14 @@
                                                                             @endphp
                                                                         @endforeach
 
-                                                                        @if ($total>0)
+                                                                        @if ($total > 0)
                                                                             @php
                                                                                 $all = $total / count($product->reviews);
                                                                             @endphp
-                                                                          <span>{{ $all }}</span>
-
+                                                                            <span>{{ $all }}</span>
                                                                         @else
-                                                                         <span>{{ $total }}</span>
-
+                                                                            <span>{{ $total }}</span>
                                                                         @endif
-
-                                                                        
                                                                     @else
                                                                         <span>No Rating yet</span>
 
@@ -778,6 +783,7 @@
                                                                 @csrf
                                                                 <input type="hidden" name="product_id"
                                                                     value="{{ $product->id }}">
+
                                                                 <input type="hidden" name="user_id"
                                                                     value="{{ Auth::user()->id }}">
                                                                 <div class="rating-css">
@@ -808,6 +814,10 @@
                                                                     <div class="tp-product-details-review-input-box">
                                                                         <div class="tp-product-details-review-input">
                                                                             <textarea id="msg" name="description" placeholder="Write your review here..."></textarea>
+                                                                            @error('description')
+                                                                                <div class="text-danger">* Review
+                                                                                    description is required</div>
+                                                                            @enderror
                                                                         </div>
                                                                         <div
                                                                             class="tp-product-details-review-input-title">
@@ -818,6 +828,10 @@
                                                                         <div class="tp-product-details-review-input">
                                                                             <input name="subject" id="subject"
                                                                                 type="text">
+                                                                            @error('subject')
+                                                                                <div class="text-danger">* Subject is
+                                                                                    required</div>
+                                                                            @enderror
                                                                         </div>
                                                                         <div
                                                                             class="tp-product-details-review-input-title">
