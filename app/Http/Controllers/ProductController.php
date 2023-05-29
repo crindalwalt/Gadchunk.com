@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductImage;
+use App\Models\SubCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $categories = Category::all();
+        $categories = SubCategory::all();
 
         return view('admin.products.index', [
             'products' => $products,
@@ -33,7 +34,7 @@ class ProductController extends Controller
     public function add()
     {
         $data['products'] = Product::all();
-        $data['categories'] = Category::with('attributes')->get();
+        $data['categories'] = SubCategory::all();
         $data['attributes'] = ProductAttribute::all();
         $data['brands'] = Brand::all();
         return view('admin.products.index', $data);

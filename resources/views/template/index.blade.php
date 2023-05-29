@@ -473,7 +473,7 @@
                                                                             <div class="tp-product-details-wrapper">
                                                                                 <div
                                                                                     class="tp-product-details-category">
-                                                                                    <span>{{ $product->category->name }}</span>
+                                                                                    <span>{{ $product->sub_category->name }}</span>
                                                                                 </div>
                                                                                 <h3 class="tp-product-details-title">
                                                                                     {{ $product->name }}</h3>
@@ -572,7 +572,7 @@
                                                                                         {{ $product->prod_inventory->retail_price }}</span>
                                                                                 @endif
 
-                                                                                @if ($product->category->attributes)
+                                                                                @if ($product->sub_category->category->attributes)
                                                                                     <!-- variations -->
                                                                                     <div
                                                                                         class="tp-product-details-variation">
@@ -580,7 +580,7 @@
                                                                                         <div
                                                                                             class="tp-product-details-variation-item">
 
-                                                                                            @foreach ($product->category->attributes as $attributes)
+                                                                                            @foreach ($product->sub_category->category->attributes as $attributes)
                                                                                                 <h4
                                                                                                     class="tp-product-details-variation-title">
                                                                                                     {{ $attributes->attribute_name }}
@@ -993,7 +993,7 @@
                                                                     <div class="tp-product-content">
                                                                         <div class="tp-product-category">
                                                                             <a
-                                                                                href="{{ route('shop') }}">{{ $product->category->name }}</a>
+                                                                                href="{{ route('shop') }}">{{ $product->sub_category->name }}</a>
                                                                         </div>
                                                                         <h3 class="tp-product-title">
                                                                             <a
@@ -1122,7 +1122,7 @@
                                                                                     class="tp-product-details-wrapper">
                                                                                     <div
                                                                                         class="tp-product-details-category">
-                                                                                        <span>{{ $product->category->name }}</span>
+                                                                                        <span>{{ $product->sub_category->name }}</span>
                                                                                     </div>
                                                                                     <h3
                                                                                         class="tp-product-details-title">
@@ -1231,7 +1231,7 @@
                                                                                             <div
                                                                                                 class="tp-product-details-variation-item">
 
-                                                                                                @foreach ($product->category->attributes as $attributes)
+                                                                                                @foreach ($product->sub_category->category->attributes as $attributes)
                                                                                                     <h4
                                                                                                         class="tp-product-details-variation-title">
                                                                                                         {{ $attributes->attribute_name }}
@@ -1645,7 +1645,7 @@
                                                                         <div class="tp-product-content">
                                                                             <div class="tp-product-category">
                                                                                 <a
-                                                                                    href="{{ route('shop') }}">{{ $product->category->name }}</a>
+                                                                                    href="{{ route('shop') }}">{{ $product->sub_category->name }}</a>
                                                                             </div>
                                                                             <h3 class="tp-product-title">
                                                                                 <a
@@ -1858,7 +1858,7 @@
                                                                         </div>
                                                                         <div class="tp-product-details-wrapper">
                                                                             <div class="tp-product-details-category">
-                                                                                <span>{{ $product->category->name }}</span>
+                                                                                <span>{{ $product->sub_category->name }}</span>
                                                                             </div>
                                                                             <h3 class="tp-product-details-title">
                                                                                 {{ $product->name }}</h3>
@@ -1963,7 +1963,7 @@
                                                                                     <div
                                                                                         class="tp-product-details-variation-item">
 
-                                                                                        @foreach ($product->category->attributes as $attributes)
+                                                                                        @foreach ($product->sub_category->category->attributes as $attributes)
                                                                                             <h4
                                                                                                 class="tp-product-details-variation-title">
                                                                                                 {{ $attributes->attribute_name }}
@@ -2353,7 +2353,7 @@
                                                                 <div class="tp-product-content">
                                                                     <div class="tp-product-category">
                                                                         <a
-                                                                            href="{{ route('shop') }}">{{ $product->category->name }}</a>
+                                                                            href="{{ route('shop') }}">{{ $product->sub_category->name }}</a>
                                                                     </div>
                                                                     <h3 class="tp-product-title">
                                                                         <a

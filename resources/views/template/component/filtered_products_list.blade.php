@@ -125,7 +125,7 @@
                             <div class="tp-product-list-content">
                                 <div class="tp-product-content-2 pt-15">
                                     <div class="tp-product-tag-2">
-                                        <a href="javascritpt:void(0)">{{ $item->category->name }}</a>
+                                        <a href="javascritpt:void(0)">{{ $item->sub_category->name }}</a>
                                         {{-- <a href="shop.html#">Branded</a> --}}
                                     </div>
                                     <h3 class="tp-product-title-2">

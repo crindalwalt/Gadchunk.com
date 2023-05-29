@@ -49,8 +49,8 @@
                         <span>Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/admin/category">Manage Category</a></li>
-                        {{-- <li><a href="{{ route('collections.add') }}">Add Collection</a></li> --}}
+                        <li><a href="{{ route('category.index') }}">Add Category</a></li>
+                        <li><a href="{{ route('sub_category.index') }}">Add Sub-Category</a></li>
 
                     </ul>
                 </li>

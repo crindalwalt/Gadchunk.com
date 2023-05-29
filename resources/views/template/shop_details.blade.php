@@ -71,8 +71,9 @@
                         </div> <!-- col end -->
                         <div class="col-xl-5 col-lg-6">
                             <div class="tp-product-details-wrapper">
-                                <div class="tp-product-details-category">
+                                <div class="tp-product-details-category breadcrumb__list my-2">
                                     <span>{{ $product->category->name }}</span>
+                                    <span> {{ $product->sub_category->name }}</span>
                                 </div>
                                 <h3 class="tp-product-details-title">{{ $product->name }}</h3>
 

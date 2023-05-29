@@ -555,7 +555,7 @@
                                         <ul>
                                             @if ($categories)
                                                 @foreach ($categories as $category)
-                                                    <li>
+                                                    <li class="has-dropdown">
                                                         <a href="{{ route('shop') }}">
                                                             <span>
                                                                 <svg width="18" height="18">
@@ -595,6 +595,11 @@
                                                                 {{-- <img width="18px" height="18px" class="rounded" src="{{ asset('storage/categories_icons/' . $category->icon) }}" alt="image not found"> --}}
                                                             </span>
                                                             {{ $category->name }}</a>
+                                                            <ul class="tp-submenu">
+                                                                @foreach ($category->sub_categories as $item)
+                                                                <li><a href="{{ route('shop') }}">{{ $item->name }}</a></li>     
+                                                                @endforeach
+                                                             </ul>
                                                     </li>
                                                 @endforeach
                                             @else

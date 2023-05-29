@@ -31,7 +31,6 @@
             </div>
             <!-- end page title -->
 
-
             <div class="container-fluid">
 
                 <div class="page-content-wrapper">
@@ -63,9 +62,10 @@
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label class="control-label"> Product Category</label>
+                                                <label class="control-label"> Product Sub-Category</label>
                                                 <select name="category_id" class="form-control select2 category_attr">
                                                     <option>Select</option>
+                                                    
                                                     @foreach ($categories as $cat)
                                                         <option value="{{ $cat->id }}"
                                                             class="d-flex justify-content-between ">
@@ -147,7 +147,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Product name</th>
-                                                        <th>Category </th>
+                                                        <th>Sub-Category </th>
                                                         <th>brand </th>
                                                         <th>Actions</th>
 

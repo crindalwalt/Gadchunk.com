@@ -100,7 +100,7 @@
                             </div>
                             <div class="tp-product-details-wrapper">
                                 <div class="tp-product-details-category">
-                                    <span>{{ $item->category->name }}</span>
+                                    <span>{{ $item->sub_category->name }}</span>
                                 </div>
                                 <h3 class="tp-product-details-title">{{ $item->name }}</h3>
 
@@ -174,13 +174,13 @@
                                         {{ $item->prod_inventory->retail_price }}</span>
                                 @endif
 
-                                @if ($item->category->attributes)
+                                @if ($item->sub_category->category->attributes)
                                     <!-- variations -->
                                     <div class="tp-product-details-variation">
                                         <!-- single item -->
                                         <div class="tp-product-details-variation-item">
 
-                                            @foreach ($item->category->attributes as $attributes)
+                                            @foreach ($item->sub_category->category->attributes as $attributes)
                                                 <h4 class="tp-product-details-variation-title">
                                                     {{ $attributes->attribute_name }}</h4>
                                                 @foreach ($attributes->prod_attribute_value as $value)
@@ -346,7 +346,7 @@
                                 @if ($item->prod_inventory->is_featured == 'yes')
                                     <span class="product-hot">Featured</span>
                                 @else
-                                    <span class="product-hot">{{ $item->prod_inventory->discount_price }}</span>
+                                    <span class="product-hot">{{ $item->prod_inventory->discount_price }}%</span>
                                 @endif
 
                             </div>
@@ -480,7 +480,7 @@
                     </div>
                     <div class="tp-product-content-2 pt-15">
                         <div class="tp-product-tag-2">
-                            <a href="javascript:void(0)">{{ $item->category->name }}</a>
+                            <a href="javascript:void(0)">{{ $item->sub_category->name }}</a>
                         </div>
                         <h3 class="tp-product-title-2">
                             <a href="{{ route('product_detail', $item->id) }}">{{ $item->name }}</a>

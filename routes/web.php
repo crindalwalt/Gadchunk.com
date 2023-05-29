@@ -24,7 +24,7 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductAttributeController;
 use App\Http\Controllers\ProductInventoryController;
 use App\Http\Controllers\ProductAttributeValueController;
-
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\User\WishlistController;
 use App\Mail\OrderMail;
 use Illuminate\Support\Facades\Mail;
@@ -69,8 +69,15 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'verified'])->group(funct
     Route::get('category/', [CategoryController::class, 'index'])->name("category.index");
     Route::post('/category/delete/', [CategoryController::class, 'destroy'])->name('delete_category');
     Route::post('/category/store/', [CategoryController::class, 'store'])->name('store_category');
-    Route::get('/category/{id}/update/', [CategoryController::class, 'edit'])->name('edit_category');
+    Route::get('/category/{id}/edit/', [CategoryController::class, 'edit'])->name('edit_category');
     Route::Post('/category/{id}/update/', [CategoryController::class, 'update'])->name('update_category');
+
+    // Category CRUD
+    Route::get('sub_category/', [SubCategoryController::class, 'index'])->name("sub_category.index");
+    Route::post('/sub_category/delete/', [SubCategoryController::class, 'destroy'])->name('sub_category.delete');
+    Route::post('/sub_category/store/', [SubCategoryController::class, 'store'])->name('sub_category.store');
+    Route::get('/sub_category/{id}/edit/', [SubCategoryController::class, 'edit'])->name('sub_category.edit');
+    Route::Post('/sub_category/{id}/update/', [SubCategoryController::class, 'update'])->name('sub_category.update');
 
 
     // Brand CRUD

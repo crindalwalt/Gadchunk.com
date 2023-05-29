@@ -11,6 +11,7 @@ use App\Models\ProductAttribute;
 use App\Models\ProductAttributeValue;
 use App\Models\ProductInventory;
 use App\Models\Reviews;
+use App\Models\SubCategory;
 use App\Models\Wishlist;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
@@ -49,6 +50,7 @@ class NavigatorController extends Controller
     public function  index()
     {
         $data['categories'] = Category::all();
+        $data['sub_categories'] = SubCategory::all();
         $data['top_categories'] = Category::orderBy('created_at','desc')->take(5)->get();
         $data['collections'] = Collection::all();
         $data['products'] = Product::latest()->get();
