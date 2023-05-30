@@ -50,15 +50,15 @@
                                     </div>
                                 </nav>
                                 <div class="tab-content m-img" id="productDetailsNavContent">
-                                    {{-- <div class="tab-pane fade show active" id="nav-{{ $product->images[0]->id }}" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="nav-{{ $product->images[0]->id }}" role="tabpanel"
                                         aria-labelledby="nav-{{ $product->images[0]->id }}-tab" tabindex="0">
                                         <div class="tp-product-details-nav-main-thumb">
                                             <img src="{{ asset('storage/inventory_images/' . $product->images[0]->product_image) }}"
                                                 alt="Produuct Image">
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     @foreach ($product->images as $image)
-                                    <div class="tab-pane fade" id="nav-{{ $image->id }}" role="tabpanel"
+                                    <div class="tab-pane fade " id="nav-{{ $image->id }}" role="tabpanel"
                                         aria-labelledby="nav-{{ $image->id }}-tab" tabindex="0">
                                         <div class="tp-product-details-nav-main-thumb">
                                             <img src="{{ asset('storage/inventory_images/' . $image->product_image) }}"
