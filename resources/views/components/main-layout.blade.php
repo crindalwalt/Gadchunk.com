@@ -1,7 +1,7 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo/Gadchunk-logo.png') }}">
 
     <x-layouts.links />
 

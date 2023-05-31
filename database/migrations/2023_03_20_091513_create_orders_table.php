@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('checkout_city');
             $table->string('checkout_country');
             $table->string('checkout_address');
-            $table->string('checkout_postcode');
+            $table->string('checkout_postcode')->nullable();
             $table->string('checkout_phone');
             $table->text('checkout_note')->nullable();
             $table->string('total_amount');

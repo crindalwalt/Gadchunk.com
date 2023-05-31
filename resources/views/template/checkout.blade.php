@@ -91,16 +91,18 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Email Address<span>*</span></label>
+                                                <div class="tp-checkout-input">
+                                                    <label>Email Address<span>*</span></label>
                                                 <input type="text" name="checkout_email"
                                                     value="{{ Auth::user()->email }}">
                                                     @error('checkout_email')
                                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
                                                                 @enderror
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>Address</label>
+                                                    <label>Address <span>*</span></label>
                                                     <input type="text" name="checkout_address"
                                                         placeholder="Address here...">
                                                         @error('checkout_address')
@@ -110,7 +112,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>Town / City</label>
+                                                    <label>City (Tehsil / District)<span>*</span></label>
                                                     <input type="text" name="checkout_city" placeholder="Enter City...">
                                                     @error('checkout_city')
                                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
@@ -119,7 +121,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>Country / Region </label>
+                                                    <label>Country / Region <span>*</span></label>
                                                     <input type="text" name="checkout_country" placeholder="Enter Country...">
                                                     @error('checkout_country')
                                                                     <div class="text-danger fw-semibold">{{ $message }}</div>
@@ -129,12 +131,9 @@
 
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>PostCode/Zip</label>
+                                                    <label>PostCode/Zip (optional)</label>
                                                     <input type="text" name="checkout_postcode"
                                                         placeholder="Postal Code...">
-                                                        @error('checkout_postcode')
-                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -149,11 +148,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="tp-checkout-input">
-                                                    <label>Order notes </label>
+                                                    <label>Order notes (optional) </label>
                                                     <textarea name="checkout_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                                    @error('checkout_note')
-                                                                    <div class="text-danger fw-semibold">{{ $message }}</div>
-                                                                @enderror
                                                 </div>
                                             </div>
                                         </div>

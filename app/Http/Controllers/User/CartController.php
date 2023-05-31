@@ -132,6 +132,77 @@ class CartController extends Controller
         return $products;
     }
 
+    // buy now function 
+    public function buy($id , $quantity = 1){
+           // Initialize and check the session exist or not
+           $oldCart = Session::has("cart") ? Session::get("cart") : [];
+           // loop the cart array
+           foreach ($oldCart as $item) {
+               // if id which we get is equal to product id then show error
+               if ($item['product_id'] == $id) {
+                   return response()->json(['error' => 'Already Added to cart', 'count' => sizeof($oldCart)]);
+               }
+           }
+
+           // store the product id and quantity in session
+           $item['product_id'] = $id;
+           $item['quantity'] = $quantity;
+           $oldCart[] = $item;
+           Session::put('cart', $oldCart);
+           $cart = Session::has('cart') ? Session::get('cart') : [];
+           $ids = [];
+           foreach ($cart as $key => $value) {
+               $ids[] = $value['product_id'];
+           }
+           $products = Product::whereIn('id', $ids)->get();
+           foreach ($products as $pro) {
+               foreach (Session::get('cart') as $cart) {
+                   if ($pro->id == $cart['product_id']) {
+                       $pro->prod_inventory->squantity = $cart['quantity'];
+                   }
+               }
+           }
+
+           // total 
+           $prod = $products;
+           $sum = 0;
+           foreach ($prod as $pro) {
+               // $sum += $pro->squantity * $pro->retail_price;
+               $trim_value = trim($pro->prod_inventory->discount_price, '%');
+               if ($trim_value == '0' || $trim_value == NULL) {
+                   $sum += $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
+               } else {
+                   $discount_formula = ($trim_value / 100) * $pro->prod_inventory->retail_price;
+                   $simple_value = $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
+                   $discount_value = $pro->prod_inventory->squantity * $discount_formula;
+                   $sum += $simple_value - $discount_value;
+               }
+           }
+
+           // sub total
+           $sub_products = $products;
+           $sub_total = 0;
+           foreach ($sub_products as $pro) {
+               $sub_total += $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
+           }
+        
+         // Discount
+
+        $discount = $sum - $sub_total;
+
+        $data['products'] =   $products;
+        $data['cart_items'] = $products;
+        $data['total'] = $sum;
+        $data['sub_total'] = $sub_total;
+        $data['discount'] = $discount;
+        $data['wishlists'] = Wishlist::all();
+        $data['collections'] = Collection::all();
+        $data['cart_attributes'] = CartAttribute::all();
+        $data['categories'] = Category::all();
+
+        return view('template.checkout', $data);
+
+    }
 
     // checkout function
     public function checkout()

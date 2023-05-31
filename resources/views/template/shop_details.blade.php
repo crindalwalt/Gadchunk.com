@@ -200,6 +200,11 @@
                                                         data-route="{{ route('add-cart', $product->id) }}">Add To
                                                         Cart</button>
                                                 </div>
+                                                <div class="tp-product-details-add-to-cart mb-15 w-100 mx-2">
+                                                    <a href="{{ route('buy_now', $product->id) }}">
+                                                        <button class="tp-product-details-add-to-cart-btn w-100 ">Buy Now</button>
+                                                    </a>
+                                                </div>
                                             @else
                                                 <div class="tp-product-details-add-to-cart mb-15 w-100">
                                                     <a href="{{ route('login') }}">

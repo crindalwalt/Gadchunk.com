@@ -209,6 +209,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
     // checkout routes
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/{id}', [CartController::class, 'buy'])->name('buy_now');
 
     // Profile routes
     Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');

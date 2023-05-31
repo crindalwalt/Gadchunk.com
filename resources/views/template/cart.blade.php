@@ -77,7 +77,7 @@
                                                         </span>
                                                         <input class="tp-cart-input quantity"
                                                             data-route="{{ route('cart.quantity', $item->id) }}"
-                                                            value="{{ $item->squantity ? $item->squantity : '0' }}"
+                                                            value="{{ $item->squantity ? $item->squantity : '1' }}"
                                                             min="1" step="1"
                                                             id="quantity{{ $item->id }}" data-decimals="0" required
                                                             type="text">
