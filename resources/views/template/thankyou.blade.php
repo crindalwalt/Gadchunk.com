@@ -10,7 +10,7 @@
                  <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="tp-error-content text-center">
                        <div class="tp-error-thumb">
-                          <img src="assets/img/error/error.png" alt="">
+                          <img src="{{ asset('assets/img/logo/Gadchunk-logo.png') }}" alt="">
                        </div>
 
                        <h3 class="tp-error-title">Thank You !</h3>

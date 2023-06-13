@@ -132,17 +132,17 @@ class CartController extends Controller
         return $products;
     }
 
-    // buy now function 
+    // buy now function
     public function buy($id , $quantity = 1){
            // Initialize and check the session exist or not
            $oldCart = Session::has("cart") ? Session::get("cart") : [];
            // loop the cart array
-           foreach ($oldCart as $item) {
-               // if id which we get is equal to product id then show error
-               if ($item['product_id'] == $id) {
-                   return response()->json(['error' => 'Already Added to cart', 'count' => sizeof($oldCart)]);
-               }
-           }
+        //    foreach ($oldCart as $item) {
+        //        // if id which we get is equal to product id then show error
+        //        if ($item['product_id'] == $id) {
+        //            return response()->json(['error' => 'Already Added to cart', 'count' => sizeof($oldCart)]);
+        //        }
+        //    }
 
            // store the product id and quantity in session
            $item['product_id'] = $id;
@@ -163,7 +163,7 @@ class CartController extends Controller
                }
            }
 
-           // total 
+           // total
            $prod = $products;
            $sum = 0;
            foreach ($prod as $pro) {
@@ -185,7 +185,7 @@ class CartController extends Controller
            foreach ($sub_products as $pro) {
                $sub_total += $pro->prod_inventory->squantity * $pro->prod_inventory->retail_price;
            }
-        
+
          // Discount
 
         $discount = $sum - $sub_total;
@@ -337,8 +337,12 @@ class CartController extends Controller
     }
 
 
-    // function of order save
-    public function order(Request $request)
+    // function of ThankYou Page
+    public function thankyou()
     {
+        $data['wishlists'] = Wishlist::all();
+        $data['categories'] = Category::all();
+        $data['cart_items'] = $this->getProducts();
+        return view('template.thankyou',$data);
     }
 }

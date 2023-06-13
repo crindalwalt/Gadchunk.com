@@ -15,7 +15,7 @@ use Session;
 use Stripe\Charge;
 use Stripe\Stripe;
 
-class          PaymentController extends Controller
+class PaymentController extends Controller
 {
     /**
 
@@ -66,6 +66,7 @@ class          PaymentController extends Controller
             'payment_method' => 'required'
         ]);
         $input = $request->all();
+        // dd($input);
         $result = Session::put('order_details', $input);
         $dat = Session::get('order_details');
         $amount = $request->total_amount;
@@ -83,8 +84,6 @@ class          PaymentController extends Controller
         } else {
             return $this->success($orderId);
         }
-
-
     }
 
     // function to send email
@@ -104,6 +103,7 @@ class          PaymentController extends Controller
     protected function success($inv_num)
     {
         $dat = Session::get('order_details');
+        //    dd($dat['product_id'][0]);
         // =============================================================
         $OrderSave = Order::create([
             'user_id' => Auth::user()->id,
@@ -119,56 +119,79 @@ class          PaymentController extends Controller
             'payment_method' => $dat['payment_method'],
             'status' => 'pending'
         ]);
+
         foreach ($dat['product_id'] as $product) {
             $products = CartVariation::where('product_id', $product)->get();
-            foreach ($products as  $product) {
+            if (!$products) {
+                foreach ($products as  $product) {
+                    $OrderDetail = OrderDetail::create([
+                        'order_id' =>  $OrderSave->id,
+                        'order_number' =>  $inv_num,
+                        'product_id' => $product->product_id,
+                        'quantity' => $product->quantity
+                    ]);
+                    $attributes = CartAttribute::where('product_id', $product->product_id)->get();
+                    foreach ($attributes as $key) {
+                        foreach ($key->attribute_values as $attribute) {
+                            $OrderAttribute = OrderVariation::create([
+                                'order_detail_id' =>  $OrderDetail->id,
+                                'order_number' =>  $inv_num,
+                                'product_id' =>  $product->product_id,
+                                'variation_id' =>  $attribute->id,
+                            ]);
+                        }
+                    }
+                }
+                // validation to check if saved or not
+                if ($OrderSave && $OrderDetail && $OrderAttribute) {
+                    // Session::flash('success', 'Payment successful!');
+                    //    $this->sendemail($OrderSave);
+                    return view('template.thankyou');
+                } else {
+                    alert("Error", 'product could not placed', 'error');
+                    return redirect()->back();
+                }
+            } else {
                 $OrderDetail = OrderDetail::create([
                     'order_id' =>  $OrderSave->id,
                     'order_number' =>  $inv_num,
-                    'product_id' => $product->product_id,
-                    'quantity' => $product->quantity
+                    'product_id' => $dat['product_id'][0],
+                    'quantity' => $dat['quantity']
                 ]);
-                $attributes = CartAttribute::where('product_id', $product->product_id)->get();
-                foreach ($attributes as $key) {
-                    foreach ($key->attribute_values as $attribute) {
-                        $OrderAttribute = OrderVariation::create([
-                            'order_detail_id' =>  $OrderDetail->id,
-                            'order_number' =>  $inv_num,
-                            'product_id' =>  $product->product_id,
-                            'variation_id' =>  $attribute->id,
-                        ]);
-                    }
+                $OrderAttribute = OrderVariation::create([
+                    'order_detail_id' =>  $OrderDetail->id,
+                    'order_number' =>  $inv_num,
+                    'product_id' =>  $dat['product_id'][0],
+                    'variation_id' =>  0,
+                ]);
+                  // validation to check if saved or not
+                  if ($OrderSave && $OrderDetail && $OrderAttribute) {
+                    // Session::flash('success', 'Payment successful!');
+                    //    $this->sendemail($OrderSave);
+                    return redirect(route('thankyou'));
+                } else {
+                    alert("Error", 'product could not placed', 'error');
+                    return redirect()->back();
                 }
             }
         }
-
-
-        // Session::forget('cart');
-        // validation to check if saved or not
-        if ($OrderSave && $OrderDetail && $OrderAttribute) {
-            // Session::flash('success', 'Payment successful!');
-            //    $this->sendemail($OrderSave);
-            return view('template.thankyou');
-        } else {
-            alert("Error", 'product could not placed', 'error');
-            return redirect()->back();
-        }
     }
 
-    public function OrderDestroy(Order $id){
+    public function OrderDestroy(Order $id)
+    {
 
-        $order_detail = OrderDetail::where('order_number',$id->order_number)->get();
-        foreach ( $order_detail as $detail) {
+        $order_detail = OrderDetail::where('order_number', $id->order_number)->get();
+        foreach ($order_detail as $detail) {
             $detail->delete();
         }
-        $order_variation = OrderVariation::where('order_number',$id->order_number)->get();
+        $order_variation = OrderVariation::where('order_number', $id->order_number)->get();
         foreach ($order_variation  as $variation) {
             $variation->delete();
         }
-         $order = Order::find($id->id);
+        $order = Order::find($id->id);
         $order->delete();
-         Session::forget('cart');
-         Session::forget('order_details');
+        Session::forget('cart');
+        Session::forget('order_details');
         alert('Success', ' Inventory Product Deleted Successfully', 'success');
         return redirect()->back();
     }

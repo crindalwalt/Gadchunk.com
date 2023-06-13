@@ -232,6 +232,7 @@ Route::middleware('auth', 'verified')->group(function () {
 Route::get('/thank', function () {
     return view('template.thankyou');
 });
+Route::get('/thanks', [CartController::class, 'thankyou'])->name('thankyou');
 Route::get('/404', [NavigatorController::class, 'error'])->name('error');
 
 

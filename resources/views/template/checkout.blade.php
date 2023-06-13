@@ -176,6 +176,8 @@
                                                 <!-- item list -->
                                                 <input type="hidden" value="{{ $item->id }}"
                                             name="product_id[]">
+                                                <input type="hidden" value="1"
+                                            name="quantity">
                                                 <li class="tp-order-info-list-desc">
                                                     <p>{{ $item->name }} <span> x  {{ $item->prod_inventory->squantity }}</span></p>
                                                     <span class="single_total{{ $item->id }}">Rs.{{ $item->prod_inventory->retail_price * $item->prod_inventory->squantity }}</span>
