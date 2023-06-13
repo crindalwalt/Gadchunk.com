@@ -78,7 +78,7 @@
                     </div>
                     <div class="offcanvas__contact-content">
                         <h3 class="offcanvas__contact-title">
-                            <a href="tel:098-852-987">004524865</a>
+                            <a href="tel:098-852-987">phono</a>
                         </h3>
                     </div>
                 </div>
@@ -638,7 +638,7 @@
                                         {{-- <i class="fa fa-whatsapp" aria-hidden="true"></i>
 
                                         <h5>Hotline:</h5> --}}
-                                        <p><a href="https://wa.me/0000000000">+(92) 3000000000000</a></p>
+                                        <p><a href="https://wa.me/+923114145520">+(92) 3114145520</a></p>
                                     </div>
                                 </div>
                             </div>
