@@ -156,7 +156,7 @@
                                                                                                      {{-- @dd($products->order_variation) --}}
 
                                                                                                      @foreach ($products->order_variation as $attr)
-                                                                                                         <span>{{ $attr->variations[0]->attribute_value }}
+                                                                                                         <span>{{ $attr->variations[0]->attribute_value ?? "None" }}
                                                                                                              , </span>
                                                                                                      @endforeach
                                                                                                  </td>

@@ -1,6 +1,5 @@
 <x-main-layout>
-    <x-layouts.header :wishlists="$wishlists" :categories="$categories" :cartitems="$cart_items" />
-
+    <x-layouts.header :wishlists="$wishlists" :categories="$categories" :cartitems="$cart_items"/>
 
 
     <main>
@@ -41,38 +40,39 @@
                                             <div class="tp-order-details-icon">
                                                 <span>
                                                     <svg width="52" height="110" viewBox="0 0 52 52"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M46 26V51H6V26" stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                              stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path d="M51 13.5H1V26H51V13.5Z" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
+                                                              stroke-width="2" stroke-linecap="round"
+                                                              stroke-linejoin="round"/>
                                                         <path d="M26 51V13.5" stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                              stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path
                                                             d="M26 13.5H14.75C13.0924 13.5 11.5027 12.8415 10.3306 11.6694C9.15848 10.4973 8.5 8.9076 8.5 7.25C8.5 5.5924 9.15848 4.00269 10.3306 2.83058C11.5027 1.65848 13.0924 1 14.75 1C23.5 1 26 13.5 26 13.5Z"
                                                             stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                            stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path
                                                             d="M26 13.5H37.25C38.9076 13.5 40.4973 12.8415 41.6694 11.6694C42.8415 10.4973 43.5 8.9076 43.5 7.25C43.5 5.5924 42.8415 4.00269 41.6694 2.83058C40.4973 1.65848 38.9076 1 37.25 1C28.5 1 26 13.5 26 13.5Z"
                                                             stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                            stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
                                                 </span>
                                             </div>
                                             <div class="tp-order-details-content">
                                                 <h3 class="tp-order-details-title">Your Order
                                                     <thead class="thead-dark">
-                                                        @if ($order->status == 'pending')
-                                                            Pending
-                                                        @elseif($order->status == 'approved')
-                                                            Confirmed
-                                                        @elseif($order->status == 'delivered')
-                                                            Delivered
-                                                        @elseif($order->status == 'dispatched')
-                                                            Dispatched
-                                                            Cancelled
-                                                        @endif
+                                                    @if ($order->status == 'pending')
+                                                        Pending
+                                                    @elseif($order->status == 'approved')
+                                                        Confirmed
+                                                    @elseif($order->status == 'delivered')
+                                                        Delivered
+                                                    @elseif($order->status == 'dispatched')
+                                                        Dispatched
+                                                    @else
+                                                        Cancelled
+                                                    @endif
                                                 </h3>
                                                 <p>We will send you a shipping confirmation email as soon <br> as your
                                                     order
@@ -124,8 +124,10 @@
                                                 @foreach ($order->items as $products)
                                                     <!-- item list -->
                                                     <li class="tp-order-info-list-desc">
-                                                        <p>{{ $products->product[0]->name }}<span> x {{ $products->quantity  }}</span></p>
-                                                        <span class="single_total{{ $products->id }}">{{$products->product[0]->prod_inventory->retail_price * $products->quantity}}</span>
+                                                        <p>{{ $products->product[0]->name }}
+                                                            <span> x {{ $products->quantity  }}</span></p>
+                                                        <span
+                                                            class="single_total{{ $products->id }}">{{$products->product[0]->prod_inventory->retail_price * $products->quantity}}</span>
                                                     </li>
                                                 @endforeach
 
@@ -159,12 +161,12 @@
 
                                         </div>
                                         @if ($order->status == 'pending')
-                                        <form class="d-inline" action="{{ route('order.destroy', $order->id) }}"
-                                            method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger">Cancel Order</button>
-                                        </form>
-                                    @endif
+                                            <form class="d-inline" action="{{ route('order.destroy', $order->id) }}"
+                                                  method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Cancel Order</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -179,5 +181,5 @@
 
 
     </main>
-    <x-layouts.footer />
+    <x-layouts.footer/>
 </x-main-layout>
