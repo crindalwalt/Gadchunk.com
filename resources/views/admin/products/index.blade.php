@@ -65,7 +65,7 @@
                                                 <label class="control-label"> Product Sub-Category</label>
                                                 <select name="category_id" class="form-control select2 category_attr">
                                                     <option>Select</option>
-                                                    
+
                                                     @foreach ($categories as $cat)
                                                         <option value="{{ $cat->id }}"
                                                             class="d-flex justify-content-between ">
@@ -161,7 +161,7 @@
                                                                     class="small">{{ $product->description }}</span>
                                                             </td>
 
-                                                            <td>{{ $product->category->name }}</td>
+                                                            <td>{{ $product->sub_category->name }}</td>
                                                             <td><img src="{{ asset('storage/product_images/' . $product->featured_image) }}"
                                                                     width="70" height="50"></td>
                                                             <td class="">

@@ -47,7 +47,7 @@
 
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         <h4 class="header-title">Managing Inventory for <b>{{ $product->name }}</b><span
-                                                class="d-inline-block badge bg-secondary text-white mx-1 px-1 ">{{ $product->category->name }}</span>
+                                                class="d-inline-block badge bg-secondary text-white mx-1 px-1 ">{{ $product->sub_category->name }}</span>
                                         </h4>
                                         <p class="card-title-desc">{{ $product->description }}</p>
 
